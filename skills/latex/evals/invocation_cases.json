@@ -1,0 +1,14 @@
+[
+  {
+    "query": "Compile my management report and fix its table overflow.",
+    "should_trigger": true
+  },
+  {
+    "query": "Put this chart into my Beamer deck with its source note.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a PowerPoint presentation from these results.",
+    "should_trigger": false
+  }
+]

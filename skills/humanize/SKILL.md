@@ -1,8 +1,7 @@
 ---
 name: humanize
-allowed-tools: Read, Edit, Write, Grep, Glob, AskUserQuestion
 license: MIT
-description: "Edit existing prose to sound natural, precise, and appropriate for its audience while preserving facts, numbers, citations, and conclusions. Use for requests such as 'humanize this', 'de-slop', 'too robotic', 'sounds like AI', and Chinese 去AI味/降AI痕迹. Supports professional, academic, and general writing, including finance reports and commentary. NOT for drafting new analysis, changing conclusions, or evading required AI-use disclosure."
+description: "Edit existing prose for natural phrasing, clarity, and appropriate tone while preserving facts, numbers, citations, and conclusions. Use for polishing, tightening, removing robotic or formulaic language, humanizing, or 去AI味. Not for generating new analysis, inventing evidence, or bypassing required AI-use disclosure."
 ---
 
 # Humanize writing
@@ -63,6 +62,8 @@ For emails, reflections, blogs, and presentations, allow more individual rhythm 
 Follow [references/chinese.md](references/chinese.md) for Chinese-native patterns such as 套话、翻译腔、机械的“首先/其次/最后”结构、过度拔高 and 的不休. English word lists and punctuation rules do not transfer directly to Chinese.
 
 ## Output
+
+Match the requested register without assuming that professional writing needs jargon. For a reader unfamiliar with a term, explain it briefly if the supplied context supports the explanation. For a management summary, put the decision-relevant finding first while retaining qualifications.
 
 Return:
 

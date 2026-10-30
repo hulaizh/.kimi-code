@@ -111,15 +111,13 @@ def create_scatter_plot(data, ax=None):
 
 
 def create_bar_chart(data, ax=None):
-    """Create bar chart with error bars and styling."""
+    """Create a bar chart without inventing uncertainty estimates."""
     created_fig = ax is None
     if created_fig:
         fig, ax = plt.subplots(figsize=(10, 6), constrained_layout=True)
 
     x_pos = np.arange(len(data['categories']))
-    errors = np.random.randint(5, 15, len(data['categories']))
-
-    bars = ax.bar(x_pos, data['bar_values'], yerr=errors,
+    bars = ax.bar(x_pos, data['bar_values'],
                   color='steelblue', edgecolor='black', linewidth=1.5,
                   capsize=5, alpha=0.8)
 
@@ -140,7 +138,7 @@ def create_bar_chart(data, ax=None):
 
 
 def create_histogram(data, ax=None):
-    """Create histogram with density overlay."""
+    """Create an empirical histogram without assuming a distribution."""
     created_fig = ax is None
     if created_fig:
         fig, ax = plt.subplots(figsize=(10, 6), constrained_layout=True)
@@ -148,16 +146,9 @@ def create_histogram(data, ax=None):
     ax.hist(data['hist_data'], bins=30, density=True,
             alpha=0.7, edgecolor='black', color='steelblue')
 
-    from scipy.stats import norm
-    mu, std = norm.fit(data['hist_data'])
-    x_theory = np.linspace(data['hist_data'].min(), data['hist_data'].max(), 100)
-    ax.plot(x_theory, norm.pdf(x_theory, mu, std), 'r-', linewidth=2,
-            label=f'Normal fit (mu={mu:.2f}, sigma={std:.2f})')
-
     ax.set_xlabel('Value')
     ax.set_ylabel('Density')
-    ax.set_title('Histogram with Normal Fit')
-    ax.legend()
+    ax.set_title('Histogram')
     ax.grid(True, axis='y', alpha=0.3, linestyle='--')
 
     if created_fig:
@@ -216,7 +207,7 @@ def create_box_plot(data, ax=None):
 
     np.random.seed(42)
     box_data = [np.random.normal(0, std, 100) for std in range(1, 5)]
-    bp = ax.boxplot(box_data, labels=['Group 1', 'Group 2', 'Group 3', 'Group 4'],
+    bp = ax.boxplot(box_data, tick_labels=['Group 1', 'Group 2', 'Group 3', 'Group 4'],
                     patch_artist=True, showmeans=True,
                     boxprops=dict(facecolor='lightblue', edgecolor='black'),
                     medianprops=dict(color='red', linewidth=2),
@@ -318,6 +309,7 @@ def main():
                         help='Matplotlib style to use')
     parser.add_argument('--output', type=str, default='plot.png',
                         help='Output filename')
+    parser.add_argument('--show', action='store_true', help='Open an interactive window')
     args = parser.parse_args()
 
     if args.style != 'default':
@@ -345,9 +337,12 @@ def main():
     else:
         fig = plot_functions[args.plot_type](data)
 
-    plt.savefig(args.output, dpi=300, bbox_inches='tight')
+    fig.text(0.01, -0.02, 'Synthetic data — plotting demonstration only.', fontsize=9)
+    fig.savefig(args.output, dpi=300, bbox_inches='tight')
     print(f"Plot saved to {args.output}")
-    plt.show()
+    if args.show:
+        plt.show()
+    plt.close(fig)
 
 
 if __name__ == "__main__":

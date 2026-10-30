@@ -1,4 +1,6 @@
-# Slides Format (Beamer presentations: lectures, seminars, conferences, job market talks, defense)
+# Beamer presentations
+
+Use a clear question, evidence, and takeaway for analytical slides. Instructions, code demonstrations, decision discussions, and exercises may use text or code without an artificial chart. The academic visual-first conventions below are defaults for analytical talks, not universal requirements. Preserve an existing house style. Explain unfamiliar notation for a first encounter; put technical derivations in backup slides when the audience needs a decision summary.
 
 Format LaTeX Beamer slides for finance/economics academic style: figures and tables carry the argument, every word lives inside a structured container, and the audience tracks logic by scanning structure — not by reading sentences.
 
@@ -10,7 +12,7 @@ This is the economics/finance academic-talk standard (La Ferrara, Cox, Startz, G
 
 ### Operational rules
 
-- **Lead every content frame with a figure, table, or display equation.** Text-only frames are for Roadmap, transitions, takeaways, and references.
+- **Lead analytical frames with evidence:** a figure, table, or display equation when useful. Instructions, code demos, discussions, and takeaways may use text or code.
 - **≤50 words of natural language per frame** (math, table cells, axis labels, and figure annotations don't count). A frame that needs more is two frames.
 - **Bullets carry sequential or parallel logic.** 3–5 per cluster, one idea each, parallel grammar, optionally `\textbf{Lead-in.}` form. They *cue* the speaker; they do not transcribe the script. Short — never longer than one printed line. Use `\pause` / `<+->` to reveal progressively when the argument builds.
 - **For relationships (A vs B, A causes B), use a 2-column table or a labelled diagram** — not parallel bullets and not prose.
@@ -45,7 +47,7 @@ When you find prose on a slide, convert it before keeping it. The destination is
 
 \title{Title}
 \date{\today}
-\author{Hulai Zhang}
+\author{Presenter Name}
 \institute[]{Institution Name}
 \titlegraphic{\includegraphics[width=0.2\textwidth]{misc/logo.png}}
 
@@ -91,25 +93,20 @@ Exactly one Roadmap frame after `\maketitle`.
 
 ## Figures and tables
 
-Figures live in `./figures/*.tex` (TikZ source) or `./figures/*.pdf` (raster) and are pulled in via `\input{figures/X.tex}` or `\includegraphics{figures/X}`. Never put TikZ code directly in `slides.tex`.
+Figures live in `./figures/*.tex` (TikZ source) or `./figures/*.pdf` (vector output), with PNG for raster images. Use `\input{figures/X.tex}` or `\includegraphics{figures/X}`. Keep substantial TikZ code in a separate content file.
 
-Tables live in `./tables/*.tex` and are pulled in via `\input{tables/X}`. Use booktabs (`\toprule`/`\midrule`/`\bottomrule`), `\textbf{}` headers, and `\rowcolor{gray!10}` on alternate rows for readability:
+Tables live in `./tables/*.tex` as pure booktabs tabular content. Author frames, captions, sizing, descriptions, and notes in `sections/tables.tex`, then input that section from the main deck. Figure frames and captions similarly belong in `sections/figures.tex`. Scripts generate content only.
 
 ```latex
 % In tables/results.tex
-\begin{table}
-    \centering\footnotesize
-    \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{p{3cm}p{5cm}}
+    \begin{tabular}{lr}
         \toprule
         \textbf{Column 1} & \textbf{Column 2} \\
         \midrule
         Row 1 & Data \\
-        \rowcolor{gray!10}
         Row 2 & Data \\
         \bottomrule
     \end{tabular}
-\end{table}
 ```
 
 ### Colors
@@ -137,9 +134,10 @@ project/
 
 ## Workflow
 
-1. Initialize: `python ~/.claude/skills/latex/slides/scripts/init_slides.py my-talk` (or copy `misc/` and `slides_template.tex` manually).
+1. Resolve `<latex-skill-dir>` from this skill's location. Initialize: `python3 <latex-skill-dir>/slides/scripts/init_slides.py my-talk`.
 2. Apply the operational rules and recipes above.
-3. Validate: `python ~/.claude/skills/latex/slides/scripts/validate_slides.py slides.tex`. The validator is the authoritative checklist — it flags free-floating text, prose paragraphs, wordy frames (>50 words), long `\emph`/`\textit`, centered italic takeaways, bullet walls, missing visuals, and topic-noun titles. Fix every WARN; INFO items (e.g., topic-noun titles) are advisory.
+3. Validate: `python3 <latex-skill-dir>/slides/scripts/validate_slides.py slides.tex`. This is a heuristic academic-style checker; assess warnings against the requested format. Code demonstrations, exercises, and decision slides can legitimately lack a chart. Compile and inspect every rendered page; style warnings cannot establish factual correctness.
+4. The starter uses pdfLaTeX and UTF-8 Latin text. For Chinese, use XeLaTeX or LuaLaTeX with a suitable CJK setup such as `ctex` and available fonts; replace incompatible font/encoding settings. Do not claim Chinese support from a successful English build.
 
 ## Scripts and assets
 
@@ -147,9 +145,9 @@ project/
 |---|---|
 | `slides/scripts/init_slides.py` | Initialize a new project from the template |
 | `slides/scripts/validate_slides.py` | Enforce the operational rules above |
-| `slides/misc/style.tex` | Beamer theme, colors, fonts, custom commands |
-| `slides/misc/slides_template.tex` | Full deck template |
-| `slides/misc/ref.bib` | Bibliography seed |
-| `slides/misc/logo.png` | Title-slide logo placeholder |
+| `slides/assets/style.tex` | Beamer theme, colors, fonts, custom commands |
+| `slides/assets/slides_template.tex` | Full deck template |
+| `slides/assets/ref.bib` | Bibliography seed; cite only sources actually used |
+| `slides/assets/logo.png` | Optional logo asset; use only with appropriate authorization |
 | `slides/references/style_spec.md` | Complete `style.tex` documentation |
 | `slides/references/tikz_conventions.md` | TikZ figure guidelines |

@@ -52,9 +52,9 @@ Use the second version only when those facts already exist in the original or su
 
 Before: "The shares fell because investors were disappointed by the outlook."
 
-Possible edit: "The shares fell 3% after the company lowered its outlook. The original draft attributes the move to investor disappointment, but the supplied text does not establish causality."
+Possible edit: "The shares fell, which the draft attributes to disappointment with the outlook."
 
-In a clean rewrite without a separate note, use: "The shares fell 3% after the company lowered its outlook."
+Separate note: "The supplied text does not establish the cause of the share-price move." Do not add a percentage change or claim the company lowered guidance unless the supplied context establishes those facts.
 
 ### Correlation presented as explanation
 
@@ -76,9 +76,9 @@ Again, use only supplied numbers. Otherwise, shorten the claim and flag that it 
 
 Before: "Margins will recover strongly next year."
 
-After: "Management expects margins to recover next year, subject to the cost assumptions in the outlook."
+Possible edit: "The draft forecasts a strong recovery in margins next year."
 
-Keep the original forecast horizon and actor. Do not insert a hedge that reverses the intended stance.
+Separate note: "Support for the forecast is not supplied." Keep the original horizon; do not attribute the forecast to management or add cost assumptions unless that information is present. Flag any proposed analytical change rather than silently changing the stance.
 
 ### Boilerplate recurring commentary
 
@@ -105,6 +105,10 @@ Preserve the period, benchmark, contribution versus attribution terminology, cur
 ### Risk report
 
 Keep breaches, limits, horizons, confidence levels, scenarios, and missing-data warnings prominent. Do not soften a warning merely to make the report sound calmer.
+
+### Credit, treasury, and management reporting
+
+Preserve covenant definitions, threshold direction, headroom, payment dates, and conditions attached to approval. In cash forecasts, retain the distinction between contracted flows and assumed collections. In budget commentary, distinguish favorable revenue growth from unfavorable expense overruns; a positive variance is not necessarily good news. In reconciliation notes, do not turn an unresolved difference into a confirmed error or imply that a review has been completed.
 
 ### Student reflection or assignment
 

@@ -1,0 +1,14 @@
+[
+  {
+    "query": "I want to automate month-end reporting but have not decided the inputs or deliverable.",
+    "should_trigger": true
+  },
+  {
+    "query": "Compare approaches for reconciling two ledgers before we implement one.",
+    "should_trigger": true
+  },
+  {
+    "query": "Change the title of this chart to Closing Cash.",
+    "should_trigger": false
+  }
+]

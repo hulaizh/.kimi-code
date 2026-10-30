@@ -1,5 +1,14 @@
 # Finance interface patterns
 
+## Operating finance views
+
+- **Budget versus actual:** period and business-unit filters, totals, variance amount and percentage, and drill-down to accounts. Label expense overruns as unfavorable even when numerically positive. A zero budget produces n/a percentage variance.
+- **Cash forecast:** opening balance, receipts, payments, closing balance, and separately labeled scenario controls. Recompute the cash identity when assumptions change; keep actuals fixed.
+- **Credit review:** borrower, statement period, ratio definitions, covenant thresholds, headroom, and source detail. Undefined inputs produce an unresolved state, never a passing badge.
+- **Reconciliation queue:** matched/unmatched counts and amounts, exception reasons, duplicate-key visibility, and downloadable filtered records. Filtered totals must match the rows shown; retain a separate full-source total.
+
+Use local sanitized fixtures for demonstrations. Avoid displaying personal account identifiers or credentials. A browser refresh failure must remain visible rather than substituting plausible values.
+
 Use this guide for dashboards, screeners, monitoring tools, and report-support interfaces. Choose only the pattern that matches the user's task.
 
 ## Information hierarchy
