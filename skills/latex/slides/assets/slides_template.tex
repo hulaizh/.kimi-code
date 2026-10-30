@@ -5,9 +5,9 @@
 
 \title{Title}
 \date{\today}
-\author{Hulai Zhang}
+\author{Presenter Name}
 \institute[]{Institution Name}
-\titlegraphic{\includegraphics[width=0.2\textwidth]{misc/logo.png}}
+% Add an authorized organization logo if needed.
 
 \begin{document}
 \maketitle
@@ -32,13 +32,15 @@
 \begin{frame}{Descriptive Frame Title}
     \begin{columns}[T]
         \begin{column}{0.6\textwidth}
-            \input{figures/diagram.tex}
+            \begin{block}{Cash balance identity}
+            \[C_{\mathrm{end}} = C_{\mathrm{start}} + R - P\]
+            \end{block}
         \end{column}
         \begin{column}{0.36\textwidth}
             \footnotesize
             \begin{itemize}
-                \item Short label for the visual
-                \item One-line takeaway
+                \item $R$: receipts; $P$: payments
+                \item Check the closing balance
             \end{itemize}
         \end{column}
     \end{columns}
@@ -51,7 +53,7 @@
 
 \section*{References}
 \begin{frame}[allowframebreaks]{References}
-    \bibliographystyle{aer}
+    \bibliographystyle{plainnat}
     \bibliography{misc/ref}
 \end{frame}
 

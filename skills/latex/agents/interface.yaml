@@ -1,7 +1,7 @@
 interface:
   display_name: "LaTeX Formatting"
-  short_description: "Format finance/economics LaTeX: papers in the one working-paper format (validate, compile), a journal's house style only once the paper is accepted, and Beamer slides"
-  default_prompt: "Use $latex to format my working paper or slides, or to convert an accepted paper to its journal's house style."
+  short_description: "Format, compile, and inspect LaTeX reports and Beamer presentations."
+  default_prompt: "Use $latex to format and compile my report or presentation, keeping exhibit content separate from captions and notes."
 compatibility:
   canonical_format: "agent-skills"
   adapter_targets:

@@ -1,6 +1,6 @@
 ---
 name: latex
-description: "Format and compile LaTeX reports, analytical notes, memos, and Beamer presentations. Use for main.tex, report structure, booktabs tables, figure inclusion, references, layout problems, and PDF verification. Supports report/ and slides/ project folders and includes finance-report conventions for data periods, units, sources, and assumptions. NOT for generating figures (use plot), project scaffolding (use newproj), or drafting analysis."
+description: "Format, compile, and inspect LaTeX documents and Beamer presentations. Use for report structure, tables, figure inclusion, citations, layout fixes, and PDF build problems. Keeps generated exhibit content separate from captions and notes. Not for Word/PowerPoint files, chart generation (use plot), or inventing analytical content."
 ---
 
 # LaTeX reports and presentations
@@ -23,8 +23,8 @@ For an existing document, preserve its established structure unless the user ask
 1. Identify the audience, document type, required length, and existing project structure.
 2. Start from [finance/assets/report_template.tex](finance/assets/report_template.tex) only when the user wants a new report. Do not insert a template into an existing document piecemeal.
 3. Keep report sections in the report source. For a longer report, use separate section files under `report/sections/`.
-4. Put generated table wrappers in `report/tables/` and refer to generated content from `output/tables/` using the project's established build or copy process.
-5. Put LaTeX figure wrappers in `report/figures/`; keep generated image files in `output/figures/`.
+4. Write table wrappers in `report/sections/tables.tex`. Generated `output/tables/*.tex` contains only booktabs `tabular` content; input it directly or use the project's established copy into `report/tables/`.
+5. Write figure wrappers in `report/sections/figures.tex`; keep generated image files in `output/figures/` or the established content directory. Wrappers are authored during drafting, never by estimation scripts.
 6. State the data period, units, currency, sources, assumptions, and limitations where the reader needs them.
 7. Compile and inspect the final PDF, not just the source.
 
@@ -37,6 +37,11 @@ For a short exercise, a single `report/main.tex` is enough. Do not create a comp
 - Align numeric columns and make units explicit in headers or notes.
 - Give tables and figures informative captions and labels. Notes should explain definitions, sources, and sample periods needed to interpret the exhibit.
 - Do not manually retype generated results into a wrapper when a reproducible input path is available.
+- Content files contain no floats, captions, labels, font-size commands, footnotes, minipages, or notes. Captions, descriptions, source notes, and significance explanations belong in section wrappers. Place a caption followed by a `{\footnotesize ...}` description and the content input there.
+
+## Match the deliverable
+
+Use a short analytical note for a focused calculation, an appendix for methods and sensitivity, and an executive summary for decisions and exceptions. Explain unfamiliar metrics at first use; do not impose journal submission conventions on a credit memo, budget report, or investment committee pack. Preserve the requested language. The bundled compiler uses pdfLaTeX; for Chinese text use a suitable XeLaTeX/LuaLaTeX setup with CJK fonts and the project's build command rather than sending it through that helper.
 
 ## Commands
 

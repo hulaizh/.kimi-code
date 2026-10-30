@@ -1,6 +1,6 @@
 ---
 name: plot
-description: "Create and style static charts with matplotlib/seaborn, including time series, returns, drawdowns, volatility, allocation, attribution, factor exposures, peer comparisons, earnings, coefficient plots, event studies, binscatter, and RDD. Use for any chart, graph, figure, or plot request. Supports standalone PNG figures and PDF for LaTeX with clear titles, units, source context, and reproducible scripts. NOT for interactive dashboards (use frontend-design) or LaTeX caption/layout work (use latex)."
+description: "Create, revise, and verify static charts from data using matplotlib or seaborn, with reproducible code and PNG/PDF output. Use for trends, comparisons, distributions, performance, risk, cash flow, variance, or model-result figures. Not for interactive interfaces (use frontend-design), report layout (use latex), or estimation without a chart."
 ---
 
 # Static data visualization
@@ -37,6 +37,8 @@ Save PDF when vector output is useful, or PNG when requested. Keep the axis labe
 For a quick notebook-free exploration, a title is always acceptable. The important distinction is whether the figure must stand alone, not whether it is called academic or professional.
 
 ## Finance checks
+
+Explain one plotted calculation when the user is learning a method. For analytical work, expose transformation choices and sensitivity. For decision summaries, emphasize the comparison and exception that matter, while retaining units and source context.
 
 Apply the checks relevant to the chart:
 

@@ -1,0 +1,14 @@
+[
+  {
+    "query": "Build a browser cash forecast with a scenario slider and downloadable table.",
+    "should_trigger": true
+  },
+  {
+    "query": "Make this credit dashboard usable with a keyboard and small screen.",
+    "should_trigger": true
+  },
+  {
+    "query": "Save a static cash balance chart as PNG.",
+    "should_trigger": false
+  }
+]

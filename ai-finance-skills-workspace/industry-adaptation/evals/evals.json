@@ -1,0 +1,59 @@
+{
+  "skill_name": "workflow-skills",
+  "evals": [
+    {
+      "id": 1,
+      "name": "cash-forecast",
+      "skills": [
+        "brainstorming",
+        "newproj",
+        "frontend-design"
+      ],
+      "prompt": "Build a small local cash forecast tool and its project directory. This is a synthetic example: opening cash is 100, receipts by month are 40, 50, 60, and payments are 70, 60, 50, all in thousands of RMB. Allow a receipts multiplier and recompute closing cash. I am new to coding; explain one calculation and how to run it. Use plain HTML/JS and no external service. I have requested implementation, so proceed when the inputs suffice. Save a brief design, runnable app, and verification notes.",
+      "expected_output": "Runnable local app, conservative scaffold, correct closing cash, clear explanation and checks",
+      "files": [],
+      "assertions": [
+        "The app calculates baseline closing balances of 70, 60, 70.",
+        "Changing the receipts multiplier recalculates all subsequent balances.",
+        "The output identifies synthetic data, RMB thousands, and explains a cash-balance calculation.",
+        "The delivered app runs locally without external services and includes run instructions."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "budget-report",
+      "skills": [
+        "plot",
+        "latex",
+        "humanize"
+      ],
+      "prompt": "Create a concise management-report PDF and a static PNG chart from this synthetic data, RMB thousands: revenue budget 200 actual 220; payroll budget 80 actual 95; travel budget 0 actual 5. Show actual-minus-budget amounts and percentages, treating a zero budget as n/a. Include a reproducible plotting script. Edit this supplied sentence without inventing new evidence: 'The robust revenue performance of 220 versus a budget of 200 guarantees that next quarter will be successful.' Flag the unsupported forecast separately. Make the report readable for a manager. Save source files and validation notes.",
+      "expected_output": "Correct signed variances, no infinite percentage, evidence-preserving prose, compiled PDF, chart, and pure table content with authored section wrapper",
+      "files": [],
+      "assertions": [
+        "Amount variances are +20 revenue, +15 payroll, +5 travel; percentages are 10%, 18.75%, and n/a.",
+        "Expense overruns are not described as favorable merely because positive.",
+        "The unsupported guaranteed forecast is flagged separately without invented evidence.",
+        "A runnable plotting script, PNG and compiled report PDF are present.",
+        "Table content is pure tabular; captions and descriptions are in section wrappers."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "reconciliation-skill",
+      "skills": [
+        "find-skills",
+        "skill-creator"
+      ],
+      "prompt": "I repeat the same bank-to-ledger reconciliation every month and want a reusable local skill. Available installed skills are brainstorming, newproj, plot, frontend-design, latex, humanize, find-skills, and skill-creator. Inspect those capabilities and draft a reconciliation skill if none performs the matching. Inputs have transaction_id, date, amount, currency. Duplicate IDs and unmatched rows must be visible. No web search or installations are needed. Include a concise task-based description, a small worked example, and test prompts including a near miss. Do not add course names or audience labels to the description.",
+      "expected_output": "Local capability assessment, focused skill with matching rules and exception output, useful examples and evaluation prompts",
+      "files": [],
+      "assertions": [
+        "The capability assessment identifies the absence of a dedicated matcher without installing or searching externally.",
+        "The drafted description specifies matching and exception reporting without audience or course labels.",
+        "The workflow exposes duplicate IDs and unmatched rows, preserves currency and source totals.",
+        "A worked example and realistic evaluation prompts include a near-miss request."
+      ]
+    }
+  ]
+}

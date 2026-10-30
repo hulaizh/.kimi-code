@@ -1,0 +1,14 @@
+[
+  {
+    "query": "Tighten this credit memo without changing its conditional approval or ratios.",
+    "should_trigger": true
+  },
+  {
+    "query": "这段财务分析太像AI了，保留数据和结论，改得自然一点。",
+    "should_trigger": true
+  },
+  {
+    "query": "Compute the new covenant ratio from these statements.",
+    "should_trigger": false
+  }
+]

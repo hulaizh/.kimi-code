@@ -26,8 +26,9 @@ Use adjusted prices when the analysis intends to reflect corporate-action-adjust
 ## Drawdown
 
 ```python
-running_peak = wealth.cummax()
-drawdown = wealth.div(running_peak).sub(1)
+series = wealth.iloc[:, 0]  # Select the intended portfolio/asset column explicitly.
+running_peak = series.cummax()
+drawdown = series.div(running_peak).sub(1)
 
 ax.fill_between(drawdown.index, drawdown * 100, 0, alpha=0.3)
 ax.plot(drawdown.index, drawdown * 100)
@@ -116,3 +117,15 @@ Replace every detail with the actual source and period. If no source was supplie
 ## Recurring-report figures
 
 Use stable axis conventions and color assignments across runs so changes are visible. Let limits adapt only when doing so will not hide an important change. A failed refresh should not silently overwrite the previous good figure. Write to a temporary file, validate the result, and then replace the final output according to the project's workflow.
+
+## Budget and operating variances
+
+Use grouped bars for budget versus actual or diverging bars for actual minus budget. State the sign convention: a positive expense variance is usually unfavorable, while positive revenue variance is usually favorable. Do not use green for every positive number. If budget is zero, percentage variance is undefined; show the absolute variance and mark the percentage n/a. Reconcile business-unit totals before charting them.
+
+## Cash and liquidity
+
+Show closing cash by period, with separate styles for actual and forecast observations. A cash bridge must satisfy opening cash plus receipts minus payments equals closing cash. State whether payments are positive outflows or signed ledger amounts, so they are not subtracted twice. Display scenario assumptions separately. Plot a minimum-cash line only when the threshold is supplied or explicitly assumed.
+
+## Credit and reconciliation exceptions
+
+For covenant headroom, label the ratio definition, measurement date, threshold, and whether higher or lower is better. Do not infer a covenant pass from a missing denominator or a generic metric. For aging or reconciliation, distinguish counts from amounts, state bucket boundaries, and reconcile plotted exceptions to the underlying records. A missing value is not a zero exception.

@@ -1,4 +1,4 @@
-# Student finance reports
+# Finance reports
 
 Use this guide for analytical notes, company briefs, investment memos, portfolio and risk reports, and recurring briefing documents.
 
@@ -29,18 +29,16 @@ Do not fill a section with generic prose to match the template. Remove optional 
 
 ## Tables
 
-Use `booktabs`. A typical wrapper in `report/tables/` contains the float, caption, label, notes, and an `\input{}` for generated tabular content.
+Use `booktabs`. Author wrappers in `report/sections/tables.tex`, included from `report/main.tex`. Generated `output/tables/*.tex` contains only `\begin{tabular}...\end{tabular}` with booktabs: no float, caption, label, font sizing, minipage, footnote, or notes. Scripts generate content only. Captions, descriptions, sources, and significance explanations belong in the wrapper.
 
 ```latex
 \begin{table}[htbp]
   \centering
   \caption{Peer valuation comparison}
   \label{tab:peer-valuation}
-  \input{tables/peer_comparison}
-  \begin{minipage}{0.95\linewidth}
-    \footnotesize Notes: Multiples use the supplied fiscal-year estimates.\\
-    Source: User-supplied peer data; data as of 30 September 2026.
-  \end{minipage}
+  {\footnotesize Multiples use the supplied fiscal-year estimates.
+  Source: supplied peer data; replace with the actual cutoff.\par}
+  \input{../output/tables/peer_comparison}
 \end{table}
 ```
 
@@ -48,7 +46,20 @@ Use actual dates and definitions from the project. Keep numeric precision consis
 
 ## Figures
 
-Use a wrapper in `report/figures/` for the float, caption, label, and notes. Reference a local copied figure or the project's established path to `output/figures/`; do not create a second unrelated set of figure files.
+Author wrappers in `report/sections/figures.tex` for the float, caption, label, and notes. Reference `../output/figures/` when compiling from `report/`, or the project's established content path. Keep axis labels in the figure and its caption/description in the wrapper.
+
+Compile from `report/` so these relative paths resolve. If the project uses a different build directory, follow that convention and verify every input path. Do not put a wrapper and the content it inputs at the same path.
+
+## Routine deliverables
+
+| Deliverable | Main exhibits | Essential distinction |
+|---|---|---|
+| Management report | Budget/actual variances and business-unit totals | Revenue versus expense sign conventions |
+| Treasury note | Opening cash, receipts, payments, closing cash | Actuals versus forecasts and scenarios |
+| Credit memo | Debt schedule, ratios, covenant headroom | Contractual definitions versus generic ratios |
+| Operations report | Matched transactions and unresolved exceptions | Timing differences versus confirmed errors |
+
+Lead with the finding and requested decision. Explain unfamiliar metrics briefly, and put detailed methods or sensitivity checks in an appendix when needed. Journal-style validators and journal conversion utilities under `draft/` are legacy optional tools, not acceptance criteria for these reports. Do not run the legacy wrapper generator; write wrappers during drafting.
 
 Captions should state what the reader needs to interpret the exhibit. Avoid repeating the entire analysis in the caption.
 

@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: "Build and style production-quality web interfaces, including dashboards, data applications, React/Vue components, and HTML/CSS/JS layouts. Use when creating or improving web UI, interactions, responsive layouts, accessibility, or visual design. Includes patterns for market, company, portfolio, risk, screening, and monitoring interfaces with working controls and clear data states. NOT for static plots (use plot) or LaTeX/Beamer formatting (use latex)."
+description: "Build or improve web interfaces with working interactions, responsive layouts, and accessible visual design. Use for dashboards, screeners, scenario tools, monitoring views, and HTML/CSS/JS or React/Vue components. Not for static charts (use plot), document layout (use latex), or data retrieval without a UI."
 license: Complete terms in LICENSE.txt
 ---
 
@@ -16,13 +16,15 @@ Build real, working interfaces rather than decorative mockups. Match the visual 
 4. **Implement working behavior.** Filters, sorting, tabs, scenario controls, downloads, and navigation must function. Do not add controls merely to make a screenshot look complete.
 5. **Verify the delivered interface.** Run the standard build, exercise the interactions, inspect representative viewport sizes, and reconcile displayed values with the underlying data.
 
-## Student project defaults
+## Implementation defaults
 
 - Use the project's existing framework and dependencies. For a standalone exercise, prefer simple HTML/CSS/JavaScript unless the user requests a framework.
 - Use real supplied data when available. If using demonstration data, label it visibly and do not present it as live market information.
 - Keep the first version small: one clear workflow and a limited set of useful interactions.
 - Include concise run instructions in the response rather than adding documentation files to the project unless requested.
 - Explain any finance calculation that the interface implements, and test it against a small worked example.
+- Match explanation depth to the request: explain inputs and one calculation for a beginner, expose assumptions and sensitivity for analytical work, and lead with exceptions and decisions for a management view.
+- Keep credentials on the server; do not embed API keys or private customer records in browser code, fixtures, or downloadable examples.
 
 ## Finance interface requirements
 
