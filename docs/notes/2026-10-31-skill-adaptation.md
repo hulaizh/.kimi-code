@@ -38,6 +38,8 @@ The legacy LaTeX suite returned 32 passed, 1 skipped, 2 failed. Both failures re
 
 Three paired independent-agent exercises cover a cash-forecast app, budget-variance report, and reconciliation-skill draft. Results and review artifacts are in `ai-finance-skills-workspace/industry-adaptation/iteration-1/`. This is a small functional comparison, not an estimate of general reliability. Agents inherited the conversation context, so it is not a blind experiment.
 
+Both versions passed all 13 assertions. The revised cash app received browser and mobile checks, but this comparison establishes no pass-rate gain. The grader identified uncovered extreme-number overflow and negative-variance formatting cases in the generated examples; they should not be treated as generalized production tools. Reconciliation outputs are drafts, not tested matching engines. Timing comparisons are omitted because work overlapped, and token counts were unavailable. The review viewer is `ai-finance-skills-workspace/industry-adaptation/review.html`.
+
 Twenty-four invocation examples are saved across the skills' `evals/invocation_cases.json` files and combined in the workspace. They are a review set, not a measured runtime selection benchmark. No automatic description-optimization score is claimed.
 
 The isolated validation environment is under the workspace `.venv/`; no global Python packages were changed.
