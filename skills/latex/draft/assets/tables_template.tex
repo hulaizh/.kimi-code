@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables Section Template
+% Each table on its own page with \clearpage
+% Notes name the specification by its numbered equation in the text
+% (equation (\ref{eq:...})) or in ONE inline-math sentence — never a
+% display equation — and state only what the equation does not convey.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{table}[htp!]
+\caption{Main Results}
+\label{tab:main}
+{\footnotesize\justifying\setlength{\parindent}{0pt}
+This table reports estimates of equation (\ref{eq:main}) on [sample: unit of observation and period].
+The dependent variable $y_{it}$ is [definition]. The independent variable $x_{it}$ is [definition].
+Columns (1)--(3) include firm fixed effects; columns (4)--(6) add time fixed effects.
+Standard errors clustered by firm and quarter are in parentheses.
+$^{*}p<.1; ^{**}p<.05; ^{***}p<.01$.}
+\end{table}
+
+\vspace{-1.5cm}
+
+\begin{table}[ht!]\centering \caption*{}
+    \input{tables/main_results}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{table}[htp!]
+\caption{Panel A and B Results}
+\label{tab:panel}
+{\footnotesize\justifying\setlength{\parindent}{0pt}
+This table reports estimates of equation (\ref{eq:main}) under two specifications on [sample].
+Panel A [what differs in this panel]. Panel B [what differs in this panel].
+Standard errors clustered by firm and quarter are in parentheses.
+$^{*}p<.1; ^{**}p<.05; ^{***}p<.01$.}
+\end{table}
+
+\begin{table}[ht!]\centering \caption*{Panel A: First Specification}
+    \input{tables/panel_a}
+\end{table}
+
+\begin{table}[ht!]\centering \caption*{Panel B: Second Specification}
+    \input{tables/panel_b}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wide table example
+\clearpage
+\begin{table}[htp!]
+\caption{Extended Results}
+\label{tab:extended}
+{\footnotesize\justifying\setlength{\parindent}{0pt}
+This table reports estimates of equation (\ref{eq:main}) with [what this table adds: the extra controls, the alternative sample, the additional outcomes] on [sample].
+Standard errors clustered by firm and quarter are in parentheses.
+$^{*}p<.1; ^{**}p<.05; ^{***}p<.01$.}
+\end{table}
+
+\vspace{-1.5cm}
+
+\begin{table}[ht!]\centering \caption*{}
+\resizebox{\textwidth}{!}{
+    \input{tables/extended_results}
+}
+\end{table}

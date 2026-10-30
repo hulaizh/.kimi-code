@@ -1,0 +1,9 @@
+# Quarterly Journal of Economics — only what is sourced; an unstated layout or length fact takes the working-paper default, an absent structure or citation fact is never checked.
+journal: QJE
+name: Quarterly Journal of Economics
+sources:
+  - "https://academic.oup.com/qje/pages/Instructions_To_Authors (bot-walled on 2026-09-12 and again on 2026-09-13 — a Cloudflare challenge page): abstract <= 200 words carried from the plugin's earlier table; a 2026-09-13 Codex review claimed the current page says 250 — UNVERIFIED, so 200 stands until the page is read; online material is the 'Online Appendix'. Layout, spacing, citation form and title page are NOT encoded — verify on acceptance"
+length:
+  abstract_words: 200
+structure:
+  appendix_title: Online Appendix

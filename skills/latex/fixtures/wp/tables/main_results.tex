@@ -1,0 +1,19 @@
+% Example regression table using booktabs
+% Copy this structure for your tables
+
+\begin{tabular}{l*{6}{c}}
+    \toprule
+    & (1) & (2) & (3) & (4) & (5) & (6)  \\
+    \midrule
+    $x_t(n)$ & 0.012$^{***}$ & 0.012$^{***}$ & 0.012$^{***}$ & 0.012$^{***}$ & 0.012$^{***}$ & 0.012$^{***}$ \\
+          & (0.003) & (0.003) & (0.003) & (0.003) & (0.003) & (0.003) \\
+    $z_t(n)$ &  & 0.025$^{**}$ & 0.024$^{**}$ &  & 0.025$^{**}$ & 0.024$^{**}$ \\
+          &  & (0.010) & (0.010) &  & (0.010) & (0.010) \\
+    \midrule
+    Obs.     & 38150 & 38150 & 38150 & 38150 & 38150 & 38150 \\
+    $R^2$  & 0.481 & 0.485 & 0.485 & 0.484 & 0.488 & 0.488 \\
+    Firm FEs & Yes & Yes & Yes & Yes & Yes & Yes  \\
+    Time FEs &  &  &  & Yes & Yes & Yes \\
+    Controls & Yes & Yes & Yes & Yes & Yes & Yes \\
+    \bottomrule
+\end{tabular}

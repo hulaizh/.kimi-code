@@ -1,0 +1,9 @@
+# Review of Financial Studies — only what is sourced; an unstated layout or length fact takes the working-paper default, an absent structure or citation fact is never checked.
+journal: RFS
+name: Review of Financial Studies
+sources:
+  - "https://sfs.org/journals/review-of-financial-studies/submission-guidelines/ (bot-walled on 2026-09-12): abstract <= 100 words carried from the plugin's earlier table; online material is the 'Internet Appendix'. Layout, spacing, citation form and title page are NOT encoded — verify on acceptance"
+length:
+  abstract_words: 100
+structure:
+  appendix_title: Internet Appendix
