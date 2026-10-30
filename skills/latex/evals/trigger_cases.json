@@ -1,0 +1,69 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "format my student investment memo as a professional LaTeX report",
+      "family": "investment-report"
+    },
+    {
+      "text": "create a main.tex for my portfolio risk assignment in the report folder",
+      "family": "portfolio-report"
+    },
+    {
+      "text": "fix the booktabs tables and figure references in this company analysis",
+      "family": "report-exhibits"
+    },
+    {
+      "text": "compile report/main.tex and fix the LaTeX errors and undefined references",
+      "family": "compile-report"
+    },
+    {
+      "text": "make a short analytical note with a peer-comparison table and source notes",
+      "family": "analytical-note"
+    },
+    {
+      "text": "format my Beamer presentation for the earnings-analysis class project",
+      "family": "student-slides"
+    },
+    {
+      "text": "create slides for my investment pitch using the slides folder",
+      "family": "investment-pitch"
+    },
+    {
+      "text": "my risk report table runs off the page; fix the layout and check the PDF",
+      "family": "rendered-layout"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "Scaffold a new student finance project from scratch",
+      "family": "scaffold-newproj"
+    },
+    {
+      "text": "Generate the portfolio drawdown PNG for my report",
+      "family": "make-figure-plot"
+    },
+      {
+      "text": "Make an HTML presentation for my class project",
+      "family": "html-presentation"
+    },
+    {
+      "text": "Humanize the executive summary of my investment memo",
+      "family": "prose-humanize"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "Run a difference-in-differences regression on my panel data",
+      "family": "econometrics"
+    },
+    {
+      "text": "Calculate value at risk from this return series",
+      "family": "risk-calculation"
+    },
+    {
+      "text": "Build an interactive portfolio dashboard",
+      "family": "frontend-dashboard"
+    }
+  ]
+}

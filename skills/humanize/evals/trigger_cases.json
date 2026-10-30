@@ -1,0 +1,81 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "humanize this investment memo paragraph without changing the rating or target price",
+      "family": "investment-memo"
+    },
+    {
+      "text": "this earnings note sounds like ChatGPT, especially the generic strong-performance language",
+      "family": "earnings-note"
+    },
+    {
+      "text": "de-slop my portfolio commentary but preserve every return and attribution number",
+      "family": "portfolio-commentary"
+    },
+    {
+      "text": "make this risk report sound less robotic without softening the limit breach",
+      "family": "risk-report"
+    },
+    {
+      "text": "clean up the AI tone in my student finance essay without adding new arguments",
+      "family": "student-essay"
+    },
+    {
+      "text": "rewrite this market briefing so it doesn't keep saying 'in today's complex landscape'",
+      "family": "market-briefing"
+    },
+    {
+      "text": "this weekly report repeats the same formulaic opening every run; humanize the draft",
+      "family": "recurring-report"
+    },
+    {
+      "text": "make this email to my project teammate sound natural, not overly formal or chatbot-like",
+      "family": "general-prose"
+    },
+    {
+      "text": "帮我把这段投资分析改得不像AI写的，数字和结论都不要动",
+      "family": "zh-finance"
+    },
+    {
+      "text": "去掉这段公司简报的AI味和翻译腔",
+      "family": "zh-company-brief"
+    },
+    {
+      "text": "this paragraph claims the analysis proves causality; soften it without weakening the reported facts",
+      "family": "claim-evidence"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "fix the grammar and typos in this paragraph",
+      "family": "grammar-copyedit"
+    },
+    {
+      "text": "write a new investment thesis from these company filings",
+      "family": "generate-analysis"
+    },
+    {
+      "text": "calculate the year-over-year revenue growth for this earnings table",
+      "family": "calculate-finance"
+    },
+    {
+      "text": "restructure my report into a one-page investment memo",
+      "family": "restructure-document"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "run my regression and report the coefficient on firm size",
+      "family": "data-analysis"
+    },
+    {
+      "text": "find current market prices for these five stocks",
+      "family": "market-data"
+    },
+      {
+      "text": "what's the price per token for Claude Opus",
+      "family": "llm-pricing"
+    }
+  ]
+}

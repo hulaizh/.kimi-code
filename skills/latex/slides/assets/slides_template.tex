@@ -1,0 +1,58 @@
+\documentclass[handout,aspectratio=169,10pt]{beamer}
+%\documentclass[aspectratio=169,10pt]{beamer}  % Alternative for animations
+
+\input{misc/style}
+
+\title{Title}
+\date{\today}
+\author{Hulai Zhang}
+\institute[]{Institution Name}
+\titlegraphic{\includegraphics[width=0.2\textwidth]{misc/logo.png}}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Roadmap
+
+\begin{frame}{Roadmap}
+\tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main content
+%
+% Visual Primacy Principle: every content frame should lead with a
+% figure, table, or equation. Text is a caption, not the message.
+% Two-column layouts give the visual ≥0.6\textwidth; the text column
+% carries 2-4 short labels, not prose.
+
+\section{First Section}
+
+\begin{frame}{Descriptive Frame Title}
+    \begin{columns}[T]
+        \begin{column}{0.6\textwidth}
+            \input{figures/diagram.tex}
+        \end{column}
+        \begin{column}{0.36\textwidth}
+            \footnotesize
+            \begin{itemize}
+                \item Short label for the visual
+                \item One-line takeaway
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References
+
+\appendix
+
+\section*{References}
+\begin{frame}[allowframebreaks]{References}
+    \bibliographystyle{aer}
+    \bibliography{misc/ref}
+\end{frame}
+
+\end{document}

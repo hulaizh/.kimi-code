@@ -1,0 +1,32 @@
+# American Economic Review
+journal: AER
+name: American Economic Review
+sources:
+  - "https://www.aeaweb.org/journals/aer/submissions/guidelines (verified 2026-09-12): PDF submission; the AEA style guide is required only for accepted articles; title, byline and author affiliations on the first page; abstract <= 100 words; strongly recommended length <= 40 pages at 11pt/1.5 spacing/1in margins or <= 45 pages at 12pt/1.5 spacing/1in margins, figures, tables, references and appendices included; in-paper appendices after the text and before the references; a Supplemental Appendix (posted, not typeset) may hold nonessential material; Chicago Manual Author-Date reference style"
+  - "The AEA accepted-article guidelines and style guide (ftp.aeaweb.org/journals/aer/accepted-article-guidelines, /style-guide) were NOT reachable on 2026-09-13; the accepted-paper conventions they carry (section numbering, equation-number position, significance-star policy, the separate Supplemental Appendix PDF) are NOT encoded here — verify them on acceptance and add the facts"
+verified:
+  date: 2026-09-12
+  sections: [layout, length]
+layout:
+  paper: letterpaper
+  font_pt: 12
+  margins: 1in
+  spacing: onehalf
+length:
+  pages: 45
+  abstract_words: 100
+structure:
+  appendix_title: Supplemental Appendix
+  exhibits: end
+  title_page: full
+  jel: true
+  keywords: true
+citations:
+  in_text: citep
+  full_authors_first: false
+house:
+  - id: bibliography_style
+    rule: The reference list follows the Chicago author-date style AER asks for (aea.bst or chicago.bst), never a numeric style.
+    locate: '\\bibliographystyle\{'
+  - id: supplemental_appendix_pdf
+    rule: "The Supplemental Appendix is posted, not typeset: it ships as its own PDF, separate from the manuscript — record it under Decisions."

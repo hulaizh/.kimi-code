@@ -1,0 +1,69 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "build a student dashboard for comparing five banks' valuation and profitability metrics",
+      "family": "peer-dashboard"
+    },
+    {
+      "text": "create an HTML portfolio page showing allocation, drawdown, and rolling volatility",
+      "family": "portfolio-risk-ui"
+    },
+    {
+      "text": "make a stock screener with working filters for sector, PE, and dividend yield",
+      "family": "stock-screener"
+    },
+    {
+      "text": "build an earnings monitor that shows stale data and failed refreshes clearly",
+      "family": "recurring-monitor"
+    },
+    {
+      "text": "beautify my market snapshot app without making it look like a generic AI dashboard",
+      "family": "finance-ui-styling"
+    },
+    {
+      "text": "create a React component for an investment committee risk summary",
+      "family": "react-finance-component"
+    },
+    {
+      "text": "make a classroom demo of a factor explorer using clearly labeled illustrative data",
+      "family": "student-demo"
+    },
+    {
+      "text": "build a simple company brief web page from my supplied CSV and notes",
+      "family": "company-brief-ui"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "Make a static PNG of portfolio drawdowns for my report",
+      "family": "plot-figure"
+    },
+    {
+      "text": "Create a matplotlib coefficient plot for my assignment",
+      "family": "plot-figure"
+    },
+    {
+      "text": "Format my Beamer slides and fix the LaTeX layout",
+      "family": "latex-slides"
+    },
+    {
+      "text": "Write the wording for my investment memo",
+      "family": "draft-copy"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "Run a fixed-effects regression on my panel data",
+      "family": "econometrics"
+    },
+    {
+      "text": "Help me debug a SQL query that joins two tables",
+      "family": "database"
+    },
+    {
+      "text": "Calculate my portfolio's annualized volatility in Python",
+      "family": "analysis-only"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# Review of Economic Studies — only what is sourced; an unstated layout or length fact takes the working-paper default, an absent structure or citation fact is never checked.
+journal: RES
+name: Review of Economic Studies
+sources:
+  - "https://restud.com/submissions/ (fetched 2026-09-12; the 'Manuscript Length Requirement' and 'Manuscript format and structure' sections were read): abstract limit carried from the plugin (150); online material is the 'Online Appendix'. Layout, spacing, citation form and title page are NOT encoded — verify on acceptance"
+length:
+  abstract_words: 150
+structure:
+  appendix_title: Online Appendix
