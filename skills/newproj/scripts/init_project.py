@@ -21,6 +21,38 @@ DIRECTORIES = [
     ".state",
     ".logs",
 ]
+SOURCE_SUFFIXES = {".py", ".r", ".jl", ".m", ".sh", ".sql", ".ipynb"}
+FILE_DESTINATIONS = {
+    ".csv": "data/raw",
+    ".tsv": "data/raw",
+    ".xlsx": "data/raw",
+    ".xls": "data/raw",
+    ".json": "data/raw",
+    ".jsonl": "data/raw",
+    ".parquet": "data/raw",
+    ".feather": "data/raw",
+    ".dta": "data/raw",
+    ".sav": "data/raw",
+    ".pkl": "data/raw",
+    ".pickle": "data/raw",
+    ".pdf": "report",
+    ".docx": "report",
+    ".doc": "report",
+    ".tex": "report",
+    ".qmd": "report",
+    ".rmd": "report",
+    ".pptx": "slides",
+    ".ppt": "slides",
+    ".key": "slides",
+    ".png": "output/figures",
+    ".jpg": "output/figures",
+    ".jpeg": "output/figures",
+    ".svg": "output/figures",
+    ".gif": "output/figures",
+    ".bmp": "output/figures",
+    ".tif": "output/figures",
+    ".tiff": "output/figures",
+}
 AGENTS_TEMPLATE = """<!-- newproj:student-scaffold -->
 # Project: {title}
 
@@ -84,6 +116,33 @@ def write_if_missing(path: Path, content: str, dry_run: bool) -> None:
     print(f"Created {path}")
 
 
+def destination_for(path: Path) -> str | None:
+    suffix = path.suffix.lower()
+    if suffix in SOURCE_SUFFIXES:
+        name = path.name.lower()
+        if name.startswith("test_") or path.stem.lower().endswith("_test"):
+            return "tests"
+        return "src"
+    return FILE_DESTINATIONS.get(suffix)
+
+
+def organize_loose_files(project: Path, dry_run: bool) -> None:
+    for source in sorted(project.iterdir(), key=lambda path: path.name):
+        if not source.is_file() or source.is_symlink():
+            continue
+        destination_relative = destination_for(source)
+        if destination_relative is None:
+            continue
+        destination = project / destination_relative / source.name
+        if destination.exists():
+            print(f"Skipped {source}: destination exists {destination}")
+        elif dry_run:
+            print(f"Would move {source} -> {destination}")
+        else:
+            source.rename(destination)
+            print(f"Moved {source} -> {destination}")
+
+
 def main() -> int:
     args = parse_args()
     project = args.path.expanduser() if args.path else Path.cwd() / args.project_name
@@ -125,6 +184,7 @@ def main() -> int:
     write_if_missing(project / "AGENTS.md", AGENTS_TEMPLATE.format(title=title), dry_run)
     template = Path(__file__).with_name("gitignore_template.txt").read_text(encoding="utf-8")
     write_if_missing(project / ".gitignore", template, dry_run)
+    organize_loose_files(project, dry_run)
 
     if args.git and not (project / ".git").exists():
         if dry_run:
