@@ -168,7 +168,7 @@ fig, ax = plt.subplots(constrained_layout=True)
 
 ### PDF Fonts Not Embedded
 ```python
-# CRITICAL for journal submissions
+# For readable PDF export
 plt.rcParams['pdf.fonttype'] = 42   # TrueType
 plt.rcParams['ps.fonttype'] = 42
 ```
@@ -385,6 +385,6 @@ df.plot(x='col1', y='col2', ax=ax)
 5. Use raw strings for math: `r'$\alpha$'`
 6. Check data shapes before plotting
 7. Use 300 DPI for print, 150 for web
-8. Set `pdf.fonttype: 42` for journal PDFs
+8. Set `pdf.fonttype: 42` for PDF exports
 9. Prefer `viridis`/`cividis` for colorblind safety
 10. Always include axis labels and legends

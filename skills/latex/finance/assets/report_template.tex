@@ -1,48 +1,36 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{setspace}
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\pagestyle{empty}
 
-\setstretch{1.15}
-\setlength{\parskip}{0.4em}
-\setlength{\parindent}{0pt}
-
-\newcommand{\ReportTitle}{Finance Analytical Note}
-\newcommand{\ReportAuthor}{Student Name}
-\newcommand{\ReportDate}{Report Date}
-\newcommand{\DataDate}{Data-as-of Date}
-
-\title{\ReportTitle}
-\author{\ReportAuthor}
-\date{\ReportDate\\Data as of \DataDate}
+\newcommand{\ReportTitle}{Finance Analytical Memo}
+\newcommand{\ReportAuthor}{Author}
+\newcommand{\DataDate}{Data as of date}
 
 \begin{document}
-\maketitle
+\noindent{\Large\textbf{\ReportTitle}}\\[2pt]
+\ReportAuthor \hfill Data: \DataDate
 
-\section*{Executive summary}
-State the finance question, main finding, and supporting evidence.
+\paragraph{Question.} State the finance question, entity or portfolio, period,
+audience, and comparison basis.
 
-\section{Question and scope}
-Define the entity or portfolio, analysis period, audience, and comparison basis.
+\paragraph{Inputs.} Identify the source, retrieval date, currency, units,
+definitions, assumptions, and missing-value treatment.
 
-\section{Data and assumptions}
-Identify the supplied sources, units, currency, adjustments, and assumptions.
+\paragraph{Result.} State the main finding and its practical implication without
+strengthening the conclusion beyond the evidence.
 
-\section{Analysis}
-Present the calculations and interpret the resulting tables and figures.
-
-% Example exhibit input:
-% Author captions and notes in these section wrappers; scripts supply content only.
+% Author captions and notes in report/sections; scripts generate exhibit content.
 % \input{sections/tables}
 % \input{sections/figures}
 
-\section{Findings}
-Explain what the analysis supports without strengthening the conclusion beyond the evidence.
+\paragraph{Checks.} Record an independent calculation, source tie-out,
+reconciliation, or other check. Mark incomplete checks explicitly.
 
-\section{Risks and limitations}
-Describe relevant data gaps, model limitations, uncertainty, and alternative explanations.
+\paragraph{Limits.} State data gaps, mismatched periods, model assumptions,
+uncertainty, and alternative explanations.
 
 \end{document}

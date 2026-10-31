@@ -14,7 +14,7 @@ Descriptions define the operation, useful invocation cues, and boundaries. Cours
 | newproj | Create a conservative non-overwriting scaffold | Analysis is a separate step, continued if already requested |
 | plot | Generate and verify static figures | Interactive UI belongs to frontend-design |
 | frontend-design | Build working web interfaces | No decorative controls or hidden data failures |
-| latex | Format, compile, and inspect documents | Content and wrappers remain separate; journal rules are optional legacy tools |
+| latex | Format, compile, and inspect concise A4 finance PDF reports | One memo template; no journal or paper-submission rules |
 | humanize | Edit existing prose faithfully | No invented figures, attribution, or stronger conclusions |
 | find-skills | Discover a missing reusable capability | Installed skills first; popularity does not establish correctness |
 | skill-creator | Capture and test a repeatable workflow | Task-based descriptions and observable acceptance checks |
@@ -23,7 +23,8 @@ Examples now cover cash forecasts, budget variances, credit review, reconciliati
 
 ## Supporting fixes
 
-- Corrected table/figure wrapper locations and pure-content requirements in LaTeX instructions and examples.
+- Replaced the old paper/journal LaTeX bundle with one A4 finance memo template and a short report workflow. Removed journal files, paper fixtures, appendix templates, and journal-specific tests.
+- Removed the academic humanize reference and the econometric/journal-only plotting resources. The remaining skills target finance practitioners.
 - Removed the starter deck's missing figure dependency and hardcoded author; documented the separate Chinese compilation route.
 - Fixed the DataFrame-to-drawdown example and a removed matplotlib boxplot keyword.
 - Removed fabricated error bars and an automatic normal fit from the plotting demo; labeled synthetic output and made GUI display optional.

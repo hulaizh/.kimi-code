@@ -8,7 +8,6 @@
 - [Typography and Math Text](#typography-and-math-text)
 - [Spines, Grids, and Legends](#spines-grids-and-legends)
 - [Layout and Spacing](#layout-and-spacing)
-- [Publication-Ready Journal Presets](#publication-ready-journal-presets)
 - [Seaborn Theming](#seaborn-theming)
 - [Color Accessibility](#color-accessibility)
 - [Dark Theme](#dark-theme)
@@ -132,7 +131,7 @@ Load: `plt.style.use('path/to/custom_style.mplstyle')`
 
 ### Font Configuration
 ```python
-# Serif (academic papers)
+# Serif (formal reports)
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = ['Times New Roman', 'DejaVu Serif']
 
@@ -164,7 +163,7 @@ ax.set_title(r'\textbf{Bold Title}')
 
 ### Font Embedding for PDF
 ```python
-# CRITICAL for journal submissions
+# For readable PDF export
 plt.rcParams['pdf.fonttype'] = 42   # TrueType fonts
 plt.rcParams['ps.fonttype'] = 42    # TrueType in PostScript
 ```
@@ -222,99 +221,6 @@ plt.tight_layout(pad=1.5, h_pad=2.0, w_pad=2.0)
 # Manual adjustment
 plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.15,
                     hspace=0.3, wspace=0.4)
-```
-
-## Publication-Ready Journal Presets
-
-### Economics (AER, QJE, JPE, Econometrica, REStud)
-
-```python
-def setup_econ_style():
-    """Style for economics journals (single-column ~3.4in, double ~6.75in)."""
-    plt.rcParams.update({
-        'figure.figsize': (6.5, 4.5),
-        'figure.dpi': 100,
-        'savefig.dpi': 300,
-        'savefig.bbox': 'tight',
-        'savefig.pad_inches': 0.05,
-        'font.family': 'serif',
-        'font.serif': ['Times New Roman', 'Computer Modern Roman', 'DejaVu Serif'],
-        'font.size': 9,
-        'axes.labelsize': 10,
-        'axes.titlesize': 11,
-        'axes.linewidth': 0.6,
-        'axes.spines.top': False,
-        'axes.spines.right': False,
-        'axes.grid': False,
-        'lines.linewidth': 1.2,
-        'lines.markersize': 4,
-        'xtick.labelsize': 8,
-        'ytick.labelsize': 8,
-        'xtick.direction': 'in',
-        'ytick.direction': 'in',
-        'xtick.major.size': 3,
-        'ytick.major.size': 3,
-        'xtick.major.width': 0.6,
-        'ytick.major.width': 0.6,
-        'legend.fontsize': 8,
-        'legend.frameon': False,
-        'pdf.fonttype': 42,
-        'ps.fonttype': 42,
-    })
-```
-
-### Finance (JF, JFE, RFS)
-
-```python
-def setup_finance_style():
-    """Style for finance journals (~6.5in wide)."""
-    plt.rcParams.update({
-        'figure.figsize': (6.5, 4.0),
-        'figure.dpi': 100,
-        'savefig.dpi': 300,
-        'savefig.bbox': 'tight',
-        'font.family': 'sans-serif',
-        'font.sans-serif': ['Arial', 'Helvetica', 'DejaVu Sans'],
-        'font.size': 9,
-        'axes.labelsize': 10,
-        'axes.titlesize': 11,
-        'axes.linewidth': 0.8,
-        'axes.spines.top': False,
-        'axes.spines.right': False,
-        'axes.grid': False,
-        'lines.linewidth': 1.5,
-        'lines.markersize': 5,
-        'xtick.labelsize': 8,
-        'ytick.labelsize': 8,
-        'xtick.direction': 'in',
-        'ytick.direction': 'in',
-        'legend.fontsize': 8,
-        'legend.frameon': False,
-        'pdf.fonttype': 42,
-        'ps.fonttype': 42,
-    })
-```
-
-### Presentation / Talk
-
-```python
-def setup_presentation_style():
-    """Large fonts for slides and talks."""
-    plt.rcParams.update({
-        'figure.figsize': (12, 7),
-        'font.size': 16,
-        'axes.labelsize': 20,
-        'axes.titlesize': 24,
-        'axes.linewidth': 2,
-        'lines.linewidth': 3,
-        'lines.markersize': 12,
-        'xtick.labelsize': 16,
-        'ytick.labelsize': 16,
-        'legend.fontsize': 16,
-        'axes.grid': True,
-        'grid.alpha': 0.3,
-        'savefig.dpi': 150,
-    })
 ```
 
 ## Seaborn Theming
