@@ -40,7 +40,11 @@ def main():
     parser.add_argument("--preset", choices=PRESETS, default="finance")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--preview", action="store_true")
+    parser.add_argument("--list", action="store_true", help="List practitioner presets")
     args = parser.parse_args()
+    if args.list:
+        print("Available practitioner presets: " + ", ".join(PRESETS))
+        return
     if args.output: write_style(args.preset, args.output)
     if args.preview:
         import matplotlib.pyplot as plt
