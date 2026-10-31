@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "destination-collision",
+  "prompt": "Scaffold a nonempty project where a loose source file has the same name as an existing destination file.",
+  "assertions": [
+    "Root analysis.py remains in place with content exactly 'source'",
+    "Existing src/analysis.py remains unchanged with content exactly 'destination'",
+    "prices.csv moves to data/raw/prices.csv with its content preserved",
+    "run.log reports that the analysis.py move was skipped because the destination exists"
+  ]
+}

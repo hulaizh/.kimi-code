@@ -1,0 +1,48 @@
+# Credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# Operating systems
+.DS_Store
+Thumbs.db
+
+# Project data and runtime files
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/temp/*
+!/temp/.gitkeep
+/.state/*
+!/.state/.gitkeep
+/.logs/*
+!/.logs/.gitkeep

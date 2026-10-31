@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "analysis.py moves from the project root to src/analysis.py with its content preserved",
+      "passed": false,
+      "evidence": "Failed. Checked src/analysis.py exists, is nonempty, and root analysis.py is absent."
+    },
+    {
+      "text": "test_analysis.py moves from the project root to tests/test_analysis.py with its content preserved",
+      "passed": false,
+      "evidence": "Failed. Checked tests/test_analysis.py exists, is nonempty, and root test_analysis.py is absent."
+    },
+    {
+      "text": "prices.csv, chart.png, memo.pdf, and deck.pptx move respectively to data/raw, output/figures, report, and slides with contents preserved",
+      "passed": false,
+      "evidence": "Failed. Checked all four destination files exist, are nonempty, and their root counterparts are absent."
+    },
+    {
+      "text": "notes.txt and pyproject.toml remain unchanged in the project root",
+      "passed": true,
+      "evidence": "Checked notes.txt and pyproject.toml remain in the project root."
+    },
+    {
+      "text": "The standard scaffold and AGENTS.md are created without overwriting existing work",
+      "passed": true,
+      "evidence": "Checked AGENTS.md and representative standard directories exist."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  }
+}

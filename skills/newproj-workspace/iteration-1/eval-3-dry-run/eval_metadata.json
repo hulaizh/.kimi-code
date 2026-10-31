@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "dry-run",
+  "prompt": "Preview scaffolding and file organization for a nonempty project without writing changes.",
+  "assertions": [
+    "Root analysis.py and prices.csv remain in place with their original contents",
+    "No scaffold directories, AGENTS.md, or destination files are created",
+    "run.log previews moving analysis.py to src/analysis.py and prices.csv to data/raw/prices.csv",
+    "run.log previews scaffold creation and reports no actual moves"
+  ]
+}

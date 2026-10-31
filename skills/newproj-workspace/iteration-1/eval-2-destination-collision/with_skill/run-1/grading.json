@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Root analysis.py remains in place with content exactly 'source'",
+      "passed": true,
+      "evidence": "Root analysis.py content: 'source'."
+    },
+    {
+      "text": "Existing src/analysis.py remains unchanged with content exactly 'destination'",
+      "passed": true,
+      "evidence": "Destination analysis.py content: 'destination'."
+    },
+    {
+      "text": "prices.csv moves to data/raw/prices.csv with its content preserved",
+      "passed": true,
+      "evidence": "Checked exact CSV content at data/raw/prices.csv and absence at the root."
+    },
+    {
+      "text": "run.log reports that the analysis.py move was skipped because the destination exists",
+      "passed": true,
+      "evidence": "Checked run.log for the explicit collision skip message."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  }
+}
