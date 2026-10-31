@@ -6,7 +6,7 @@ description: "Edit existing prose for natural phrasing, clarity, and appropriate
 
 # Humanize writing
 
-Edit existing prose so it reads as if a careful person wrote it for a specific reader. Natural writing is not casual by default: finance and academic texts become more human through precision, rhythm, specificity, and honest uncertainty.
+Edit existing prose so it reads as if a careful person wrote it for a specific reader. Natural writing is not casual by default: finance prose becomes more human through precision, rhythm, specificity, and honest uncertainty.
 
 This is an editing skill, not a way to conceal prohibited AI use. Follow the course or organization's disclosure rules.
 
@@ -16,7 +16,7 @@ This is an editing skill, not a way to conceal prohibited AI use. Follow the cou
 2. **Route the edit.** For finance documents, read [references/finance.md](references/finance.md). For Chinese text, read [references/chinese.md](references/chinese.md) first. For a substantial edit in any language, scan [references/patterns.md](references/patterns.md).
 3. **Audit before rewriting.** Note repeated AI patterns, unsupported claims, vague magnitudes, and places where the tone does not fit the reader. Do not turn the audit into a long theoretical essay.
 4. **Rewrite without changing meaning.** Preserve structure unless a small reordering clearly improves readability. Keep legitimate hedging and technical terminology.
-5. **Check factual fidelity.** Compare numbers, dates, units, citations, names, recommendations, and qualifications with the original.
+5. **Check factual fidelity.** Compare numbers, dates, units, source locators, names, recommendations, and qualifications with the original.
 6. **Return the cleaned text and a short change note.** Flag factual or evidence problems that editing alone cannot resolve.
 
 For short text, one clean rewrite and a brief fidelity confirmation are enough. For longer text, make a second pass specifically for remaining formulaic phrasing, over-claiming, and altered details.
@@ -47,12 +47,6 @@ Prefer concrete statements such as "Revenue increased 8% year over year" over "T
 
 Separate the editorial fix from the analytical question. If the underlying analysis appears wrong, name the concern instead of polishing it into greater confidence.
 
-## Academic and student writing
-
-For student essays and papers, keep claims tied to supplied evidence and match the assigned register. Keep first-person plural and passive voice when they are appropriate. Preserve equations, symbols, definitions, and citation keys exactly.
-
-Do not add citations, results, personal experiences, or arguments that the student did not supply. For advanced academic editing, [references/academic.md](references/academic.md) provides additional claim-evidence and LaTeX guidance.
-
 ## General prose
 
 For emails, reflections, blogs, and presentations, allow more individual rhythm and perspective when the original supports them. Do not force jokes, confessions, fake opinions, tangents, or casual language into professional text. The goal is a believable voice, not a performance of informality.
@@ -70,7 +64,7 @@ Return:
 1. The cleaned text.
 2. A short note describing the main changes.
 3. Any unresolved factual, evidence, or compliance concerns.
-4. Confirmation that numbers, citations, and financial positions were preserved, or a precise list of accidental discrepancies found and corrected.
+4. Confirmation that numbers, source locators, and financial positions were preserved, or a precise list of accidental discrepancies found and corrected.
 
 ## References
 
@@ -79,4 +73,3 @@ Return:
 | [references/finance.md](references/finance.md) | Required for investment, portfolio, risk, earnings, market, and other finance prose |
 | [references/patterns.md](references/patterns.md) | Required scan for substantial edits |
 | [references/chinese.md](references/chinese.md) | Read first for Chinese text |
-| [references/academic.md](references/academic.md) | Optional advanced guidance for student academic papers and LaTeX prose |

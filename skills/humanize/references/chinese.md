@@ -12,7 +12,7 @@ Do not flatten the text into 干净但无灵魂的 press-release 中文. Every t
 
 **Mixed EN/中文 text** (common in Chinese econ/finance papers): apply BOTH this file and the
 English patterns — de-slop the Chinese prose here, and fix English terms / dashes / quotes via
-`SKILL.md` + `references/academic.md`.
+`SKILL.md` + `references/finance.md`.
 
 ---
 
@@ -125,18 +125,7 @@ doubt, rewrite the sentence rather than swapping the word.
 
 ---
 
-## Part D — Academic / 国自然 Chinese
-
-For Chinese papers, 基金申请 (国自然/面上/青年), and 中文 referee work, "voice" means
-**precision and concrete magnitude**, not informality. Keep:
-- 删骨架词 (首先/其次/综上所述) but keep genuine 逻辑连接.
-- 立项依据 / 研究内容 should state specific mechanisms and numbers, not 至关重要/具有重要意义.
-- Do **not** inject 第一人称 jokes or 网感; academic 中文 stays formal but **直接、具体、不堆砌**.
-- This is the de-slop pass, not the drafting pass (use apply-fund to draft a grant; rr for 中文 referee responses).
-
----
-
-## Part E — Worked example (full paragraph, two-pass)
+## Part D — Worked example (full paragraph, two-pass)
 
 **改前 (满是 AI 味):**
 > 随着人工智能技术的不断发展，在数字经济的大背景下，AI 写作工具正在深刻地改变着内容生产的方式。首先，这些工具极大地提升了生产效率；其次，它们有效赋能了广大创作者；再次，更是助力了行业的提质增效。值得注意的是，这一变革不仅具有重要的现实意义，而且影响深远。综上所述，AI 写作的前景广阔、未来可期。
@@ -166,5 +155,5 @@ Rate the rewrite 1–10 on each, target ≥ 8 (below 40/50 → run the two-pass 
 
 Chinese pattern set adapted from **op7418/humanizer-zh** (which translates **blader/humanizer**
 and the Wikipedia *Signs of AI writing* guide, plus the **hardikpandya/stop-slop** checklist &
-scoring). The Chinese-native tells (Part B), worked example (Part E), and academic-Chinese
+scoring). The Chinese-native tells (Part B), worked example (Part E), and finance-Chinese
 guidance (Part D) are additions beyond that source.

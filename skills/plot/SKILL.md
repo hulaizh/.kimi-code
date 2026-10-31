@@ -34,7 +34,7 @@ This is the default. Save a PNG at 300 dpi to `output/figures/` unless the user 
 
 Save PDF when vector output is useful, or PNG when requested. Keep the axis labels and data annotations. The title may be omitted when the LaTeX caption supplies it; do not duplicate a long caption inside the image. Coordinate with the `latex` skill for wrappers and notes.
 
-For a quick notebook-free exploration, a title is always acceptable. The important distinction is whether the figure must stand alone, not whether it is called academic or professional.
+For a quick notebook-free exploration, a title is always acceptable. The important distinction is whether the figure must stand alone, whether it is a standalone or embedded figure.
 
 ## Finance checks
 
@@ -94,7 +94,6 @@ Use the actual dates and source from the data rather than copying this example's
 
 ## Specialized figures
 
-- For econometric and course-research figures such as coefficient plots, event studies, binscatter, RDD, parallel trends, IRFs, and portfolio sorts, read [references/economics_plots.md](references/economics_plots.md). Helpers are in `scripts/econ_plots.py`.
 - For core matplotlib APIs and multi-panel layouts, read [references/matplotlib_core.md](references/matplotlib_core.md).
 - For seaborn statistical plots, read [references/seaborn_core.md](references/seaborn_core.md).
 - For typography, palettes, and sizing, read [references/styling_guide.md](references/styling_guide.md).

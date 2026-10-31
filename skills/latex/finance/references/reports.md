@@ -1,77 +1,43 @@
-# Finance reports
+# Finance memo guidance
 
-Use this guide for analytical notes, company briefs, investment memos, portfolio and risk reports, and recurring briefing documents.
+Use a short A4 memo for a focused finance question. The reader should identify
+the question, source and date, main result, supporting exhibit, and limitation
+without reading a long methods section.
 
-## Report structure
+## Recommended order
 
-Scale the structure to the assignment. A short note may need only four sections; a longer report can use the full sequence.
+1. **Question:** entity or portfolio, period, audience, and comparison basis.
+2. **Inputs:** source, retrieval date, units, currency, definitions, and assumptions.
+3. **Result:** the main number or decision-relevant finding.
+4. **Evidence:** a table, chart, calculation, or source passage.
+5. **Checks:** independent arithmetic, source tie-out, or reconciliation.
+6. **Limits:** missing data, mismatched periods, model assumptions, and uncertainty.
 
-1. **Executive summary:** answer the question and state the main evidence.
-2. **Question and scope:** identify the entity, portfolio, period, audience, and comparison basis.
-3. **Data and assumptions:** explain sources, sample dates, units, currency, adjustments, and important assumptions.
-4. **Analysis:** present calculations, tables, figures, and interpretation in a logical order.
-5. **Findings:** state what the analysis supports and how it relates to the audience's decision.
-6. **Risks and limitations:** identify data gaps, model limits, uncertainty, and alternative explanations.
-7. **Appendix:** include definitions, additional exhibits, and reproducibility details when needed.
+Use the bundled `report_template.tex` as the starting point. Remove optional
+sections rather than filling them with generic prose.
 
-Do not fill a section with generic prose to match the template. Remove optional sections that the task does not need.
+## Finance conventions
 
-## Professional finance conventions
+- Keep company, portfolio, and metric names consistent.
+- Define growth, margin, return, valuation, and risk measures when their meaning
+  could vary.
+- State currency, units, period, and data-as-of date near each exhibit.
+- Use percentage points for differences between percentages.
+- Separate reported facts, calculated results, assumptions, estimates, scenarios,
+  and interpretation.
+- Keep source locators with the claim or exhibit they support.
+- Do not imply a recommendation or causal result unless the supplied evidence
+  supports it.
 
-- Put the report date and data-as-of date near the title.
-- Use consistent names for companies, portfolios, benchmarks, and metrics.
-- Define return, margin, growth, valuation, factor, and risk measures when definitions could differ.
-- Distinguish reported values, calculated results, estimates, and scenarios.
-- State currency and units once per exhibit where possible.
-- Use percentage points for differences between percentages and basis points where that convention aids comparison.
-- Keep sources and notes with the exhibit or statement they support.
-- Do not include invented compliance language. Add internal-use or confidentiality labels only when the user requests them.
+## Tables and figures
 
-## Tables
+Generated `output/tables/*.tex` files contain only `tabular` content with
+`\toprule`, `\midrule`, and `\bottomrule`. Captions, labels, notes, and source
+descriptions belong in authored files under `report/sections/`. Generated figures
+belong under `output/figures/` and should have readable axes, units, dates, and
+honest scales.
 
-Use `booktabs`. Author wrappers in `report/sections/tables.tex`, included from `report/main.tex`. Generated `output/tables/*.tex` contains only `\begin{tabular}...\end{tabular}` with booktabs: no float, caption, label, font sizing, minipage, footnote, or notes. Scripts generate content only. Captions, descriptions, sources, and significance explanations belong in the wrapper.
+## Final pass
 
-```latex
-\begin{table}[htbp]
-  \centering
-  \caption{Peer valuation comparison}
-  \label{tab:peer-valuation}
-  {\footnotesize Multiples use the supplied fiscal-year estimates.
-  Source: supplied peer data; replace with the actual cutoff.\par}
-  \input{../output/tables/peer_comparison}
-\end{table}
-```
-
-Use actual dates and definitions from the project. Keep numeric precision consistent and align decimal values where practical.
-
-## Figures
-
-Author wrappers in `report/sections/figures.tex` for the float, caption, label, and notes. Reference `../output/figures/` when compiling from `report/`, or the project's established content path. Keep axis labels in the figure and its caption/description in the wrapper.
-
-Compile from `report/` so these relative paths resolve. If the project uses a different build directory, follow that convention and verify every input path. Do not put a wrapper and the content it inputs at the same path.
-
-## Routine deliverables
-
-| Deliverable | Main exhibits | Essential distinction |
-|---|---|---|
-| Management report | Budget/actual variances and business-unit totals | Revenue versus expense sign conventions |
-| Treasury note | Opening cash, receipts, payments, closing cash | Actuals versus forecasts and scenarios |
-| Credit memo | Debt schedule, ratios, covenant headroom | Contractual definitions versus generic ratios |
-| Operations report | Matched transactions and unresolved exceptions | Timing differences versus confirmed errors |
-
-Lead with the finding and requested decision. Explain unfamiliar metrics briefly, and put detailed methods or sensitivity checks in an appendix when needed. Journal-style validators and journal conversion utilities under `draft/` are legacy optional tools, not acceptance criteria for these reports. Do not run the legacy wrapper generator; write wrappers during drafting.
-
-Captions should state what the reader needs to interpret the exhibit. Avoid repeating the entire analysis in the caption.
-
-## Length and layout
-
-For ordinary student reports, A4 paper, 11 or 12 point type, one-inch margins, and modest line spacing are readable defaults. Follow assignment requirements when supplied. Do not shrink fonts or margins to hide excess length; shorten the content or move supporting material to an appendix.
-
-## Final review
-
-- Compile from a clean enough state to catch missing files and stale references.
-- Inspect the PDF page by page.
-- Check title date, reporting period, table units, figure legends, and source notes.
-- Confirm that every cross-reference resolves and every exhibit is discussed in the text.
-- Reconcile narrative values with the generated exhibits.
-- Remove placeholder text and optional sections that were not used.
+Compile from `report/`, inspect every page, remove placeholders, and compare all
+displayed values with the checked outputs. State any check that remains incomplete.

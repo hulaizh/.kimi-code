@@ -1,7 +1,7 @@
 interface:
-  display_name: "LaTeX Formatting"
-  short_description: "Format, compile, and inspect LaTeX reports and Beamer presentations."
-  default_prompt: "Use $latex to format and compile my report or presentation, keeping exhibit content separate from captions and notes."
+  display_name: "Finance PDF report"
+  short_description: "Create and inspect concise A4 finance reports and analytical memos."
+  default_prompt: "Use $latex to create or compile my finance memo as an A4 PDF, keeping generated exhibits separate from captions and notes."
 compatibility:
   canonical_format: "agent-skills"
   adapter_targets:
@@ -15,12 +15,3 @@ compatibility:
   execution:
     context: "inline"
     shell: "bash"
-  trust:
-    source_tier: "local"
-    remote_inline_execution: "forbid"
-    remote_metadata_policy: "allow-metadata-only"
-  degradation:
-    openai: "metadata-adapter"
-    claude: "neutral-source-plus-adapter"
-    generic: "neutral-source"
-    vscode: "agent-skills-source-with-vscode-notes"

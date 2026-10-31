@@ -1,9 +1,0 @@
-# Journal of Financial Economics — only what is sourced; an unstated layout or length fact takes the working-paper default, an absent structure or citation fact is never checked.
-journal: JFE
-name: Journal of Financial Economics
-sources:
-  - "https://www.sciencedirect.com/journal/journal-of-financial-economics/publish/guide-for-authors (bot-walled on 2026-09-12): abstract <= 100 words carried from the plugin's earlier table; online material is the 'Internet Appendix'. Layout, spacing, citation form and title page are NOT encoded — verify on acceptance"
-length:
-  abstract_words: 100
-structure:
-  appendix_title: Internet Appendix
