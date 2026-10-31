@@ -33,8 +33,8 @@ AGENTS_TEMPLATE = """<!-- newproj:student-scaffold -->
 - `src/`: Reusable project scripts.
 - `output/figures/`: Generated figures.
 - `output/tables/`: Generated tables.
-- `report/`: Student-edited reports.
-- `slides/`: Student-edited LaTeX/Beamer or HTML presentations.
+- `report/`: Analyst-authored reports.
+- `slides/`: Team presentations and HTML briefings.
 - `tests/`: Code and reproducibility checks.
 - `temp/`: Disposable files.
 - `.state/`: Runtime state.
@@ -108,7 +108,7 @@ def main() -> int:
         return 1
 
     if dry_run:
-        print(f"Previewing student project scaffold at {project}")
+        print(f"Previewing project scaffold at {project}")
     elif not project.exists():
         project.mkdir(parents=True)
         print(f"Created {project}")
@@ -139,7 +139,7 @@ def main() -> int:
             )
             print(f"Initialized Git on main in {project}; no files staged or committed")
 
-    print(f"Student project scaffold ready: {project}")
+    print(f"Project scaffold ready: {project}")
     return 0
 
 

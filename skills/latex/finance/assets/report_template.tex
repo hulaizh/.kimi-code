@@ -1,36 +1,118 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{xurl}
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
-\pagestyle{empty}
+% Layout adapted from the research memo shown in Lecture 1, sized for A4.
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=18mm,footskip=9mm]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage[scaled=0.96]{helvet}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage{fontspec}
+  \setmainfont{texgyreheros}[Extension=.otf,
+    UprightFont=*-regular, BoldFont=*-bold,
+    ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\fi
+% For Chinese, set this switch true and compile with --engine xelatex.
+\newif\ifChineseMemo
+\ChineseMemofalse
+\ifChineseMemo
+  \ifPDFTeX
+    \PackageError{finance-memo}{Chinese text requires XeLaTeX or LuaLaTeX}{}
+  \else
+    \usepackage[UTF8,fontset=fandol]{ctex}
+    \renewcommand{\familydefault}{\sfdefault}
+  \fi
+\fi
+\usepackage{booktabs,graphicx,xcolor,caption,xurl,fancyhdr}
+\definecolor{MemoBlue}{HTML}{203E70}
+\definecolor{MemoRule}{HTML}{B9C8DF}
+\usepackage[colorlinks=true,linkcolor=MemoBlue,urlcolor=MemoBlue]{hyperref}
+\captionsetup{font=small,labelfont=bf,skip=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.3pt}
 
-\newcommand{\ReportTitle}{Finance Analytical Memo}
-\newcommand{\ReportAuthor}{Author}
-\newcommand{\DataDate}{Data as of date}
+\newcommand{\ReportTitle}{[Company, portfolio, or decision]}
+\newcommand{\ReportType}{RESEARCH MEMO}
+\newcommand{\ReportDate}{[Report date]}
+\newcommand{\DataDate}{[Data cutoff]}
+\newcommand{\ReportScope}{[Period and comparison basis]}
+\newcommand{\TeamName}{[Team]}
+\newcommand{\DeskName}{[Business area]}
+\newcommand{\ReportAuthor}{[Analyst]}
+\newcommand{\Coverage}{[Coverage]}
+\newcommand{\KeyFinding}{[One sentence stating the main supported finding]}
+\fancyfoot[L]{\scriptsize\TeamName}
+\fancyfoot[R]{\scriptsize\ReportType}
 
 \begin{document}
-\noindent{\Large\textbf{\ReportTitle}}\\[2pt]
-\ReportAuthor \hfill Data: \DataDate
+\begin{minipage}[t]{0.70\textwidth}
+\vspace{0pt}
+{\small\ReportDate}\par\medskip
+{\color{MemoBlue}\hrule height 0.5pt}\smallskip
+{\large\ReportType}\par
+{\LARGE\bfseries\ReportTitle}\par\medskip
+\ReportScope
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\textwidth}
+\vspace{0pt}\raggedleft
+\colorbox{MemoBlue}{\parbox[c][19mm][c]{0.86\linewidth}{\centering\color{white}\bfseries\TeamName}}\par\medskip
+\DeskName
+\end{minipage}
+\par\bigskip
+{\color{MemoBlue}\hrule height 0.5pt}\medskip
+{\large\KeyFinding}\par\bigskip
 
-\paragraph{Question.} State the finance question, entity or portfolio, period,
-audience, and comparison basis.
+\begin{minipage}[t]{0.61\textwidth}
+\vspace{0pt}\raggedright
+\setlength{\parskip}{4pt}
+\textbf{Scope}\par
+[State the question, entities, reporting periods, and definitions.]
 
-\paragraph{Inputs.} Identify the source, retrieval date, currency, units,
-definitions, assumptions, and missing-value treatment.
+\textbf{Findings}\par
+[Explain the verified results and their relevance to the reader's decision.]
 
-\paragraph{Result.} State the main finding and its practical implication without
-strengthening the conclusion beyond the evidence.
+\textbf{Interpretation}\par
+[Separate reported facts, calculations, assumptions, and judgments.]
 
-% Author captions and notes in report/sections; scripts generate exhibit content.
-% \input{sections/tables}
-% \input{sections/figures}
+\textbf{Risks and limitations}\par
+[State material data gaps, period mismatches, and uncertainty.]
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\textwidth}
+\vspace{0pt}\small
+% Author these non-floating wrappers separately. Use \captionof{table/figure},
+% then a description and \input/\includegraphics of generated content.
+\IfFileExists{sections/tables.tex}{\input{sections/tables.tex}}{
+  \textbf{Key data}\par
+  [Insert a compact checked table, including units and periods.]
+}
+\medskip
+\IfFileExists{sections/figures.tex}{\input{sections/figures.tex}}{
+  \textbf{Supporting chart}\par
+  [Insert a chart with readable labels, units, and a source note.]
+}
+\end{minipage}
+\par\vfill
 
-\paragraph{Checks.} Record an independent calculation, source tie-out,
-reconciliation, or other check. Mark incomplete checks explicitly.
+{\color{MemoRule}\hrule height 0.4pt}\medskip
+\begin{minipage}[t]{0.36\textwidth}
+\vspace{0pt}\small
+\setlength{\parskip}{3pt}
+\textbf{PREPARED BY}\par\ReportAuthor\par\TeamName\par
+\medskip\textbf{COVERAGE}\par\Coverage
+\end{minipage}\hfill
+\begin{minipage}[t]{0.60\textwidth}
+\vspace{0pt}\footnotesize
+\setlength{\parskip}{3pt}
+\textbf{Sources and dates.} Data as of \DataDate.
+[Identify the provider, retrieval date, original files, and source locators.]
 
-\paragraph{Limits.} State data gaps, mismatched periods, model assumptions,
-uncertainty, and alternative explanations.
+\textbf{Checks.} [Record completed verification and any outstanding checks.]
 
+\textbf{Preparation.} [Describe actual methods and relevant AI assistance.]
+\end{minipage}
 \end{document}

@@ -23,6 +23,22 @@ PRESETS = {
         "axes.titlesize": 14, "axes.spines.top": False, "axes.spines.right": False,
         "legend.frameon": True,
     },
+    "dark": {
+        "figure.facecolor": "#1e1e1e", "figure.edgecolor": "#1e1e1e",
+        "axes.facecolor": "#1e1e1e", "axes.edgecolor": "white",
+        "axes.labelcolor": "white", "text.color": "white",
+        "xtick.color": "white", "ytick.color": "white",
+        "grid.color": "gray", "grid.alpha": 0.3, "axes.grid": True,
+        "legend.facecolor": "#1e1e1e", "legend.edgecolor": "white",
+        "savefig.facecolor": "#1e1e1e", "pdf.fonttype": 42,
+    },
+    "minimal": {
+        "figure.figsize": (10, 6), "axes.spines.top": False,
+        "axes.spines.right": False, "axes.spines.left": False,
+        "axes.spines.bottom": False, "axes.grid": False,
+        "xtick.bottom": True, "ytick.left": True, "axes.axisbelow": True,
+        "lines.linewidth": 2.5, "font.size": 12, "pdf.fonttype": 42,
+    },
 }
 
 
@@ -31,6 +47,7 @@ def write_style(name, output):
     for key, value in PRESETS[name].items():
         if isinstance(value, tuple): value = ", ".join(map(str, value))
         elif isinstance(value, bool): value = str(value)
+        elif isinstance(value, str) and value.startswith("#"): value = f'"{value}"'
         lines.append(f"{key}: {value}")
     Path(output).write_text("\n".join(lines) + "\n")
 
@@ -49,8 +66,13 @@ def main():
     if args.preview:
         import matplotlib.pyplot as plt
         with plt.style.context(PRESETS[args.preset]):
-            fig, ax = plt.subplots(); ax.plot([0, 1, 2], [0, 1, .7]); ax.set_title(args.preset)
+            fig, ax = plt.subplots()
+            ax.plot([0, 1, 2], [0, 1, .7])
+            ax.set_title(f"{args.preset} style (illustrative)")
+            if args.output:
+                fig.savefig(args.output.with_name(args.output.stem + "_preview.png"), dpi=150, bbox_inches="tight")
             plt.show()
+            plt.close(fig)
     if not args.output and not args.preview:
         print("Available practitioner presets:", ", ".join(PRESETS))
 

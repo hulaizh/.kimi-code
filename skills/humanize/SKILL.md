@@ -8,7 +8,7 @@ description: "Edit existing prose for natural phrasing, clarity, and appropriate
 
 Edit existing prose so it reads as if a careful person wrote it for a specific reader. Natural writing is not casual by default: finance prose becomes more human through precision, rhythm, specificity, and honest uncertainty.
 
-This is an editing skill, not a way to conceal prohibited AI use. Follow the course or organization's disclosure rules.
+This is an editing skill, not a way to conceal prohibited AI use. Follow the organization's disclosure rules.
 
 ## Process
 

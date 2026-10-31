@@ -1,6 +1,6 @@
 # Editing finance prose
 
-Use this guide for company briefs, investment memos, earnings notes, portfolio and risk commentary, market reports, recurring briefings, and related student assignments.
+Use this guide for company briefs, investment memos, earnings notes, portfolio and risk commentary, market reports, recurring briefings.
 
 ## Reader and purpose
 
@@ -110,9 +110,9 @@ Keep breaches, limits, horizons, confidence levels, scenarios, and missing-data 
 
 Preserve covenant definitions, threshold direction, headroom, payment dates, and conditions attached to approval. In cash forecasts, retain the distinction between contracted flows and assumed collections. In budget commentary, distinguish favorable revenue growth from unfavorable expense overruns; a positive variance is not necessarily good news. In reconciliation notes, do not turn an unresolved difference into a confirmed error or imply that a review has been completed.
 
-### Student reflection or assignment
+### Internal updates and reflections
 
-Keep the student's actual experience and reasoning. Do not add personal encounters, lessons, or opinions to make the text sound more human.
+Keep the writer's actual experience and reasoning. Do not add personal encounters, lessons, or opinions to make the text sound more human.
 
 ## Final fidelity check
 

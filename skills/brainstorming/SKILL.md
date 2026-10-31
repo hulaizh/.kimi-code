@@ -11,7 +11,7 @@ Turn ideas into small, testable designs through collaborative dialogue. The goal
 
 1. **Explore the current context.** Inspect relevant files, data descriptions, documents, and project conventions. Do not change them during brainstorming.
 2. **Frame the task.** Identify the finance question, intended audience, available inputs, expected outputs, constraints, and how the user will judge success.
-3. **Ask material questions one at a time.** Prefer concrete choices. Skip questions that do not change the design; a small classroom exercise should not face an enterprise requirements interview.
+3. **Ask material questions one at a time.** Prefer concrete choices. Skip questions that do not change the design; a small task should not face an enterprise requirements interview.
 4. **Compare approaches when a real choice exists.** Present two or three approaches with trade-offs and a recommendation. For a straightforward task, one well-explained approach is enough.
 5. **Present a brief design.** Cover the components, data flow, finance assumptions, error handling, outputs, and verification at a level matched to the task.
 6. **Resolve consequential ambiguity.** Ask before choosing between materially different objectives. When implementation is already requested and the requirements are clear, state reasonable assumptions and proceed; do not create an extra approval gate.
@@ -22,7 +22,7 @@ Turn ideas into small, testable designs through collaborative dialogue. The goal
 Keep the brief conversational or use these headings when they add clarity:
 
 - **Question:** What finance problem are we answering?
-- **Audience:** Student demonstration, investment committee, analyst, portfolio manager, risk team, or another reader?
+- **Audience:** Demonstration, investment committee, analyst, portfolio manager, risk team, or another reader?
 - **Inputs:** Files, data fields, sources, dates, and user-supplied assumptions.
 - **Output:** Table, figure, memo, report, slides, dashboard, script, or workflow.
 - **Method:** Transformations, calculations, models, and alternatives considered.
@@ -75,7 +75,7 @@ Raise only the checks relevant to the question:
 
 ## Design principles
 
-- Keep components small enough for students to explain and test independently.
+- Keep components small enough for the user to explain and test independently.
 - Prefer the simplest approach that produces an auditable answer.
 - Make generated and student-edited files clearly distinct.
 - Treat errors, missing data, and stale data as expected cases.
