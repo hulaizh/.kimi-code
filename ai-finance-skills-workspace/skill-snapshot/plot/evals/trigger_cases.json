@@ -1,0 +1,81 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "Make a coefficient plot with 95% confidence intervals from these regression results",
+      "family": "econ-coefplot"
+    },
+    {
+      "text": "Create an event-study plot showing dynamic treatment effects with pre and post periods",
+      "family": "econ-event-study"
+    },
+    {
+      "text": "Plot a binscatter of wages against firm size with controls",
+      "family": "econ-binscatter"
+    },
+    {
+      "text": "Draw an RDD plot with a polynomial fit on either side of the cutoff",
+      "family": "econ-rdd"
+    },
+    {
+      "text": "Make a publication-ready scatter plot of total_bill vs tip colored by day using seaborn",
+      "family": "seaborn-eda"
+    },
+    {
+      "text": "Build a multi-panel figure with GridSpec combining a histogram, a heatmap, and a line plot",
+      "family": "matplotlib-multipanel"
+    },
+    {
+      "text": "Plot a correlation heatmap with annotated cells from this dataframe",
+      "family": "heatmap"
+    },
+    {
+      "text": "Generate a 3D surface plot of this Z grid over X and Y",
+      "family": "matplotlib-3d"
+    },
+    {
+      "text": "Save these portfolio-sort decile returns as a clean PDF bar chart for output/figures",
+      "family": "finance-portfolio-sort"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "Build an interactive dashboard where I can filter the chart by year with dropdowns",
+      "family": "interactive-dashboard"
+    },
+    {
+      "text": "Create a React component that renders this data as a live, clickable chart on a web page",
+      "family": "web-ui-chart"
+    },
+    {
+      "text": "Embed this figure into my LaTeX paper with a caption and a label",
+      "family": "latex-embed-figure"
+    },
+    {
+      "text": "Write the sections/figures.tex wrapper with the caption and notes for my event-study figure",
+      "family": "latex-figure-wrapper"
+    },
+    {
+      "text": "Style and beautify this web app's UI so the plots look polished on the landing page",
+      "family": "web-ui-styling"
+    },
+    {
+      "text": "Format my manuscript's figure environment to follow the journal's two-level figure conventions",
+      "family": "latex-conventions"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "Search Zotero and topecon for papers on minimum wage and employment",
+      "family": "literature-search"
+    },
+    {
+      "text": "Run a Callaway-Sant'Anna staggered DID estimator and report the ATT table",
+      "family": "econometrics-estimation"
+    },
+    {
+      "text": "Refactor this Python data-loading function to be more readable",
+      "family": "code-refactor"
+    }
+  ]
+}

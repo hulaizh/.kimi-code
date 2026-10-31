@@ -1,0 +1,77 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "init a new GAN project called credit-spreads",
+      "family": "explicit-init"
+    },
+    {
+      "text": "set up a new research project for my momentum paper",
+      "family": "setup-research-project"
+    },
+    {
+      "text": "start a new paper with the standard folder structure and data/temp symlinks",
+      "family": "new-paper-scaffold"
+    },
+    {
+      "text": "create the project scaffolding for a new empirical asset pricing paper",
+      "family": "scaffolding"
+    },
+    {
+      "text": "scaffold a new GAN paper repo with the LaTeX skeleton and .gitignore",
+      "family": "latex-skeleton"
+    },
+    {
+      "text": "spin up a fresh project folder with CLAUDE.md and GAN state for a JF submission",
+      "family": "gan-state-init"
+    },
+    {
+      "text": "initialize project structure for liquidity-risk, title 'Liquidity Risk and Returns'",
+      "family": "init-with-title"
+    },
+    {
+      "text": "make a new research project directory with output/tables and figures dirs",
+      "family": "folder-structure"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "replicate this published paper and reproduce its main tables",
+      "family": "replication"
+    },
+    {
+      "text": "set me up to reproduce the results from this AER article",
+      "family": "reproduce-results"
+    },
+    {
+      "text": "build a replication of Fama-French 1993 from the original data",
+      "family": "replication-build"
+    },
+    {
+      "text": "give me some research ideas in corporate finance",
+      "family": "ideate"
+    },
+    {
+      "text": "help me find a novel research topic using unique data",
+      "family": "topic-discovery"
+    },
+    {
+      "text": "brainstorm a few causal-identification paper ideas for me",
+      "family": "brainstorm-ideas"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "what's the capital of France",
+      "family": "general-knowledge"
+    },
+    {
+      "text": "fix the failing unit test in my auth module",
+      "family": "unrelated-coding"
+    },
+    {
+      "text": "summarize this PDF about climate policy",
+      "family": "doc-summary"
+    }
+  ]
+}

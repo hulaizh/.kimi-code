@@ -1,0 +1,99 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Import standard style
+\input{style}
+
+%% ============================================
+%% TITLE INFORMATION
+%% ============================================
+
+% Title and author as bare macros (no formatting, no \thanks) so the
+% Internet Appendix header can reuse them. Presentation wrappers
+% (\textbf, \thanks) go on \title / \author below.
+\newcommand{\Title}{Paper Title: A Subtitle if Needed}
+\newcommand{\Author}{Hulai Zhang}
+
+\title{\textbf{\Title}}
+\author{\Author\thanks{Zhang is at International School of Finance, Fudan University, email: \href{mailto:hulaizhang@fudan.edu.cn}{hulaizhang@fudan.edu.cn}.}}
+\date{\today}
+
+
+%% ============================================
+%% DOCUMENT
+%% ============================================
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+
+%% ============================================
+%% ABSTRACT
+%% ============================================
+%%
+%% The abstract is its own section file at sections/abstract.tex.
+%% This keeps a single source of truth: NEVER inline the abstract here.
+%% Edit sections/abstract.tex to change the abstract text, JEL codes, or keywords.
+
+\input{sections/abstract}
+
+
+%% ============================================
+%% MAIN TEXT
+%% ============================================
+
+\onehalfspacing  % the working-paper body spacing (a journal's own is journal_format.py apply's, on acceptance)
+\clearpage
+\setcounter{page}{1}
+
+\input{sections/introduction}
+
+\input{sections/model}
+
+\input{sections/data}
+
+\input{sections/methodology}
+
+\input{sections/results}
+
+\input{sections/robustness}
+
+\input{sections/conclusion}
+
+
+%% ============================================
+%% BIBLIOGRAPHY
+%% ============================================
+
+\onehalfspace
+\clearpage
+\bibliography{ref}
+
+
+%% ============================================
+%% FIGURES (one per page)
+%% ============================================
+
+\clearpage
+\input{sections/figures}
+
+
+%% ============================================
+%% TABLES (one per page)
+%% ============================================
+
+\clearpage
+\input{sections/tables}
+
+
+%% ============================================
+%% INTERNET APPENDIX
+%% ============================================
+
+\clearpage
+\appendix
+\input{sections/appendix}
+
+
+\end{document}

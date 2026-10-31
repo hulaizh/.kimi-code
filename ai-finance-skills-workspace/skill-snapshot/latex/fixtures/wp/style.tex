@@ -1,0 +1,135 @@
+% Standard Style for Academic Finance/Economics Research Papers
+
+%% ============================================
+%% PACKAGES
+%% ============================================
+
+% Language and encoding
+\usepackage[english]{babel}
+
+% Page layout and spacing — the WORKING-PAPER format every draft uses from
+% scaffold to acceptance (user directive 2026-09-21): 12pt font, 1.5 line
+% spacing, 1-inch side margins, 1.5-inch top/bottom margins; manuscripts
+% (excluding the Internet Appendix) fit in 60 pages (the gan plugin's
+% MANUSCRIPT_PAGE_LIMIT, enforced by check_manuscript_page_limit). A
+% journal's own house style is applied once, by the latex skill's
+% journal_format.py, only when the paper is accepted at that journal.
+\usepackage[top=1.5in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{setspace}
+
+% Tables
+\usepackage{array,booktabs,multirow}
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{.}{#1}}   % d{N} = decimal column with N decimal places
+
+% Bibliography (natbib for author-year citations)
+\usepackage[round]{natbib}
+\bibliographystyle{chicago}
+
+% Mathematics
+\usepackage{amsmath,amssymb,bm,amsthm}
+
+% Font (Palatino via mathpazo — matching text and math fonts)
+\usepackage[T1]{fontenc}
+% \usepackage{mathpazo}
+\usepackage{microtype}
+
+% Graphics
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, patterns}
+
+% Float formatting
+\usepackage{floatrow,rotating}
+\newcommand{\smalltabletext}{\fontsize{9}{9}\selectfont}
+\DeclareFloatFont{smalltable}{\smalltabletext}
+\floatsetup[table]{font={singlespacing, smalltable},capposition=top,justification=justified}
+\floatsetup[figure]{font={singlespacing, smalltable},capposition=top,justification=justified}
+\usepackage[font={footnotesize},labelfont=bf,labelsep=period]{caption}
+\usepackage{subcaption}
+% Table/figure NOTES blocks sit inside a \centering float, which would otherwise
+% center (ragged) the notes paragraph. \justifying (ragged2e) restores full
+% justification so notes align to both margins, and \setlength{\parindent}{0pt}
+% (scoped to the note group) suppresses the first-line indent — including the
+% re-indent that would otherwise follow a display equation inside the note.
+% \notes{} wraps the full idiom; spelled-out note blocks must replicate it.
+\usepackage{ragged2e}
+\newcommand{\notes}[1]{{\footnotesize\justifying\setlength{\parindent}{0pt}#1\par}}
+
+% Exhibit numbering — Roman numerals for main-text tables and figures
+% (Table I, Figure II), consistent with the Internet Appendix's IA.\Roman
+% scheme (sections/appendix.tex renews these to IA.\Roman{...} at its start).
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\thefigure}{\Roman{figure}}
+
+% Lists
+\usepackage{enumitem}
+
+% Hyperlinks (must load last to avoid conflicts)
+\usepackage[colorlinks=true, allcolors=blue, pdfusetitle]{hyperref}
+
+
+%% ============================================
+%% THEOREM ENVIRONMENTS
+%% ============================================
+
+\newtheorem{prop}{Proposition}
+\newtheorem{obs}{Observation}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{assumption}{Assumption}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+
+%% ============================================
+%% CUSTOM COMMANDS
+%% ============================================
+
+% Mathematical operators
+\newcommand{\E}{\mathbb{E}}                    % Expectation
+\DeclareMathOperator{\Var}{Var}                 % Variance
+\DeclareMathOperator{\Cov}{Cov}                 % Covariance
+\DeclareMathOperator{\Corr}{Corr}               % Correlation
+\DeclareMathOperator{\diag}{diag}               % Diagonal matrix
+\DeclareMathOperator*{\argmax}{arg\,max}        % Argmax (subscript below in display)
+\DeclareMathOperator*{\argmin}{arg\,min}        % Argmin (subscript below in display)
+
+% Probability and distributions
+\newcommand{\Prob}{\mathbb{P}}                  % Probability
+\newcommand{\Normal}{\mathcal{N}}               % Normal distribution
+\newcommand{\iid}{\stackrel{\text{iid}}{\sim}}  % iid distributed
+
+% Common sets
+\newcommand{\R}{\mathbb{R}}           % Real numbers
+\newcommand{\N}{\mathbb{N}}           % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}           % Integers
+
+% Text in math mode
+\newcommand{\st}{\text{s.t.}}         % Subject to
+\newcommand{\where}{\text{where }}    % where
+
+
+%% ============================================
+%% TABLE FORMATTING DEFAULTS
+%% ============================================
+
+% Standard table spacing
+\renewcommand{\arraystretch}{1.2}
+
+% Fixed-width columns with automatic line breaking
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+%% ============================================
+%% COLORS (for TikZ figures)
+%% ============================================
+
+\definecolor{darkblue}{RGB}{20,0,110}
+\definecolor{darkred}{RGB}{150,0,20}
+\definecolor{darkgreen}{RGB}{34,139,34}
+\definecolor{steelblue}{RGB}{70,130,180}
+\definecolor{darkorange}{RGB}{255,140,0}

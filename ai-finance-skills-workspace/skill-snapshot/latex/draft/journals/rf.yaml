@@ -1,0 +1,29 @@
+# Review of Finance
+journal: RF
+name: Review of Finance
+sources:
+  - "https://www.revfin.org/for-authors/manuscript-guidelines/ (verified 2026-09-12): font size at least 12 points, at least 1.5 line spacing, 1-inch side margins and 1.5-inch top/bottom margins; abstract <= 150 words; the first (title) page numbered page 1; no references to the authors by name, institution or other distinguishing characteristics; at most 60 pages including appendices, bibliography, figures and tables — an Internet Appendix does not count but the paper must be self-contained without it; a separate title page carries the authors' details"
+verified:
+  date: 2026-09-12
+  sections: [layout, length, structure, citations]
+layout:
+  paper: a4paper
+  font_pt: 12
+  margins: {top: 1.5in, bottom: 1.5in, left: 1in, right: 1in}
+  spacing: [onehalf, double]
+length:
+  pages: 60
+  abstract_words: 150
+structure:
+  appendix_title: Internet Appendix
+  exhibits: end
+  title_page: blind
+  jel: true
+  keywords: true
+citations:
+  in_text: citep
+  full_authors_first: false
+house:
+  - id: title_page_numbered_one
+    rule: The title page is numbered page 1 — no \setcounter{page}{1} after it and no \thispagestyle{empty}.
+    locate: '\\setcounter\{page\}\{1\}|\\thispagestyle\{empty\}'

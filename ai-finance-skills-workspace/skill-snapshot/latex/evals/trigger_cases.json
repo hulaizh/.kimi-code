@@ -1,0 +1,97 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "Format my main.tex paper draft to our finance journal conventions",
+      "family": "article-format"
+    },
+    {
+      "text": "Apply the two-level table/figure architecture and self-contained table descriptions to my manuscript",
+      "family": "article-tables"
+    },
+    {
+      "text": "Style my working paper's internet appendix to match the rest of the draft",
+      "family": "internet-appendix"
+    },
+    {
+      "text": "Format my Beamer slides.tex with the Madrid theme, Palatino, and a Roadmap frame",
+      "family": "slides-format"
+    },
+    {
+      "text": "Clean up my job market talk slides to our presentation conventions",
+      "family": "job-market-talk"
+    },
+    {
+      "text": "Run latex-draft on this manuscript to enforce booktabs and citation style",
+      "family": "latex-draft-alias"
+    },
+    {
+      "text": "Fix the formatting of my conference seminar deck in beamer",
+      "family": "slides-beamer"
+    },
+    {
+      "text": "Make my journal submission follow the proper section structure and theorem environments",
+      "family": "journal-submission"
+    },
+    {
+      "text": "Convert my accepted paper to JFQA's house style",
+      "family": "journal-conversion"
+    },
+    {
+      "text": "Prepare the final production files for Management Science",
+      "family": "journal-conversion"
+    },
+    {
+      "text": "The paper was accepted at JFQA — reformat it",
+      "family": "journal-conversion"
+    },
+    {
+      "text": "Reformat my working paper for JFQA submission",
+      "family": "wp-format-under-review"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "Scaffold a new empirical paper repo from scratch with data and output directories",
+      "family": "scaffold-newproj"
+    },
+    {
+      "text": "Set up a fresh project folder structure for my new research project",
+      "family": "scaffold-newproj"
+    },
+    {
+      "text": "Make the actual coefficient plot figure for Table 3",
+      "family": "make-figure-plot"
+    },
+    {
+      "text": "Generate the event-study figure PDF from my regression results",
+      "family": "make-figure-plot"
+    },
+    {
+      "text": "Draft my response letter to the referees for the R&R",
+      "family": "referee-reply"
+    },
+    {
+      "text": "Write point-by-point replies to reviewer comments",
+      "family": "referee-reply"
+    },
+    {
+      "text": "Draft a cover letter to the editor for our revision",
+      "family": "referee-reply"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "Search Zotero for papers on bank capital regulation",
+      "family": "literature-search"
+    },
+    {
+      "text": "Run a difference-in-differences regression on my panel data",
+      "family": "econometrics"
+    },
+    {
+      "text": "What's the current pricing for Claude Opus API tokens?",
+      "family": "llm-pricing"
+    }
+  ]
+}

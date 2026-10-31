@@ -1,0 +1,19 @@
+# %(title)s
+
+> Conventions live elsewhere — `~/.claude/CLAUDE.md` (global rules) + the `gan` plugin skills (GAN loop/mechanics). This file holds ONLY what helps Claude work in THIS project.
+
+## Project Overview
+
+%(hypothesis)s
+
+Target journal: %(target_journal)s. The review bar only — every draft keeps the working-paper format; the journal's format is applied on acceptance.
+
+## Project Structure
+
+Layout contract: `~/.claude/plugins/gan/references/project_layout.md` (src/ tests/ draft/ output/ docs/{plans,notes,slides,submission} logs/ data/ temp/ .proofs/ .gan/).
+
+[Annotate ONLY what is project-specific: the real `src/` pipeline order and entry points, any extra directories, where the theory/proofs live if any.]
+
+## Notes
+
+[Operational knowledge for future sessions: how to run, env/deps, data location, key gotchas.]

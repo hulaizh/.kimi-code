@@ -1,0 +1,219 @@
+# =============================================================================
+# OS & editor junk
+# =============================================================================
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# =============================================================================
+# Secrets & local env (NEVER commit credentials/API keys)
+# =============================================================================
+.env
+.env.*
+.envrc
+!.env.example
+*.pem
+*.key
+
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[codz]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.pdm-python
+.pixi/
+
+# =============================================================================
+# R
+# =============================================================================
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+
+# =============================================================================
+# Stata
+# =============================================================================
+*.smcl
+*.stsem
+
+# =============================================================================
+# Logs & object files (Stata logs, pip logs, gettext/Mata .mo, etc.)
+# =============================================================================
+*.log
+*.mo
+
+# =============================================================================
+# LaTeX aux files
+# =============================================================================
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+*.xdv
+*-blx.bib
+*.pdfsync
+*Notes.bib
+*.pdf_tex
+texput.*
+_minted-*/
+*.listing
+
+# =============================================================================
+# Node (frontend-design skill)
+# =============================================================================
+node_modules/
+
+# =============================================================================
+# Lean 4 build artifacts (only the build cache; .proofs/ itself is tracked)
+# =============================================================================
+.proofs/.lake/
+
+# >>> gan producer registry (generated — never hand-edit; regenerate via gan_producer_registry.py --gitignore)
+# .gan/ — GAN loop state (design §7 producer registry)
+# ===========================================================================
+# BLANKET IGNORE of .gan/ CONTENTS (not the directory itself —
+# git cannot re-include files under an excluded directory).
+# Tracked provenance surfaces are negated (!) below.
+.gan/*
+
+# --- TRACKED directories (re-include all ancestors) ---
+!.gan/decisions/
+.gan/decisions/*
+!.gan/rounds/
+.gan/rounds/*
+!.gan/rounds/round-*/
+.gan/rounds/round-*/*
+# --- IGNORED inside tracked directories ---
+.gan/decisions/.lock
+.gan/decisions/quarantine/
+!.gan/decisions/*.json
+!.gan/rounds/round-*/round_flaws.*.json
+
+# --- TRACKED durable provenance surfaces ---
+!.gan/citation_map.json
+!.gan/current_proposal.json
+!.gan/decision_request.json
+!.gan/flaw_summary.json
+!.gan/generator_memory.jsonl
+!.gan/history.jsonl
+!.gan/infra_issues.jsonl
+!.gan/orchestrator_memory.jsonl
+!.gan/pending_pivot.json
+!.gan/pending_preflight_recovery.json
+!.gan/problem_anchor.json
+!.gan/review_ledger.jsonl
+!.gan/specification.json
+!.gan/specification.locked.json
+!.gan/stage1_handoff.json
+!.gan/stale_outputs_allowlist
+!.gan/state.archive.jsonl
+!.gan/state.jsonl
+!.gan/story_bible.json
+!.gan/style_route.json
+
+# --- IGNORED volatile machine state (explicit) ---
+# lock_files
+.gan/**/*.lock
+# bak_files
+.gan/*.bak
+# premigration
+.gan/.premigration/
+# bib_existence_cache
+.gan/bib_existence_cache.json
+# cache_dir
+.gan/cache/
+# citations_zotero_cache
+.gan/citations_zotero_cache.json
+# cleanup_log
+.gan/cleanup_log.jsonl
+# craft_dir
+.gan/craft/
+# evo_capture_log
+.gan/evo_capture.log
+# execution_log
+.gan/execution_log.jsonl
+# exhibit_citations
+.gan/exhibit_citations.json
+# hook_capture_health
+.gan/hook_capture_health.json
+# hook_events
+.gan/hook_events.jsonl
+# lean_verification
+.gan/lean_verification.json
+# passB_report
+.gan/passB_report.json
+# prose_wordcounts
+.gan/prose_wordcounts.json
+# reopen_intent
+.gan/reopen_intent/
+# review_ledger_view
+.gan/review_ledger.json
+# round_end_report
+.gan/round_end_report.json
+# specification_locked_prev
+.gan/specification.locked.prev.json
+# tier2_snapshots
+.gan/tier2-snapshot-*/
+# transition_intent
+.gan/transition_intent/
+# write_journal
+.gan/write_journal.jsonl
+# <<< gan producer registry
+
+# =============================================================================
+# Claude Code project-local
+# =============================================================================
+.claude/backups/
+*.bak
+*.pre-migrate.bak.*
+
+# =============================================================================
+# Project data directories — symlinks to the /data/ drive. Root-anchored,
+# no trailing slash, so the SYMLINK ENTRY itself is ignored: `data/*` only
+# ignores the contents and tracks the link (repos audited 2026-08-28 had the
+# symlinks on GitHub). logs/ holds every run log (Stata, LaTeX, pipeline);
+# per-machine, never committed.
+# =============================================================================
+/data
+/temp
+/logs

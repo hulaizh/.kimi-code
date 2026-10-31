@@ -1,0 +1,77 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "Build me a landing page for my startup with a memorable, non-generic design",
+      "family": "landing-page"
+    },
+    {
+      "text": "Create a React dashboard component for displaying analytics with polished UI",
+      "family": "react-component"
+    },
+    {
+      "text": "Design a portfolio website with a bold maximalist aesthetic in HTML and CSS",
+      "family": "website"
+    },
+    {
+      "text": "Style this web UI so it doesn't look like generic AI slop",
+      "family": "beautify-ui"
+    },
+    {
+      "text": "Make a single-page app with striking typography and scroll animations",
+      "family": "web-app"
+    },
+    {
+      "text": "Build an HTML/CSS poster page with a retro-futuristic look",
+      "family": "poster"
+    },
+    {
+      "text": "Beautify my pricing page — pick distinctive fonts and a cohesive color theme",
+      "family": "styling"
+    },
+    {
+      "text": "Code a Vue marketing site with custom micro-interactions and a brutalist vibe",
+      "family": "vue-site"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "Make a publication-quality scatter plot of my regression results",
+      "family": "plot-figure"
+    },
+    {
+      "text": "Create a matplotlib figure with subplots for the paper",
+      "family": "plot-figure"
+    },
+    {
+      "text": "Format my beamer slides and fix the LaTeX layout",
+      "family": "latex-slides"
+    },
+    {
+      "text": "Clean up the table formatting in my LaTeX paper",
+      "family": "latex"
+    },
+    {
+      "text": "Write the copy and headline text for my landing page",
+      "family": "draft-copy"
+    },
+    {
+      "text": "Draft the marketing content and section wording for the homepage",
+      "family": "draft-copy"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "Run a fixed-effects regression on my panel data",
+      "family": "econometrics"
+    },
+    {
+      "text": "Search the literature for papers on minimum wage and employment",
+      "family": "literature"
+    },
+    {
+      "text": "Help me debug a SQL query that joins two tables",
+      "family": "database"
+    }
+  ]
+}

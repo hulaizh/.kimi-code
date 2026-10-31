@@ -1,0 +1,9 @@
+# Journal of Political Economy — only what is sourced; an unstated layout or length fact takes the working-paper default, an absent structure or citation fact is never checked.
+journal: JPE
+name: Journal of Political Economy
+sources:
+  - "https://www.journals.uchicago.edu/journals/jpe/instruct (bot-walled on 2026-09-12): abstract <= 150 words carried from the plugin's earlier table; online material is the 'Online Appendix'. Layout, spacing, citation form and title page are NOT encoded — verify on acceptance"
+length:
+  abstract_words: 150
+structure:
+  appendix_title: Online Appendix

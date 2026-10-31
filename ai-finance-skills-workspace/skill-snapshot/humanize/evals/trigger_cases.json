@@ -1,0 +1,113 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "humanize this paragraph, it sounds way too much like ChatGPT",
+      "family": "explicit-humanize"
+    },
+    {
+      "text": "can you de-slop this section? it's full of 'delve' and 'underscore' and em-dashes",
+      "family": "deslop-vocab"
+    },
+    {
+      "text": "this reads too robotic and AI-generated, make it sound more natural and human",
+      "family": "robotic-natural"
+    },
+    {
+      "text": "clean up the AI tone in my discussion section without changing the argument",
+      "family": "ai-tone"
+    },
+    {
+      "text": "remove the AI writing tells from this draft -- the rule-of-three lists and 'It is important to note' phrases",
+      "family": "pattern-removal"
+    },
+    {
+      "text": "the lit review the agent wrote sounds obviously AI, do a final pass to make it sound human",
+      "family": "final-pass-other-skill"
+    },
+    {
+      "text": "edit this referee report so it doesn't read like it came out of an LLM",
+      "family": "academic-deslop"
+    },
+    {
+      "text": "make this sound less generic and more like a real person wrote it, add some voice",
+      "family": "add-voice"
+    },
+    {
+      "text": "帮我把这段话改得不像AI写的",
+      "family": "zh_humanize"
+    },
+    {
+      "text": "去掉这段文字的AI味，太像ChatGPT了",
+      "family": "zh_deai"
+    },
+    {
+      "text": "让这段中文读起来像真人写的，别有翻译腔",
+      "family": "zh_natural"
+    },
+    {
+      "text": "降低这段文本的AI痕迹，去掉首先其次综上所述这种骨架",
+      "family": "zh_scaffold"
+    },
+    {
+      "text": "my NSF project summary reads like ChatGPT wrote it, humanize it without killing the vision",
+      "family": "grant-voice"
+    },
+    {
+      "text": "polish the voice of my NIH specific aims page -- it's full of 'delve' and 'paramount importance' and the aims sound hedged",
+      "family": "grant-voice"
+    },
+    {
+      "text": "this paragraph claims we 'prove' and 'demonstrate' everything -- soften the over-claims to match the evidence",
+      "family": "over-claiming"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "fix the grammar and typos in this paragraph",
+      "family": "grammar-copyedit"
+    },
+    {
+      "text": "copy edit this section for clarity and consistent terminology",
+      "family": "clarity-consistency"
+    },
+    {
+      "text": "write a new introduction for my paper",
+      "family": "generate-content"
+    },
+    {
+      "text": "draft the contribution paragraph from scratch for this study",
+      "family": "generate-content"
+    },
+    {
+      "text": "structure my point-by-point reply to the referees",
+      "family": "rr-response-structure"
+    },
+    {
+      "text": "organize my responses to the three referee reports into a response letter",
+      "family": "rr-response-structure"
+    },
+    {
+      "text": "fill in the NSF proposal template sections from my draft paper",
+      "family": "apply-fund-template"
+    },
+    {
+      "text": "transform my working paper into an NSFC 面上项目 application",
+      "family": "apply-fund-transform"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "run my regression and report the coefficient on firm size",
+      "family": "data-analysis"
+    },
+    {
+      "text": "find papers on monetary policy transmission in Zotero",
+      "family": "literature-search"
+    },
+    {
+      "text": "what's the price per token for Claude Opus",
+      "family": "llm-pricing"
+    }
+  ]
+}
