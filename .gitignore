@@ -1,0 +1,33 @@
+# Credentials and identifiers
+credentials/
+oauth/
+device_id
+
+# Dataset and other folders
+# Keep the complete nested teaching repository out of the parent workspace.
+teaching/
+teaching/**
+
+# Local configuration backups
+config.toml
+config.toml.*.bak
+
+# Runtime and cached state
+bin/
+cache/
+file-history/
+locks/
+logs/
+sessions/
+telemetry/
+updates/
+user-history/
+
+# Machine-local workspace state
+session_index.jsonl
+workspace-trust/
+workspaces.json
+region
+
+# Locally installed plugins
+plugins/
