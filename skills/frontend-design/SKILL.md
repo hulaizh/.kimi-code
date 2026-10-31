@@ -36,7 +36,7 @@ Always handle the relevant cases:
 - **Data states:** loading, empty, partial, stale, unavailable, and error. Never silently replace failed data retrieval with invented values.
 - **Numbers:** consistent precision, thousands separators, explicit percentage and basis-point conventions, and aligned numeric columns.
 - **Charts:** labeled axes and units, honest scales, readable legends, and a clear benchmark or comparison period where relevant.
-- **Risk:** distinguish observed values, estimates, scenarios, and user assumptions. Do not imply that a classroom score is a validated investment recommendation.
+- **Risk:** distinguish observed values, estimates, scenarios, and user assumptions. Do not imply that an illustrative score is a validated investment recommendation.
 - **Accessibility:** keyboard-operable controls, visible focus, sufficient contrast, and meaning that does not depend on red/green alone.
 - **Responsiveness:** preserve the main workflow on laptop and smaller screens; allow wide tables to scroll without trapping the page.
 

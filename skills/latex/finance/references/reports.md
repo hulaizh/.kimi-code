@@ -4,17 +4,19 @@ Use a short A4 memo for a focused finance question. The reader should identify
 the question, source and date, main result, supporting exhibit, and limitation
 without reading a long methods section.
 
-## Recommended order
+## Layout
 
-1. **Question:** entity or portfolio, period, audience, and comparison basis.
-2. **Inputs:** source, retrieval date, units, currency, definitions, and assumptions.
-3. **Result:** the main number or decision-relevant finding.
-4. **Evidence:** a table, chart, calculation, or source passage.
-5. **Checks:** independent arithmetic, source tie-out, or reconciliation.
-6. **Limits:** missing data, mismatched periods, model assumptions, and uncertainty.
+The single [template](../assets/report_template.tex) follows the research memo
+displayed in Lecture 1: sans-serif text, a blue title/team block, a full-width
+finding, narrative on the left, compact key data and a chart on the right, and
+preparer/coverage/source notes below. The lecture PDF used US Letter; this template
+adapts that layout to the requested A4 size. It does not reuse the lecture's
+company figures, institution name, or student labels.
 
-Use the bundled `report_template.tex` as the starting point. Remove optional
-sections rather than filling them with generic prose.
+Replace the header macros and bracketed prompts with actual report content.
+Keep the question, comparison basis, units, dates, findings, and limitations clear.
+Use the report date separately from the data cutoff. Omit unused sections rather
+than inventing analysis or filling the memo with generic prose.
 
 ## Finance conventions
 
@@ -35,7 +37,35 @@ Generated `output/tables/*.tex` files contain only `tabular` content with
 `\toprule`, `\midrule`, and `\bottomrule`. Captions, labels, notes, and source
 descriptions belong in authored files under `report/sections/`. Generated figures
 belong under `output/figures/` and should have readable axes, units, dates, and
-honest scales.
+honest scales. The sidebar wrappers must be non-floating because they are included
+inside a minipage. For a table wrapper in `report/sections/tables.tex`:
+
+```latex
+\captionof{table}{Key data}\label{tab:key-data}
+{\footnotesize State the actual units, periods, and source.\par}
+\input{../output/tables/key_data.tex}
+```
+
+Use `\captionof{figure}` and `\includegraphics[width=\linewidth]{...}` for the chart
+wrapper. The sidebar is about 6.2 cm wide: prepare charts for that display width
+with legible final labels, rather than scaling a large figure down indiscriminately.
+A wide table belongs in a full-width section outside the sidebar; do
+not squeeze it until labels are unreadable. Keep longer prose in normal page
+flow rather than an overfull minipage. Preserve an existing report's layout when
+the request is only a correction.
+
+## Compilation
+
+From the project root, substitute the installed skill directory:
+
+```sh
+python3 <latex-skill-dir>/scripts/compile_pdf.py report/main.tex
+python3 <latex-skill-dir>/scripts/compile_pdf.py report/main.tex --engine xelatex
+```
+
+The helper compiles in the source file's directory so exhibit paths resolve.
+For Chinese, set `\ChineseMemotrue` in the same template and translate its labels;
+XeLaTeX loads the bundled Fandol fonts. Do not send Chinese text to pdfLaTeX.
 
 ## Final pass
 

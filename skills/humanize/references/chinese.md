@@ -1,159 +1,89 @@
-# Humanize — Chinese (中文) Adaptation
+# 中文金融写作
 
-Read this when the text to humanize is **Chinese**. The 29 patterns in `SKILL.md` are
-English-native; this file (a) says which of them change or drop in Chinese, and (b) adds
-the **Chinese-native AI tells** that the English list does not cover. The biggest source
-of "AI 味" in Chinese is *structural scaffolding + 套话 + 翻译腔* — not the English
-vocabulary list. Fix those first.
+适用于研报、信用备忘录、财务分析、投资组合评论、风险说明和内部汇报。
+目标是清楚、自然、准确，保留作者的判断和语气。专业文字无需刻意口语化。
 
-Goal is the same: remove AI artifacts **and** restore a human voice (有观点、有具体、有节奏).
-Do not flatten the text into 干净但无灵魂的 press-release 中文. Every tell below carries a
-**改前 → 改后** so you imitate the move, not just the rule.
+## 先守住事实
 
-**Mixed EN/中文 text** (common in Chinese econ/finance papers): apply BOTH this file and the
-English patterns — de-slop the Chinese prose here, and fix English terms / dashes / quotes via
-`SKILL.md` + `references/finance.md`.
+不要为了让文字更具体而补入数字、日期、原因、比较对象、案例、引用或个人感受。
+原文缺少依据时，指出缺口；不要把“改善”“稳健”等形容词替换成编造的幅度。
+保留预测、条件、否定、风险提示和尚未完成的核验。中英混排时保留已有术语、
+产品名、标识符和作者采用的翻译约定。金融含义另见 [finance.md](finance.md)。
 
----
+以下例子仅演示文字编辑，改后使用的事实都在改前出现。
 
-## Part A — How the 29 English patterns map to Chinese
+## 常见问题
 
-| EN pattern | In Chinese |
-|---|---|
-| 7 AI vocabulary | Replace with the **Chinese** slop list in Part C (the English words rarely appear). |
-| 8 Copula avoidance ("serves as") | Chinese analogue = **弱动词框架**: 起到了…的作用 / 成为…的关键 / 扮演着…的角色 → 用实义动词 (是/有/能). |
-| 9 Negative parallelism | 直接对应: 这不仅仅是…而是… / 与其说…不如说… → 直说要点. |
-| 10 Rule of three | 对应排比堆砌 (见 B-4). |
-| 13 Dashes/hyphens | 中文无连字符问题；但 **—— 破折号滥用**很常见 → 用逗号/句号. 英文连字符 N/A. |
-| 16 Title Case headings | **不适用** (中文无大小写). Skip. |
-| 18 Curly quotes | 中文本就用 「」/“”；真正的 tell 是**英文直引号 ' " 混入中文**，或全角/半角引号混用 → 统一中文引号. |
-| 17 Emojis | 同样删除. |
-| 22 Narrator intrusion | 强烈对应 (见 B-6: 值得注意的是 / 不难发现). |
-| 25 Transition overuse | 对应**结构骨架词** (见 B-1: 首先/其次/最后, 此外/同时/然而). |
-| 26 Section-ending summary | 对应 综上所述 / 总而言之 / 总的来说 (见 B-1). |
-| 1,3,4,5,6,19,20,21,23,24 | Concepts transfer directly; rewrite using Chinese equivalents (具体事实、点名来源、删谄媚). |
+### 套话与冗余开场
 
-Everything else (significance inflation, vague attribution, hedging, generic conclusions,
-hourglass structure, soulless rhythm) applies the same way — just in Chinese.
+改前：值得注意的是，本季度营业收入同比增长了 8%，这体现了营业收入的增长。
 
----
+改后：本季度营业收入同比增长 8%。
 
-## Part B — Chinese-native AI tells (the real work)
+删去没有信息的开场和重复，不增加增长原因或评价。
 
-Each tell shows a **改前 → 改后**. Imitate the move.
+### 弱动词与过长句式
 
-### B-1. 结构骨架 / 套式过渡 (formulaic scaffolding)
-The #1 AI tell in Chinese. The LLM forces ideas into a visible skeleton: 序数骨架
-(**首先…其次…再次…最后**、**一方面…另一方面**), 收尾套话 (**综上所述 / 总而言之 /
-总的来说 / 由此可见**), 过渡连词堆叠 (**此外 / 同时 / 然而 / 因此** at every sentence head).
-- **改前:** 首先，本文研究了 X；其次，我们发现了 Y；再次，进一步分析表明 Z；最后，综上所述，本文具有重要意义。
-- **改后:** 本文研究 X，发现 Y。进一步分析表明 Z。
-- **Fix:** delete the skeleton; let logic carry the order. Keep an ordinal only when the sequence is real and load-bearing.
+改前：财务团队对未匹配交易进行了逐笔核查，并对其中三笔作出了更正。
 
-### B-2. 的的不休 / 冗余虚词 (over-stacked 的, 了, 着, 进行)
-- **改前:** 这是一个具有重要现实意义的、行之有效的解决方案。
-- **改后:** 这个方案有效。
-- **Fix:** 拆长定语为短句，删可去的"的/地"，one 的 per noun phrase.
+改后：财务团队逐笔核查未匹配交易，并更正了其中三笔。
 
-### B-3. 弱动词 + 介词框架 (verb weakening / preposition padding)
-进行/予以/加以/作出 + 名词；对…进行 / 通过…的方式 / 在…方面 / 关于…的问题.
-- **改前:** 本文对该问题进行了深入的研究，并通过实证的方式作出了分析。
-- **改后:** 本文实证分析了该问题。
-- **Fix:** use the real verb; drop the 对/通过/在…方面 shell.
+使用直接的动词，保留已完成与未完成工作的区别。
 
-### B-4. 排比 / 四字格堆砌 (forced parallelism & idiom stacking)
-不仅…而且…更…；既…又…还…；四字成语连用 (日新月异、保驾护航、提质增效、行稳致远).
-- **改前:** 该政策不仅提质增效，而且行稳致远，更为高质量发展保驾护航。
-- **改后:** 该政策把企业合规成本降了约 8%，且没有抑制投资。
-- **Fix:** keep at most one parallel pair that earns its place; replace idiom chains with one concrete fact.
+### 结构词堆叠
 
-### B-5. 背景套话开场 (boilerplate openers)
-随着…的不断发展 / 在…的大背景下 / 在当今…的时代 / 近年来，随着… / 众所周知.
-- **改前:** 随着数字经济的不断发展，在新时代的大背景下，数据已成为关键生产要素。
-- **改后:** 2023 年中国数据要素市场规模达 1.2 万亿元。
-- **Fix:** cut it; open on the specific claim.
+改前：首先，收入增长 8%；其次，营业利润率下降 1.2 个百分点；最后，
+管理层尚未解释利润率下降的原因。
 
-### B-6. 叙述者插入 (narrator intrusions)
-值得注意的是 / 需要指出的是 / 不难发现 / 我们可以看到 / 显而易见 / 由此可见 / 不可否认.
-- **改前:** 值得注意的是，数据显示销量同比增长了 20%。
-- **改后:** 销量同比增长 20%。
-- **Fix:** delete; state the fact directly.
+改后：收入增长 8%，营业利润率下降 1.2 个百分点。管理层尚未解释利润率下降的原因。
 
-### B-7. 拔高 / 宣传腔 (significance & promo inflation, Chinese register)
-至关重要 / 不可或缺 / 具有重要意义 / 起到了关键作用 / 极大地 / 显著地 / 有效地 / 切实 /
-全面 / 深刻；动词流行语 助力 / 赋能 / 打造 / 构建 / 凸显 / 彰显 / 谱写…新篇章.
-- **改前:** 该机制至关重要，极大地提升了市场效率，具有重要的理论意义。
-- **改后:** 该机制使买卖价差收窄了约 15 个基点。
-- **Fix:** replace with a concrete magnitude or mechanism.
+真实的操作顺序、分类或时间关系仍可使用编号；不要机械删除连接词。
 
-### B-8. 空泛结论 (empty conclusions)
-未来可期 / 前景广阔 / 任重道远 / 仍需进一步探索 / 必将….
-- **改前:** 总之，该领域前景广阔、未来可期，仍需学界进一步探索。
-- **改后:** 下一步可检验该机制在中小银行样本中是否仍成立。
-- **Fix:** give a specific plan, number, or open question.
+### 数字与单位
 
-### B-9. 翻译腔 (machine-translation stiffness)
-被动滥用 (被认为是 / 被广泛应用于)；英式量词 (一个 + 抽象名词 照搬 a/an)；生硬指代
-(滥用 其/之/该/此；这使得…成为可能；作为一名…，我).
-- **改前:** 这一发现被认为是具有开创性的，它使得对市场行为的理解成为可能。
-- **改后:** 这一发现首次解释了散户为何在财报日后追涨。
-- **Fix:** natural 中文 word order; drop redundant 一个/被; prefer active voice.
+改前：净利率从 10% 上升到 12%，上升幅度为 2 个百分点。
 
-### B-10. 标点与排版 (punctuation / format tells)
-—— 破折号滥用；全角/半角混用（中文里夹半角逗号/括号）；正文塞 "1. … 2. …" 编号或
-"**重点：** 说明" 内联标题；中英标点不一致.
-- **改前:** 本文研究了三个问题——市场结构、定价、以及福利, 并得出结论。
-- **改后:** 本文研究市场结构、定价与福利三个问题。
-- **Fix:** 统一全角中文标点；列表化结构改写成段落；—— 改逗号/句号.
+改后：净利率由 10% 升至 12%，提高 2 个百分点。
 
----
+保留百分比、百分点、基点、币种和金额尺度。若原文数值矛盾，单独指出，
+不要借润色悄悄修正分析。
 
-## Part C — Chinese AI-vocabulary watchlist
+### 条件与预测
 
-Replace with plain words; these cluster in AI 中文:
+改前：若客户按约定日期付款，预计月底现金余额为人民币 1200 万元。
 
-**学术腔 slop:** 深入探讨、揭示、表明、进一步、持续、不断、显著、极大地、充分、有效、切实、
-全面、深刻、重要意义、积极作用、有机结合、高度重视、相辅相成、奠定了坚实基础。
+改后：如果客户按期付款，预计月底现金余额为人民币 1200 万元。
 
-**互联网黑话:** 赋能、抓手、闭环、链路、沉淀、维度、颗粒度、底层逻辑、范式、生态、心智、
-护城河、对齐、拉通、复盘、打法、势能。
+不能删去“如果”或“预计”，也不能把预测改成已经实现的现金余额。
 
-**Over-correction guard:** these are *suspects, not bans*. Keep a word when it is the precise,
-ordinary term ("显著" inside "统计显著" is correct; "构建模型" is fine in a theory paper).
-Removing a tell must not change the meaning or strip a legitimate technical term — when in
-doubt, rewrite the sentence rather than swapping the word.
+### 缺少依据的评价
 
----
+改前：公司本季度表现强劲，盈利能力显著改善。
 
-## Part D — Worked example (full paragraph, two-pass)
+可用改写：公司本季度表现强劲，盈利能力明显改善。
 
-**改前 (满是 AI 味):**
-> 随着人工智能技术的不断发展，在数字经济的大背景下，AI 写作工具正在深刻地改变着内容生产的方式。首先，这些工具极大地提升了生产效率；其次，它们有效赋能了广大创作者；再次，更是助力了行业的提质增效。值得注意的是，这一变革不仅具有重要的现实意义，而且影响深远。综上所述，AI 写作的前景广阔、未来可期。
+另注：原文未提供支持这项判断的指标或幅度。
 
-**Pass 1 — 哪里一眼像 AI？** 背景套话开场 (随着…大背景下)；骨架 (首先/其次/再次/综上所述)；拔高词 (极大地/深刻地/赋能/助力/提质增效)；叙述者插入 (值得注意的是)；空泛结论 (前景广阔、未来可期)；零具体事实。
+保留原有判断，指出证据缺口。不得补入利润增长率、利润率变化或成本解释。
 
-**改后 (去味 + 有声音 + 有具体):**
-> AI 写作工具正在改变内容生产——我对此感受复杂。它确实快，一篇初稿几秒就出来；可产出的文字往往一眼就能看出是机器写的：套话多、信息少。真正稀缺的从来不是把字凑齐，而是有人愿意为每一句话负责。
+### 风险与结论边界
 
-The 改后 has a point of view (感受复杂), a concrete contrast (快 vs. 一眼看出是机器写的),
-and varied rhythm — it embodies "add soul", not just deletion.
+改前：在获得担保后，可有条件批准授信；担保文件目前尚未完成审核。
 
----
+改后：获得担保后可有条件批准授信，但担保文件尚未审核完毕。
 
-## Part F — Quality score (改写后自评, /50)
+保留前提、审批状态与未完成的工作，不把有条件建议写成确定批准。
 
-Rate the rewrite 1–10 on each, target ≥ 8 (below 40/50 → run the two-pass audit again, see SKILL.md Output Format):
-1. **自然度** — reads like a 中文 native wrote it (no 翻译腔, no 骨架).
-2. **信息密度/具体性** — concrete facts & magnitudes replaced vague 拔高.
-3. **语气/声音** — has a point of view and appropriate register (not press-release).
-4. **结构/节奏** — varied sentence length; no 首先…最后…综上 skeleton.
-5. **无AI痕迹** — none of the Part B/C tells remain; meaning unchanged.
+## 用词与格式
 
----
+- 优先用具体的业务动词，少用“赋能”“全面提升”“具有重要意义”等空泛表述。
+- 不按词表机械替换；“构建模型”“统计显著”等词在合适语境中可以保留。
+- 中文正文使用一致的标点；代码、文件路径、股票代码和公式保持原样。
+- 列表用于真正并列的信息或步骤。保留已有标题和格式，除非它们妨碍阅读。
+- 不添加作者没有表达的情绪、经历或投资立场。
 
-## Attribution
+## 最后核对
 
-Chinese pattern set adapted from **op7418/humanizer-zh** (which translates **blader/humanizer**
-and the Wikipedia *Signs of AI writing* guide, plus the **hardikpandya/stop-slop** checklist &
-scoring). The Chinese-native tells (Part B), worked example (Part E), and finance-Chinese
-guidance (Part D) are additions beyond that source.
+逐项核对数字、单位、日期、名称、来源、预测、条件、否定和风险表述。
+返回润色后的文字和简短修改说明；需要进一步分析的问题另列，不把它们
+悄悄写成已经证实的结论。

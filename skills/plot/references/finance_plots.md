@@ -1,6 +1,6 @@
 # Finance plotting guide
 
-Use these patterns for student investment, portfolio, risk, earnings, and peer-analysis figures. Adapt the calculations to the supplied data definitions rather than assuming a field name implies a convention.
+Use these patterns for investment, portfolio, risk, earnings, and peer-analysis figures. Adapt the calculations to the supplied data definitions rather than assuming a field name implies a convention.
 
 ## Indexed performance
 

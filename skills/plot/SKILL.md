@@ -20,7 +20,7 @@ Read [references/finance_plots.md](references/finance_plots.md) before creating 
 
 ## Output modes
 
-### Standalone course or industry figure
+### Standalone finance figure
 
 This is the default. Save a PNG at 300 dpi to `output/figures/` unless the user requests another format. Include:
 
@@ -34,7 +34,7 @@ This is the default. Save a PNG at 300 dpi to `output/figures/` unless the user 
 
 Save PDF when vector output is useful, or PNG when requested. Keep the axis labels and data annotations. The title may be omitted when the LaTeX caption supplies it; do not duplicate a long caption inside the image. Coordinate with the `latex` skill for wrappers and notes.
 
-For a quick notebook-free exploration, a title is always acceptable. The important distinction is whether the figure must stand alone, whether it is a standalone or embedded figure.
+Use a title and source note when the figure must stand alone. For an embedded figure, keep those details in its report wrapper.
 
 ## Finance checks
 
@@ -94,6 +94,10 @@ Use the actual dates and source from the data rather than copying this example's
 
 ## Specialized figures
 
+- To export a reusable style, use [scripts/style_configurator.py](scripts/style_configurator.py):
+  `--list` shows the finance, presentation, web, dark, and minimal presets;
+  `--preset finance --output chart.mplstyle` saves one. `--preview` displays an
+  illustrative chart and also saves `chart_preview.png` when an output path is supplied.
 - For core matplotlib APIs and multi-panel layouts, read [references/matplotlib_core.md](references/matplotlib_core.md).
 - For seaborn statistical plots, read [references/seaborn_core.md](references/seaborn_core.md).
 - For typography, palettes, and sizing, read [references/styling_guide.md](references/styling_guide.md).

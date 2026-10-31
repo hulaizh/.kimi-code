@@ -1,5 +1,9 @@
 # Skill adaptation
 
+Historical adaptation record. The current practitioner review and verification
+are documented in `2026-10-31-practitioner-review.md`; the older validation counts
+below do not describe the current installed skill set.
+
 ## Scope
 
 Updated the six skills in `~/.kimi-code/skills/` and the two shared skills in `~/.agents/skills/`. Teaching slides and materials were not edited. Original skills were preserved in Git and in `ai-finance-skills-workspace/industry-adaptation/skill-snapshot/`.
