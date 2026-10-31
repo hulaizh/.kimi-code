@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Root analysis.py and prices.csv remain in place with their original contents",
+      "passed": true,
+      "evidence": "Checked exact contents of both root files."
+    },
+    {
+      "text": "No scaffold directories, AGENTS.md, or destination files are created",
+      "passed": true,
+      "evidence": "Project root entries after the run: ['analysis.py', 'prices.csv']."
+    },
+    {
+      "text": "run.log previews moving analysis.py to src/analysis.py and prices.csv to data/raw/prices.csv",
+      "passed": true,
+      "evidence": "Checked run.log for both planned move destinations."
+    },
+    {
+      "text": "run.log previews scaffold creation and reports no actual moves",
+      "passed": true,
+      "evidence": "Checked for scaffold preview messages and absence of actual move messages."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "recommended_threshold": 0.45,
+  "should_trigger": [
+    {
+      "text": "start a new student project called airline-peer-analysis with our standard folders",
+      "family": "student-project"
+    },
+    {
+      "text": "initialize a conservative project for my portfolio risk report",
+      "family": "finance-assignment"
+    },
+    {
+      "text": "scaffold a project folder for an earnings-call analysis and presentation",
+      "family": "analysis-presentation"
+    },
+    {
+      "text": "create the standard project setup for my AI Coding in Finance coursework",
+      "family": "course-project"
+    },
+    {
+      "text": "set up project folders for a small Python market snapshot task",
+      "family": "small-finance-task"
+    },
+    {
+      "text": "preview a new project called factor-report without creating files yet",
+      "family": "dry-run"
+    },
+    {
+      "text": "add the missing standard folders to this student project but don't overwrite anything",
+      "family": "resume-scaffold"
+    },
+    {
+      "text": "newproj bank-valuation --git",
+      "family": "explicit-newproj"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "create a Beamer presentation inside my existing project's slides folder",
+      "family": "slides-only"
+    },
+    {
+      "text": "make a line chart from the CSV in my existing project",
+      "family": "plot-only"
+    },
+    {
+      "text": "brainstorm an investment research question for my assignment",
+      "family": "brainstorm-only"
+    },
+    {
+      "text": "clean the raw data in my current finance project",
+      "family": "existing-project-analysis"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "what's the capital of France",
+      "family": "general-knowledge"
+    },
+    {
+      "text": "fix the failing unit test in my auth module",
+      "family": "unrelated-coding"
+    },
+    {
+      "text": "summarize this PDF about climate policy",
+      "family": "doc-summary"
+    }
+  ]
+}

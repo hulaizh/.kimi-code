@@ -1,0 +1,14 @@
+[
+  {
+    "query": "Create an empty cash-forecast project with standard folders.",
+    "should_trigger": true
+  },
+  {
+    "query": "Preview the missing scaffold files in my existing project.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write the cash-flow forecasting function in this established project.",
+    "should_trigger": false
+  }
+]

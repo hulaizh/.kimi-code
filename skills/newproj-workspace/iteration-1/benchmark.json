@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "skill_name": "newproj",
+    "skill_path": "/Users/hulaizh/.kimi-code/skills/newproj",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-10-31T03:30:48Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 68.043,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "analysis.py moves from the project root to src/analysis.py with its content preserved",
+          "passed": true,
+          "evidence": "Checked src/analysis.py exists, is nonempty, and root analysis.py is absent."
+        },
+        {
+          "text": "test_analysis.py moves from the project root to tests/test_analysis.py with its content preserved",
+          "passed": true,
+          "evidence": "Checked tests/test_analysis.py exists, is nonempty, and root test_analysis.py is absent."
+        },
+        {
+          "text": "prices.csv, chart.png, memo.pdf, and deck.pptx move respectively to data/raw, output/figures, report, and slides with contents preserved",
+          "passed": true,
+          "evidence": "Checked all four destination files exist, are nonempty, and their root counterparts are absent."
+        },
+        {
+          "text": "notes.txt and pyproject.toml remain unchanged in the project root",
+          "passed": true,
+          "evidence": "Checked notes.txt and pyproject.toml remain in the project root."
+        },
+        {
+          "text": "The standard scaffold and AGENTS.md are created without overwriting existing work",
+          "passed": true,
+          "evidence": "Checked AGENTS.md and representative standard directories exist."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 58.665,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Root analysis.py remains in place with content exactly 'source'",
+          "passed": true,
+          "evidence": "Root analysis.py content: 'source'."
+        },
+        {
+          "text": "Existing src/analysis.py remains unchanged with content exactly 'destination'",
+          "passed": true,
+          "evidence": "Destination analysis.py content: 'destination'."
+        },
+        {
+          "text": "prices.csv moves to data/raw/prices.csv with its content preserved",
+          "passed": true,
+          "evidence": "Checked exact CSV content at data/raw/prices.csv and absence at the root."
+        },
+        {
+          "text": "run.log reports that the analysis.py move was skipped because the destination exists",
+          "passed": true,
+          "evidence": "Checked run.log for the explicit collision skip message."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 36.384,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Root analysis.py and prices.csv remain in place with their original contents",
+          "passed": true,
+          "evidence": "Checked exact contents of both root files."
+        },
+        {
+          "text": "No scaffold directories, AGENTS.md, or destination files are created",
+          "passed": true,
+          "evidence": "Project root entries after the run: ['analysis.py', 'prices.csv']."
+        },
+        {
+          "text": "run.log previews moving analysis.py to src/analysis.py and prices.csv to data/raw/prices.csv",
+          "passed": true,
+          "evidence": "Checked run.log for both planned move destinations."
+        },
+        {
+          "text": "run.log previews scaffold creation and reports no actual moves",
+          "passed": true,
+          "evidence": "Checked for scaffold preview messages and absence of actual move messages."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 49.756,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "analysis.py moves from the project root to src/analysis.py with its content preserved",
+          "passed": false,
+          "evidence": "Failed. Checked src/analysis.py exists, is nonempty, and root analysis.py is absent."
+        },
+        {
+          "text": "test_analysis.py moves from the project root to tests/test_analysis.py with its content preserved",
+          "passed": false,
+          "evidence": "Failed. Checked tests/test_analysis.py exists, is nonempty, and root test_analysis.py is absent."
+        },
+        {
+          "text": "prices.csv, chart.png, memo.pdf, and deck.pptx move respectively to data/raw, output/figures, report, and slides with contents preserved",
+          "passed": false,
+          "evidence": "Failed. Checked all four destination files exist, are nonempty, and their root counterparts are absent."
+        },
+        {
+          "text": "notes.txt and pyproject.toml remain unchanged in the project root",
+          "passed": true,
+          "evidence": "Checked notes.txt and pyproject.toml remain in the project root."
+        },
+        {
+          "text": "The standard scaffold and AGENTS.md are created without overwriting existing work",
+          "passed": true,
+          "evidence": "Checked AGENTS.md and representative standard directories exist."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 36.627,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Root analysis.py remains in place with content exactly 'source'",
+          "passed": true,
+          "evidence": "Root analysis.py content: 'source'."
+        },
+        {
+          "text": "Existing src/analysis.py remains unchanged with content exactly 'destination'",
+          "passed": true,
+          "evidence": "Destination analysis.py content: 'destination'."
+        },
+        {
+          "text": "prices.csv moves to data/raw/prices.csv with its content preserved",
+          "passed": false,
+          "evidence": "Failed. Checked exact CSV content at data/raw/prices.csv and absence at the root."
+        },
+        {
+          "text": "run.log reports that the analysis.py move was skipped because the destination exists",
+          "passed": false,
+          "evidence": "Failed. Checked run.log for the explicit collision skip message."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 37.138,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Root analysis.py and prices.csv remain in place with their original contents",
+          "passed": true,
+          "evidence": "Checked exact contents of both root files."
+        },
+        {
+          "text": "No scaffold directories, AGENTS.md, or destination files are created",
+          "passed": true,
+          "evidence": "Project root entries after the run: ['analysis.py', 'prices.csv']."
+        },
+        {
+          "text": "run.log previews moving analysis.py to src/analysis.py and prices.csv to data/raw/prices.csv",
+          "passed": false,
+          "evidence": "Failed. Checked run.log for both planned move destinations."
+        },
+        {
+          "text": "run.log previews scaffold creation and reports no actual moves",
+          "passed": true,
+          "evidence": "Checked for scaffold preview messages and absence of actual move messages."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 54.364,
+        "stddev": 16.2618,
+        "min": 36.384,
+        "max": 68.043
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.55,
+        "stddev": 0.1803,
+        "min": 0.4,
+        "max": 0.75
+      },
+      "time_seconds": {
+        "mean": 41.1737,
+        "stddev": 7.4369,
+        "min": 36.627,
+        "max": 49.756
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.45",
+      "time_seconds": "+13.2",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "The without_skill configuration uses the pre-change skill snapshot as its baseline.",
+    "Each case ran once per version; the results do not estimate run-to-run variance.",
+    "Basic scaffold creation and no-overwrite behavior passed in both versions and do not distinguish the change.",
+    "The old version failed the recognized-file routing and dry-run move-preview checks.",
+    "Token counts were unavailable in the runtime notifications; zero-valued token metrics should not be interpreted as measured usage."
+  ]
+}
