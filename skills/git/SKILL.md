@@ -11,11 +11,11 @@ remote branch tips agree, with no work lost and no shared history rewritten.
 
 ## Repository-specific exclusions
 
-In `/Users/hulaizh/.kimi-code`, these directories are local-only:
+From the repository root, these directories are local-only:
 
 - `teaching/`
-- `/docs/`
-- `/ai-finance-skills-workspace/`
+- `docs/`
+- `ai-finance-skills-workspace/`
 
 Keep them ignored and never stage or push files under them during routine
 synchronization. Check the staged path list before committing so these paths
