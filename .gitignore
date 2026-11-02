@@ -27,6 +27,10 @@ Temporary Items/
 teaching/
 teaching/**
 
+# Local workspace directories
+/ai-finance-skills-workspace/
+/docs/
+
 # Local configuration backups
 config.toml
 config.toml.*.bak
