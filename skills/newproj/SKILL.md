@@ -33,7 +33,7 @@ project/
 └── .logs/
 ```
 
-The contents of `data/`, `temp/`, `.state/`, and `.logs/` are Git-ignored, while their placeholders remain trackable.
+The contents of `data/raw/`, `data/processed/`, and `temp/` are Git-ignored. Hidden files and directories throughout the project are also Git-ignored, except `.gitignore` and `.env.example`. The scaffold does not create `.gitkeep` placeholders because Git does not track empty directories; existing placeholders are left untouched when completing an existing scaffold.
 
 The fixed scaffold retains `data/processed/` for projects that use it. Project instructions take precedence: when intermediate data belongs in `temp/`, use that directory and leave `data/processed/` unused. Do not alter folder roles silently.
 
