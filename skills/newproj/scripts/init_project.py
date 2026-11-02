@@ -116,6 +116,45 @@ def write_if_missing(path: Path, content: str, dry_run: bool) -> None:
     print(f"Created {path}")
 
 
+HIDDEN_GITIGNORE_BLOCK = """# Hidden files and directories
+.*
+!.gitignore
+!.env.example
+"""
+
+
+def ensure_gitignore(project: Path, template: str, dry_run: bool) -> None:
+    path = project / ".gitignore"
+    if not path.exists():
+        write_if_missing(path, template, dry_run)
+        return
+    content = path.read_text(encoding="utf-8")
+    if HIDDEN_GITIGNORE_BLOCK in content:
+        return
+    prefix = "" if not content else ("\n" if content.endswith("\n") else "\n\n")
+    if dry_run:
+        print(f"Would append hidden-file rules to {path}")
+        return
+    with path.open("a", encoding="utf-8") as gitignore:
+        gitignore.write(prefix + HIDDEN_GITIGNORE_BLOCK)
+    print(f"Updated {path}")
+
+
+def remove_empty_gitkeep(project: Path, dry_run: bool) -> None:
+    for placeholder in project.rglob(".gitkeep"):
+        if ".git" in placeholder.relative_to(project).parts:
+            continue
+        if placeholder.is_symlink() or not placeholder.is_file():
+            continue
+        if placeholder.stat().st_size:
+            print(f"Skipped {placeholder}: file is not empty")
+        elif dry_run:
+            print(f"Would remove {placeholder}")
+        else:
+            placeholder.unlink()
+            print(f"Removed {placeholder}")
+
+
 def destination_for(path: Path) -> str | None:
     suffix = path.suffix.lower()
     if suffix in SOURCE_SUFFIXES:
@@ -180,9 +219,10 @@ def main() -> int:
         else:
             directory.mkdir(parents=True, exist_ok=True)
 
+    remove_empty_gitkeep(project, dry_run)
     write_if_missing(project / "AGENTS.md", AGENTS_TEMPLATE.format(title=title), dry_run)
     template = Path(__file__).with_name("gitignore_template.txt").read_text(encoding="utf-8")
-    write_if_missing(project / ".gitignore", template, dry_run)
+    ensure_gitignore(project, template, dry_run)
     organize_loose_files(project, dry_run)
 
     if args.git and not (project / ".git").exists():

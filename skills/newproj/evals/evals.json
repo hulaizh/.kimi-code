@@ -39,6 +39,19 @@
         "run.log previews moving analysis.py to src/analysis.py and prices.csv to data/raw/prices.csv",
         "run.log previews scaffold creation and reports no actual moves"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Using the provided newproj skill, migrate an existing nonempty project in the run's outputs/project directory. Create empty src/.gitkeep and notes/.gitkeep files, a nonempty docs/.gitkeep containing 'keep', and a root .gitignore containing 'custom-rule' without a trailing newline. Run the initializer twice with --force and save both outputs to outputs/run.log.",
+      "expected_output": "Empty placeholders are removed, the nonempty placeholder is preserved, existing ignore content is retained, and the hidden-file block is appended exactly once across both runs.",
+      "files": [],
+      "expectations": [
+        "Empty src/.gitkeep and notes/.gitkeep files are removed",
+        "The nonempty docs/.gitkeep remains unchanged with content exactly 'keep'",
+        ".gitignore retains custom-rule and contains exactly one hidden-file block",
+        "Hidden files and directories are ignored while .gitignore and .env.example remain trackable",
+        "The second run neither duplicates ignore rules nor recreates placeholders"
+      ]
     }
   ]
 }
