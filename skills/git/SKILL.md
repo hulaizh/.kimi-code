@@ -9,23 +9,14 @@ Use this skill for routine repository synchronization. The target state is a
 working branch whose relevant local work is committed and whose local and
 remote branch tips agree, with no work lost and no shared history rewritten.
 
-## Repository-specific exclusions
-
-From the repository root, these directories are local-only:
-
-- `teaching/`
-- `docs/`
-- `ai-finance-skills-workspace/`
-
-Keep them ignored and never stage or push files under them during routine
-synchronization. Check the staged path list before committing so these paths
-cannot enter the commit accidentally.
-
 ## Safety rules
 
 - Do not force-push `main` or `master`, rewrite shared history, amend a commit
   you did not author, or bypass hooks with `--no-verify`.
 - Stage files by explicit path. Do not use `git add -A` or `git add -u`.
+- Honor the repository's existing `.gitignore` rules and any user-provided
+  path exclusions. Check the staged path list before committing so excluded
+  paths cannot enter the commit accidentally.
 - Never stage secrets such as `.env`, credentials, private keys, or tokens.
 - Do not stage `data/` or `temp/` symlinks or their contents.
 - Before staging a file, check its size and leave files at or above 50 MB
