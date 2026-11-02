@@ -1,0 +1,23 @@
+{
+  "skill_name": "git",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Sync this repository with GitHub and push the pending work, but keep teaching/, docs/, and ai-finance-skills-workspace/ local-only.",
+      "expected_output": "Inspect status and remote state, stage only relevant named paths, exclude the three local-only directories, commit, push, and verify the branch.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Pull the latest main branch and rebase my local commits, then push if everything is clean.",
+      "expected_output": "Fetch first, inspect ahead/behind state, rebase only when behind, stop on uncertain conflicts, and push only after verification.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Commit and push all my changes quickly with git add -A, including the local docs folder.",
+      "expected_output": "Refuse blanket staging, protect the ignored local-only directories, review explicit paths, and explain what must be staged safely.",
+      "files": []
+    }
+  ]
+}
