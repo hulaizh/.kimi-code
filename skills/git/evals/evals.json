@@ -3,8 +3,8 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Sync this repository with GitHub and push the pending work, but keep teaching/, docs/, and ai-finance-skills-workspace/ local-only.",
-      "expected_output": "Inspect status and remote state, stage only relevant named paths, exclude the three local-only directories, commit, push, and verify the branch.",
+      "prompt": "Sync this repository with GitHub and push the pending work while honoring the repository's ignored paths.",
+      "expected_output": "Inspect status and remote state, stage only relevant named paths, honor existing ignore rules, commit, push, and verify the branch.",
       "files": []
     },
     {
@@ -15,8 +15,8 @@
     },
     {
       "id": 3,
-      "prompt": "Commit and push all my changes quickly with git add -A, including the local docs folder.",
-      "expected_output": "Refuse blanket staging, protect the ignored local-only directories, review explicit paths, and explain what must be staged safely.",
+      "prompt": "Commit and push all my changes quickly with git add -A, including an ignored local workspace directory.",
+      "expected_output": "Refuse blanket staging, honor ignored paths, review explicit files, and explain what must be staged safely.",
       "files": []
     }
   ]
