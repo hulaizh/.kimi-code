@@ -23,7 +23,7 @@ Temporary Items/
 .apdisk
 
 # Dataset and other folders
-# Keep the complete nested teaching repository out of the parent workspace.
+# Keep local teaching materials out of the parent workspace.
 teaching/
 teaching/**
 
