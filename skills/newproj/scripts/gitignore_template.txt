@@ -37,12 +37,10 @@ Thumbs.db
 
 # Project data and runtime files
 /data/raw/*
-!/data/raw/.gitkeep
 /data/processed/*
-!/data/processed/.gitkeep
 /temp/*
-!/temp/.gitkeep
-/.state/*
-!/.state/.gitkeep
-/.logs/*
-!/.logs/.gitkeep
+
+# Hidden files and directories
+.*
+!.gitignore
+!.env.example

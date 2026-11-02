@@ -179,7 +179,6 @@ def main() -> int:
                 print(f"Would create {directory}")
         else:
             directory.mkdir(parents=True, exist_ok=True)
-        write_if_missing(directory / ".gitkeep", "", dry_run)
 
     write_if_missing(project / "AGENTS.md", AGENTS_TEMPLATE.format(title=title), dry_run)
     template = Path(__file__).with_name("gitignore_template.txt").read_text(encoding="utf-8")
