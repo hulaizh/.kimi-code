@@ -2,10 +2,10 @@
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.6cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
 \node[box] (n0) at (1.5,0) {QT\\记录故障案例};
-\node[box] (n1) at (4.9,0) {promptfoo\\比较输出};
+\node[box] (n1) at (4.9,0) {DSPy/GEPA\\提出候选改进};
 \draw[link] (n0) -- (n1);
-\node[box] (n2) at (8.3,0) {DSPy/GEPA\\提出候选改进};
+\node[box] (n2) at (8.3,0) {promptfoo\\比较输出};
 \draw[link] (n1) -- (n2);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n3) at (11.7,0) {版本库\\管理与恢复};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n3) at (11.7,0) {负责人批准\\版本管理与恢复};
 \draw[link] (n2) -- (n3);
 \end{tikzpicture}

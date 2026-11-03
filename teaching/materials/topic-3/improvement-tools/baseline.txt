@@ -1,0 +1,2 @@
+FIXTURE: baseline
+Describe the strategy and backtest results.

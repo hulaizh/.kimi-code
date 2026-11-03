@@ -1,0 +1,17 @@
+{
+  "description": "Topic 3: manually written output fixtures, no model calls",
+  "prompts": ["file://baseline.txt", "file://candidate.txt"],
+  "providers": [{"id": "file://fixture_provider.py"}],
+  "defaultTest": {
+    "vars": {
+      "available_at": "2026-09-29T15:00:00+08:00",
+      "earliest_execution_at": "2026-09-30T09:30:00+08:00",
+      "source_ids": ["PRICE_01"]
+    },
+    "assert": [{"type": "python", "value": "file://timing_assert.py"}]
+  },
+  "tests": [
+    {"description": "Execution timing", "vars": {"criterion": "timing"}},
+    {"description": "Evidence reference", "vars": {"criterion": "evidence"}}
+  ]
+}

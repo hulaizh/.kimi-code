@@ -10,7 +10,7 @@
 \draw[flow,dashed,draw=darkred] (checks.south) to[bend left=25] node[below,label,text=darkred]{有界修复}(g.south);
 \node[box,text width=2.8cm,minimum height=1.3cm] (packet) at (1.5,-2.35) {\textbf{下一轮任务包}\\修复或再次确认};
 \node[box,draw=forestgreen,fill=forestgreen!6,text width=3.1cm,minimum height=1.3cm] (accepted) at (6.6,-2.35) {\textbf{ACCEPTED}\\同一候选连续两轮通过};
-\node[box,draw=darkred,fill=red!4,text width=3.0cm,minimum height=1.3cm] (stop) at (11.7,-2.35) {\textbf{未通过则停止}\\拒绝／耗尽\\停滞／受阻};
+\node[box,draw=darkred,fill=red!4,text width=3.0cm,minimum height=1.3cm] (stop) at (11.7,-2.35) {\textbf{终止状态}\\拒绝／耗尽\\停滞／受阻};
 \draw[black!60,line width=.7pt] (o.south)--(11.7,-1.3)--(1.5,-1.3);
 \draw[flow] (1.5,-1.3)--node[left,label]{继续}(packet.north);
 \draw[flow] (6.6,-1.3)--node[right,label]{满足验收}(accepted.north);

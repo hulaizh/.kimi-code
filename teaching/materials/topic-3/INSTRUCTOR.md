@@ -1,81 +1,72 @@
-# Topic 3: Build a Self-Evolving Quant Trading Agent System
+# Topic 3: Build and Improve a Quant Research System
 
-Students build an installable QT plugin for Kimi Code. The product is an
-Orchestrator–Generator–Critic system with specialist teams, executable quant
-tools, persistent case state and an evaluated evolution loop. The lecture opens
-by deriving that architecture step by step. The trading task supplies each
-engineering requirement; Harness, Loop and Graph are not isolated chapters.
+The English and Chinese decks each have 60 pages. One synthetic monthly-momentum
+case supplies the reason for each control and the evidence for each activity.
+There are two sections: Design the Quant System; Build and Improve the System.
+Product and acceptance are stated in plain language before the contents.
 
-The two public commands are `/qt:start` and `/qt:evo`. The first runs an idea
-through proposal, implementation, numerical checking, criticism, repair and
-reporting. The second improves the reusable harness using completed cases,
-evaluations, reviewed adoption and rollback. Status, interruption, resume and
-rollback use ordinary conversation. Kimi also exposes native `/skill:qt:start`
-and `/skill:qt:evo` aliases for those same workflows.
+There are no separate break slides, lab section, reference appendix, or repeated
+roadmaps. Breaks belong to the instructor schedule. Student participation occurs
+at the relevant step of the same research task.
 
-## Four-hour teaching schedule
+## Four-hour schedule
 
-| Time | Purpose | Engineering introduced |
+| Pages | Time | Teaching purpose |
 |---|---|---|
-| 00:00–00:15 | Claim the product | Outputs, scope, responsibilities, acceptance |
-| 00:15–01:20 | Design the inner system | Harness, hooks, tool loop, independent Critic, Orchestrator, teams, graph, gates, stopping |
-| 01:20–01:30 | Break | |
-| 01:30–02:10 | Complete the architecture | Durable state, recovery, permissions, traces, evolution, fixed evaluations, rollback |
-| 02:10–02:45 | Build and run `/qt:start` | Manifest, commands, skills, native agents, hook exercise, installation, evidence barriers |
-| 02:45–02:55 | Break | |
-| 02:55–03:20 | Build `/qt:evo` and market extensions | Proposal, independent evaluation, version adoption; real-data interfaces |
-| 03:20–03:55 | Student lab | Contract, defect, edit, behavioral check, integration, partner replay |
-| 03:55–04:00 | Debrief | Defend Harness, Loop, Graph and evolution choices |
+| 1–4 | 00:00–00:15 | Product, acceptance, contents |
+| 5–23 | 00:15–01:20 | Stakeholders, replay, authority, harness, loops, graph, hooks |
+| — | 01:20–01:30 | Break; no slide |
+| 24–35 | 01:30–02:05 | Durable state, recovery, evidence, supervision, change |
+| 36–44 | 02:05–02:45 | Inspect QT, repair a submission, replay, and resume |
+| — | 02:45–02:55 | Break; no slide |
+| 45–56 | 02:55–03:45 | Capture, propose, evaluate, compare, version, adopt, restore |
+| 57–60 | 03:45–04:00 | Production boundary and final product review |
 
-The English and Chinese decks each contain 86 pages, including the title, one
-manually written contents slide and breaks. Following Topic
-2's opening pattern, the task comes before the contents. There are three main
-sections: system design, plugin implementation and evolution, and the integrated
-lab. There are no subsections, repeated roadmap pages or separate reference
-appendix. The timetable above is instructor guidance rather than a student slide.
+This is 240 elapsed minutes, including 20 minutes of breaks. Retain three minutes
+of contingency inside both the QT and improvement blocks. Use prepared
+checkpoints rather than waiting for an entire live multi-agent run to finish.
 
-The architecture is finalized before the plugin implementation section. Use
-discussion to derive each addition before revealing its exhibit. Explanatory
-slides use short itemized points; eleven tables remain for comparisons,
-numbers and the lab schedule. Harness, loop and graph coverage checks are taught
-beside the relevant concepts. Implementation limits and source slides are part
-of the corresponding design, demonstration and market-extension discussions.
+## Participation inside the task
 
-## Hooks within the harness
+| Pages | Action | Minutes included above |
+|---|---|---:|
+| 18–20 | Write a repair criterion for the current finding | 5 |
+| 28 | Reconstruct the case from saved evidence | 5 |
+| 42 | Repair a blocked submission and inspect the next route | 7 |
+| 46–47 | Define a regression case and propose one prompt edit | 6 |
+| 49–52 | Inspect output differences and check a partner's claim | 8 |
+| 54 | Defend adoption or rejection | 4 |
 
-Five slides teach hooks in context: event boundaries, event selection, failure
-semantics, plugin registration and behavioral checks. A Skill supplies a
-procedure, a tool performs an action, and a hook runs a script at a declared
-lifecycle event. Use `PreToolUse` for a lightweight precheck, `PostToolUse` for
-success metadata, `SubagentStop` for successful-completion observation, and
-`PreCompact` for snapshots of already saved state (its return values are ignored).
-The controller still owns team joins,
-case transitions and numerical/risk acceptance.
+These 35 minutes are part of the schedule, not an additional lab. There is no
+separate task menu or submission rubric.
 
-Kimi's intentional exit-2 blocking applies only to blockable events. Hook errors
-and timeouts allow the main flow to continue; post-tool and subagent completion
-events cannot veto it. `Stop` controls a model turn, not a QT case outcome.
-Bound requests for continuation. Matching hooks can run in parallel, so avoid
-ordering assumptions and duplicate side effects.
+## Core distinctions
 
-The runnable exercise is in `materials/topic-3/hooks/`. Students copy its script
-into their plugin's `hooks/` directory and merge the manifest fragment, then
-reinstall and reload. QT 0.1.0 does not enable this example by default. It records
-only event/session/tool/call IDs in an existing QT workspace and ignores
-unrelated workspaces. Plugin hooks run from the plugin root; the event's `cwd`
-identifies the session workspace. Run offline cases for normal logging,
-duplicate delivery, unrelated workspaces, mismatched tools and malformed input;
-verify actual event delivery separately in Kimi. A log file never certifies a
-candidate or updates control state. See the exercise README for the full steps
-and current official sources.
+An evidenced rejection can satisfy the system's delivery requirement while
+rejecting a candidate strategy. Keep three decisions separate: the controller's
+research verdict, the owner's approval of a prompt version, and authority to
+deploy capital. QT does not send broker orders.
 
-## Starter and installed package
+Page 6 introduces three tests, which recur on pages 28 and 43:
 
-Source: `teaching/materials/qt/`. Its README explains installation and scope.
-It is self-contained; students do not need a separately named project. Kimi's
-installer copies it into the managed plugin directory. Reinstall after editing
-source, then reload or start a new session. Run from any chosen workspace; state
-lives in that workspace's `.qt/` directory.
+1. Audit reconstruction uses the original saved evidence and action records.
+2. Calculation replay fixes inputs, code, configuration, and relevant environment.
+3. A fresh model run can produce different decisions and paths.
+
+Repetition does not prove correctness. A hash detects changed content; it does
+not prove the original content was true. A replay must not repeat real payments
+or orders. A new evaluation needs a new case; reopening an existing QT case
+resumes or reuses recorded state.
+
+Independent review means a separate context and evidence-based challenge. It
+does not eliminate common model errors. The rule requiring two clean complete
+reviews is a teaching implementation choice, not a universal assurance standard.
+
+## Source package and preflight
+
+The runnable package is [QT](../qt/README.md), with public commands
+`/qt:start` and `/qt:evo`. State lives in the chosen workspace's `.qt/`
+directory. Installation is pre-class preparation:
 
 ```text
 /plugins install /absolute/path/to/qt
@@ -83,128 +74,133 @@ lives in that workspace's `.qt/` directory.
 /plugins info qt
 ```
 
-The instructor's package is already installed under
-`~/.kimi-code/plugins/managed/qt`, enabled, and recognized by Kimi Code 2.4.1.
-Native custom agent profiles have explicit subagent allowlists. The main session
-is Orchestrator; `qt-generator` owns data/features/backtest specialists;
-`qt-critic` owns PIT/robustness/execution specialists. No tmux or experimental
-Tower mode is required. See `docs/notes/qt-kimi-team-capabilities.md`.
+After editing plugin source, reinstall and reload before testing through Kimi.
+Source-local tests import source directly and do not need reinstalling.
 
-## Preflight and evidence boundary
-
-From a disposable workspace, using the installed or source package path:
+From a disposable workspace, using the chosen package path:
 
 ```sh
 python3 /absolute/path/to/qt/scripts/check.py
 python3 /absolute/path/to/qt/scripts/qt.py start --case rehearsal --idea 'Synthetic monthly momentum' --rehearse
 ```
 
-Python 3.11+ and the standard library suffice. The installed runtime passed
-35 tests. A scripted two-round rehearsal reached ACCEPTED. Native installation,
-command discovery and configuration checks also passed. These results do not
-establish live model-team behavior or prompt improvement. A rehearsal uses
-scripted specialist reports and real numerical code, and is explicitly labelled
-SCRIPTED_REHEARSAL. Never present it as actual agent execution.
+The rehearsal executes numerical code with scripted specialist reports. It does
+not call a model. Preserve that label. For a live-team demonstration, inspect
+actual host dispatch and response records; the controller checks report files
+but cannot establish that independent specialist contexts actually ran.
 
-Before teaching, test a live `/qt:start` session with the configured model and
-inspect actual Agent calls, separate specialist contexts, outputs and the route.
-Authentication/model availability is a separate dependency. If live access is
-unavailable, show the labelled rehearsal and inspect the profile/manifest code.
+Prepare checkpoints for a pending Generator request, a complete numerical
+result, a Critic finding, a corrected submission, and a terminal case. Use
+disposable cases for fault injection. Do not modify sealed evidence in a case
+you want to resume.
 
-## Inner-loop demonstration
+## Hooks
+
+Pages 22–23 distinguish observation, host-permitted blocking, and controller
+gates. Page 39 shows the optional [Bash-event logging example](hooks/README.md).
+It is not enabled in QT by default. Add its script and manifest fragment to a
+plugin copy, then reinstall and reload.
+
+Inspect event IDs and duplicate delivery. The script records event/session/tool/
+call identifiers under an existing workspace's `.qt/hook_events/`. It does not
+record complete specialist provenance or certify a candidate. Kimi hook errors
+and timeouts are logged and permit continuation; mandatory acceptance checks
+therefore remain in the controller. See the hook README for exact event rules
+and official documentation.
+
+## The research case
 
 Use `/qt:start Test monthly momentum on the bundled synthetic teaching fixture`.
-Inspect the idea, request ID, role card and assigned output paths. Watch the
-Generator lead dispatch all three specialists. The lead integrates their reports
-into a candidate manifest; the controller checks complete coverage and executes
-the candidate. Only after numerical gates pass does it dispatch the Critic.
+Inspect request identity, role assignments, saved numerical outputs, the Critic
+ledger, and the route. A missing required report or stale request must block
+advancement. The next submission must match the current request.
 
-Watch a fresh Critic lead collect three fresh specialist reviews. Inspect actual
-evidence, carried finding IDs and explicit resolutions. The controller merges
-the ledger and applies the route. A missing specialist, invented evidence ID,
-stale request or changed sealed artifact must block advancement. The supplied
-tests exercise these failures. Use disposable cases for manual fault injection.
+The exact QT states are:
 
-Exact classroom stopping policy:
+- `ACCEPTED`: the same candidate passes all gates and two clean complete reviews.
+- `WAITING`: an external role response is needed; this is not an accepted case.
+- `EXHAUSTED`, `STALLED`, `REJECTED`, `BLOCKED`, and `USER_STOPPED`:
+  distinct terminal reasons.
 
-- ACCEPTED: same candidate, two consecutive clean full reviews, all gates pass,
-  all findings closed. A candidate change resets clean credit.
-- CONTINUE: more repair or confirmation is needed and budget remains.
-- EXHAUSTED: four-round default or four-hour wrapper deadline is reached.
-- STALLED: candidate, findings and verdicts repeat without progress.
-- REJECTED: a Critic REJECT or FATAL finding.
-- BLOCKED: two invalid submissions in a role dispatch, or an invalid sealed case.
-- USER_STOPPED: explicit user interruption recorded through the controller.
+Candidate changes reset clean-review credit. Default wrapper budgets are four
+rounds and four hours, checked at transitions. The elapsed-time check does not
+cancel an in-flight model call. Host-level isolation, call cancellation, cost
+accounting, and concurrent-writer controls remain separate production concerns.
 
-Elapsed time is checked at transitions; it does not kill a running model call.
-Per-call timeout, token/cost accounting, concurrent-writer locking and stronger
-filesystem isolation are host/production extensions. The role cards' writing
-restrictions are instructions, not a filesystem sandbox. Artifact validation
-cannot prove that specialist contexts were distinct or claims were sound.
+## Self-improvement tools, pages 45–56
 
-## Evolution demonstration
+The toolchain is capture → propose → evaluate → approve/version. Teach the
+evaluator before the optimizer so students know what a candidate must pass.
 
-Use `/qt:evo` on a completed case with a reproducible failure. The example of
-missing execution timing is illustrative; do not invent a history to match it.
-The Generator team performs diagnosis, prompt design and evaluation design;
-the fresh Critic team reviews evidence, regression and scope.
+| Step | Concrete tool | Classroom status |
+|---|---|---|
+| Bind a completed case and parent prompt | QT `evo-prepare` | Implemented |
+| Propose a reviewable edit | Generator team and Git diff | Existing workflow |
+| Compare outputs against checks | promptfoo; custom Python assertions | External example |
+| Propose prompt candidates from feedback | DSPy/GEPA | Extension requiring an adapter |
+| Protect numerical/controller behavior | QT `scripts/check.py` | Implemented code checks |
+| Track versions and evaluation evidence | QT registry; MLflow counterpart | QT exists; MLflow integration is an extension |
+| Validate reviews, approve, restore | QT `evo-evaluate`, `evo-adopt`, `evo-rollback` | Implemented, with explicit approval |
 
-The executable slice versions the Generator role prompt only. It rejects
-strategy-parameter, risk-rule and arbitrary code targets. The evaluator runs
-fixed code regressions, while model-behavior comparisons require actual runs on
-fixed development and held-out cases. Preserve model version, inputs, budget,
-attempt history and observed results. Code-test success alone is not evidence of
-a better prompt. The runtime validates evidence fields but does not independently
-grade the semantic quality of the Critic's assessment.
+These are internal actions, not additional public slash commands. QT's evolution
+interface changes only the Generator prompt. It does not rewrite risk rules,
+strategy parameters, arbitrary source code, or model weights.
 
-After passing evaluation, show the diff and evidence at AWAITING_APPROVAL. Only
-explicit adoption approval changes the workspace's active prompt pointer. Start
-a new case and inspect the selected version. Then demonstrate an authorized
-rollback, preserving both versions and the evidence. Do not tune repeatedly
-against the same held-out answer until a proposal passes.
+Use [the companion example](improvement-tools/README.md) for pages 49 and 52:
 
-## China-market scope
+```sh
+python3 /absolute/path/to/topic-3/improvement-tools/check_example.py
+```
 
-The offline adapter uses five fictional stocks and 120 synthetic weekdays,
-momentum lookback/top-N candidates, simplified costs and China equity constraints.
-Its weekday fixture is not an exchange calendar. It lacks real-market ingestion,
-corporate-action accounting, a production portfolio service and broker access.
-The historical sizing sheet is independent of the accepted research candidate.
+Both outputs are manually written fixtures. The baseline violates execution
+timing but cites a retained source; the candidate corrects timing but cites a
+missing source. Both fail adoption. The standard-library script checks the
+matrix plus time-zone, early-execution, false-availability, and malformed-output
+boundaries. It makes no model calls.
 
-For real use, students must implement and test authorized data adapters, dated
-universe membership and delistings, public/vendor availability, corporate actions,
-board/security/date-specific trading rules, fees, risk constraints and current
-positions. Historical database access or a search tool alone does not establish a
-valid live feed. Real suggestions require current inputs, approval expiry and
-fill reconciliation. No classroom result demonstrates profitable A-share alpha.
+An optional `promptfooconfig.json` uses the same local Python fixture provider
+and assertions for viewing the comparison in promptfoo. The fixture assertions
+were run during this slide revision; the promptfoo CLI itself is optional and
+was not run. No API credentials are needed for this fixture. It is not evidence
+of prompt improvement.
 
-The amended `materials/quant-cn-codex-brief.md` supplies the broader component
-requirements. Its production architecture is a target, not the implemented scope
-of the small teaching plugin.
+For real behavioral evaluation, collect actual outputs before class, keeping
+model configuration, inputs, budgets, development cases, and final held-out
+cases fixed as appropriate. Preserve attempted edits and repeated runs. Never
+tune repeatedly on final cases until a proposal passes. Code regressions and
+valid review fields alone do not establish semantic improvement.
 
-## Student lab
+Demonstrate approval only after inspecting the diff and evidence. Show the
+active version pointer after adoption, and verify behavior in a separate new
+case. Demonstrate authorized rollback while preserving the version history.
+Existing cases do not silently migrate to a new configuration.
 
-Students edit one component in their copy of the plugin source. Require a contract
-before an AI-assisted edit: inputs, output, authority, failure and stop behavior.
-Choose timestamp freshness, version-bound finding closure, an additional specialist
-with a join barrier, or a prompt behavior comparison. Submit one diff, a
-reproducible failing/passing case, integration evidence, version identity and a
-remaining limitation. Reinstall to test native behavior. A partner replays it.
-Do not score synthetic returns or presentation confidence.
+## Production boundary
 
-## Public source references
+The bundled fixture has fictional stocks and synthetic weekdays. It is not an
+exchange calendar or a live feed. It lacks production ingestion, complete
+corporate-action handling, portfolio-wide authority controls, and broker access.
+Its historical sizing sheet is independent of the accepted research candidate.
 
-- [Kimi plugins](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/plugins.html)
-- [Kimi skills](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html)
-- [Kimi agents](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/agents.html)
-- [Kimi hooks](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html)
-- [Kimi Tower](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/tower.html)
-- [RD-Agent](https://github.com/microsoft/RD-Agent): hypothesis, experiments, feedback.
-- [TradingAgents](https://github.com/TauricResearch/TradingAgents): role decomposition and review.
-- [Vibe-Trading](https://github.com/HKUDS/Vibe-Trading): agent-host integration with tools and skills.
-- [SSE Trading Rules](https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml): consult current board/security/date applicability.
+For real deployment, require licensed dated inputs, historical membership and
+delistings, availability timestamps, dated execution rules, risk checks, current
+positions, approval expiry, and fill reconciliation. Financial validation needs
+temporal-leakage tests, cost/slippage stress, and walk-forward evaluation.
+Synthetic returns do not establish profitable alpha.
 
-See `docs/notes/qt-public-system-references.md` for the comparison and its limits,
-and `docs/notes/qt-deployment.md` for installation verification. The course's QT
-architecture is a design synthesis, not a claim that public projects share its
-exact control policy or demonstrate superior trading performance.
+The payment mandate and aggregate-exposure exhibits are production illustrations.
+FINRA is a US broker-dealer supervisory example, not the legal framework for the
+synthetic China-equity exercise. An accountable human owner remains necessary
+across tools and vendors.
+
+## Sources and preparation records
+
+- [Verified finance-harness sources](../../docs/notes/2026-11-03-topic3-finance-harness-sources.md)
+- [Agreed structure and timing](../../docs/plans/2026-11-03-topic3-structure-shortening.md)
+- [Earlier Pi review and corrections](../../docs/notes/2026-11-03-topic3-pi-review.md)
+- [QT inner protocol](../qt/references/controller.md) and [evolution protocol](../qt/references/evolution.md)
+
+Use the sources for bounded teaching claims. The current DFAH paper does not
+establish that smaller models are generally more replayable. Vals scores are
+not production failure probabilities or directly comparable across all versions.
+SR 26-2 excludes agentic AI from its scope without removing broader governance.

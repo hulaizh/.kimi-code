@@ -1,9 +1,7 @@
-\begin{tikzpicture}[
-  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
-  link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {Proposal A\\within its limit};
-\node[box] (n1) at (6.6,0) {Proposal B\\within its limit};
-\draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {Combined exposure\\may breach shared cap};
-\draw[link] (n1) -- (n2);
+\begin{tikzpicture}[box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.6cm,minimum height=1.3cm,align=center,font=\small},link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (a) at (2,0) {Proposal A\\within its limit};
+\node[box] (b) at (2,-2.1) {Proposal B\\within its limit};
+\node[box,draw=darkred,fill=red!4] (total) at (10,-1.05) {Combined exposure\\may breach shared cap};
+\draw[link] (a.east)--(total.north west);
+\draw[link] (b.east)--(total.south west);
 \end{tikzpicture}
