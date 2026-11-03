@@ -1,0 +1,11 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.6cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
+  link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (n0) at (1.5,0) {带日期的来源};
+\node[box] (n1) at (4.9,0) {计算与产物};
+\draw[link] (n0) -- (n1);
+\node[box] (n2) at (8.3,0) {问题与路由};
+\draw[link] (n1) -- (n2);
+\node[box,draw=forestgreen,fill=forestgreen!6] (n3) at (11.7,0) {版本与审批};
+\draw[link] (n2) -- (n3);
+\end{tikzpicture}

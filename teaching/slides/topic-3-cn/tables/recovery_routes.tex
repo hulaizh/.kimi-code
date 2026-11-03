@@ -1,0 +1,12 @@
+\begin{tabular}{@{}P{4.0cm}P{8.5cm}@{}}
+\toprule
+\textbf{故障} & \textbf{处理方式} \\
+\midrule
+暂时性超时 & 确认是否完成，再有限重试 \\
+\rowcolor{gray!10}
+报告不符合要求 & 返回具体校验错误 \\
+已封存产物发生变化 & 阻断并调查 \\
+\rowcolor{gray!10}
+外部操作结果不明 & 先对账，再决定是否重试 \\
+\bottomrule
+\end{tabular}

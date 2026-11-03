@@ -1,0 +1,6 @@
+\begin{tikzpicture}[box/.style={draw=blue,fill=blue!4,rounded corners=2pt,text width=5.5cm,minimum height=1.25cm,align=center,font=\small,inner sep=6pt}]
+\node[box] at (3,0) {已完成\\输出已经核验};
+\node[box] at (10,0) {待完成\\请求已经发出};
+\node[box,draw=forestgreen,fill=forestgreen!5] at (3,-2) {状态不明\\无法确认是否完成};
+\node[box,draw=forestgreen,fill=forestgreen!5] at (10,-2) {下一步\\先检查，再继续};
+\end{tikzpicture}

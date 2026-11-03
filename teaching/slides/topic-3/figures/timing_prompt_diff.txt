@@ -1,0 +1,4 @@
+- Describe the strategy and backtest results.
++ State when each signal becomes available.
++ State the earliest permitted execution time.
++ If timing evidence is missing, report the limitation.
