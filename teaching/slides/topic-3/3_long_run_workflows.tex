@@ -59,28 +59,32 @@ We will build a system that can:
 
 % Page 5
 \begin{frame}{What finance professionals need}
+For example, consider the following roles:
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
-\item An auditor needs the evidence and versions behind a past decision.
-\item A risk manager checks who authorized each action and whether it stayed within limits.
-\item Operations needs to know where an interrupted run can safely resume.
-\item The system owner needs evidence that a change helped without weakening controls.
+\item An \textcolor{blue}{auditor} needs the \textcolor{red}{evidence} and \textcolor{red}{versions} behind a past decision.
+    \begin{itemize}
+        \item JSON: save evidence locally
+        \item Git: track versions
+    \end{itemize}
+\item A \textcolor{blue}{risk manager} checks \textcolor{red}{who authorized} each action and whether it stayed \textcolor{red}{within limits}.
+    \begin{itemize}
+        \item Git: record the approver's name and timestamp
+        \item Controller: hardcoded limits
+    \end{itemize}
+\item \textcolor{blue}{Operations} needs to know where an interrupted run can \textcolor{red}{safely resume}.
+    \begin{itemize}
+        \item State machine: save the current states
+    \end{itemize}
+\item The \textcolor{blue}{system owner} needs evidence that a change helped \textcolor{red}{without weakening controls}.
+    \begin{itemize}
+        \item Human-in-the-loop system evolution
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
-% Page 6
-\begin{frame}{Audit replay and determinism}
-\begin{itemize}
-\setlength{\itemsep}{0.8em}
-\item To reconstruct a decision, inspect the original evidence, actions, and approvals.
-\item To repeat a calculation, freeze its inputs, code, and configuration.
-\item To compare model runs, inspect changes in decisions and tool paths.
-\item Repeatability does not prove correctness. A replay must not resubmit orders or payments.
-\end{itemize}
-\end{frame}
 
 % Page 7
-\begin{frame}{What was known at the time?}
+\begin{frame}{PIT Data: No look-ahead bias}
 \begin{center}
 \small
 \input{tables/pit_example}
@@ -94,7 +98,7 @@ We will build a system that can:
 \end{frame}
 
 % Page 8
-\begin{frame}{Who may suggest, check, and approve?\handsup}
+\begin{frame}{Division of labor}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
 \item Agents propose strategies and question the evidence.
