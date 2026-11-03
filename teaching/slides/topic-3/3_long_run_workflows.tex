@@ -50,26 +50,23 @@
 
 % Page 5
 \begin{frame}{Stakeholders: What They Need}
-\begin{center}
-\small
-\input{tables/stakeholder_needs}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Topic 2 made a task reusable. This task must remain controlled across steps and sessions.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Auditor:} reconstruct the evidence behind a decision.
+\item \textbf{Risk manager:} identify who authorized each action.
+\item \textbf{Operations:} resume safely from verified progress.
+\item \textbf{System owner:} judge whether a change improved the workflow.
 \end{itemize}
 \end{frame}
 
 % Page 6
 \begin{frame}{Audit Replay and Determinism}
-\begin{center}
-\small
-\input{tables/replay_questions}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Repeatability does not establish correctness.
-\item Replaying evidence must not repeat real payments or orders.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Audit reconstruction:} inspect the original evidence, actions, and approvals.
+\item \textbf{Calculation replay:} freeze inputs, code, and configuration; compare results.
+\item \textbf{Model rerun:} measure changes in decisions and tool paths.
+\item Repeatability does not establish correctness; replay must not repeat payments or orders.
 \end{itemize}
 \begin{center}\scriptsize\href{https://arxiv.org/html/2601.15322v4}{Source: DFAH v4: replay dimensions}\end{center}
 \end{frame}
@@ -90,14 +87,12 @@
 
 % Page 8
 \begin{frame}{Authority: Suggest, Check, Approve\handsup}
-\begin{center}
-\small
-\input{tables/authority_owners}
-\end{center}
-\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.8em}
+\item \textbf{Agents} propose strategies and challenge evidence.
+\item \textbf{Code} enforces specified, tested rules and transitions.
+\item \textbf{Humans} own policy; approve workflow changes and capital use separately.
 \item Question: Who may change the risk cap?
-\item A research verdict, prompt adoption, and trading authority are separate decisions.
 \end{itemize}
 \end{frame}
 
@@ -114,13 +109,12 @@
 
 % Page 10
 \begin{frame}{Harness: One Task Contract}
-\begin{center}
-\small
-\input{tables/task_contract}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Freeze the mandate before asking the agent to act.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Question:} test the stated monthly-momentum rule.
+\item \textbf{Inputs:} a dated snapshot and fixed cost assumptions.
+\item \textbf{Authority:} research files, with no broker access.
+\item \textbf{Return:} evidence and limitations, or a clear reason for blocking.
 \end{itemize}
 \end{frame}
 
@@ -214,15 +208,14 @@
 
 % Page 18
 \begin{frame}{Feedback: Evidence and a Repair Criterion\handsup}
-\begin{center}
-\small
-\input{tables/repair_packet}
-\end{center}
-\begin{center}\illustrative\end{center}
-\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.8em}
+\item \textbf{Finding:} the signal uses the closing price.
+\item \textbf{Evidence:} the trade is recorded at that same close.
+\item \textbf{Repair:} execute only after the signal becomes available.
 \item Your turn: state a check that would close this finding.
 \end{itemize}
+\begin{center}\illustrative\end{center}
 \end{frame}
 
 % Page 19
@@ -238,27 +231,24 @@
 
 % Page 20
 \begin{frame}{Finding Memory: Silence Is Not Closure}
-\begin{center}
-\small
-\input{tables/qt_ledger}
-\end{center}
-\begin{center}\illustrative\end{center}
-\smallskip
 \begin{itemize}
-\item Closure needs evidence for the repaired version.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Round 1:} record finding \texttt{pit-001} and its evidence.
+\item \textbf{Round 2:} omission from the review does not close it.
+\item \textbf{Closure:} the Critic verifies evidence for the repaired version.
 \item Carry unresolved findings into the next request.
 \end{itemize}
+\begin{center}\illustrative\end{center}
 \end{frame}
 
 % Page 21
 \begin{frame}{Stopping: Accept, Revise, or Escalate}
-\begin{center}
-\small
-\input{tables/stop_rules}
-\end{center}
-\smallskip
 \begin{itemize}
-\item QT requires two clean full reviews of the same candidate; this is a course policy.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Accept:} gates pass, findings close, and two full reviews are clean for the same candidate (QT policy).
+\item \textbf{Revise:} repair is possible and budget remains.
+\item \textbf{Reject or block:} fatal defect or invalid evidence.
+\item \textbf{Stop:} exhausted budget, stalled progress, or user halt.
 \end{itemize}
 \end{frame}
 
@@ -276,12 +266,11 @@
 
 % Page 23
 \begin{frame}{Hooks: Observe, Block, and Enforce}
-\begin{center}
-\small
-\input{tables/hook_boundaries}
-\end{center}
-\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.8em}
+\item \textbf{Observation hook:} record a completed event.
+\item \textbf{Blocking hook:} veto an event only where the host permits.
+\item \textbf{Controller gate:} accept or reject a state transition.
 \item A hook log never certifies a research candidate.
 \end{itemize}
 \end{frame}
@@ -299,25 +288,23 @@
 
 % Page 25
 \begin{frame}{Durable State: Save Verified Progress}
-\begin{center}
-\small
-\input{tables/state_card}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Write state when a transition is verified; conversation memory is insufficient.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Identity:} case, request, candidate, and prompt version.
+\item \textbf{Progress:} pending role, round, and deadline.
+\item \textbf{Evidence:} saved artifact paths and integrity checks.
+\item \textbf{Findings:} open defects and verified repairs; persist at each checked transition.
 \end{itemize}
 \end{frame}
 
 % Page 26
 \begin{frame}{Recovery: Reconcile Before Retrying}
-\begin{center}
-\small
-\input{tables/recovery_routes}
-\end{center}
-\smallskip
 \begin{itemize}
-\item A retry must not duplicate an order or payment.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Timeout:} check completion, then retry within a cap.
+\item \textbf{Invalid report:} return the specific validation errors.
+\item \textbf{Changed sealed artifact:} block and investigate.
+\item \textbf{Uncertain external effect:} reconcile first; never duplicate an order or payment.
 \end{itemize}
 \end{frame}
 
@@ -335,26 +322,23 @@
 
 % Page 28
 \begin{frame}{Audit Replay: Reconstruct the Case\handsup}
-\begin{center}
-\small
-\input{tables/audit_case}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Your turn: locate the missing evidence before proposing a rerun.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Candidate and snapshot:} which inputs supported the result?
+\item \textbf{Review and ledger:} what remained unresolved?
+\item \textbf{State and trace:} why did the case stop?
+\item \textbf{Version and approval:} who authorized the change?
 \end{itemize}
 \end{frame}
 
 % Page 29
 \begin{frame}{Scoped Authority: A Mandate to Act}
-\begin{center}
-\small
-\input{tables/action_mandate}
-\end{center}
-\smallskip
 \begin{itemize}
-\item AP2 illustrates signed, bounded payment mandates.
-\item Production example; QT has no payment integration.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Purpose and supplier:} within the approved scope?
+\item \textbf{Amount and expiry:} within the limit and validity period?
+\item \textbf{Identity:} bound to the authorized actor and approver?
+\item AP2 illustrates signed payment mandates; QT has no payment integration.
 \end{itemize}
 \begin{center}\scriptsize\href{https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md}{Source: AP2 v0.2 specification}\end{center}
 \end{frame}
@@ -412,13 +396,12 @@
 
 % Page 34
 \begin{frame}{Three Loops: Three Different Changes}
-\begin{center}
-\small
-\input{tables/qt_three_loops}
-\end{center}
-\smallskip
 \begin{itemize}
-\item A better backtest parameter is not evidence of a better harness.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Tool loop:} choose the next action within a role.
+\item \textbf{Research loop:} repair a candidate until a terminal decision.
+\item \textbf{Evolution loop:} evaluate a reusable prompt change; adopt, reject, or defer.
+\item A better strategy parameter does not establish a better harness.
 \end{itemize}
 \end{frame}
 
@@ -499,39 +482,34 @@
 
 % Page 41
 \begin{frame}{Barriers: What Permits Advancement?}
-\begin{center}
-\small
-\input{tables/four_barriers}
-\end{center}
-\smallskip
 \begin{itemize}
-\item A success message cannot replace the required artifacts.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Generator barrier:} all assigned specialist reports are present.
+\item \textbf{Numerical barrier:} the candidate ran and passed the gates.
+\item \textbf{Critic barrier:} review coverage and carried findings are complete.
+\item \textbf{Termination barrier:} evidence satisfies acceptance or an explicit stop condition.
 \end{itemize}
 \end{frame}
 
 % Page 42
 \begin{frame}{Repair: Reject Bad Evidence\handsup}
-\begin{center}
-\small
-\input{tables/submission_repair}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Your turn: repair the missing report and verify the next route.
-\item Use a disposable case; do not alter sealed evidence.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Missing specialist:} remain at the current role.
+\item \textbf{Stale request:} reject the submission.
+\item \textbf{Matching complete reports:} check evidence before advancing.
+\item Your turn: repair a disposable case and verify its route; preserve sealed evidence.
 \end{itemize}
 \end{frame}
 
 % Page 43
 \begin{frame}{Replay: Check the Evidence}
-\begin{center}
-\small
-\input{tables/replay_artifacts}
-\end{center}
-\smallskip
 \begin{itemize}
-\item A new evaluation needs a new case.
-\item Restarting an existing case resumes or reuses its recorded state.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Reconstruct:} inspect state, trace, and retained artifacts.
+\item \textbf{Recalculate:} compare numerical outputs under frozen inputs.
+\item \textbf{Compare behavior:} retain separate model-run records.
+\item A fresh evaluation needs a new case; an existing case resumes or reuses its state.
 \end{itemize}
 \end{frame}
 
@@ -561,14 +539,12 @@
 
 % Page 46
 \begin{frame}{Capture: Turn a Failure into a Test Case\handsup}
-\begin{center}
-\small
-\input{tables/evolution_case}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Use \texttt{/qt:evo}; internally, \texttt{evo-prepare} binds the source case.
-\item Your turn: identify the evidence that the new test must preserve.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Capture:} \texttt{/qt:evo} binds the completed case and failure evidence.
+\item \textbf{Baseline:} retain the exact parent prompt version.
+\item \textbf{Expected behavior:} execution follows actual signal availability.
+\item Your turn: select development cases and reserve independent final cases.
 \end{itemize}
 \end{frame}
 
@@ -587,14 +563,12 @@
 
 % Page 48
 \begin{frame}{Evaluator: Define What Better Means}
-\begin{center}
-\small
-\input{tables/evaluation_checks}
-\end{center}
-\smallskip
 \begin{itemize}
-\item A date field can exist and still be wrong.
-\item Define the checks before seeing candidate results.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Format:} required fields parse correctly.
+\item \textbf{Timing:} execution follows actual availability; a date field alone is insufficient.
+\item \textbf{Grounding:} claims match retained evidence.
+\item \textbf{Control:} unauthorized actions remain blocked; fix criteria before comparing versions.
 \end{itemize}
 \end{frame}
 
@@ -628,14 +602,12 @@
 
 % Page 51
 \begin{frame}{Regression: Preserve Existing Controls}
-\begin{center}
-\small
-\input{tables/regression_checks}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Run \texttt{python3 <qt>/scripts/check.py}.
-\item Code tests alone do not demonstrate better model behavior.
+\setlength{\itemsep}{0.8em}
+\item \textbf{Code tests:} run \texttt{python3 <qt>/scripts/check.py}.
+\item \textbf{Behavioral cases:} check outputs against the task criteria.
+\item \textbf{Scope review:} reject unauthorized policy or code changes.
+\item Passing code tests alone does not establish better model behavior.
 \end{itemize}
 \end{frame}
 
@@ -655,14 +627,12 @@
 
 % Page 53
 \begin{frame}{Versioning: Track the Tested Configuration}
-\begin{center}
-\small
-\input{tables/version_registry}
-\end{center}
-\smallskip
 \begin{itemize}
-\item An alias selects a version; it is not approval evidence.
-\item MLflow integration is an extension.
+\setlength{\itemsep}{0.8em}
+\item \textbf{QT:} retain prompt versions and the active pointer.
+\item \textbf{MLflow extension:} connect prompt versions, evaluations, and traces.
+\item \textbf{Configuration:} record model, tool, policy, and data versions.
+\item An alias selects a version; it does not establish approval.
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.mlflow.org/docs/latest/genai/prompt-registry/}{Source: MLflow Prompt Registry}\end{center}
 \end{frame}
@@ -705,13 +675,12 @@
 
 % Page 57
 \begin{frame}{Real Data: Replace the Fixture}
-\begin{center}
-\small
-\input{tables/production_adapters}
-\end{center}
-\smallskip
 \begin{itemize}
-\item Every adapter needs its own evidence and tests.
+\setlength{\itemsep}{0.8em}
+\item Replace synthetic stocks with licensed, dated market feeds.
+\item Reconstruct historical membership, including delistings.
+\item Implement dated execution rules and realistic costs.
+\item Add operational controls and accountable owners; test every adapter.
 \end{itemize}
 \end{frame}
 

@@ -4,6 +4,8 @@ The English and Chinese decks each have 60 pages. One synthetic monthly-momentum
 case supplies the reason for each control and the evidence for each activity.
 There are two sections: Design the Quant System; Build and Improve the System.
 Product and acceptance are stated in plain language before the contents.
+Explanatory pages use short itemized lists; only pages 7, 11, 49, and 52 use
+tables for worked data, calculations, and output comparisons.
 
 There are no separate break slides, lab section, reference appendix, or repeated
 roadmaps. Breaks belong to the instructor schedule. Student participation occurs

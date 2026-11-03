@@ -1,9 +1,12 @@
 # Topic 3: proposed 60-page lecture structure
 
-Status: task-centered discussion draft. Incorporates the user's latest direction:
+Status: implemented slide structure, under final build and visual verification.
+Incorporates the user's direction:
 60 pages, no standalone break pages, no separate lab, and explicit tools for
 self-improvement. Earlier drafts received two Pi / Gemini 4 Argon reviews;
-this later reallocation has not been resubmitted. Slide sources are unchanged.
+this later reallocation has not been resubmitted. Both language sources now
+follow this map. The subsequent itemize preference replaces explanatory tables
+with short bullets; only pages 7, 11, 49, and 52 retain worked comparison tables.
 
 ## Purpose and opening language
 
@@ -249,9 +252,11 @@ connected to QT or that using them guarantees better financial decisions.
 | Extensive market-rule and regulatory comparisons | One calculation, one timing example, a short production boundary, and sourced notes |
 | Generic self-evolution claims | Named tools, concrete inputs/outputs, independent evaluation, approval, and rollback |
 
-Each page carries one exhibit or decision. Detailed page notes are author
-instructions, not slide-body text. Keep product and acceptance in plain words,
-and do not reach 60 pages by squeezing more text into each slide.
+Each page carries one decision or teaching point. Use short itemized lists for
+explanations and retain diagrams where they explain process or dependencies.
+Tables are reserved for worked data, calculations, and output comparisons.
+Detailed page notes are author instructions, not slide-body text. Keep product
+and acceptance in plain words; do not squeeze more text into each slide.
 
 ## Review and factual controls
 
@@ -276,6 +281,6 @@ The industry-comments source check remains in
   Model weights, risk limits, and strategy parameters do not evolve through QT's
   Generator-prompt interface.
 
-For the slide edit, apply this same 60-page map in English and Chinese, build and
-validate both PDFs, and inspect every page. This file records the current
-structure proposal; the deck sources have not yet been rewritten.
+This 60-page map has been applied in English and Chinese. Rebuild and validate
+both PDFs after changes, then inspect every page. The instructor guide and
+manually written comparison fixtures accompany the revised decks.

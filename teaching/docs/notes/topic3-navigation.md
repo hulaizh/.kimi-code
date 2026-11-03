@@ -4,6 +4,8 @@ Current user direction, 3 November 2026: exactly 60 pages, plain-language
 product and acceptance, engineering concepts motivated by finance stakeholder
 needs, no standalone break pages, and no separate standard lab. Practice belongs
 inside the continuing quant-system task. Add concrete self-improvement tools.
+Use itemized lists for explanations. Keep tables only for worked data,
+calculations, and output comparisons (pages 7, 11, 49, and 52).
 
 Both language versions now open with title, product, acceptance, and manually
 written contents. Two sections cover Design the Quant System and Build and
@@ -19,3 +21,6 @@ assertion checks, not measured model behavior.
 These preferences supersede the older automatic table-of-contents and roadmap
 conventions. The legacy validator's required Roadmap title and visual warning
 for manual contents are known exceptions; do not add a roadmap to satisfy them.
+The latest explicit itemize preference also supersedes visual-primacy warnings
+on explanatory frames. Do not add decorative exhibits to those pages merely
+to satisfy that legacy check.
