@@ -1,6 +1,6 @@
 # Topic 3: proposed 60-page lecture structure
 
-Status: implemented slide structure, under final build and visual verification.
+Status: implemented and verified in both language versions, 3 November 2026.
 Incorporates the user's direction:
 60 pages, no standalone break pages, no separate lab, and explicit tools for
 self-improvement. Earlier drafts received two Pi / Gemini 4 Argon reviews;
