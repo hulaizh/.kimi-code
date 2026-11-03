@@ -35,3 +35,7 @@ These user preferences supersede older rules demanding automatic roadmaps or
 an exhibit on every explanatory slide. The legacy validator's Roadmap-title
 requirement, visual-primacy warnings, and six-item total count on nested contents
 are documented exceptions. Each individual contents list has only two items.
+
+The subsequent humanize pass keeps this structure and uses direct sentences
+within itemize, fewer bold prefixes, and sentence case for edited English
+headings. The user's recent opening-slide text and title edits are retained.
