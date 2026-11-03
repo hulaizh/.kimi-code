@@ -1,7 +1,7 @@
 # Topic 3: proposed 60-page lecture structure
 
-Status: discussion draft, revised after the user's finance-harness comments and
-Pi's Gemini 4 Argon review. The slide sources have not been changed.
+Status: reviewed discussion draft. Incorporates the user's finance-harness
+comments and two reviews through Pi's Gemini 4 Argon. Slide sources are unchanged.
 
 ## Purpose and opening language
 
@@ -24,9 +24,11 @@ another analyst can inspect and continue the work. Classroom data are synthetic.
 - Interrupted work resumes from the last verified step.
 - A named person approves material changes; tested versions can be restored.
 
-Research acceptance is separate from authority to deploy capital. Acceptance
-also permits an honest, evidenced rejection: a working system need not find a
-profitable strategy.
+Research acceptance is separate from authority to deploy capital. An evidenced
+rejection satisfies the system's delivery standard while rejecting the candidate:
+a working system need not find a profitable strategy. Keep three decisions
+distinct: the controller's research verdict, the owner's approval of a workflow
+change, and a separately authorized capital action. The latter is outside QT.
 
 Keep product and acceptance on separate pages. Use prose, a sample research
 package, and short visual callouts. No code block, JSON, or field-name inventory
@@ -104,14 +106,14 @@ pages. No separate reference appendix or timetable slide.
 ### Design from finance needs: one controlled run
 
 5. **Stakeholders: What They Need.** Auditor, risk manager, operations, and accountable owner ask concrete questions about the momentum case. Bridge from Topic 2: reusable prompts and skills now need control across steps and sessions.
-6. **Audit Replay and Determinism.** Introduce the three replay questions through two runs of one case. This is a requirements exhibit; persistence is implemented later.
+6. **Audit Replay and Determinism.** Start with one historical decision record. Contrast reconstructing that record, repeating its calculation with frozen inputs, and asking the model again. This is a requirements exhibit; persistence is implemented later.
 7. **Information Set: What Was Known Then?** Show one release/restatement and observation-to-trade timeline. A later value cannot support an earlier decision. This motivates controlled inputs before naming the harness.
-8. **Authority: Suggest, Check, Approve.** Agents propose and challenge; code checks numerical rules and permitted transitions; a named human owns policy and approvals. Ask who may change the risk cap. Code enforces only rules that have been specified and tested.
+8. **Authority: Suggest, Check, Approve.** Agents propose and challenge; code checks rules and transitions; a named human owns policy. Distinguish a research verdict, approval of a workflow version, and authority to deploy capital. Ask who may change the risk cap. Code enforces only specified, tested rules.
 9. **Harness: The Agent's Working Conditions.** Introduce context, tools, authority, evidence, state, and gates as the surrounding system needed to answer pages 5–8. Show one agent with those boundaries.
 10. **Harness: One Task Contract.** Show the question, dated inputs, permitted actions, expected output, and escalation condition in ordinary language. Preserve Topic 2's context principles without reteaching skills.
 11. **Tools: Reproduce One Calculation.** Work through one signal or cash calculation with fixed inputs and a dated execution rule. Validate inputs and returned evidence. Keep board-specific execution details in the handout; do not imply one rule fits all A-shares.
 12. **Tool Loop: Act on the Result.** A failed or incomplete calculation determines the next action. Show plan, call, observe, and stop; a retry needs a reason and a bound.
-13. **Review: Independent Challenge.** A plausible result needs financial judgment. Introduce the Critic using a timing or cost defect. Separate context supports challenge but does not eliminate shared model errors. A benchmark can motivate evaluation; it is not the case's failure probability.
+13. **Review: Independent Challenge.** A plausible result needs financial judgment. Introduce the Critic using a timing or cost defect. Separate context supports challenge but does not eliminate shared model errors. A benchmark motivates verification; it establishes neither a production failure probability nor the benefit of adding a Critic.
 14. **Orchestrator: Control the Handoffs.** Separate production, review, and routing. The main agent coordinates; the controller enforces encoded transitions and the human retains policy authority. Review findings cannot silently authorize action.
 15. **Graph: Dependencies and Routes.** The backtest needs validated inputs; review needs saved outputs. Introduce nodes, edges, conditional routing, and waiting through this dependency diagram.
 16. **Teams: Fan Out and Join.** Decompose only checks needing separate expertise. Use a small parallel Critic-team example; label all six specialist responsibilities in the handout. All required reports must arrive and pass validation before the join.
@@ -121,7 +123,7 @@ pages. No separate reference appendix or timetable slide.
 20. **Finding Memory: Silence Is Not Closure.** Carry one finding through two rounds; closure must cite the repaired version. Show why a fresh agent needs saved issue history.
 21. **Stopping: Accept, Revise, or Escalate.** Teach passing checks, unresolved defects, fatal defects, exhaustion, stalled progress, and human stop in plain language. The plugin's two-clean-review rule is a course implementation choice, not a universal assurance standard.
 22. **Hooks: Automatic Event Checks.** A supervisor needs checks and records at every relevant boundary. Introduce a hook after the controller: an event triggers a script, such as logging a completed call.
-23. **Hooks: Observe, Block, and Enforce.** Distinguish observation from enforcement. Hooks block only where the host permits; critical acceptance remains in the controller. Put Kimi event names, return codes, and timeouts beside the implementation example.
+23. **Hooks: Observe, Block, and Enforce.** Distinguish observation, host-permitted blocking, and controller enforcement. Critical acceptance remains in the controller. All Kimi event names, return codes, and timeouts are deferred to page 40 and the handout.
 
 24. **Break: Ten Minutes.**
 
@@ -132,7 +134,7 @@ pages. No separate reference appendix or timetable slide.
 27. **Recovery: Reconcile Before Retrying.** Match the pending request; classify transient failure, invalid submission, altered evidence, and uncertain external effects. Demonstrate why retrying must not duplicate an action.
 28. **Trace: Explain the Route.** Connect source snapshot, tool result, finding, control decision, and approval in one record. Capture observable actions and evidence; do not claim access to hidden model reasoning.
 29. **Audit Exercise: Reconstruct One Decision.** Students identify evidence needed to explain a stopped case. Separate replaying saved numerical inputs from a fresh model call. Return to page 6's questions.
-30. **Scoped Authority: A Mandate to Act.** Short payment example: approved purpose, amount, recipient, expiry, and approver. Intent and identity need external verification. AP2 is the detailed illustration; Mastercard and Visa are sourced parallels, not additional protocol tutorials.
+30. **Scoped Authority: A Mandate to Act.** Start with the research agent requesting paid data outside its mandate. Show approved purpose, amount, recipient, expiry, and approver. AP2 supplies one short payment parallel; Mastercard and Visa stay in speaker notes. This is a production illustration, not a QT capability.
 31. **Untrusted Inputs: Protect the Boundary.** A retrieved document tells the agent to upload data. Show trust boundaries, restricted tools, and escalation. A prompt alone does not enforce host permissions.
 32. **Supervision: A Named Owner.** Who monitors access, reviews actions, handles exceptions, and can stop the system? Use FINRA's agent considerations as a US broker-dealer example. Distinguish applicable requirements, supervisory considerations, and internal policy; international comparisons stay in notes.
 33. **Repeated Failures: Improve the Workflow.** A case repair does not prevent next month's omission. Introduce evolution through a recorded, reproducible failure. Separate changing a prompt from searching strategy parameters.
@@ -143,13 +145,13 @@ pages. No separate reference appendix or timetable slide.
 ### Build and evolve QT: inspect a working case
 
 37. **Plugin: Files and Two Commands.** Map roles and controls to commands, skills, agents, scripts, hooks, and workspace state. Introduce `/qt:start` and `/qt:evo` here.
-38. **Delegation: Leads and Specialists.** One native agent profile and its permissions; distinguish actual dispatch evidence from a report claiming a team ran.
+38. **Delegation: Leads and Specialists.** One native agent profile and its permissions. Controller validation of report files does not prove separate agents ran; corroborate with host dispatch and response records. The sample Bash-event hook does not capture complete specialist provenance.
 39. **Installation: Source and Runtime.** One install/reload path and the package/workspace boundary. Installation is pre-class preparation; this is a quick orientation.
 40. **Hook: Register and Inspect.** Show the optional logger and one event; explain relevant failure behavior. Demonstrate duplicate delivery from a prepared fixture. Full setup and event inventory stay in the handout.
-41. **Run: Follow One Research Case.** Inspect a prepared case at selected transitions. Label actual live-team artifacts with their provenance; otherwise label the scripted rehearsal. Do not budget for an unbounded full model run.
+41. **Run: Follow One Research Case.** Inspect a prepared case at selected transitions. Show host dispatch evidence for live-team claims, or label the scripted rehearsal. A mode label alone does not prove live execution. Do not budget for an unbounded full model run.
 42. **Barriers: What Permits Advancement?** Locate Generator completeness, numerical checks, Critic coverage, and termination evidence.
 43. **Fault Injection: Reject Bad Evidence.** Introduce one missing specialist or stale request and inspect the blocked transition. Run one repair; other failure cases stay in the handout.
-44. **Replay: Check the Evidence.** Re-run a numerical check against saved inputs. Distinguish controller-test coverage, scripted reports, actual model outputs, and production assurance.
+44. **Replay: Check the Evidence.** Map page 6 to three evidence rows: state/trace/artifacts for reconstruction, frozen-input numerical checks for calculation replay, and separate model-run records for behavioral comparison. Demonstrate the numerical check. A fresh evaluation needs a new case; starting an existing case resumes or reuses its state.
 45. **Resume: Continue the Pending Step.** Interrupt at a prepared checkpoint, inspect identity and evidence integrity, and resume. Do not repeat completed effects.
 
 46. **Break: Ten Minutes.**
@@ -157,7 +159,7 @@ pages. No separate reference appendix or timetable slide.
 ### Build and evolve QT: improve and define the boundary
 
 47. **Evolution: Start from a Recorded Failure.** Show `/qt:evo` and the diagnosis behind one bounded prompt edit. Use a prepared failure with evidence; label any illustrative scenario.
-48. **Evaluation: Compare Versions.** Show fixed inputs, cases, criteria, model configuration, repeated runs where appropriate, and archived outputs. Code tests alone do not establish prompt improvement. Preserve held-out cases and attempted changes.
+48. **Evaluation: Compare Versions.** Show pre-collected model outputs under fixed cases, criteria, and configuration, including repeated runs where appropriate. QT executes code regressions and validates submitted review fields; it does not independently run and grade this full behavioral comparison. Preserve held-out cases and attempted changes; label absent behavioral evidence as unverified.
 49. **Adoption: Approve and Restore.** Inspect diff and evidence, approve a version for future cases, show its pointer, and restore the prior version. Collect model-output comparisons before class.
 50. **Real Data: Replace the Fixture.** Map synthetic inputs to licensed feeds, dated universe membership, release times, and execution adapters. Mark absent capabilities.
 51. **Validation: Challenge the Pipeline.** One temporal-leakage perturbation connects to page 7. Name cost stress and walk-forward testing as further requirements without a backtesting tutorial.
@@ -168,8 +170,8 @@ pages. No separate reference appendix or timetable slide.
 ### Integrated lab
 
 55. **Lab: Repair One Control.** State deliverables, rubric, and the pre-provisioned workspace before students start.
-56. **Contract: Define the Failure and the Check.** Recommended: timestamp freshness with supplied starter tests. Alternatives: version-bound finding closure or a required specialist report. Prompt evaluation is optional advanced work with prepared cases; it may exceed class time.
-57. **Build and Verify.** Leave visible during work: reproduce the defect, edit one component, run failing/passing and integration checks, save diff and evidence. Reinstall only if native plugin behavior changed.
+56. **Contract: Define the Failure and the Check.** One standard classroom task: timestamp freshness with a prepared defect and starter tests. Fast finishers can add version-bound finding closure. Required-specialist and prompt-evaluation extensions move to the handout for work after class.
+57. **Build and Verify.** Leave visible during work: reproduce the defect, edit one component, run source-local failing/passing and integration checks, save diff and evidence. Tests import the edited source directly; no plugin reinstall is needed for this lab. Native Kimi testing later requires reinstall/reload after source edits.
 58. **Partner Replay.** Another student re-runs the check from saved evidence and explains why the route passed or blocked.
 59. **Submit: Evidence and One Limitation.** One contract, diff, before/after evidence, version identity, and limitation. A documented unresolved result is acceptable; invented success is not.
 
@@ -179,8 +181,8 @@ pages. No separate reference appendix or timetable slide.
 
 - **First architecture block, 65 minutes:** pages 5–8, 15 minutes; 9–12,
   12 minutes; 13–17, 17 minutes; 18–21, 15 minutes; 22–23, 6 minutes.
-- **Continuity and change, 35 minutes:** pages 25–29, 15 minutes; 30–32,
-  9 minutes; 33–36, 11 minutes, including the replay exercise.
+- **Continuity and change, 35 minutes:** pages 25–29, 17 minutes including
+  a 5-minute exercise on page 29; 30–32, 8 minutes; 33–36, 10 minutes.
 - **QT demonstration, 40 minutes:** pages 37–40, 10 minutes; 41–42,
   10 minutes; 43, 7 minutes; 44–45, 10 minutes; 3 minutes contingency.
   Rehearse this path and save a case at every transition before class.
@@ -189,6 +191,11 @@ pages. No separate reference appendix or timetable slide.
 - **Lab, 35 minutes:** brief and choose, 5 minutes; edit/test, 20 minutes;
   partner replay, 7 minutes; submit, 3 minutes. These are persistent work
   instructions, not five mini-lectures.
+
+Before teaching, prepare the standard freshness defect, starter contract/tests,
+and instructor answer in an isolated source copy; these new lab materials are
+not yet supplied by this structure proposal. Use the package's source-local
+test runner for the exercise. Avoid setup and model-call latency during the lab.
 
 Each page carries one exhibit or decision. The detailed notes above instruct the
 author; they are not slide-body text. Retain the short body-text convention.
@@ -213,6 +220,15 @@ The initial Pi review identified late finance motivation, overcrowded candidate
 revision, ambiguous determinism, an overloaded demo, and lab bloat. This revision
 addresses those findings. Do not copy its suggested uniform market-rule values
 or renamed terminal enum into the implementation.
+
+The follow-up judged the plan conditionally ready. Its useful remaining changes
+are incorporated: one classroom lab track, a more concrete replay exhibit,
+theory/demo provenance distinctions, and extra audit-exercise time. The reviewer
+misread page 23's deferral of runtime details; the wording now states page 40
+explicitly. Its suggestion to treat every `/qt:start` call as a new model run
+was rejected after reading the controller: existing cases resume or return
+their terminal result. Its `accepted_for_research` label is not a QT enum;
+the implementation's actual terminal state remains `ACCEPTED`.
 
 The user's industry comments inform pages 6, 8, 13, 17, 28–34, and 48–53.
 Source checks are in `../notes/2026-11-03-topic3-finance-harness-sources.md`:
