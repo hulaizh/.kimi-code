@@ -2,7 +2,7 @@
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.6cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
 \node[box] (n0) at (1.5,0) {\textbf{数据来源}\\带日期快照 ID};
-\node[box] (n1) at (4.9,0) {\textbf{数值计算}\\落盘产物文件};
+\node[box] (n1) at (4.9,0) {\textbf{数值计算}\\保存的结果文件};
 \draw[link] (n0) -- (n1);
 \node[box] (n2) at (8.3,0) {\textbf{独立审查}\\缺陷台账与路由};
 \draw[link] (n1) -- (n2);

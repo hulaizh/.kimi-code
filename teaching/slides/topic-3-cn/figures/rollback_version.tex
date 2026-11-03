@@ -4,6 +4,6 @@
 \node[box] (n0) at (1.7,0) {\textbf{批准回滚}\\保留新旧版本记录};
 \node[box] (n1) at (6.6,0) {\textbf{恢复版本指针}\\切回先前提示词};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{新建案例验证}\\确认行为恢复正常};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{新建案例验证}\\检查恢复后的行为};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

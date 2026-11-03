@@ -4,7 +4,7 @@
   label/.style={font=\scriptsize,align=center,fill=white,inner sep=1pt,text=black!60}]
 \node[box] (g) at (1.5,0) {\textbf{Generator team}\\candidate + tests};
 \node[box,draw=forestgreen,fill=forestgreen!6] (checks) at (4.9,0) {\textbf{Orchestrator}\\code gates};
-\node[box,draw=darkred,fill=red!4] (c) at (8.3,0) {\textbf{Critic team}\\fresh axis reviews};
+\node[box,draw=darkred,fill=red!4] (c) at (8.3,0) {\textbf{Critic team}\\fresh specialist reviews};
 \node[box,draw=forestgreen,fill=forestgreen!6] (o) at (11.7,0) {\textbf{Orchestrator}\\merge + decide};
 \draw[flow] (g)--(checks);\draw[flow] (checks)--(c);\draw[flow] (c)--(o);
 \draw[flow,dashed,draw=darkred] (checks.south) to[bend left=25] node[below,label,text=darkred]{bounded repair}(g.south);

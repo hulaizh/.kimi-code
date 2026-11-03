@@ -1,14 +1,14 @@
 \begin{tikzpicture}[b/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=2.1cm,minimum height=1.5cm,align=center,font=\footnotesize},a/.style={-{Stealth},thick,draw=black!60}]
 \node[b] (n0) at (0.0,0) {\textbf{采集}\\已完成案例};
-\node[b] (n1) at (2.7,0) {\textbf{诊断}\\可复现失败};
+\node[b] (n1) at (2.7,0) {\textbf{诊断}\\可复现的故障};
 \draw[a] (n0) -- (n1);
-\node[b] (n2) at (5.4,0) {\textbf{提案}\\单处提示词修改};
+\node[b] (n2) at (5.4,0) {\textbf{提案}\\一处提示词修改};
 \draw[a] (n1) -- (n2);
 \node[b] (n3) at (8.100000000000001,0) {\textbf{评估}\\固定案例与回归};
 \draw[a] (n2) -- (n3);
 \node[b] (n4) at (10.8,0) {\textbf{决策}\\批准、拒绝、暂缓};
 \draw[a] (n3) -- (n4);
-\node[b,draw=forestgreen,fill=forestgreen!6,text width=3cm,minimum height=1cm] (v) at (5.4,-2.4) {\textbf{版本化采纳}\\须经用户明确批准};
+\node[b,draw=forestgreen,fill=forestgreen!6,text width=3cm,minimum height=1cm] (v) at (5.4,-2.4) {\textbf{启用新版本}\\须经用户明确批准};
 \node[b,draw=darkred,fill=red!4,text width=3cm,minimum height=1cm] (k) at (10.8,-2.4) {\textbf{保留旧版}\\检查失败或未获批准};
 \draw[a] (n4.south west) -- (v.north east);
 \draw[a] (n4.south) -- (k.north);

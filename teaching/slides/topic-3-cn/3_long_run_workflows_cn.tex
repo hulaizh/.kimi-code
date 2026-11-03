@@ -31,20 +31,20 @@
 \end{center}
 \smallskip
 \begin{itemize}
-\item 将交易想法与带日期数据转化为明确策略、可运行回测、经核验结果与独立审查意见。
-\item 完整留存运行证据，使另一位分析师能够核查并接续本讲的合成股票月度动量案例。
+\item 把交易想法和带日期的数据变成明确的策略、可运行的回测、经核验的结果和独立审查意见。
+\item 保留证据，让另一位分析师能检查并继续本讲的合成股票月度动量案例。
 \end{itemize}
 \end{frame}
 
 % Page 3
-\begin{frame}{验收：怎样判断工作已经就绪}
+\begin{frame}{验收：工作是否已经完成}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/acceptance_tests}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 证据缺失、检查未通过或存在未决缺陷，均阻止案例通过验收。
-\item 有据可查的否决同样是合格交付；研究验收通过绝不等于实盘交易授权。
+\item 证据缺失、检查未通过或问题尚未解决，均不能验收通过。
+\item 有证据支持的否决也是合格结果；研究验收不等于交易授权。
 \end{itemize}
 \end{frame}
 
@@ -71,30 +71,30 @@
 \end{frame}
 
 % Page 5
-\begin{frame}{利益相关方：各方需要什么保障}
+\begin{frame}{利益相关方：各方需要什么}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{内部审计：}完整还原某次历史决策所依据的数据快照、版本与产物证据。
-\item \textbf{风险管理：}核实每项关键操作由谁授权，以及是否严守风险上限。
-\item \textbf{系统运营：}在中断或故障后，能够从最近一次已核验的步骤安全接续。
-\item \textbf{系统负责人：}判断工作流改动是否真正改善了表现，且未削弱既有风控。
+\item 审计人员需要还原过去决策所依据的数据快照、版本和证据。
+\item 风控人员需要确认谁批准了操作，是否遵守风险限额。
+\item 运营人员需要在中断后，从已核验的步骤继续工作。
+\item 系统负责人需要判断改动是否改善了表现，同时检查已有控制是否仍然有效。
 \end{itemize}
 \end{frame}
 
 % Page 6
-\begin{frame}{审计重放与确定性边界}
+\begin{frame}{审计重放与确定性}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{审计追溯：}核查当时实际留存的证据文件、执行动作与审批记录。
-\item \textbf{计算复现：}锁定输入数据、代码与运行配置，检验数值结果是否一致。
-\item \textbf{模型重跑：}衡量再次调用模型时，其决策结论与工具调用路径的波动情况。
-\item \textbf{核心边界：}结果可重复并不证明逻辑正确；任何重放都严禁重复发出支付或报单指令。
+\item 审计追溯：检查当时保存的证据、操作与审批记录。
+\item 计算复现：固定输入、代码与配置，核对数值结果。
+\item 模型重跑：比较各次调用的决策与工具路径。
+\item 结果可重复不代表正确；重放时不得再次支付或下单。
 \end{itemize}
 \begin{center}\scriptsize\href{https://arxiv.org/html/2601.15322v4}{来源：DFAH v4（重放的三个维度）}\end{center}
 \end{frame}
 
 % Page 7
-\begin{frame}{信息集：决策时点已知什么？}
+\begin{frame}{信息集：当时已经知道什么}
 \begin{center}
 \small
 \input{tables/pit_example}
@@ -102,8 +102,8 @@
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 必须先按公开披露时间筛选可得记录，再从中选取数据版本。
-\item 基于当日收盘价算出的信号，只能用于此后可实际成交的交易时点。
+\item 先按公开披露时间筛选，再选择当时可用的数据版本。
+\item 用当日收盘价计算的信号，只能用于之后可执行的交易。
 \end{itemize}
 \end{frame}
 
@@ -111,37 +111,37 @@
 \begin{frame}{权限：建议、核验与批准\handsup}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{Agent：}提出候选策略，并对支持证据发起独立质询。
-\item \textbf{确定性代码：}强制执行明确编写、经过测试的规则与状态转移。
-\item \textbf{人：}掌握制度制定权，并分别审批工作流版本升级与实盘资金使用。
-\item \textbf{问题：}谁有权修改风险上限？
+\item Agent 提出候选策略，并检查支持它的证据。
+\item 代码执行明确规定、经过测试的规则与状态转换。
+\item 人负责制定制度，并分别批准工作流版本变更与资金使用。
+\item 问题：谁有权修改风险上限？
 \end{itemize}
 \end{frame}
 
 % Page 9
-\begin{frame}{Harness：Agent 的受控工作环境}
+\begin{frame}{Harness：Agent 的工作环境}
 \begin{center}
 \resizebox{.91\textwidth}{!}{\input{figures/agent_harness}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item Harness 在模型外围提供受控上下文、工具边界、持久状态与可强制执行的输出门控。
+\item Harness 在模型之外提供上下文、工具权限、持久状态和输出检查。
 \end{itemize}
 \end{frame}
 
 % Page 10
-\begin{frame}{Harness：一份明确的任务契约}
+\begin{frame}{Harness：明确任务要求}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{研究目标：}在课堂股票池上检验明确给定的月度动量规则。
-\item \textbf{时点输入：}绑定带日期的数据快照与固定的交易成本假设。
-\item \textbf{角色权限：}仅允许读写工作区研究文件，不具备任何券商报单权限。
-\item \textbf{交付要求：}返回带引用的证据与局限说明，或明确报告受阻原因。
+\item 在课堂股票池中检验给定的月度动量规则。
+\item 使用指定的数据快照和固定的交易成本假设。
+\item 仅可读写工作区研究文件，没有券商报单权限。
+\item 交付结果时说明证据来源与局限；无法继续时报告原因。
 \end{itemize}
 \end{frame}
 
 % Page 11
-\begin{frame}{工具：复算一个明确结果}
+\begin{frame}{工具：复算一个结果}
 \begin{center}
 \small
 \input{tables/signal_example}
@@ -149,141 +149,141 @@
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 执行公式前，先核验数据日期覆盖与收盘价有效性。
-\item 用已知答案算例校验计算结果，并单独声明交易执行时点。
+\item 计算前检查数据日期和收盘价是否可用。
+\item 用已知答案核对结果，并另行说明交易执行时点。
 \end{itemize}
 \end{frame}
 
 % Page 12
-\begin{frame}{工具循环：依据返回结果决定下一步}
+\begin{frame}{工具循环：根据结果继续}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/tool_loop}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 工具调用失败本身是一条待处理的观察结果，绝不代表工作已经完成。
-\item 对瞬时故障在次数上限内重试；遇到无效证据则立即阻断推进。
+\item 工具调用失败后，需要判断原因，不能把这一步记为已完成。
+\item 暂时性故障可在次数上限内重试；无效证据会阻止推进。
 \end{itemize}
 \end{frame}
 
 % Page 13
-\begin{frame}{独立审查：质疑看似可信的结果}
+\begin{frame}{独立审查：检查结果是否可信}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/independent_challenge}}
 \end{center}
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 启用全新上下文的 Critic，直接核查落盘的交易明细与回测产物。
-\item 隔离上下文能减少先入为主，但无法消除同源模型共有的判断盲区。
+\item 让 Critic 在新的上下文中检查保存的交易明细与回测结果。
+\item 新的上下文有助于减少先入为主，但审查者仍可能犯相同的模型错误。
 \end{itemize}
 \end{frame}
 
 % Page 14
-\begin{frame}{Orchestrator：统一控制任务交接}
+\begin{frame}{Orchestrator：安排任务交接}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/qt_v4}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 主会话负责编排协调，控制器代码负责强制执行状态转移与门控检查。
-\item 无论 Generator 还是 Critic，均无权自行扩大权限或绕过门控。
+\item 主会话协调角色分工，控制器代码检查是否允许进入下一步。
+\item Generator 与 Critic 都不能自行扩大权限或绕过检查。
 \end{itemize}
 \end{frame}
 
 % Page 15
-\begin{frame}{Graph：依赖关系与条件路由}
+\begin{frame}{Graph：依赖与路由}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/dependency_graph}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 节点执行边界明确的任务，有向边规定何时允许触发交接。
-\item 前置输入缺失时阻断后续节点；审查未通过则按路由退回修订。
+\item 节点承担具体任务，边规定何时允许交接。
+\item 缺少前置输入时，后续节点等待；审查未通过则返回修订。
 \end{itemize}
 \end{frame}
 
 % Page 16
-\begin{frame}{团队：并行分工与汇合屏障}
+\begin{frame}{团队：分工与汇合}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/team_join}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 仅在需要不同专业审查视角时，才将任务拆分给独立专家。
-\item 汇合屏障必须等待全部必选报告齐备并通过校验，最先返回的报告不能替代全组结论。
+\item 需要不同专业判断时，再把任务分给不同专家。
+\item 汇合前必须收齐并核验所有必选报告；最先返回的报告不能代表全组结论。
 \end{itemize}
 \end{frame}
 
 % Page 17
-\begin{frame}{系统级检查：超越单个 Agent 视角}
+\begin{frame}{系统检查：合并后的风险}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/aggregate_limit}}
 \end{center}
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 各自符合局部限额的多份方案，叠加后仍可能突破组合层面的共享风险上限。
-\item 生产扩展说明：课堂研究算例尚未实现跨策略的组合总限额控制。
+\item 每份方案都符合自身限额，合并后仍可能超过组合总限额。
+\item 课堂算例尚未实现跨策略的组合限额控制，这是生产扩展。
 \end{itemize}
 \end{frame}
 
 % Page 18
-\begin{frame}{反馈：具体证据与修复标准\handsup}
+\begin{frame}{反馈：证据与修复标准\handsup}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{时点缺陷：}动量信号使用了 $t$ 日收盘价。
-\item \textbf{问题证据：}回测记录却将该笔交易记在同一 $t$ 日收盘时点成交。
-\item \textbf{修复要求：}交易执行必须严格晚于信号实际可得时点。
-\item \textbf{课堂互动：}请写出一条针对落盘文件的核验条件，用以正式关闭该缺陷。
+\item 动量信号使用了 $t$ 日收盘价。
+\item 回测却把交易记在同一 $t$ 日的收盘时点。
+\item 修复后，交易执行必须晚于信号实际可得时点。
+\item 请写出一条检查条件，说明保存的文件怎样证明问题已经解决。
 \end{itemize}
 \begin{center}\illustrative\end{center}
 \end{frame}
 
 % Page 19
-\begin{frame}{修订循环：定点修复与再次审查}
+\begin{frame}{修订循环：修复后再审查}
 \begin{center}
 \resizebox{.93\textwidth}{!}{\input{figures/critic}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 修订循环只更新候选策略本身，研究任务边界与验收门控标准保持固定。
+\item 每轮修改候选策略，研究任务与验收标准保持不变。
 \end{itemize}
 \end{frame}
 
 % Page 20
-\begin{frame}{缺陷台账：未再提及绝不等于已关闭}
+\begin{frame}{问题台账：未再提及仍未解决}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{第 1 轮：}在台账中登记缺陷 \texttt{pit-001} 及其对应的产物证据。
-\item \textbf{第 2 轮：}若新一轮审查报告未提及 \texttt{pit-001}，该缺陷依然保持开启。
-\item \textbf{核验关闭：}唯有 Critic 核实修复后的新产物，方可记录理由并关闭缺陷。
-\item \textbf{台账规则：}所有未决缺陷必须自动带入下一轮派发任务包。
+\item 第 1 轮记录问题 \texttt{pit-001}，并链接到对应证据。
+\item 第 2 轮没有提到 \texttt{pit-001}，它仍然是未解决问题。
+\item Critic 核验修复后的产物，记录理由后才能关闭问题。
+\item 把所有未解决问题带入下一轮任务。
 \end{itemize}
 \begin{center}\illustrative\end{center}
 \end{frame}
 
 % Page 21
-\begin{frame}{终止条件：通过、修订与阻断停止}
+\begin{frame}{停止条件：通过、修订与终止}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{验收通过（Accept）：}门控通过、缺陷清零，且同一候选策略连续两轮完整审查无缺陷（QT 规则）。
-\item \textbf{继续修订（Revise）：}存在明确的修复路径，且轮次与时间预算尚未耗尽。
-\item \textbf{拒绝或阻断（Reject / Block）：}出现致命缺陷或提交证据不合规时立即停止。
-\item \textbf{终止（Stop）：}预算耗尽、反复停滞无进展或用户主动叫停时终止并记录原因。
+\item 通过：检查通过、问题已解决，同一候选连续两轮完整审查无问题（QT 规则）。
+\item 修订：有可检验的修复方案，且仍有轮次和时间预算。
+\item 否决或阻断：致命缺陷终止案例；无效提交先退回修复，达到次数上限后阻断。
+\item 预算耗尽、进展停滞或用户叫停时，停止并记录原因。
 \end{itemize}
 \end{frame}
 
 % Page 22
-\begin{frame}{Hooks：事件触发与控制边界}
+\begin{frame}{Hooks：事件与控制边界}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
 \end{center}
 \smallskip
 \begin{itemize}
 \item 生命周期事件自动触发脚本，无需依赖 Agent 记得记录日志。
-\item 观察型 Hook 记录事件；阻断型 Hook 仅能在宿主允许的位置否决操作。
-\item 控制器门控负责强制检查；Hook 日志不能替代候选策略验收。
+\item 观察型 Hook 记录事件；阻断型 Hook 只能在宿主允许的位置拦截操作。
+\item 控制器执行必要检查；Hook 日志不能代替候选策略验收。
 \end{itemize}
 \end{frame}
 
@@ -309,143 +309,143 @@
 \end{frame}
 
 % Page 24
-\begin{frame}{运行中断：哪些步骤真正完成了？}
+\begin{frame}{运行中断：哪些步骤完成了}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/interruption_states}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 对话界面停在何处，并不能可靠证明后台哪些步骤已经真正完成并落盘。
+\item 会话停在哪里，不能说明后台哪些工作已经完成；需要检查保存的状态与结果。
 \end{itemize}
 \end{frame}
 
 % Page 25
-\begin{frame}{持久状态：落盘保存已核验的进度}
+\begin{frame}{持久状态：保存核验后的进度}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{身份标识：}记录案例、请求、候选策略与提示词版本 ID，直接拒绝过期回复。
-\item \textbf{执行进度：}在每次状态转换时落盘保存待处理角色、当前轮次、重试计数与截止时间。
-\item \textbf{证据校验：}保存产物文件路径与哈希值，及时发现封存文件是否被改动。
-\item \textbf{缺陷台账：}持久化未决缺陷与已核验的修复记录，确保中断后可无缝恢复。
+\item 记录案例、请求、候选策略和提示词版本 ID，以识别过期回复。
+\item 每次状态转换时，保存待处理角色、轮次、重试次数和截止时间。
+\item 保存文件路径与哈希，检查内容是否被改动。
+\item 保留未解决问题与已核验的修复记录，供恢复运行时读取。
 \end{itemize}
 \end{frame}
 
 % Page 26
-\begin{frame}{故障恢复：先核对状态，再决定重试}
+\begin{frame}{故障恢复：先核对，再重试}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{暂时性超时：}先核查任务是否实际完成，再在次数上限内执行重试。
-\item \textbf{报告格式违规：}将具体的结构或覆盖缺失错误发回当前角色要求修复。
-\item \textbf{封存产物被改：}立即阻断推进（\texttt{BLOCKED}），保留现场并展开排查。
-\item \textbf{外部操作未明：}重试前必须先完成状态对账，严防重复发出订单或支付。
+\item 超时后先确认任务是否完成，再决定是否有限重试。
+\item 报告格式错误或缺少必选报告时，返回具体错误并要求修复。
+\item 封存文件被改动时，阻止推进（\texttt{BLOCKED}），保留原有记录并检查原因。
+\item 外部操作结果不明时，先对账，再决定是否重试，避免重复下单或支付。
 \end{itemize}
 \end{frame}
 
 % Page 27
-\begin{frame}{运行轨迹：清晰解释状态路由}
+\begin{frame}{运行轨迹：还原每一步}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 将带日期的数据源、计算产物、审查缺陷与版本审批串联成可核查的轨迹。
-\item 轨迹记录的是可观测的实际动作与证据文件，而非模型内部的隐藏推理过程。
+\item 把数据快照、计算结果、审查问题和版本审批关联起来，供后续核查。
+\item 轨迹记录实际操作与证据文件；它不是模型内部的隐藏推理。
 \end{itemize}
 \end{frame}
 
 % Page 28
-\begin{frame}{审计重放：从留存证据还原案例\handsup}
+\begin{frame}{审计重放：用证据还原案例\handsup}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{候选策略与快照：}回测结果具体依据哪些输入数据与代码版本？
-\item \textbf{审查意见与台账：}哪些缺陷已被核验关闭，哪些仍未解决？
-\item \textbf{状态与路由轨迹：}案例最终因哪条门控或停止规则而终止？
-\item \textbf{提示词版本与审批：}本次运行采用了哪个提示词版本，由谁批准启用？
+\item 哪些输入数据和代码版本产生了这份回测结果？
+\item 哪些问题已经修复，哪些仍未解决？
+\item 哪条检查或停止规则结束了运行？
+\item 使用了哪个提示词版本，由谁批准？
 \end{itemize}
 \end{frame}
 
 % Page 29
-\begin{frame}{限定授权：有边界的外部行动许可}
+\begin{frame}{限定授权：付费数据请求}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{场景设定：}假设研究 Agent 申请采购超出免费算例范围的付费市场数据。
-\item \textbf{用途与供应商：}申请的数据用途与供应商是否在已批准的白名单内？
-\item \textbf{金额与有效期：}费用是否在预算上限内，且处于授权有效期内？
-\item \textbf{签名授权参照：}AP2 展示了带签名的支付授权链；本课 QT 插件不集成任何支付功能。
+\item 假设研究 Agent 请求购买超出课堂任务范围的市场数据。
+\item 数据用途与供应商是否经过批准？
+\item 费用是否在预算内，授权是否仍有效？
+\item AP2 提供带签名的支付授权示例；QT 本身没有支付功能。
 \end{itemize}
 \begin{center}\scriptsize\href{https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md}{来源：AP2 v0.2 规范}\end{center}
 \end{frame}
 
 % Page 30
-\begin{frame}{不可信输入：守住指令与权限边界}
+\begin{frame}{不可信输入：文件不是授权}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/untrusted_document}}
 \end{center}
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 外部公告、研报或网页中夹带的指令，一律视为待分析数据，绝不能扩大 Agent 权限。
-\item 文件读写与网络访问限制必须通过提示词之外的宿主权限强制执行。
+\item 公告、研报或网页里的指令只是待分析内容，不能扩大 Agent 的权限。
+\item 文件和网络访问限制需要由宿主执行，不能只写在提示词里。
 \end{itemize}
 \end{frame}
 
 % Page 31
-\begin{frame}{监督机制：明确具名责任人}
+\begin{frame}{监督：谁来负责}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/supervision_owners}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 必须指定明确的责任人负责处理异常升级，并具备随时叫停工作流的权限。
-\item FINRA 示例：展示美国券商监管语境下的监督考量；具体合规义务取决于所在机构与业务。
+\item 明确由谁处理异常，以及谁有权停止工作流。
+\item FINRA 的示例来自美国券商监管；具体义务取决于机构与业务。
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf}{来源：FINRA 2026 年监管报告，第 24--27 页}\end{center}
 \end{frame}
 
 % Page 32
-\begin{frame}{重复故障：从修补案例到改进工作流}
+\begin{frame}{重复故障：改进工作流}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/recurring_failure}}
 \end{center}
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 修复候选策略只能解决当前案例；演化 Harness 提示词才能预防后续案例重复遗漏。
-\item 任何工作流改进提案都必须基于真实记录的故障证据，不得凭空编造历史。
+\item 修复候选策略解决当前案例；改进 Harness 的目标是减少后续案例中的重复遗漏。
+\item 用实际记录的故障支持改进提案，不编造运行历史。
 \end{itemize}
 \end{frame}
 
 % Page 33
-\begin{frame}{变更控制：评估、审批与持续监测}
+\begin{frame}{变更控制：评估、批准与监测}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/system_evolution}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 评估提示词改动时必须锁定验收门控标准，并保留一键回滚能力。
-\item QT 当前实现的演化范围仅限版本化更新 Generator 角色提示词。
+\item 评估改动时保持验收标准不变，并保留回滚方式。
+\item QT 当前只支持 Generator 角色提示词的版本更新。
 \end{itemize}
 \end{frame}
 
 % Page 34
-\begin{frame}{三个循环：三类截然不同的改动对象}
+\begin{frame}{三个循环：分别改什么}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{工具循环：}在单个角色内部选择下一步工具调用动作。
-\item \textbf{研究循环：}围绕当前案例迭代修订候选策略，直至得出终局结论。
-\item \textbf{演化循环：}在固定案例集上评估可复用的提示词改动，并决定采纳、拒绝或暂缓。
-\item \textbf{关键区分：}调出表面收益更高的策略参数，绝不等于改进了系统的 Harness。
+\item 工具循环决定一个角色下一步调用什么工具。
+\item 研究循环修订候选策略，直到案例得出通过或停止的结论。
+\item 演化循环用固定案例评估提示词改动，再决定采纳、否决或暂缓。
+\item 调策略参数和改 Harness 是两项不同的工作。
 \end{itemize}
 \end{frame}
 
 % Page 35
-\begin{frame}{完整架构：将各项控制机制连成整体}
+\begin{frame}{架构：把控制连接起来}
 \begin{center}
 \resizebox{.84\textwidth}{!}{\input{figures/gan_loop}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 内层研究运行不断产生案例证据；外层由系统负责人在核查对照证据后审批版本变更。
+\item 研究运行产生案例证据；系统负责人检查对照结果后，再批准版本变更。
 \end{itemize}
 \end{frame}
 
@@ -472,98 +472,98 @@
 \end{frame}
 
 % Page 37
-\begin{frame}{插件结构：文件、命令与安装}
+\begin{frame}{插件：文件、命令与安装}
 \begin{center}
 \input{figures/qt_layout}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 使用 \texttt{/qt:start} 运行策略研究，使用 \texttt{/qt:evo} 发起改进。
-\item 通过 \texttt{/plugins install <qt>} 安装；修改源码后重新安装并执行 \texttt{/reload}。
+\item 用 \texttt{/qt:start} 运行策略研究，用 \texttt{/qt:evo} 发起改进。
+\item 用 \texttt{/plugins install <qt>} 安装；修改源码后重新安装并执行 \texttt{/reload}。
 \item 安装包与工作区 \texttt{.qt/} 中的案例状态、提示词版本分开保存。
 \end{itemize}
 \end{frame}
 
 % Page 38
-\begin{frame}{团队委派：负责人与专家配置}
+\begin{frame}{任务委派：负责人和专家}
 \begin{center}
 \input{figures/qt_agent}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 实盘或实测演示时，应核查宿主实际保存的子 Agent 派发与响应记录。
-\item 磁盘上存在格式合规的报告文件，并不能单独证明各专家确实在独立上下文中运行过。
+\item 演示真实 Agent 运行时，检查宿主保存的任务派发与响应记录。
+\item 格式正确的报告文件，不能单独证明各专家在独立上下文中运行过。
 \end{itemize}
 \end{frame}
 
 % Page 39
-\begin{frame}{Hook 演练：注册并核查事件日志}
+\begin{frame}{Hook：注册并检查日志}
 \begin{center}
 \input{figures/qt_hook_manifest}
 \end{center}
 \smallskip
 \begin{itemize}
-\item QT 可选的 Bash 审计脚本仅记录事件与调用 ID，并对重复投递保持幂等。
-\item 该日志既不核验候选策略质量，也不构成完整的子 Agent 溯源证明。
-\item Kimi 在 Hook 报错或超时后会记录日志并继续运行，因此强制门控必须留在控制器内。
+\item QT 可选的 Bash 日志脚本记录事件与调用 ID，重复投递只保留一条记录。
+\item 这份日志不核验候选策略，也不足以证明各专家实际运行过。
+\item Kimi 记录 Hook 错误或超时后会继续运行，因此必要检查仍由控制器执行。
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{来源：Kimi 官方 Hook 行为说明}\end{center}
 \end{frame}
 
 % Page 40
-\begin{frame}{运行案例：跟踪一次完整的研究流程}
+\begin{frame}{运行：跟踪一个研究案例}
 \begin{center}
 \input{figures/qt_start}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 依次核查绑定的 \texttt{request\_id}、专家报告、数值输出以及控制器的路由决定。
-\item 明确标注脚本排练（\texttt{SCRIPTED\_REHEARSAL}）；宣称真实团队运行须出示宿主调用记录。
+\item 检查 \texttt{request\_id}、专家报告、数值输出与控制器的下一步安排。
+\item 脚本排练标为 \texttt{SCRIPTED\_REHEARSAL}；真实团队运行需要宿主调用记录佐证。
 \end{itemize}
 \end{frame}
 
 % Page 41
-\begin{frame}{四道屏障：满足什么条件才允许推进？}
+\begin{frame}{四道检查：何时可以继续}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{Generator 汇合屏障：}三位专家报告全部齐备，且请求 ID 与轮次完全匹配。
-\item \textbf{数值门控屏障：}候选策略代码实际运行完毕，并通过确定性数值检查。
-\item \textbf{Critic 审查屏障：}三份独立审查报告齐备，且逐一处理了前轮遗留缺陷。
-\item \textbf{终止判定屏障：}核验后的证据满足验收通过规则，或触发明确的停止状态。
+\item Generator 的三份专家报告齐备，且请求 ID 与轮次匹配。
+\item 候选策略代码已运行，并通过确定性数值检查。
+\item Critic 的三份独立审查报告齐备，并处理了前轮遗留问题。
+\item 核验后的证据满足验收规则，或触发明确的停止条件。
 \end{itemize}
 \end{frame}
 
 % Page 42
-\begin{frame}{故障修复：拦截不合格的提交\handsup}
+\begin{frame}{故障修复：处理无效提交\handsup}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{缺失专家报告：}汇合屏障直接阻断，案例停留在当前角色等待补齐。
-\item \textbf{请求 ID 过期：}直接拒绝错配或过期的提交，严禁推进状态。
-\item \textbf{报告齐备且匹配：}校验产物哈希与门控结果后，方可路由至下一环节。
-\item \textbf{课堂互动：}在临时案例中修复一次受阻提交并验证路由，全程不得篡改已封存证据。
+\item 缺少必选报告时，案例停留在当前角色，等待补齐。
+\item 请求 ID 过期或不匹配时，拒绝提交，不进入下一步。
+\item 报告齐备并匹配后，再检查文件哈希与其他推进条件。
+\item 请在临时案例中修复一次提交并核对下一步；不要改动已封存证据。
 \end{itemize}
 \end{frame}
 
 % Page 43
-\begin{frame}{证据重放：三项核验操作对照}
+\begin{frame}{证据重放：核对三类结果}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{还原过程：}核查 \texttt{state.json}、路由轨迹与已落盘的角色产物。
-\item \textbf{复算数值：}在锁定输入与配置的前提下重新运行数值检查，核对输出是否一致。
-\item \textbf{比较模型行为：}跨调用比较模型表现时，分别保存独立的运行记录。
-\item \textbf{案例规则：}全新评测必须新建案例；重新打开已有案例只会接续或复用原状态。
+\item 查看 \texttt{state.json}、路由轨迹和保存的角色产物，还原过程。
+\item 固定输入与配置，重新计算并比较数值结果。
+\item 比较模型行为时，分别保留每次调用的运行记录。
+\item 新评测需要新案例；重新打开已有案例会继续或复用原状态。
 \end{itemize}
 \end{frame}
 
 % Page 44
-\begin{frame}{中断恢复：安全接续待完成步骤}
+\begin{frame}{中断恢复：接着未完成的步骤}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/resume_case}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 已处于终局状态的案例会直接返回已保存结论，不会重复执行。
-\item 若代码、数据快照或角色契约发生任何改动，必须新建独立案例。
+\item 已结束的案例直接返回保存的结论，不会重复执行。
+\item 代码、数据快照或角色要求变化后，需要新建案例。
 \end{itemize}
 \end{frame}
 
@@ -589,42 +589,42 @@
 \end{frame}
 
 % Page 46
-\begin{frame}{采集故障：把失败转化为回归测试案例\handsup}
+\begin{frame}{记录故障：建立回归案例\handsup}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{绑定故障案例：}\texttt{/qt:evo}（内部调用 \texttt{evo-prepare}）绑定已完成案例及其失败证据。
-\item \textbf{锁定基准版本：}完整保留修改前的父版 Generator 角色提示词。
-\item \textbf{定义通过标准：}要求交易执行时点必须严格晚于信号实际可得时点。
-\item \textbf{课堂互动：}划分用于诊断迭代的开发集案例，并预留互不重叠的最终留出集案例。
+\item \texttt{/qt:evo} 内部调用 \texttt{evo-prepare}，关联已完成案例与故障证据。
+\item 保留修改前的 Generator 提示词及其版本。
+\item 明确要求：交易执行必须晚于信号实际可得时点。
+\item 请划分开发案例，并保留未参与调优的最终评测案例。
 \end{itemize}
 \end{frame}
 
 % Page 47
-\begin{frame}{提出修改：每次只改动一处指令}
+\begin{frame}{提出修改：只改一处指令}
 \begin{center}
 \input{figures/timing_prompt_diff}
 \end{center}
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 通过 Diff 清晰说明新增指令如何针对性解决观测到的时点遗漏问题。
-\item 保持策略参数、风控限额与控制器验收规则完全不变。
+\item 检查差异记录，确认新增指令确实针对时点遗漏。
+\item 策略参数、风险限额与验收规则保持不变。
 \end{itemize}
 \end{frame}
 
 % Page 48
-\begin{frame}{评估器设计：事先定义什么叫“更好”}
+\begin{frame}{评估器：先定义通过标准}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{格式合规：}所有必选输出字段均可正常解析。
-\item \textbf{时点顺序：}交易执行严格晚于信号可得时点；仅存在日期字符串远远不够。
-\item \textbf{证据支撑：}报告中引用的每个证据 ID 都真实存在于留存产物中。
-\item \textbf{控制红线：}越权操作依然被阻断；所有评判标准必须在对比新旧版本前固定。
+\item 所需输出字段能否正确解析？
+\item 交易是否晚于信号实际可得时点？有日期字符串还不够。
+\item 引用的证据 ID 是否存在，内容是否支持结论？
+\item 越权操作仍应被阻止；比较版本之前就固定评判标准。
 \end{itemize}
 \end{frame}
 
 % Page 49
-\begin{frame}{promptfoo：对照评估新旧版本输出\handsup}
+\begin{frame}{promptfoo：比较新旧输出\handsup}
 \begin{center}
 \small
 \input{tables/promptfoo_example}
@@ -632,38 +632,38 @@
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 规则要求：9 月 30 日 09:30（UTC+8）起方可执行交易，且仅 \texttt{PRICE\_01} 为真实留存来源。
-\item 运行配套检查脚本或 \texttt{promptfooconfig.json}，核查两个版本在两项指标上的表现。
+\item 算例规定：9 月 30 日 09:30（UTC+8）起允许执行；保留的来源只有 \texttt{PRICE\_01}。
+\item 用配套脚本或 \texttt{promptfooconfig.json} 检查两个版本的时点与证据引用。
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.promptfoo.dev/docs/configuration/guide/}{来源：promptfoo 配置与自定义检查规则}\end{center}
 \end{frame}
 
 % Page 50
-\begin{frame}{DSPy/GEPA：依据反馈搜索候选提示词}
+\begin{frame}{DSPy/GEPA：根据反馈修改提示词}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/gepa_proposal}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 基于反馈的提示词搜索需要可调用程序接口、开发集案例、评价指标与搜索预算。
-\item 导出的候选提示词须在独立留出集上另行评测；优化器得分绝不等于自动批准上线。
+\item 搜索需要可调用程序、开发案例、评价指标和预算。
+\item 候选提示词还要接受独立留出集评测；优化器得分不能代替采纳审批。
 \end{itemize}
 \begin{center}\scriptsize\href{https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md}{来源：DSPy GEPA 文档（外部扩展）}\end{center}
 \end{frame}
 
 % Page 51
-\begin{frame}{回归检查：确保既有控制不退步}
+\begin{frame}{回归检查：已有控制是否仍有效}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{控制器测试：}运行 \texttt{python3 <qt>/scripts/check.py}，验证门控与状态机规则完好。
-\item \textbf{行为测试集：}用时点与证据引用断言逐项检验基准版与候选版输出。
-\item \textbf{改动范围审查：}直接拒绝任何企图修改风控上限、策略参数或控制器代码的提案。
-\item \textbf{证据边界：}通过代码回归测试只能保护系统机制，不能单独证明模型行为已改善。
+\item 运行 \texttt{python3 <qt>/scripts/check.py}，检查控制器与状态规则。
+\item 用时点和证据引用检查，对比基准版与候选版的输出。
+\item 本次改进不允许修改风险限额、策略参数或控制器代码。
+\item 代码测试通过，不能单独证明模型行为有所改善。
 \end{itemize}
 \end{frame}
 
 % Page 52
-\begin{frame}{综合对照：依据完整证据作出采纳判断\handsup}
+\begin{frame}{对照结果：是否值得采纳\handsup}
 \begin{center}
 \small
 \input{tables/comparison_sheet}
@@ -671,103 +671,103 @@
 \begin{center}\illustrative\end{center}
 \smallskip
 \begin{itemize}
-\item 候选版本虽修复了交易时点，却引用了不存在的证据标识（\texttt{MISSING\_02}）。
-\item \textbf{课堂互动：}请指出在批准采纳该提示词之前，必须补齐并重新核验哪些证据。
+\item 候选版本修复了交易时点，却引用了不存在的 \texttt{MISSING\_02}。
+\item 采纳之前，还要修复什么、核验哪些证据？
 \end{itemize}
 \end{frame}
 
 % Page 53
-\begin{frame}{版本管理：完整记录经测试的运行配置}
+\begin{frame}{版本管理：记录测试过的配置}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{QT 本地版本库：}在 \texttt{.qt/} 下保存不可变的提示词版本文件与当前生效指针。
-\item \textbf{MLflow 扩展参照：}在更大规模系统中关联提示词版本、评测记录与运行轨迹。
-\item \textbf{完整配置指纹：}与提示词一并记录模型版本、工具集合、制度规则与数据快照版本。
-\item \textbf{治理原则：}版本别名仅用于指向特定版本，本身不构成已获人工审批的证据。
+\item QT 在 \texttt{.qt/} 下保存不可变的各版提示词文件与当前版本指针。
+\item MLflow 可关联提示词版本、评测记录和运行轨迹；这是外部扩展。
+\item 同时记录模型、工具、制度规则和数据快照版本。
+\item 版本别名说明当前选中哪一版，不能证明已经获得人工批准。
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.mlflow.org/docs/latest/genai/prompt-registry/}{来源：MLflow Prompt Registry 文档}\end{center}
 \end{frame}
 
 % Page 54
-\begin{frame}{批准采纳：启用通过验证的提示词版本\handsup}
+\begin{frame}{采纳：启用经过验证的版本\handsup}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/adoption_gate}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item QT 会校验回归测试与审查字段格式，但仍需由负责人核实内容层面的对照证据。
-\item \textbf{课堂互动：}请结合对照结果，说明支持采纳或应当拒绝该版本的理由。
+\item QT 检查回归测试和审查字段，负责人仍需核对内容层面的对照证据。
+\item 请根据证据说明：应当采纳，还是拒绝这个版本？
 \end{itemize}
 \end{frame}
 
 % Page 55
-\begin{frame}{版本回滚：一键恢复先前获批版本}
+\begin{frame}{回滚：恢复先前版本}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 执行经授权的 \texttt{evo-rollback} 恢复先前版本指针，同时完整保留新旧版本及其评测证据。
-\item 已创建的存量案例继续保留各自原有的配置指纹，不会在运行中途静默切换版本。
+\item 经授权后执行 \texttt{evo-rollback}，恢复先前版本指针，并保留新旧版本及评测证据。
+\item 已有案例保留原配置，不会在运行中途切换版本。
 \end{itemize}
 \end{frame}
 
 % Page 56
-\begin{frame}{持续监测：将新发故障继续纳入演化闭环}
+\begin{frame}{持续监测：记录新问题}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/monitoring_cycle}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 当底层模型、工具接口、数据源或权限配置发生变更时，必须重新触发评估。
-\item 提示词搜索只能提供候选方案，持续监测与固定标准评估才能保障长期可靠。
+\item 模型、工具、数据源或权限变化后，需要重新评估。
+\item 提示词搜索提出候选方案；用持续监测和固定标准检查它在后续任务中的表现。
 \end{itemize}
 \end{frame}
 
 % Page 57
-\begin{frame}{走向真实数据：替换课堂合成算例}
+\begin{frame}{真实数据：替换合成算例}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
-\item \textbf{合规行情接入：}用合法授权、带时间戳的真实行情与财务数据替换合成股票。
-\item \textbf{历史样本还原：}完整重建历史指数成分变动、停复牌与退市记录，消除幸存者偏差。
-\item \textbf{分板块交易规则：}按交易所、板块与生效日期实现整手股数、涨跌停、T+1 与真实税费。
-\item \textbf{生产级运维控制：}补齐宿主权限隔离与具名责任人制度，并对每个数据与执行适配器逐一测试。
+\item 接入获授权、带时间戳的真实行情与财务数据。
+\item 还原历史指数成分、停复牌与退市记录，避免只保留存续股票。
+\item 按交易所、板块与生效日期实现整手股数、涨跌停、T+1 和税费规则。
+\item 设置宿主权限隔离，明确负责人，并测试每个数据与执行适配器。
 \end{itemize}
 \end{frame}
 
 % Page 58
-\begin{frame}{流水线验证：主动设计反例挑战系统}
+\begin{frame}{流程验证：用反例检查系统}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/future_perturbation}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 除未来价格扰动测试外，还须开展财务重述检验、交易成本压力测试与滚动样本外评估。
-\item 通过控制器与防泄漏检查只证明工程机制合规，绝不代表策略具备实盘超额收益。
+\item 除了扰动未来价格，还需检验财务重述、成本压力与滚动样本外表现。
+\item 通过这些检查只能说明已测试的条件得到满足，不能证明策略能在实盘获得超额收益。
 \end{itemize}
 \end{frame}
 
 % Page 59
-\begin{frame}{实盘资金交接：从交易建议单到成交对账}
+\begin{frame}{实盘交接：建议、授权与对账}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/approval_states}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 实盘交接必须核查组合总限额、当前真实持仓、审批有效期以及事后实际成交对账。
-\item 研究案例通过验收绝不等于报单授权；资金使用全流程必须由具名责任人监督。
+\item 检查组合总限额、实际持仓、审批有效期，并核对成交回报。
+\item 研究验收不等于报单授权；实际资金使用仍需明确的负责人监督。
 \end{itemize}
 \end{frame}
 
 % Page 60
-\begin{frame}{产品总验收：论证你的系统为何可靠\handsup}
+\begin{frame}{产品验收：解释你的设计\handsup}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/final_product_review}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 请从具体利益相关方的风险需求出发，论证系统中某一项控制机制的必要性。
-\item 如实区分“已核验的控制器机制”、“已测量的模型行为”与“尚待建设的实盘扩展”。
+\item 选一项控制，说明它回应了谁的需求、要防止什么问题。
+\item 区分已核验的控制器行为、已测量的模型表现，以及尚未实现的实盘功能。
 \end{itemize}
 \end{frame}
 
