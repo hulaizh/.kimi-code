@@ -1,5 +1,12 @@
 # Topic 3 structure review by Pi / Gemini 4 Argon
 
+Historical review record: after these reviews, the user removed standalone
+break pages and the separate lab, retaining a 60-page task-centered lecture.
+The current proposal distributes participation through the QT workflow and
+expands self-improvement to include QT tools, promptfoo, DSPy/GEPA, and MLflow.
+That later reallocation supersedes the lab recommendations and page numbers
+below; it has not been resubmitted to Pi.
+
 Requested by the user on 3 November 2026. Reviewer: local Pi CLI, provider
 `google`, model `gemini-4-argon`. First completed review used high reasoning.
 The raw response is preserved in
@@ -63,5 +70,6 @@ exercise README. Three corrections to the reviewer were necessary:
    response provenance. Live-team evidence must come from suitable host records.
 
 This was a lecture-design review. It does not certify legal compliance, model
-quality, or live runtime behavior. The standard freshness starter exercise and
-rehearsed demonstrations remain preparation tasks for the eventual slide edit.
+quality, or live runtime behavior. Rehearsed demonstrations remain preparation
+tasks for the eventual slide edit. The previously proposed separate freshness
+exercise was superseded by the user's subsequent task-centered direction.

@@ -1,7 +1,9 @@
 # Topic 3: proposed 60-page lecture structure
 
-Status: reviewed discussion draft. Incorporates the user's finance-harness
-comments and two reviews through Pi's Gemini 4 Argon. Slide sources are unchanged.
+Status: task-centered discussion draft. Incorporates the user's latest direction:
+60 pages, no standalone break pages, no separate lab, and explicit tools for
+self-improvement. Earlier drafts received two Pi / Gemini 4 Argon reviews;
+this later reallocation has not been resubmitted. Slide sources are unchanged.
 
 ## Purpose and opening language
 
@@ -73,26 +75,26 @@ support, numerical validity, and repeatability.
 
 ## Page and time budget
 
-Exactly 60 pages, including title, contents, two breaks, lab, and debrief.
-Four hours means 240 elapsed minutes, including 20 minutes of breaks.
+Exactly 60 pages, including title, contents, and conclusion. There are no
+break slides and no separate lab section. Breaks remain in the instructor's
+240-minute schedule. Practice happens within the same quant-system task.
 
 | Pages | Count | Time | Purpose |
 |---|---:|---|---|
 | 1–4 | 4 | 00:00–00:15 | Product, acceptance, contents |
 | 5–23 | 19 | 00:15–01:20 | Finance needs and the inner architecture |
-| 24 | 1 | 01:20–01:30 | Break |
-| 25–36 | 12 | 01:30–02:05 | Recovery, replay, authority, supervision, improvement |
-| 37–45 | 9 | 02:05–02:45 | Inspect and operate QT |
-| 46 | 1 | 02:45–02:55 | Break |
-| 47–54 | 8 | 02:55–03:20 | Evolution demonstration and production boundary |
-| 55–59 | 5 | 03:20–03:55 | Student lab, mostly independent work |
-| 60 | 1 | 03:55–04:00 | Debrief |
-| Total | 60 | 240 minutes | 220 minutes excluding breaks |
+| — | 0 | 01:20–01:30 | Instructor-scheduled break; no slide |
+| 24–35 | 12 | 01:30–02:05 | Recovery, replay, authority, supervision, improvement |
+| 36–44 | 9 | 02:05–02:45 | Build, inspect, repair, and replay QT |
+| — | 0 | 02:45–02:55 | Instructor-scheduled break; no slide |
+| 45–56 | 12 | 02:55–03:45 | Improve the system with concrete tools |
+| 57–60 | 4 | 03:45–04:00 | Production boundary and final acceptance |
+| Total | 60 | 240 minutes | 220 teaching/practice minutes |
 
-Keep three actual sections: **Design from Finance Needs**, **Build and Evolve
-QT**, and **Integrated Lab**. Blocks below are planning groupings, not extra
-sections or repeated roadmaps. Manual contents follow the product and acceptance
-pages. No separate reference appendix or timetable slide.
+Use two actual sections: **Design the Quant System** and **Build and Improve
+the System**. All activities advance one research case and its reusable workflow.
+There is no disconnected capstone exercise, lab menu, or new assessment task.
+The manually written contents remains after the product and acceptance pages.
 
 ## Page map
 
@@ -101,7 +103,7 @@ pages. No separate reference appendix or timetable slide.
 1. **Long-Run Workflows.** Course title.
 2. **Product: A Quant Research Package.** Use the plain-language product above and a visual of the delivered research package.
 3. **Acceptance: When the Work Is Ready.** Use the four tests above; distinguish a supported rejection from an incomplete run.
-4. **Contents.** The three sections only.
+4. **Contents.** Design the quant system; build and improve it.
 
 ### Design from finance needs: one controlled run
 
@@ -123,127 +125,157 @@ pages. No separate reference appendix or timetable slide.
 20. **Finding Memory: Silence Is Not Closure.** Carry one finding through two rounds; closure must cite the repaired version. Show why a fresh agent needs saved issue history.
 21. **Stopping: Accept, Revise, or Escalate.** Teach passing checks, unresolved defects, fatal defects, exhaustion, stalled progress, and human stop in plain language. The plugin's two-clean-review rule is a course implementation choice, not a universal assurance standard.
 22. **Hooks: Automatic Event Checks.** A supervisor needs checks and records at every relevant boundary. Introduce a hook after the controller: an event triggers a script, such as logging a completed call.
-23. **Hooks: Observe, Block, and Enforce.** Distinguish observation, host-permitted blocking, and controller enforcement. Critical acceptance remains in the controller. All Kimi event names, return codes, and timeouts are deferred to page 40 and the handout.
+23. **Hooks: Observe, Block, and Enforce.** Distinguish observation, host-permitted blocking, and controller enforcement. Critical acceptance remains in the controller. All Kimi event names, return codes, and timeouts are deferred to page 39 and the handout.
 
-24. **Break: Ten Minutes.**
+### Design the quant system: continuity and governed change
 
-### Design from finance needs: continuity and governed change
+24. **Interruption: What Was Actually Finished?** Operations inherits a stopped case. Contrast completed, pending, and uncertain work; identify what must be saved.
+25. **Durable State: Save Verified Progress.** Case identity, pending step, versions, evidence locations, and open findings form a checkpoint. Use a readable state card, not JSON.
+26. **Recovery: Reconcile Before Retrying.** Match the pending request; classify transient failure, invalid submission, altered evidence, and uncertain external effects. Explain why retrying must not duplicate an action.
+27. **Trace: Explain the Route.** Connect snapshot, tool result, finding, control decision, and approval. Capture observable actions and evidence, not purported hidden reasoning.
+28. **Audit Replay: Reconstruct the Case.** Students inspect the current case's evidence and explain its route. Separate reconstructing its history, reproducing a calculation, and invoking the model again.
+29. **Scoped Authority: A Mandate to Act.** The research agent requests paid data outside its mandate. Show purpose, amount, recipient, expiry, and approver. AP2 supplies one short parallel; Mastercard and Visa remain in speaker notes. This is a production illustration.
+30. **Untrusted Inputs: Protect the Boundary.** A retrieved document asks the agent to upload data. Show restricted tools and escalation. A prompt alone does not enforce host permissions.
+31. **Supervision: A Named Owner.** Identify who monitors access, reviews actions, handles exceptions, and can stop the system. FINRA's agent considerations are a US broker-dealer example, with requirements distinguished from guidance and internal policy.
+32. **Repeated Failures: Improve the Workflow.** A repaired case does not prevent next month's omission. Introduce evolution through a recorded failure; distinguish prompt improvement from strategy-parameter search.
+33. **Change Control: Evaluate, Approve, Monitor.** Fix comparison cases and gates, assess the change, approve a version, and preserve rollback. Model, tool, data, and policy changes also need impact assessment. QT currently versions only the Generator prompt.
+34. **Three Loops: Three Different Changes.** Summarize tool execution, candidate repair, and harness improvement after all have been motivated. State what stays fixed in each.
+35. **Architecture: Put the Controls Together.** One complete diagram and stakeholder-to-control check. Separate classroom mechanics from production targets such as shared limits and external mandates.
 
-25. **Interruption: What Was Actually Finished?** Operations inherits a stopped case. Contrast completed, pending, and uncertain work; identify what must be saved.
-26. **Durable State: Save Verified Progress.** Case identity, pending step, versions, evidence locations, and open findings form a checkpoint. Use a readable state card, not JSON.
-27. **Recovery: Reconcile Before Retrying.** Match the pending request; classify transient failure, invalid submission, altered evidence, and uncertain external effects. Demonstrate why retrying must not duplicate an action.
-28. **Trace: Explain the Route.** Connect source snapshot, tool result, finding, control decision, and approval in one record. Capture observable actions and evidence; do not claim access to hidden model reasoning.
-29. **Audit Exercise: Reconstruct One Decision.** Students identify evidence needed to explain a stopped case. Separate replaying saved numerical inputs from a fresh model call. Return to page 6's questions.
-30. **Scoped Authority: A Mandate to Act.** Start with the research agent requesting paid data outside its mandate. Show approved purpose, amount, recipient, expiry, and approver. AP2 supplies one short payment parallel; Mastercard and Visa stay in speaker notes. This is a production illustration, not a QT capability.
-31. **Untrusted Inputs: Protect the Boundary.** A retrieved document tells the agent to upload data. Show trust boundaries, restricted tools, and escalation. A prompt alone does not enforce host permissions.
-32. **Supervision: A Named Owner.** Who monitors access, reviews actions, handles exceptions, and can stop the system? Use FINRA's agent considerations as a US broker-dealer example. Distinguish applicable requirements, supervisory considerations, and internal policy; international comparisons stay in notes.
-33. **Repeated Failures: Improve the Workflow.** A case repair does not prevent next month's omission. Introduce evolution through a recorded, reproducible failure. Separate changing a prompt from searching strategy parameters.
-34. **Change Control: Evaluate, Approve, Monitor.** Fix comparison cases and gates; evaluate the new version, obtain approval, retain rollback, and monitor after adoption. Model, tool, data, and policy changes also need impact assessment. QT versions only the Generator prompt.
-35. **Three Loops: Three Different Changes.** Summarize tool execution, candidate repair, and harness improvement after all three have been motivated. Show what stays fixed in each.
-36. **Architecture: Put the Controls Together.** One complete diagram and stakeholder-to-control check. Distinguish classroom mechanics from production targets such as shared limits and external mandates.
+### Build and improve the system: operate the research workflow
 
-### Build and evolve QT: inspect a working case
+36. **Plugin: Files and Two Commands.** Map roles and controls to commands, skills, agents, scripts, hooks, and workspace state. Introduce `/qt:start` and `/qt:evo`.
+37. **Delegation: Leads and Specialists.** Show one agent profile. Report validation does not prove separate agents ran: corroborate with host dispatch and response records. The sample Bash-event logger does not capture full specialist provenance.
+38. **Installation: Source and Runtime.** One install/reload path and the package/workspace boundary. Installation is pre-class preparation.
+39. **Hook: Register and Inspect.** Show the optional logger, one event, relevant failure behavior, and duplicate delivery. Students inspect the record within the ongoing task.
+40. **Run: Follow One Research Case.** Inspect a prepared case at selected transitions. Show host evidence for live-team claims or label the scripted rehearsal. A mode label alone is not provenance.
+41. **Barriers: What Permits Advancement?** Locate Generator completeness, numerical checks, Critic coverage, and termination evidence.
+42. **Repair: Reject Bad Evidence.** Introduce one missing report or stale request. Students identify the failed condition, repair the submitted artifact, and verify the permitted route in the same case.
+43. **Replay: Check the Evidence.** Map page 6 to retained state/trace/artifacts, frozen-input numerical checks, and separate model-run records. Demonstrate a numerical replay. A fresh evaluation needs a new case; existing cases resume or reuse state.
+44. **Resume: Continue the Pending Step.** Inspect a prepared interruption, verify identity and evidence integrity, and resume without duplicating effects.
 
-37. **Plugin: Files and Two Commands.** Map roles and controls to commands, skills, agents, scripts, hooks, and workspace state. Introduce `/qt:start` and `/qt:evo` here.
-38. **Delegation: Leads and Specialists.** One native agent profile and its permissions. Controller validation of report files does not prove separate agents ran; corroborate with host dispatch and response records. The sample Bash-event hook does not capture complete specialist provenance.
-39. **Installation: Source and Runtime.** One install/reload path and the package/workspace boundary. Installation is pre-class preparation; this is a quick orientation.
-40. **Hook: Register and Inspect.** Show the optional logger and one event; explain relevant failure behavior. Demonstrate duplicate delivery from a prepared fixture. Full setup and event inventory stay in the handout.
-41. **Run: Follow One Research Case.** Inspect a prepared case at selected transitions. Show host dispatch evidence for live-team claims, or label the scripted rehearsal. A mode label alone does not prove live execution. Do not budget for an unbounded full model run.
-42. **Barriers: What Permits Advancement?** Locate Generator completeness, numerical checks, Critic coverage, and termination evidence.
-43. **Fault Injection: Reject Bad Evidence.** Introduce one missing specialist or stale request and inspect the blocked transition. Run one repair; other failure cases stay in the handout.
-44. **Replay: Check the Evidence.** Map page 6 to three evidence rows: state/trace/artifacts for reconstruction, frozen-input numerical checks for calculation replay, and separate model-run records for behavioral comparison. Demonstrate the numerical check. A fresh evaluation needs a new case; starting an existing case resumes or reuses its state.
-45. **Resume: Continue the Pending Step.** Interrupt at a prepared checkpoint, inspect identity and evidence integrity, and resume. Do not repeat completed effects.
+### Build and improve the system: make improvement measurable
 
-46. **Break: Ten Minutes.**
+45. **Improvement Tools: Follow One Failure.** Introduce the toolchain only after the recurring omission: QT captures the incident; an evaluator compares versions; an optimizer proposes candidates; a registry preserves versions. Keep the same momentum case visible.
+46. **Capture: Turn a Failure into a Test Case.** Use `/qt:evo` and the internal `evo-prepare` action to bind the completed case and parent prompt. Students identify the failing evidence, write the expected behavior, and keep separate development and held-out cases.
+47. **Proposal: Change One Instruction.** Inspect a prompt diff addressing the observed timing omission. Students draft one change without changing strategy parameters, risk limits, or acceptance rules. Git records the proposed edit; the running prompt stays unchanged.
+48. **Evaluator: Define What Better Means.** Show inputs, expected evidence, observation/trade ordering, allowed actions, and pass criteria. Separate schema validity, factual support, financial correctness, and control failures. Presence of a date field alone is insufficient.
+49. **promptfoo: Compare Old and New Outputs.** Use one prepared evaluation configuration and a results matrix. Custom Python checks examine timing and evidence references; reviewed judgments handle claims needing interpretation. Students inspect a remaining failure. This is an external evaluation example, not an existing QT integration.
+50. **DSPy/GEPA: Propose Better Prompts.** Explain feedback-driven prompt optimization through one recorded proposal and its evaluation feedback. Show the required callable program, development cases, metric, and search budget. Export a candidate for independent testing; no automatic adoption or risk-rule edits. The adapter is an extension, not bundled QT functionality.
+51. **Regression: Preserve Existing Controls.** Run QT's `scripts/check.py` and inspect behavioral regression cases. Missing reports, stale evidence, and invalid permissions must remain blocked. Code tests and model-behavior tests answer different questions.
+52. **Comparison: Decide from the Evidence.** Compare baseline/candidate cases, repeated-run variation where relevant, remaining failures, and resource use. A partner checks one claim against the retained output. Reserve final held-out cases from prompt search; a stronger score cannot override a critical control failure.
+53. **Versioning: Track the Tested Configuration.** Start with QT's versioned prompt files and active pointer. Show MLflow as a larger-system counterpart for prompt versions, evaluation records, and traces. Capture the model, tool, policy, and data configuration too; an alias by itself is not approval evidence.
+54. **Adoption: Promote the Tested Version.** Show `evo-evaluate` reaching `AWAITING_APPROVAL`, then an explicitly approved `evo-adopt`. Students state what evidence justifies adoption or rejection. QT runs code regressions and validates review fields; it does not independently establish the full behavioral comparison's correctness.
+55. **Rollback: Restore the Prior Version.** Use authorized `evo-rollback`, inspect the active pointer, and start a separate new case under the restored prompt. Existing case fingerprints do not silently migrate. Preserve both versions and their evidence.
+56. **Monitoring: Feed New Failures Back.** Show new failures returning to the case library. Trigger review when data, tools, models, or permissions change. Keep system-wide outcomes and correlated errors visible; improvement is measured under a fixed standard, not guaranteed by the optimizer.
 
-### Build and evolve QT: improve and define the boundary
+### Complete the same task: production boundary and acceptance
 
-47. **Evolution: Start from a Recorded Failure.** Show `/qt:evo` and the diagnosis behind one bounded prompt edit. Use a prepared failure with evidence; label any illustrative scenario.
-48. **Evaluation: Compare Versions.** Show pre-collected model outputs under fixed cases, criteria, and configuration, including repeated runs where appropriate. QT executes code regressions and validates submitted review fields; it does not independently run and grade this full behavioral comparison. Preserve held-out cases and attempted changes; label absent behavioral evidence as unverified.
-49. **Adoption: Approve and Restore.** Inspect diff and evidence, approve a version for future cases, show its pointer, and restore the prior version. Collect model-output comparisons before class.
-50. **Real Data: Replace the Fixture.** Map synthetic inputs to licensed feeds, dated universe membership, release times, and execution adapters. Mark absent capabilities.
-51. **Validation: Challenge the Pipeline.** One temporal-leakage perturbation connects to page 7. Name cost stress and walk-forward testing as further requirements without a backtesting tutorial.
-52. **Capital: From Suggestions to Fills.** Show portfolio constraints, execution approval, current positions, expiry, and fill reconciliation. Classroom acceptance does not authorize orders.
-53. **Open Problems: The Whole System.** Discuss shared-model errors, agent interactions, aggregate limits, changing configurations, and responsibility across vendors. Distinguish implemented checks from unresolved assurance.
-54. **Handoff: What the Owner Accepts.** Return to page 3: evidence, limits, recovery, accountable approval, and rollback. Introduce the lab as a small repair to one control.
+57. **Real Data: Replace the Fixture.** Map synthetic inputs to licensed feeds, dated universe membership, release times, and execution adapters. Mark absent capabilities.
+58. **Validation: Challenge the Pipeline.** Demonstrate one temporal-leakage perturbation from page 7. Name cost stress and walk-forward testing as further requirements without turning this into a backtesting lecture.
+59. **Capital: From Suggestions to Fills.** Show portfolio constraints, execution approval, positions, expiry, and reconciliation. Research acceptance does not authorize orders. Identify the accountable owner across component/vendor boundaries.
+60. **Product Review: Defend the Completed System.** Return to page 3: evidence, unresolved findings, recovery, approved change, and rollback. Students defend one mechanism through the stakeholder need. Distinguish implemented controls, measured behavior, and remaining limitations.
 
-### Integrated lab
+## Pacing and participation within the task
 
-55. **Lab: Repair One Control.** State deliverables, rubric, and the pre-provisioned workspace before students start.
-56. **Contract: Define the Failure and the Check.** One standard classroom task: timestamp freshness with a prepared defect and starter tests. Fast finishers can add version-bound finding closure. Required-specialist and prompt-evaluation extensions move to the handout for work after class.
-57. **Build and Verify.** Leave visible during work: reproduce the defect, edit one component, run source-local failing/passing and integration checks, save diff and evidence. Tests import the edited source directly; no plugin reinstall is needed for this lab. Native Kimi testing later requires reinstall/reload after source edits.
-58. **Partner Replay.** Another student re-runs the check from saved evidence and explains why the route passed or blocked.
-59. **Submit: Evidence and One Limitation.** One contract, diff, before/after evidence, version identity, and limitation. A documented unresolved result is acceptable; invented success is not.
+The previously separate 35-minute lab is redistributed across the actual
+workflow. There is no new exercise brief, separate deliverable, or lab section.
 
-60. **Debrief: Defend the Design.** Stakeholder request → failure → mechanism → evidence. Defend one control and distinguish replayability from correctness.
-
-## Pacing and preparation
+| Point in the task | Student action | Minutes already included in block |
+|---|---|---:|
+| Pages 18–20 | Write a repair criterion for the current case's finding | 5 |
+| Page 28 | Reconstruct the case's decision from saved evidence | 5 |
+| Page 42 | Repair a blocked submission and verify the next route | 7 |
+| Pages 46–47 | Turn the observed failure into a case and draft one prompt edit | 6 |
+| Pages 49–52 | Compare recorded outputs and check a partner's claim | 8 |
+| Page 54 | Defend adoption or rejection of that edit | 4 |
+| Total | Distributed participation in the same task | 35 |
 
 - **First architecture block, 65 minutes:** pages 5–8, 15 minutes; 9–12,
-  12 minutes; 13–17, 17 minutes; 18–21, 15 minutes; 22–23, 6 minutes.
-- **Continuity and change, 35 minutes:** pages 25–29, 17 minutes including
-  a 5-minute exercise on page 29; 30–32, 8 minutes; 33–36, 10 minutes.
-- **QT demonstration, 40 minutes:** pages 37–40, 10 minutes; 41–42,
-  10 minutes; 43, 7 minutes; 44–45, 10 minutes; 3 minutes contingency.
-  Rehearse this path and save a case at every transition before class.
-- **Evolution and boundary, 25 minutes:** pages 47–49, 10 minutes;
-  50–52, 7 minutes; 53–54, 5 minutes; 3 minutes contingency.
-- **Lab, 35 minutes:** brief and choose, 5 minutes; edit/test, 20 minutes;
-  partner replay, 7 minutes; submit, 3 minutes. These are persistent work
-  instructions, not five mini-lectures.
+  12 minutes; 13–17, 17 minutes; 18–21, 15 minutes including the repair
+  discussion; 22–23, 6 minutes.
+- **Continuity and change, 35 minutes:** pages 24–28, 17 minutes including
+  the five-minute audit activity; 29–31, 8 minutes; 32–35, 10 minutes.
+- **QT workflow, 40 minutes:** pages 36–39, 10 minutes; 40–41,
+  10 minutes; 42, 7 minutes; 43–44, 10 minutes; 3 minutes contingency.
+- **Self-improvement, 50 minutes:** pages 45–47, 12 minutes; 48–52,
+  20 minutes; 53–56, 15 minutes; 3 minutes contingency. Student participation
+  above is included, not added to these times.
+- **Production boundary and product review, 15 minutes:** pages 57–59,
+  10 minutes; page 60, 5 minutes.
 
-Before teaching, prepare the standard freshness defect, starter contract/tests,
-and instructor answer in an isolated source copy; these new lab materials are
-not yet supplied by this structure proposal. Use the package's source-local
-test runner for the exercise. Avoid setup and model-call latency during the lab.
+Rehearse the workflow before class and prepare actual evidence for each stopping
+point. Install required tools and collect model comparisons beforehand.
+Present external optimization and tracking tools through a small prepared
+example of the same defect; do not spend class time installing three frameworks.
+Use recorded, labelled outputs when live latency would consume practice time.
+Do not invent an optimizer result or call a scripted report a live model run.
 
-Each page carries one exhibit or decision. The detailed notes above instruct the
-author; they are not slide-body text. Retain the short body-text convention.
-Do not reach 60 pages by squeezing 86 pages into smaller type.
+## Self-improvement tool map
+
+| Need in the task | Tool and slide | Input → retained output | Status |
+|---|---|---|---|
+| Preserve the incident and baseline | QT `evo-prepare`, page 46 | Completed case and parent prompt → bound change request | Existing QT tool |
+| Propose a reviewable change | Generator team and Git diff, page 47 | Failure and fixed mandate → one proposed prompt edit | Existing workflow; Git supplies edit history |
+| Compare behavior | promptfoo and Python assertions, page 49 | Prompts, cases, provider, checks → output/check comparison | External example; QT adapter not implemented |
+| Search prompt improvements | DSPy/GEPA, page 50 | Callable program, development cases, metric/feedback → candidate prompt | External extension; requires adapter and separate held-out evaluation |
+| Prevent controller regressions | QT `scripts/check.py`, page 51 | Edited source and fixtures → test results | Existing code checks; not semantic evaluation |
+| Connect versions to evidence | QT registry; MLflow counterpart, page 53 | Prompt versions, run configuration, evaluations → version/trace record | QT exists; MLflow integration is an extension |
+| Validate and approve adoption | QT `evo-evaluate`, `evo-adopt`, page 54 | Proposal, reviews, regressions, explicit approval → selected version | Existing QT tools, with stated semantic-validation limits |
+| Restore the earlier behavior | QT `evo-rollback`, page 55 | Approval and retained prior version → restored active pointer | Existing QT tool; verify in a new case |
+
+Only `/qt:start` and `/qt:evo` are public workflow commands. The Python
+actions above explain what the system does internally; they are not new student
+slash commands.
+
+Sources checked for the external-tool examples:
+[promptfoo configuration](https://www.promptfoo.dev/docs/configuration/guide/),
+[Python assertions](https://www.promptfoo.dev/docs/configuration/expected-outputs/python/),
+[DSPy GEPA documentation](https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md),
+[MLflow Prompt Registry](https://www.mlflow.org/docs/latest/genai/prompt-registry/),
+and [MLflow trace evaluation](https://www.mlflow.org/docs/latest/genai/eval-monitor/running-evaluation/traces/).
+These support capability descriptions, not a claim that they are already
+connected to QT or that using them guarantees better financial decisions.
 
 ## Material to merge or relocate
 
-| Current material | Treatment |
+| Previous material | Treatment |
 |---|---|
-| Seven architecture stages and repeated coverage checks | Initial harness, handoff graph, final architecture; test understanding with the case |
-| Product, scope, authority, acceptance, unsupported-claims openings | Separate plain product and acceptance pages, then stakeholder sequence |
-| Hook-event inventory, return codes, installation exercise | Two conceptual pages after control flow; one prepared implementation example; full detail in handout |
-| Six specialist descriptions and manifest schemas | Team diagram, then one role profile and actual manifest inspection |
-| China-market rule and adapter inventory | One calculation, one timing example, short production boundary; details in instructor materials |
-| Public-system comparisons and source-list pages | Sources beside claims; bibliography in notes |
-| Candidate-loop summaries | Preserve repair, finding memory, and stopping as distinct beats |
-| Eight lab pages in the earlier proposal | Five instruction pages and a protected 27-minute edit/test/partner period |
+| Two standalone break pages | Removed; breaks appear only in the instructor schedule |
+| Separate lab section and freshness exercise | Removed; students act on the same case throughout the build |
+| Lab brief, option menu, submission rubric, partner-replay pages | Replaced by case capture, evaluation, optimization, versioning, and monitoring content |
+| Repeated architecture stages and coverage checks | Initial harness, handoff graph, final architecture; reuse the same case |
+| Full hook inventory, six specialist descriptions, and manifest schemas | Selected exhibit on screen; remaining details in the handout |
+| Extensive market-rule and regulatory comparisons | One calculation, one timing example, a short production boundary, and sourced notes |
+| Generic self-evolution claims | Named tools, concrete inputs/outputs, independent evaluation, approval, and rollback |
+
+Each page carries one exhibit or decision. Detailed page notes are author
+instructions, not slide-body text. Keep product and acceptance in plain words,
+and do not reach 60 pages by squeezing more text into each slide.
 
 ## Review and factual controls
 
-The initial Pi review identified late finance motivation, overcrowded candidate
-revision, ambiguous determinism, an overloaded demo, and lab bloat. This revision
-addresses those findings. Do not copy its suggested uniform market-rule values
-or renamed terminal enum into the implementation.
+Earlier Pi reviews improved finance motivation, the replay distinction,
+candidate revision, demo provenance, and pacing. The user's later task-centered
+direction supersedes the standalone-lab recommendation. The raw reviews describe
+the earlier page map; their page numbers should not be read as current.
 
-The follow-up judged the plan conditionally ready. Its useful remaining changes
-are incorporated: one classroom lab track, a more concrete replay exhibit,
-theory/demo provenance distinctions, and extra audit-exercise time. The reviewer
-misread page 23's deferral of runtime details; the wording now states page 40
-explicitly. Its suggestion to treat every `/qt:start` call as a new model run
-was rejected after reading the controller: existing cases resume or return
-their terminal result. Its `accepted_for_research` label is not a QT enum;
-the implementation's actual terminal state remains `ACCEPTED`.
+The industry-comments source check remains in
+`../notes/2026-11-03-topic3-finance-harness-sources.md`. Preserve these limits:
 
-The user's industry comments inform pages 6, 8, 13, 17, 28–34, and 48–53.
-Source checks are in `../notes/2026-11-03-topic3-finance-harness-sources.md`:
+- Distinguish audit reconstruction, calculation replay, and new model runs.
+  Existing QT cases resume or return their recorded terminal result.
+- Report-file validation and the sample Bash-event logger do not establish full
+  live-team provenance.
+- DFAH does not establish a general causal advantage for smaller models.
+- Benchmark scores are not production failure rates; Vals versions differ.
+- SR 26-2 excludes agentic AI from its scope without removing broader governance.
+- Existing model risk management includes monitoring and change control.
+- Payment protocols and aggregate-risk controls are production illustrations.
+- Prompt search uses development feedback; final evaluation remains separate.
+  Model weights, risk limits, and strategy parameters do not evolve through QT's
+  Generator-prompt interface.
 
-- DFAH distinguishes replay dimensions; it does not establish that smaller
-  models are generally more replayable.
-- Benchmark scores are not production failure probabilities. Vals v2 and v2.1
-  scores are not directly comparable.
-- Generative/agentic AI is outside SR 26-2's scope, not outside governance.
-- Existing model risk management includes monitoring and change management.
-  Agentic systems intensify that problem; they do not invent it.
-- Payment protocols illustrate authority; they are not QT dependencies.
-- International examples do not define the legal requirements for the synthetic
-  China-equity exercise.
-
-After the structure is settled, apply the same map to English and Chinese,
-build and validate both PDFs, and inspect every page. Slide files remain
-unchanged during this structure discussion.
+For the slide edit, apply this same 60-page map in English and Chinese, build and
+validate both PDFs, and inspect every page. This file records the current
+structure proposal; the deck sources have not yet been rewritten.

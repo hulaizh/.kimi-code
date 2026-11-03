@@ -53,7 +53,7 @@ escalation. The lecture does not need a live model leaderboard.
 was published in December 2025. Pages 24–27 discuss technology-neutral
 obligations, supervision, and agent-specific considerations. Page 27 identifies
 system access/data handling, human oversight, action/decision tracking, and
-behavioral controls. Use these as the concrete supervisory questions on page 32
+behavioral controls. Use these as the concrete supervisory questions on page 31
 of the lecture. Distinguish the report's considerations from binding rules and
 avoid claiming that the report mandates this particular QT architecture.
 
@@ -102,7 +102,37 @@ in scope; avoid claiming all implement identical caps, merchant restrictions,
 or human-approval policies.
 
 Use AP2 for one diagram, with the other two as short parallels. No payment
-integration or cryptography implementation is required by the QT lab.
+integration or cryptography implementation is required by the QT teaching task.
+
+## Tools for the self-improvement stage
+
+Added after the user's direction to integrate all practice into the same task
+and include concrete self-improving-system tools. The current proposal assigns
+pages 45–56 to this stage, without standalone lab or break pages.
+
+- [promptfoo configuration](https://www.promptfoo.dev/docs/configuration/guide/)
+  compares prompts over test cases;
+  [Python assertions](https://www.promptfoo.dev/docs/configuration/expected-outputs/python/)
+  provide custom checks. The lesson uses timing and evidence checks on the same
+  QT failure. An evaluator must check meaning where presence/schema checks are
+  insufficient.
+- [DSPy GEPA documentation](https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md)
+  describes an optimizer that proposes instructions using feedback. Teach one
+  candidate and its evaluation record. A callable-program adapter, development
+  cases, and a metric are needed; held-out evaluation and adoption remain
+  separate decisions.
+- [MLflow Prompt Registry](https://www.mlflow.org/docs/latest/genai/prompt-registry/)
+  supports prompt versions, aliases, and lineage.
+  [Trace evaluation](https://www.mlflow.org/docs/latest/genai/eval-monitor/running-evaluation/traces/)
+  can score retained execution records. Use it as a counterpart to QT's local
+  prompt registry, not an assertion that an alias change proves approval.
+
+These are documented external capabilities. They have not been installed,
+integrated into QT, or benchmarked in this task. QT's existing internal
+`evo-prepare`, `evo-evaluate`, `evo-adopt`, and `evo-rollback` actions remain the
+classroom implementation. Public workflow commands remain `/qt:start` and
+`/qt:evo`. No claimed improvement should be shown without actual retained
+comparison outputs.
 
 ## Claims left out pending better evidence
 
