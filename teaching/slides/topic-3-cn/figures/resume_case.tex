@@ -1,9 +1,9 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {加载已保存状态};
-\node[box] (n1) at (6.6,0) {核对请求与哈希};
+\node[box] (n0) at (1.7,0) {\textbf{加载落盘状态}\\读取检查点};
+\node[box] (n1) at (6.6,0) {\textbf{校验完整性}\\核对请求 ID 与哈希};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {接续尚未完成的工作};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{安全接续}\\仅执行待完成步骤};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

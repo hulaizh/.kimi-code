@@ -1,11 +1,11 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.6cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.5,0) {Dated source};
-\node[box] (n1) at (4.9,0) {Calculation + artifact};
+\node[box] (n0) at (1.5,0) {\textbf{Dated source}\\snapshot ID};
+\node[box] (n1) at (4.9,0) {\textbf{Calculation}\\saved artifact};
 \draw[link] (n0) -- (n1);
-\node[box] (n2) at (8.3,0) {Finding + route};
+\node[box] (n2) at (8.3,0) {\textbf{Review}\\finding + route};
 \draw[link] (n1) -- (n2);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n3) at (11.7,0) {Version + approval};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n3) at (11.7,0) {\textbf{Decision}\\version + approval};
 \draw[link] (n2) -- (n3);
 \end{tikzpicture}

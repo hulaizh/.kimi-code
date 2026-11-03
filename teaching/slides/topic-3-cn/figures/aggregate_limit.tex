@@ -1,7 +1,7 @@
 \begin{tikzpicture}[box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.6cm,minimum height=1.3cm,align=center,font=\small},link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (a) at (2,0) {建议 A\\符合自身限额};
-\node[box] (b) at (2,-2.1) {建议 B\\符合自身限额};
-\node[box,draw=darkred,fill=red!4] (total) at (10,-1.05) {合并风险敞口\\可能超过共同上限};
+\node[box] (a) at (2,0) {\textbf{方案 A}\\符合单策略限额};
+\node[box] (b) at (2,-2.1) {\textbf{方案 B}\\符合单策略限额};
+\node[box,draw=darkred,fill=red!4] (total) at (10,-1.05) {\textbf{汇总风险敞口}\\可能突破组合总上限};
 \draw[link] (a.east)--(total.north west);
 \draw[link] (b.east)--(total.south west);
 \end{tikzpicture}

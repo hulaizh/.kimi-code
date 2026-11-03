@@ -1,7 +1,7 @@
 \begin{tikzpicture}[box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.6cm,minimum height=1.3cm,align=center,font=\small},link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (a) at (2,0) {Proposal A\\within its limit};
-\node[box] (b) at (2,-2.1) {Proposal B\\within its limit};
-\node[box,draw=darkred,fill=red!4] (total) at (10,-1.05) {Combined exposure\\may breach shared cap};
+\node[box] (a) at (2,0) {\textbf{Proposal A}\\within its local limit};
+\node[box] (b) at (2,-2.1) {\textbf{Proposal B}\\within its local limit};
+\node[box,draw=darkred,fill=red!4] (total) at (10,-1.05) {\textbf{Combined exposure}\\may breach shared cap};
 \draw[link] (a.east)--(total.north west);
 \draw[link] (b.east)--(total.south west);
 \end{tikzpicture}

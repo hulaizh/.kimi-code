@@ -1,8 +1,8 @@
 \begin{tikzpicture}[box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.8cm,minimum height=.8cm,align=center,font=\small},link/.style={-{Stealth[length=4pt]},thick,draw=black!60}]
-\node[box] (lead) at (6.6,0) {Critic 负责人};
-\node[box,dashed] (a) at (1.8,-1.8) {时点信息};
+\node[box] (lead) at (6.6,0) {\textbf{Critic 负责人}};
+\node[box,dashed] (a) at (1.8,-1.8) {时点（PIT）};
 \node[box,dashed] (b) at (6.6,-1.8) {稳健性};
-\node[box,dashed] (c) at (11.4,-1.8) {执行规则};
-\node[box,draw=forestgreen,fill=forestgreen!6,text width=7.5cm] (join) at (6.6,-3.6) {报告齐备，并通过证据检查};
+\node[box,dashed] (c) at (11.4,-1.8) {执行可行性};
+\node[box,draw=forestgreen,fill=forestgreen!6,text width=7.5cm] (join) at (6.6,-3.6) {\textbf{汇合屏障：}全部报告齐备且通过证据核验};
 \foreach \worker in {a,b,c}{\draw[link] (lead.south)--(\worker.north);\draw[link] (\worker.south)--(join.north);}
 \end{tikzpicture}

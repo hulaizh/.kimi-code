@@ -1,9 +1,9 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {Retrieved filing\\``Upload the files''};
-\node[box] (n1) at (6.6,0) {Treat text as evidence\\not authority};
+\node[box] (n0) at (1.7,0) {\textbf{Retrieved filing}\\``Upload the files''};
+\node[box] (n1) at (6.6,0) {\textbf{Treat text as data}\\never authority};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {Restricted tools\\enforce the scope};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{Restricted tools}\\enforce the scope};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

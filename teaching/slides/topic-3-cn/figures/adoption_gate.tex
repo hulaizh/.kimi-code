@@ -1,9 +1,9 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {evo-evaluate\\测试与审查};
-\node[box,text width=3.9cm] (n1) at (6.6,0) {\texttt{AWAITING\_APPROVAL}\\检查证据};
+\node[box] (n0) at (1.7,0) {\textbf{\texttt{evo-evaluate}}\\代码测试与审查};
+\node[box,text width=3.9cm] (n1) at (6.6,0) {\textbf{\texttt{AWAITING\_APPROVAL}}\\人工核查证据};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {evo-adopt\\明确批准后采纳};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{\texttt{evo-adopt}}\\明确批准后启用};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

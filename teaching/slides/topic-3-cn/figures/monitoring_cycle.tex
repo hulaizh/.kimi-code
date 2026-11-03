@@ -1,9 +1,9 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {后续案例\\形成新证据};
-\node[box] (n1) at (6.6,0) {监测故障\\与共同风险};
+\node[box] (n0) at (1.7,0) {\textbf{后续运行案例}\\积累新运行证据};
+\node[box] (n1) at (6.6,0) {\textbf{监测新发故障}\\与共性盲区};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {审查变更\\再决定采纳};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{重新对照评估}\\审批后再启用};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

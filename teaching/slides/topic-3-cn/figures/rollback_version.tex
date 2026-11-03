@@ -1,9 +1,9 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {批准回滚};
-\node[box] (n1) at (6.6,0) {恢复先前版本指针};
+\node[box] (n0) at (1.7,0) {\textbf{批准回滚}\\保留新旧版本记录};
+\node[box] (n1) at (6.6,0) {\textbf{恢复版本指针}\\切回先前提示词};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {用新案例核验};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{新建案例验证}\\确认行为恢复正常};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

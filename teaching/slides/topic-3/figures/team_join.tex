@@ -1,8 +1,8 @@
 \begin{tikzpicture}[box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.8cm,minimum height=.8cm,align=center,font=\small},link/.style={-{Stealth[length=4pt]},thick,draw=black!60}]
-\node[box] (lead) at (6.6,0) {Critic lead};
+\node[box] (lead) at (6.6,0) {\textbf{Critic lead}};
 \node[box,dashed] (a) at (1.8,-1.8) {Point-in-time\\(PIT)};
 \node[box,dashed] (b) at (6.6,-1.8) {Robustness};
 \node[box,dashed] (c) at (11.4,-1.8) {Execution};
-\node[box,draw=forestgreen,fill=forestgreen!6,text width=7.5cm] (join) at (6.6,-3.6) {Complete reports + evidence checks};
+\node[box,draw=forestgreen,fill=forestgreen!6,text width=7.5cm] (join) at (6.6,-3.6) {\textbf{Join barrier:} complete reports + evidence checks};
 \foreach \worker in {a,b,c}{\draw[link] (lead.south)--(\worker.north);\draw[link] (\worker.south)--(join.north);}
 \end{tikzpicture}
