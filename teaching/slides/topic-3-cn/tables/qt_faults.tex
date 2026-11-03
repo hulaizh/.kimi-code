@@ -1,0 +1,12 @@
+\begin{tabular}{@{}P{3.0cm}P{4.6cm}P{4.9cm}@{}}
+\toprule
+\textbf{注入故障} & \textbf{触发屏障} & \textbf{控制器动作} \\
+\midrule
+删去一份专家报告 & 团队汇合不完整 & 拒绝该次提交 \\
+\rowcolor{gray!10}
+篡改 \texttt{request\_id} & 过期或错配的回复 & 拒绝该次提交 \\
+修改已封存证据 & 证据哈希不一致 & 阻断案例推进 \\
+\rowcolor{gray!10}
+将轮次上限设为 1 轮 & 未满两轮无缺陷审查 & 以 \texttt{EXHAUSTED} 终止 \\
+\bottomrule
+\end{tabular}

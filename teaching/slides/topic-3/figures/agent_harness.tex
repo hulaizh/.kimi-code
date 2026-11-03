@@ -1,0 +1,22 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.1cm,minimum height=.9cm,align=center,font=\footnotesize,inner sep=4pt},
+  flow/.style={-{Stealth[length=4pt]},line width=.7pt,draw=black!60},
+  label/.style={font=\scriptsize,fill=white,inner sep=1pt,text=black!60}]
+\draw[forestgreen,line width=.8pt,rounded corners=4pt,fill=forestgreen!3] (0,0.35) rectangle (13.2,-4.55);
+\node[font=\small\bfseries,text=forestgreen] at (6.6,-.05) {Harness: the controlled environment};
+\node[box] (context) at (2.0,-1.2) {\textbf{Task context}\\instructions + dated evidence};
+\node[box,fill=white] (agent) at (6.6,-1.2) {\textbf{Agent}\\plan next step};
+\node[box,draw=black!60,fill=gray!8] (tools) at (11.2,-1.2) {\textbf{Tool boundary}\\read and compute};
+\node[box,draw=forestgreen,fill=forestgreen!6] (state) at (2.0,-3.25) {\textbf{Durable state}\\IDs, hashes, open issues};
+\node[box,draw=darkred,fill=red!4] (gate) at (6.6,-3.25) {\textbf{Output gate}\\schema + evidence};
+\node[box,draw=forestgreen,fill=forestgreen!6] (result) at (11.2,-3.25) {\textbf{Return to lead}\\artifact or failure};
+\draw[flow] (context)--(agent);
+\draw[flow] (agent)--node[above,label]{action}(tools);
+\draw[flow] (tools.south)--(11.2,-2.2)--node[below,label]{observation}(6.6,-2.2)--(agent.south);
+\draw[flow] (agent.south west)--(gate.north west);
+\draw[flow] (gate)--node[above,label]{pass}(result);
+\draw[flow,draw=darkred] (gate.south east) to[bend right=18] node[below,label,text=darkred]{fail: blocked}(result.south west);
+\draw[flow,dashed] (gate.west)--node[above,label]{record}(state.east);
+\draw[flow,dashed] (state.north)--node[left,label]{reload}(context.south);
+\node[font=\scriptsize,align=center,text=black!60] at (6.6,-4.25) {Bounded tool calls, retries, and elapsed time};
+\end{tikzpicture}

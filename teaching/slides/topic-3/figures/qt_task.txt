@@ -1,0 +1,7 @@
+Build a self-evolving quant trading plugin in Kimi Code.
+
+User idea -> Orchestrator -> Generator team -> Critic team
+          <- bounded repair, evidence and explicit outcomes
+
+/qt:start  Research an idea through the complete inner loop
+/qt:evo    Improve the reusable harness from recorded cases

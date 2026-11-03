@@ -1,0 +1,9 @@
+\begin{tikzpicture}[b/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=2.6cm,minimum height=1.2cm,align=center,font=\small},a/.style={-{Stealth},thick,draw=black!60}]
+\node[b,draw=blue,fill=blue!6] (n0) at (0.0,0) {Idea};
+\node[b,draw=forestgreen,fill=forestgreen!6] (n1) at (3.25,0) {Generator};
+\draw[a] (n0) -- (n1);
+\node[b,draw=darkred,fill=darkred!6] (n2) at (6.5,0) {Critic};
+\draw[a] (n1) -- (n2);
+\node[b,draw=steelblue,fill=steelblue!6] (n3) at (9.75,0) {Review};
+\draw[a] (n2) -- (n3);
+\end{tikzpicture}

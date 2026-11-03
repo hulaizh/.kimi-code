@@ -1,0 +1,16 @@
+\begin{tikzpicture}[b/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=2.1cm,minimum height=1.5cm,align=center,font=\footnotesize},a/.style={-{Stealth},thick,draw=black!60}]
+\node[b] (n0) at (0.0,0) {\textbf{Capture}\\completed cases};
+\node[b] (n1) at (2.7,0) {\textbf{Diagnose}\\reproducible failure};
+\draw[a] (n0) -- (n1);
+\node[b] (n2) at (5.4,0) {\textbf{Propose}\\one prompt edit};
+\draw[a] (n1) -- (n2);
+\node[b] (n3) at (8.100000000000001,0) {\textbf{Evaluate}\\fixed cases + regression};
+\draw[a] (n2) -- (n3);
+\node[b] (n4) at (10.8,0) {\textbf{Decide}\\approve, reject, defer};
+\draw[a] (n3) -- (n4);
+\node[b,draw=forestgreen,fill=forestgreen!6,text width=3cm,minimum height=1cm] (v) at (5.4,-2.4) {\textbf{Versioned adoption}\\explicit approval only};
+\node[b,draw=darkred,fill=red!4,text width=3cm,minimum height=1cm] (k) at (10.8,-2.4) {\textbf{Keep old version}\\failed or unapproved};
+\draw[a] (n4.south west) -- (v.north east);
+\draw[a] (n4.south) -- (k.north);
+\draw[a,dashed] (v.south) -- (5.4,-3.8) -- node[below,font=\scriptsize]{later runs supply evidence; rollback remains available} (0,-3.8) -- (n0.south);
+\end{tikzpicture}

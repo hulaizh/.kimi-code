@@ -1,0 +1,9 @@
+qt/
+  kimi.plugin.json        # commands, skills, agents
+  commands/{start,evo}.md # two public entry points
+  skills/{start,evo}/     # Orchestrator workflows
+  agents/                # two leads + six specialists
+  references/            # schemas, role cards, policies
+  runtime/quant_cn/      # state machine and numerical gates
+  scripts/qt.py          # internal controller actions
+  tests/                 # fixtures and regression tests

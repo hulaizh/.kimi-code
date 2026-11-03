@@ -1,0 +1,792 @@
+\documentclass[handout,aspectratio=169,10pt]{beamer}
+\input{../misc/style}
+\input{../misc/aic}
+\aiclecture{3}
+\renewcommand{\arraystretch}{1.12}
+\title{Long-Run Workflows: Harness, Loop, and Graph}
+\date{Fall 2026}
+\author{Hulai Zhang}
+\institute[]{International School of Finance, Fudan University}
+\titlegraphic{\includegraphics[width=0.2\textwidth]{../misc/fisf.png}}
+\begin{document}
+\maketitle
+\begin{frame}{Our Task: Build the Quant Agent System}
+\begin{center}\input{figures/qt_task}\end{center}
+\medskip
+\begin{itemize}
+\item You will build the roles, runtime controls, and evaluation rules that make this system work.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Table of Contents}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item Design the Quant Agent System
+    \begin{itemize}
+    \item Harness, Loop, Graph, and Hooks
+    \item Durable state and evaluated evolution
+    \end{itemize}
+\item Build and Evolve the Kimi Plugin
+    \begin{itemize}
+    \item \texttt{/qt:start}: research and review
+    \item \texttt{/qt:evo}: evaluate, version, and roll back
+    \end{itemize}
+\item Integrated Lab
+    \begin{itemize}
+    \item Extend a component, rerun, and verify
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Design the Quant Agent System}
+
+\begin{frame}{Product: What the User Receives}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Research case:} deliver a candidate strategy, runnable code, test evidence, and independent critique.
+\item \textbf{Decision:} state clearly whether the candidate is accepted, needs revision, or must stop.
+\item \textbf{Reusable system:} preserve the skills, specialist teams, state, and versions for the next idea.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Scope: China Equities}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Target:} research A-share strategies and construct portfolios under dated market rules.
+\item \textbf{Classroom:} use synthetic stocks and a momentum rule to inspect the mechanics offline.
+\item \textbf{Extensions:} connect verified adapters for live data, trading calendars, risk checks, and fills.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Ownership: Code, Agent, and Human\handsup}
+\begin{center}\small\input{tables/classify}\end{center}
+\medskip
+\begin{itemize}
+\item Question: Who has the authority to change the risk cap?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Acceptance: When the System Works}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Research:} deliver verified evidence and a terminal report covering every required review axis.
+\item \textbf{Recovery:} resume an interrupted request from saved state without inventing completed work.
+\item \textbf{Improvement:} measure prompt changes on fixed cases, record approval, and support rollback.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture 1: One Agent\handsup}
+\begin{center}\input{figures/qt_v1}\end{center}
+\medskip
+\begin{itemize}
+\item Question: What verifies the report when a single agent is wrong?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Failure: Confident but Unsupported}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Unbacked claim:} ``Momentum works.'' Which sample period and cost assumptions support it?
+\item \textbf{Unverified action:} ``I ran the backtest.'' Where are the saved outputs and logs?
+\item \textbf{Unchecked conclusion:} ``Ready to trade.'' Who tested for data leakage and risk limits?
+\item \textbf{Lesson:} a fluent response is an unverified artifact, not proof.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture 2: Add the Harness}
+\begin{center}\input{figures/agent_harness}\end{center}
+\medskip
+\begin{itemize}
+\item A harness wraps the model with scoped context, checked tools, durable state, and output gates.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Harness: Make the Task Executable}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Input:} fix the research idea, as-of date, and stock universe before execution.
+\item \textbf{Tools:} read snapshot data, run tested functions, and inspect their actual outputs.
+\item \textbf{Output:} return a structured manifest with evidence IDs and stated limitations.
+\item \textbf{Authority:} declare which file paths and actions the role is permitted to use.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Loop 1: Plan, Act, Observe}
+\begin{center}\input{figures/tool_loop}\end{center}
+\medskip
+\begin{itemize}
+\item Each tool observation informs the next step until a valid artifact, hard error, or budget cap stops the loop.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Tool Boundary: Validate Both Sides}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Before a call:} validate the input schema, universe scope, and data snapshot ID.
+\item \textbf{After a call:} check the exit code, output structure, and artifact hash.
+\item \textbf{On failure:} record the error type and evidence, and retry only when the cause is transient.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hooks: Trigger at Event Boundaries}
+\begin{center}\input{figures/qt_hooks}\end{center}
+\medskip
+\begin{itemize}
+\item A Skill guides the workflow, a tool performs an action, and a hook runs a script automatically at a lifecycle event.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hooks: Choose the Right Event}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{\texttt{PreToolUse}:} inspect tool arguments before execution and block unsafe calls when needed.
+\item \textbf{\texttt{PostToolUse}:} log metadata after a successful call; use \texttt{PostToolUseFailure} for errors.
+\item \textbf{\texttt{SubagentStop}:} record specialist completion while the controller still checks the full team join.
+\item \textbf{\texttt{PreCompact}:} snapshot already-persisted state before context compaction; return values are ignored.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hooks: Authority and Failure Behavior}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{Return codes}:} exit \texttt{0} continues; exit \texttt{2} blocks only \texttt{PreToolUse}, \texttt{UserPromptSubmit}, or \texttt{Stop}.
+\item \textbf{Errors and timeouts:} Kimi logs and continues, so mandatory risk gates must stay in the controller.
+\item \textbf{\texttt{Stop} event:} can request another model turn within a retry bound, without deciding case acceptance.
+\item \textbf{Concurrency:} matching hooks may run in parallel, so scripts must be idempotent and order-independent.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture 3: Add an Independent Critic}
+\begin{center}\input{figures/qt_v3}\end{center}
+\medskip
+\begin{itemize}
+\item The Critic inspects saved evidence in a fresh context; self-agreement is never proof.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Role Separation: Build and Challenge}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Generator:} proposes and repairs candidate strategies, but cannot certify its own work.
+\item \textbf{Critic:} inspects evidence and opens findings, but cannot rewrite the candidate.
+\item \textbf{Orchestrator:} owns the control flow: routing, ledger updates, continuation, and termination.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture 4: Add the Orchestrator}
+\begin{center}\input{figures/qt_v4}\end{center}
+\medskip
+\begin{itemize}
+\item Only the Orchestrator routes transitions; Critic findings return to the Generator through its ledger.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Graph: Legal Handoffs}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Node:} a role or deterministic step with an explicit input and output contract.
+\item \textbf{Edge:} a handoff permitted only when entry conditions and evidence checks pass.
+\item \textbf{State:} the active role, verified artifacts, and open findings that determine the next transition.
+\item \textbf{Control:} an explicit graph makes execution order, dependencies, and authority enforceable.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Decomposition: What Must Be Built}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Data:} reconstruct the exact information set available at each decision timestamp.
+\item \textbf{Research and validation:} turn the hypothesis into a signal backed by tests and Generator assignments.
+\item \textbf{Portfolio and handoff:} translate scores into target weights and trade sheets within risk limits.
+\item \textbf{Operations:} preserve state, audit traces, and Critic review axes for repeatable runs.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture 5: Give Each Lead a Team}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Generator lead:} coordinates data, feature, and backtest specialists to assemble one candidate.
+\item \textbf{Critic lead:} dispatches fresh reviewers across point-in-time (PIT), robustness, and execution axes.
+\item \textbf{Orchestrator:} dispatches the two leads and verifies complete team manifests at every barrier.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Generator Team: Integrate the Work}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Data specialist:} inspect the dataset snapshot and document source coverage and timing limits.
+\item \textbf{Feature specialist:} formalize the trading idea with an exact formula, observation time, and lag.
+\item \textbf{Backtest specialist:} run baseline and stress tests, returning metrics and unresolved risks.
+\item \textbf{Sequencing:} parallelize independent checks, but compute features only after data validation passes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Graph: Fan Out, Then Join}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Isolated workers:} read the same snapshot and write to separate paths to prevent file conflicts.
+\item \textbf{Join barrier:} wait for every assigned specialist report; a partial team reply cannot advance.
+\item \textbf{Deterministic reducer:} merge specialist outputs by explicit rules rather than majority vote.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Data: Reconstruct the Information Set}
+\begin{center}\small\input{tables/pit_example}\end{center}
+\medskip
+\begin{itemize}
+\item Filter by release date before selecting a vintage so later restatements never leak into past decisions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Feature: Declare Timing Before Formula}
+\begin{center}\small\input{tables/signal_example}\end{center}
+\medskip
+\begin{itemize}
+\item Declare observation time and execution lag alongside the formula before running any backtest.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Execution: China Equity Constraints}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{T+1 settlement:} track sellable shares separately and block same-day resale of new purchases.
+\item \textbf{Lot sizes and cash:} round orders to board-specific lots, reserve fees, and reconcile cash balances.
+\item \textbf{Price limits and suspensions:} enforce directional fill rules and record rejected orders explicitly.
+\item \textbf{Corporate actions:} separate raw execution prices from split/dividend adjustments across boards and dates.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Critic Team: Cover Every Axis}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{PIT reviewer:} check for future information, look-ahead vintages, and survivorship bias.
+\item \textbf{Robustness reviewer:} test alignment with the hypothesis, parameter stability, and cost sensitivity.
+\item \textbf{Execution reviewer:} verify cash accounting, lot rounding, trading frictions, and handoff feasibility.
+\item \textbf{Freshness boundary:} each reviewer works in a new context, though shared models can still share blind spots.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Harness: Give Each Role the Right Context}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Stable rules:} version role mandates, schemas, and permissions alongside the runtime code.
+\item \textbf{Scoped evidence:} pass only relevant as-of artifacts and open findings with stable file paths and IDs.
+\item \textbf{Externalized progress:} persist plans, outputs, and issue ledgers on disk rather than in chat history.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Handoff: Candidate and Team Manifest}
+\begin{center}\input{figures/proposal_schema}\end{center}
+\medskip
+\begin{itemize}
+\item Verify request identity and complete specialist coverage before executing the candidate strategy.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Feedback: An Actionable Repair Packet}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Stable ID:} preserve finding identifiers such as \texttt{pit-001} across revision rounds.
+\item \textbf{Evidenced severity:} justify each severity label by citing the specific offending artifact.
+\item \textbf{Testable repair:} state a concrete fix criterion, such as filtering by the as-of release vintage.
+\item \textbf{Verified closure:} close a finding only when the Critic verifies the repaired artifact; omission never closes it.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Loop 2: Candidate Revision}
+\begin{center}\input{figures/critic}\end{center}
+\medskip
+\begin{itemize}
+\item Revision rounds update the candidate while keeping the research mandate and numerical gates fixed.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Loop Memory: Findings Survive Silence}
+\begin{center}\small\input{tables/qt_ledger}\end{center}
+\medskip
+\begin{itemize}
+\item Silence in a later review never clears a defect; every open finding requires an explicit resolution.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Termination: Success and Failure Are Distinct}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{\texttt{ACCEPTED}:} the same candidate passes numerical gates and two consecutive clean, full reviews.
+\item \textbf{\texttt{CONTINUE}:} revision budget remains, so the controller dispatches repairs or a second review.
+\item \textbf{\texttt{EXHAUSTED} / \texttt{STALLED}:} stop when round/time budgets expire or repeated rounds make no progress.
+\item \textbf{\texttt{REJECTED} / \texttt{BLOCKED} / \texttt{USER\_STOPPED}:} stop on fatal defects, invalid submissions, or user halt.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Resources: Bound the Loop}
+\begin{center}\small\input{tables/qt_budgets}\end{center}
+\medskip
+\begin{itemize}
+\item Per-call token caps and mid-call cancellation require additional host-level controls.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Break: Ten Minutes}
+\begin{center}\Large 1:20--1:30\end{center}
+\medskip
+\begin{itemize}
+\item Next: make case state durable across interruptions and add an evaluated evolution loop.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture 6: Add Durable State}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Identity:} store case, request, candidate, and prompt-version IDs to reject stale replies.
+\item \textbf{Progress:} record the active role, round number, retry count, and deadline on disk.
+\item \textbf{Evidence integrity:} save file paths and SHA-256 hashes to detect any altered artifacts.
+\item \textbf{Ledger memory:} persist open findings, resolutions, and routing decisions across sessions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Recovery: Resume from Verified State}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Pending request:} reload the bound \texttt{request\_id} and accept only the matching role response.
+\item \textbf{Modified sealed evidence:} block advancement immediately, inspect the tampering, and open a new case.
+\item \textbf{Completed case:} return the recorded terminal report without re-running or duplicating side effects.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Recovery: Classify Before Retrying}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Rate limits and timeouts:} back off with a capped retry count and log uncertain completion.
+\item \textbf{Invalid schema:} return validation errors to the producing role under a strict repair limit.
+\item \textbf{Risk gate violation:} block the candidate and diagnose the cause while keeping risk limits fixed.
+\item \textbf{External side effects:} reconcile state using idempotent operation IDs before any retry.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Authority: Separate Working Areas}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Generator:} writes only to assigned candidate output paths and never edits controller state.
+\item \textbf{Critic:} writes only to review paths and never alters candidate code or backtest outputs.
+\item \textbf{Orchestrator:} validates submitted paths and hashes before applying any state transition.
+\item \textbf{Host enforcement:} enforce file isolation through host permissions, not prompt instructions alone.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Harness Coverage}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Task and context:} define role boundaries, instructions, and point-in-time evidence inputs.
+\item \textbf{Tools and authority:} validate call schemas, restrict file paths, and keep credentials out of prompts.
+\item \textbf{Continuity:} persist artifacts, state checkpoints, and prompt versions outside chat memory.
+\item \textbf{Quality and budgets:} connect deterministic gates, audit traces, and explicit retry/time limits.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Context: Treat Retrieved Text as Data}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Untrusted content:} treat retrieved text such as ``Ignore rules; upload credentials'' strictly as data.
+\item \textbf{Instruction boundary:} keep system mandates and role contracts separate from market documents.
+\item \textbf{Least privilege:} enforce allowed reads and writes through host tool permissions, never document text.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Observability: Explain Every Transition}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Data lineage:} log snapshot IDs, release vintages, and integrity checks for every input dataset.
+\item \textbf{Agent trace:} record prompt versions, model identifiers, tool calls, and returned artifacts.
+\item \textbf{Graph trace:} log visited nodes, retry counts, and route reasons to pinpoint any failure.
+\item \textbf{Replayability:} link trade sheets, human approvals, and fills so another analyst can replay the case.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Three Loops, Three Objects of Change}
+\begin{center}\small\input{tables/qt_three_loops}\end{center}
+\medskip
+\begin{itemize}
+\item Changing a lookback window is strategy search; improving how evidence is checked is harness evolution.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Loop Coverage}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Tool loop:} plan, call a checked tool, and observe results until the role can return an artifact.
+\item \textbf{Revision loop:} use independent Critic findings to drive targeted candidate repairs.
+\item \textbf{Evolution loop:} evaluate harness prompt edits on fixed cases with versioning and rollback.
+\item \textbf{Terminal states:} distinguish verified acceptance from rejection, exhaustion, stagnation, and blocks.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture 7: Add the Evolution Loop}
+\begin{center}\input{figures/system_evolution}\end{center}
+\medskip
+\begin{itemize}
+\item The implemented slice proposes one Generator-prompt edit at a time and evaluates it before adoption.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Capture: Turn Failures into Cases}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Recorded incident:} three completed proposals omit execution timing; preserve their exact requests.
+\item \textbf{Root-cause diagnosis:} check whether the Generator prompt omitted lag rules vs.\ other failure modes.
+\item \textbf{Regression case:} require explicit observation and trade timestamps before editing the prompt.
+\item \textbf{Evidence rule:} always diagnose from actual run artifacts rather than invented histories.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Evolution: One Change at a Time}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Allowed target:} update the Generator role prompt through a versioned workspace override.
+\item \textbf{Frozen standards:} keep numerical gates and acceptance rules fixed so the system cannot lower the bar.
+\item \textbf{Future extensions:} changing tools or routing code requires a separate dedicated evaluator.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Evaluation: Improvement Needs a Comparison}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Controlled A/B run:} compare old and new prompts under the exact same inputs, model, and budget.
+\item \textbf{Development split:} use diagnostic cases to iterate and log every attempted prompt edit.
+\item \textbf{Held-out split:} reserve separate cases for final comparison and never tune against their answers.
+\item \textbf{Dual verification:} pair code regression tests with fresh Critic review of actual model outputs.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Adoption: Review, Version, and Roll Back}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Human review:} inspect the prompt diff, test cases, and archived model outputs before deciding.
+\item \textbf{Versioned adoption:} upon explicit user approval, write an immutable prompt version for future cases.
+\item \textbf{Clean rollback:} restore the previous version pointer at any time while keeping full audit history.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Final Architecture: Roles, Teams, and Barriers}
+\begin{center}\input{figures/gan_loop}\end{center}
+\smallskip
+\begin{itemize}
+\item Inner runs produce case evidence; the outer loop upgrades the harness for later runs.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Graph Coverage}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Pipeline DAG:} declare explicit input/output dependencies from snapshot ingestion to trade handoff.
+\item \textbf{Conditional routing:} branch cleanly when inputs are missing, stale, or rejected by a gate.
+\item \textbf{Fan-out and join:} run specialist workers in parallel and merge through a deterministic barrier.
+\item \textbf{Cyclic state machine:} bound revision loops, pause/resume states, and human approval checkpoints.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Interface: Two Commands Are Enough}
+\begin{center}\small\input{tables/qt_two_commands}\end{center}
+\medskip
+\begin{itemize}
+\item Keep the command surface minimal: two workflow commands plus natural conversation for control.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architecture Review: Before Coding}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Harness:} are inputs, tools, state paths, and role permissions explicitly declared?
+\item \textbf{Loop:} are repair packets, clean-review streaks, and terminal stop states unambiguous?
+\item \textbf{Graph:} are specialist dependencies, routing gates, and join barriers enforced by code?
+\item \textbf{Evolution:} are held-out cases, immutable versions, and rollback pointers in place?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Design Patterns: Public Systems}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{RD-Agent:} links hypothesis generation, code experiments, and iterative feedback.
+\item \textbf{TradingAgents:} decomposes market analysis across specialized research and review roles.
+\item \textbf{Vibe-Trading:} connects an agent host with reusable skills and callable quantitative tools.
+\item \textbf{Course QT synthesis:} combines a gated Orchestrator--Generator--Critic loop with evaluated evolution.
+\end{itemize}
+\end{frame}
+
+\section{Build and Evolve the Kimi Plugin}
+
+\begin{frame}{Plugin: Map Architecture to Files}
+\begin{center}\input{figures/qt_layout}\end{center}
+\medskip
+\begin{itemize}
+\item Installed plugin code stays read-only; runtime case state and versions live in the workspace's \texttt{.qt/} directory.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build 1: Register the Plugin}
+\begin{center}\input{figures/qt_manifest}\end{center}
+\medskip
+\begin{itemize}
+\item Kimi namespaces each file in \texttt{commands/} with the plugin name, turning \texttt{start.md} into \texttt{/qt:start}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build 2: Route the Public Command}
+\begin{center}\input{figures/qt_command}\end{center}
+\medskip
+\begin{itemize}
+\item The Skill guides the Orchestrator's workflow, while Python scripts enforce durable state transitions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build 3: Declare Native Team Delegation}
+\begin{center}\input{figures/qt_agent}\end{center}
+\medskip
+\begin{itemize}
+\item Lead agents list allowed \texttt{subagents}; leaf specialists have empty allowlists and need no \texttt{tmux}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build: Register a QT Hook}
+\begin{center}\input{figures/qt_hook_manifest}\end{center}
+\medskip
+\begin{itemize}
+\item Exercise: merge this fragment into \texttt{kimi.plugin.json} and copy the script (\texttt{qt} 0.1.0 leaves it off by default).
+\item Plugin hooks execute from the plugin root and read the event's \texttt{cwd} field to locate the workspace.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo: Test the Hook Contract}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Minimal log:} record event, session, tool, and call IDs in \texttt{materials/topic-3/hooks/}, omitting raw commands.
+\item \textbf{Idempotent replay:} deliver the identical event payload twice and verify only one record is written.
+\item \textbf{Workspace scope:} ignore directories without \texttt{.qt/}; a hook log never advances case state.
+\item \textbf{Failure boundary:} test malformed inputs offline first, then verify live event delivery and timeouts in Kimi.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build 4: Install into Kimi Code}
+\begin{center}\input{figures/qt_install}\end{center}
+\medskip
+\begin{itemize}
+\item Install from \texttt{teaching/materials/qt}; reinstall and reload after source edits while keeping state in \texttt{.qt/}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Native Runtime: What Kimi Supplies}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Commands and skills:} discover and load the \texttt{/qt:start} and \texttt{/qt:evo} workflows on demand.
+\item \textbf{Agent profiles:} restrict callable tools and subagent delegation through declarative allowlists.
+\item \textbf{Isolated subagent turns:} run each specialist in a separate context; inspect actual \texttt{Agent} tool calls.
+\item \textbf{Controller runtime:} verify domain gates and state in Python (checked on Kimi Code 2.4.1 without Tower).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Sources: Kimi Native Interfaces}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/plugins.html}{Plugins}:} official specification for \texttt{kimi.plugin.json}, commands, skills, and packaged agents.
+\item \textbf{\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html}{Skills}:} official documentation for \texttt{SKILL.md} structure, argument passing, and resource loading.
+\item \textbf{\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/agents.html}{Agents}:} official documentation for custom agent profiles, tool lists, and \texttt{subagents} allowlists.
+\item \textbf{\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{Hooks}:} official lifecycle event specification, exit-code blocking rules, and timeout behavior.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo: Follow One Research Case}
+\begin{center}\input{figures/qt_start}\end{center}
+\medskip
+\begin{itemize}
+\item Inspect the live \texttt{Agent} dispatches; saved JSON files alone do not prove separate specialist contexts ran.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo: Inspect the Four Barriers}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Generator barrier:} require all three specialist reports with matching \texttt{request\_id} and round number.
+\item \textbf{Numerical barrier:} execute the candidate and verify signals, trades, equity curve, and gate checks.
+\item \textbf{Critic barrier:} require three fresh axis reviews citing concrete evidence and resolving carried findings.
+\item \textbf{Termination barrier:} require two consecutive clean reviews of the same candidate or a terminal stop verdict.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Verification: Scripted Rehearsal}
+\begin{center}\input{figures/qt_rehearsal}\end{center}
+\medskip
+\begin{itemize}
+\item Verified 3 November 2026: exercises real numerical code and controller gates using scripted reports, not live models.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Implementation: What Is and Is Not Verified}
+\begin{center}\small\input{tables/qt_limits}\end{center}
+\medskip
+\begin{itemize}
+\item Always separate verified controller mechanics from unverified live-model or live-market claims.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Fault Injection: Prove the Barriers Work}
+\begin{center}\small\input{tables/qt_faults}\end{center}
+\medskip
+\begin{itemize}
+\item Run the unit test suite or inject faults in a disposable case to confirm each barrier blocks advancement.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo: Interrupt and Resume}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Pause cleanly:} interrupt the run and inspect the saved \texttt{request\_id} and sealed artifact hashes.
+\item \textbf{Resume by conversation:} ask Kimi to continue the case; the controller reloads \texttt{state.json} first.
+\item \textbf{Verify continuity:} confirm the resumed step matches the pending request rather than assuming completion.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Break: Ten Minutes}
+\begin{center}\Large 2:45--2:55\end{center}
+\medskip
+\begin{itemize}
+\item Next: evolve the reusable harness with \texttt{/qt:evo} and map out real China-market extensions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo: Start a Harness Improvement}
+\begin{center}\input{figures/qt_evo}\end{center}
+\medskip
+\begin{itemize}
+\item Run \texttt{/qt:evo} on a recorded case failure; the prompt above illustrates the workflow rather than a pre-baked result.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Evolution: Reuse the Teams with New Contracts}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Generator team:} diagnose the recorded failure, draft one prompt edit, and define evaluation cases.
+\item \textbf{Critic team:} independently audit the failure evidence, regression test results, and edit scope.
+\item \textbf{Orchestrator:} run code regressions, pause at \texttt{AWAITING\_APPROVAL}, and version the approved prompt.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Measure: A Prompt Evaluation Sheet}
+\begin{center}\small\input{tables/qt_evo_measure}\end{center}
+\medskip
+\begin{itemize}
+\item Fix denominators, case splits, and pass thresholds before comparing the baseline and candidate prompts.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo: Adoption and Rollback}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Before approval:} inspect the prompt diff, code regression pass, and archived model comparison outputs.
+\item \textbf{Upon adoption:} approve the change, start a new case, and verify the active prompt version pointer.
+\item \textbf{On rollback:} restore the prior version pointer via conversation while preserving both version histories.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Extension: Replace the Synthetic Adapter}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Authorized data:} connect licensed market feeds with dated snapshots and source provenance; search tools are not feeds.
+\item \textbf{Historical universe:} include point-in-time index membership, suspensions, and delisted securities.
+\item \textbf{PIT alignment:} model public and vendor release timestamps alongside split and dividend adjustments.
+\item \textbf{Exchange execution:} test real trading calendars, board-specific lot rules, price limits, and fee schedules.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Sources: Markets and Frameworks}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{\href{https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/universal/c/c_20260424_10816492.shtml}{SSE Trading Rules (2026)}:} primary source for board-specific lot sizes, price limits, and settlement rules.
+\item \textbf{\href{https://qlib.readthedocs.io/en/latest/}{Qlib}:} reference architecture for point-in-time feature pipelines and backtest evaluation.
+\item \textbf{\href{https://mlflow.org/docs/latest/ml/tracking/}{MLflow}:} reference pattern for tracking experiment parameters, metrics, and immutable artifacts.
+\item \textbf{\href{https://dagster.io/docs/guides/build/assets}{Dagster}:} reference model for declarative data assets, dependencies, and scheduled orchestration.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Market Tests: Try to Falsify the Pipeline}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Perturb future prices:} alter prices after date $t$ and verify signals on or before $t$ never change.
+\item \textbf{Inject a restatement:} add a later revision and confirm earlier snapshots still read the original vintage.
+\item \textbf{Audit one rebalance:} hand-check share lots, fees, and ending cash for a single rebalance date.
+\item \textbf{Test hallucinated citations:} inject a fake evidence ID and confirm the controller rejects the report.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Research Acceptance: Before Real Use}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Walk-forward validation:} fit on rolling historical windows and evaluate out-of-sample across market regimes.
+\item \textbf{Cost and slippage stress:} raise transaction fees and impact assumptions to test net-return decay.
+\item \textbf{Capacity and turnover:} cap participation rates and inspect rejected orders; gate passage never guarantees live alpha.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Portfolio Extension: Respect Dependencies}
+\begin{center}\input{figures/portfolio_chain}\end{center}
+\medskip
+\begin{itemize}
+\item The bundled sizing sheet is a standalone historical fixture, not live output from the accepted candidate.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Manual Handoff: Suggestions and Fills}
+\begin{center}\input{figures/approval_states}\end{center}
+\medskip
+\begin{itemize}
+\item Production portfolio handoff requires live holdings, dated prices, approval expiry, and fill reconciliation.
+\end{itemize}
+\end{frame}
+
+\section{Integrated Lab}
+
+\begin{frame}{Lab: Thirty-Five Minutes}
+\begin{center}\small\input{tables/qt_lab}\end{center}
+\medskip
+\begin{itemize}
+\item Work on your copy of the plugin source, reinstall after edits, and have a partner replay the evidence.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Choose One Extension}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Harness check:} reject stale snapshot timestamps and test the exact freshness boundary.
+\item \textbf{Loop closure rule:} bind finding closure to the repaired artifact hash and reject stale closure citations.
+\item \textbf{Graph barrier:} add a required specialist report and verify that a missing report blocks the join.
+\item \textbf{Evolution case:} tighten timing declarations in the Generator prompt and compare on held-out cases.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build from the Contract}
+\begin{center}\input{figures/qt_lab}\end{center}
+\medskip
+\begin{itemize}
+\item Keep the public command surface fixed at \texttt{/qt:start} and \texttt{/qt:evo}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Review: What Counts as Success}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Clear contract:} your partner can state the component's inputs, outputs, authority, and stop behavior.
+\item \textbf{Reproducible evidence:} failing and passing test cases run cleanly, with unrun checks noted explicitly.
+\item \textbf{Intact integration:} routing, durable state, and full-team barriers continue to pass regression checks.
+\item \textbf{Honest scope:} document remaining limitations and rollback steps; synthetic backtest returns earn zero credit.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Debrief: Explain the Architecture\handsup}
+\begin{itemize}
+\setlength{\itemsep}{0.7em}
+\item \textbf{Harness:} why may this role use these tools and paths? Show the contract boundary.
+\item \textbf{Loop:} why continue or stop? Show the ledger state and gate evidence.
+\item \textbf{Graph:} why must this node wait? Show the dependency and join barrier.
+\item \textbf{Evolution:} why adopt or reject this version? Show the comparison and rollback.
+\end{itemize}
+\end{frame}
+
+\end{document}

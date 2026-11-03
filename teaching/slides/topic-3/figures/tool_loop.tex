@@ -1,0 +1,7 @@
+\begin{tikzpicture}[b/.style={draw=blue,fill=blue!5,rounded corners,text width=2.9cm,minimum height=.8cm,align=center,font=\small},a/.style={-{Stealth},thick}]
+\node[b](p)at(0,1.2){Plan next step};
+\node[b](t)at(4,1.2){Allowed tool call};
+\node[b](o)at(8,1.2){Observe + decide};
+\node[b](r)at(2,-0.8){Continue within budget};
+\node[b](e)at(8,-0.8){Return or pause};
+\draw[a](p)--(t);\draw[a](t)--(o);\draw[a](o.south)--(r.east);\draw[a](r.west)-| (p.south);\draw[a](o)--(e);\end{tikzpicture}

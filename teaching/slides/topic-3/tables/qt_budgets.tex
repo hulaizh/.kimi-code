@@ -1,0 +1,12 @@
+\begin{tabular}{@{}P{3.0cm}P{4.6cm}P{4.9cm}@{}}
+\toprule
+\textbf{Limit} & \textbf{Default Rule} & \textbf{Outcome at Cap} \\
+\midrule
+Review rounds & Four rounds per case & \texttt{EXHAUSTED} at the cap \\
+\rowcolor{gray!10}
+Invalid submissions & Two attempts per dispatch & \texttt{BLOCKED} when exceeded \\
+Elapsed time & Four hours per case & Checked at state transitions \\
+\rowcolor{gray!10}
+Stagnation & Same candidate, findings, and verdicts & \texttt{STALLED}; never accepted \\
+\bottomrule
+\end{tabular}

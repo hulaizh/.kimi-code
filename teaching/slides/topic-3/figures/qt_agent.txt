@@ -1,0 +1,8 @@
+---
+name: qt-generator
+description: "Generator lead: integrate the specialist team."
+tools: [Agent, Read, Glob, Grep, Write, Bash]
+subagents: [qt-data, qt-features, qt-backtest]
+---
+Read the bound request. Dispatch separate specialist outputs.
+Wait for all reports. Return one candidate manifest.

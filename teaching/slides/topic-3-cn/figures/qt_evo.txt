@@ -1,0 +1,7 @@
+/qt:evo Diagnose repeated missing timing in completed cases.
+Propose one Generator-prompt change. Compare old and new
+behavior on fixed cases before preparing adoption.
+
+Inspect .qt/evolution/<change>/:
+  request.json -> proposal.json -> review.json -> evaluation
+Then inspect .qt/harness_versions/ after approved adoption.

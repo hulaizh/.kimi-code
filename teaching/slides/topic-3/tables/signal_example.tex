@@ -1,0 +1,10 @@
+\begin{tabular}{@{}P{3.1cm}P{4.5cm}P{4.9cm}@{}}
+\toprule
+\textbf{Part} & \textbf{Definition} & \textbf{Implementation} \\
+\midrule
+Score & $s_{i,t}=P_{i,t}/P_{i,t-20}-1$ & 21 valid closing prices \\
+\rowcolor{gray!10}
+Example & $12/10-1=20\%$ & Known-answer unit test \\
+Rank & Descending score; stable tie-break & \texttt{baseline/strategy.py} \\
+\bottomrule
+\end{tabular}

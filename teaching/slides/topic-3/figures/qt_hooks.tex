@@ -1,0 +1,7 @@
+\begin{tikzpicture}[b/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3cm,minimum height=1.1cm,align=center,font=\small},a/.style={-{Stealth},thick,draw=black!60}]
+\node[b] (n0) at (0.0,0) {\textbf{Lifecycle event}\\match event and tool};
+\node[b] (n1) at (4.5,0) {\textbf{Hook script}\\read JSON on stdin};
+\draw[a] (n0) -- (n1);
+\node[b] (n2) at (9.0,0) {\textbf{Hook result}\\block or log metadata};
+\draw[a] (n1) -- (n2);
+\end{tikzpicture}

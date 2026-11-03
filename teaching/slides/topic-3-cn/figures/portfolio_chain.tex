@@ -1,0 +1,7 @@
+\begin{tikzpicture}[b/.style={draw=blue,fill=blue!6,rounded corners,text width=3.4cm,minimum height=1.0cm,align=center,font=\small},a/.style={-{Stealth},thick}]
+\node[b] (n0) {信号得分与持仓\\已批准策略版本};
+\node[b,right=0.5cm of n0] (n1) {目标权重与风控\\确定性代码检查};
+\draw[a] (n0)--(n1);
+\node[b,right=0.5cm of n1] (n2) {交易建议单\\人工复核};
+\draw[a] (n1)--(n2);
+\end{tikzpicture}

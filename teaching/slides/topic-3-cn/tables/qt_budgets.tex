@@ -1,0 +1,12 @@
+\begin{tabular}{@{}P{3.0cm}P{4.6cm}P{4.9cm}@{}}
+\toprule
+\textbf{约束维度} & \textbf{默认规则} & \textbf{触发结果} \\
+\midrule
+审查轮次 & 每个案例默认最多 4 轮 & 达到上限记为 \texttt{EXHAUSTED} \\
+\rowcolor{gray!10}
+无效提交 & 每次派发最多允许 2 次 & 超限后记为 \texttt{BLOCKED} \\
+运行耗时 & 每个案例默认最长 4 小时 & 在状态转移边界检查 \\
+\rowcolor{gray!10}
+停滞判定 & 候选方案、缺陷与结论重复无进展 & 记为 \texttt{STALLED}，绝不放行 \\
+\bottomrule
+\end{tabular}

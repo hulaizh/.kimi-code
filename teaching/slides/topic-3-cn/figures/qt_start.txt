@@ -1,0 +1,6 @@
+/qt:start Test monthly momentum on the bundled synthetic fixture
+
+Inspect .qt/cases/<case>/:
+  idea.json -> request.json -> rounds/round-001/
+  generator/*.json -> numerical/ -> critic/*.json
+  state.json -> ledger and route -> final report

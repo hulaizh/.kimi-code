@@ -1,0 +1,12 @@
+\begin{tabular}{@{}P{3.0cm}P{4.6cm}P{4.9cm}@{}}
+\toprule
+\textbf{Injected Fault} & \textbf{Violated Barrier} & \textbf{Controller Action} \\
+\midrule
+Remove a report & Incomplete team join & Reject the submission \\
+\rowcolor{gray!10}
+Change \texttt{request\_id} & Stale or mismatched reply & Reject the submission \\
+Modify sealed evidence & Evidence hash mismatch & Block case advancement \\
+\rowcolor{gray!10}
+Set one-round budget & Missing second clean review & Stop as \texttt{EXHAUSTED} \\
+\bottomrule
+\end{tabular}

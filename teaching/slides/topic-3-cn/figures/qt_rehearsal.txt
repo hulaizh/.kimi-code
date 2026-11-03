@@ -1,0 +1,9 @@
+python3 <plugin-root>/scripts/check.py
+python3 <plugin-root>/scripts/qt.py start \
+  --case rehearsal --idea "Synthetic monthly momentum" --rehearse
+
+# Observed from the installed package:
+# 35 tests passed
+# Round 1: CONTINUE, clean=1
+# Round 2: ACCEPTED, clean=2
+# Mode: SCRIPTED_REHEARSAL

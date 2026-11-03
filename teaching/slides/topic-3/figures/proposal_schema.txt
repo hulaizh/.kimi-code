@@ -1,0 +1,8 @@
+{
+  "request_id": "<current dispatch>", "role": "generator", "round": 1,
+  "reports": ["rounds/round-001/generator/data.json",
+              "rounds/round-001/generator/features.json",
+              "rounds/round-001/generator/backtest.json"],
+  "candidate": {"lookback": 20, "top_n": 2,
+                "rationale": "<how this tests the user idea>"}
+}

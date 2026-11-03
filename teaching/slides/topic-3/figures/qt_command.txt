@@ -1,0 +1,9 @@
+---
+description: Develop and evaluate a quant trading idea.
+---
+Invoke the qt:start Skill with the user arguments below.
+User arguments: $ARGUMENTS
+
+# Skill workflow:
+# read controller -> create case -> dispatch lead
+# validate manifest -> advance -> repeat or report

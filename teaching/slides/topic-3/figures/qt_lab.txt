@@ -1,0 +1,6 @@
+Extend one QT component in my plugin source.
+First state input, output, authority and failure behavior.
+Demonstrate the defect with one behavioral case.
+Make the smallest change; rerun affected and regression checks.
+Show the diff, evidence, version and remaining limitation.
+Reinstall the plugin before testing native command behavior.

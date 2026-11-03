@@ -1,0 +1,5 @@
+/plugins install /absolute/path/to/qt
+/reload
+/plugins info qt
+
+/qt:start Test monthly momentum on the bundled synthetic fixture

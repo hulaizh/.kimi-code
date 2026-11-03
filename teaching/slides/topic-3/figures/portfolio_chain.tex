@@ -1,0 +1,7 @@
+\begin{tikzpicture}[b/.style={draw=blue,fill=blue!6,rounded corners,text width=3.4cm,minimum height=1.0cm,align=center,font=\small},a/.style={-{Stealth},thick}]
+\node[b] (n0) {Scores + positions\\approved version};
+\node[b,right=0.5cm of n0] (n1) {Targets + risk\\deterministic checks};
+\draw[a] (n0)--(n1);
+\node[b,right=0.5cm of n1] (n2) {Trade sheet\\human review};
+\draw[a] (n1)--(n2);
+\end{tikzpicture}

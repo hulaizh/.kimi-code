@@ -1,0 +1,7 @@
+\begin{tikzpicture}[b/.style={draw=blue,fill=blue!5,rounded corners,text width=2.9cm,minimum height=.8cm,align=center,font=\small},a/.style={-{Stealth},thick}]
+\node[b](p)at(0,1.2){规划下一步};
+\node[b](t)at(4,1.2){调用受控工具};
+\node[b](o)at(8,1.2){观察结果并判断};
+\node[b](r)at(2,-0.8){预算内继续};
+\node[b](e)at(8,-0.8){返回结果／暂停};
+\draw[a](p)--(t);\draw[a](t)--(o);\draw[a](o.south)--(r.east);\draw[a](r.west)-| (p.south);\draw[a](o)--(e);\end{tikzpicture}
