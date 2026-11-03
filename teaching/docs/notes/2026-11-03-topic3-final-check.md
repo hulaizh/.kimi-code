@@ -1,5 +1,19 @@
 # Topic 3 revision checks
 
+Navigation follow-up: manual itemized contents pages now appear at 4, 23, 36,
+and 45, with the current subsection highlighted. The hierarchy has two sections
+and four subsections, and the PDF bookmarks match it in both languages.
+The hook introductions and installation overview were combined to preserve
+60 pages. All other current wording and figures were retained, including local
+opening-slide wording edits made during this update.
+
+Both navigation builds passed compilation without overfull boxes, missing
+glyphs, or undefined references. All pages were visually checked; a separate
+copy-editor confirmed the bilingual hierarchy, active highlights, and merged
+content. No new unexpected validator findings were introduced. The nested
+contents contain six items in total but only two in each individual list.
+Navigation build artifacts are in `teaching/logs/topic-3/navigation-contents/`.
+
 Both English and Chinese PDFs contain exactly 60 pages, with two sections,
 no standalone break or lab pages, and four worked tables (pages 7, 11, 49, 52).
 Twenty-one explanatory table frames were converted to short itemized lists at

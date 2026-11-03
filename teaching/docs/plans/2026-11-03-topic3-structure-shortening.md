@@ -95,7 +95,10 @@ break slides and no separate lab section. Breaks remain in the instructor's
 | Total | 60 | 240 minutes | 220 teaching/practice minutes |
 
 Use two actual sections: **Design the Quant System** and **Build and Improve
-the System**. All activities advance one research case and its reusable workflow.
+the System**. Their major subsections are Controlled Research / Recovery and
+Governance, and Run and Verify QT / Improve the System. Manual itemized contents
+pages at 4, 23, 36, and 45 highlight the current subsection.
+All activities advance one research case and its reusable workflow.
 There is no disconnected capstone exercise, lab menu, or new assessment task.
 The manually written contents remains after the product and acceptance pages.
 
@@ -106,7 +109,7 @@ The manually written contents remains after the product and acceptance pages.
 1. **Long-Run Workflows.** Course title.
 2. **Product: A Quant Research Package.** Use the plain-language product above and a visual of the delivered research package.
 3. **Acceptance: When the Work Is Ready.** Use the four tests above; distinguish a supported rejection from an incomplete run.
-4. **Contents.** Design the quant system; build and improve it.
+4. **Contents: Controlled Research.** Show both sections and their two major subsections in itemize; highlight Controlled Research.
 
 ### Design from finance needs: one controlled run
 
@@ -127,8 +130,8 @@ The manually written contents remains after the product and acceptance pages.
 19. **Revision Loop: Repair and Review.** Introduce candidate revision after the concrete defect. The Generator repairs; a fresh review checks changed evidence; the mandate stays fixed.
 20. **Finding Memory: Silence Is Not Closure.** Carry one finding through two rounds; closure must cite the repaired version. Show why a fresh agent needs saved issue history.
 21. **Stopping: Accept, Revise, or Escalate.** Teach passing checks, unresolved defects, fatal defects, exhaustion, stalled progress, and human stop in plain language. The plugin's two-clean-review rule is a course implementation choice, not a universal assurance standard.
-22. **Hooks: Automatic Event Checks.** A supervisor needs checks and records at every relevant boundary. Introduce a hook after the controller: an event triggers a script, such as logging a completed call.
-23. **Hooks: Observe, Block, and Enforce.** Distinguish observation, host-permitted blocking, and controller enforcement. Critical acceptance remains in the controller. All Kimi event names, return codes, and timeouts are deferred to page 39 and the handout.
+22. **Hooks: Events and Control Boundaries.** Combine automatic event triggering with observation, host-permitted blocking, and controller enforcement. A hook log cannot certify a candidate. Runtime details remain on page 39 and in the handout.
+23. **Contents: Recovery and Governance.** Repeat the manual itemized hierarchy and highlight the next major subsection.
 
 ### Design the quant system: continuity and governed change
 
@@ -147,9 +150,9 @@ The manually written contents remains after the product and acceptance pages.
 
 ### Build and improve the system: operate the research workflow
 
-36. **Plugin: Files and Two Commands.** Map roles and controls to commands, skills, agents, scripts, hooks, and workspace state. Introduce `/qt:start` and `/qt:evo`.
-37. **Delegation: Leads and Specialists.** Show one agent profile. Report validation does not prove separate agents ran: corroborate with host dispatch and response records. The sample Bash-event logger does not capture full specialist provenance.
-38. **Installation: Source and Runtime.** One install/reload path and the package/workspace boundary. Installation is pre-class preparation.
+36. **Contents: Run and Verify QT.** Start the second section with the manual hierarchy; highlight Run and Verify QT.
+37. **Plugin: Files, Commands, and Installation.** Map roles and controls to files, introduce `/qt:start` and `/qt:evo`, and include the install/reload step and package/workspace boundary.
+38. **Delegation: Leads and Specialists.** Show one agent profile and distinguish report validation from evidence of actual host dispatch and independent specialist contexts.
 39. **Hook: Register and Inspect.** Show the optional logger, one event, relevant failure behavior, and duplicate delivery. Students inspect the record within the ongoing task.
 40. **Run: Follow One Research Case.** Inspect a prepared case at selected transitions. Show host evidence for live-team claims or label the scripted rehearsal. A mode label alone is not provenance.
 41. **Barriers: What Permits Advancement?** Locate Generator completeness, numerical checks, Critic coverage, and termination evidence.
@@ -159,7 +162,7 @@ The manually written contents remains after the product and acceptance pages.
 
 ### Build and improve the system: make improvement measurable
 
-45. **Improvement Tools: Follow One Failure.** Introduce the toolchain only after the recurring omission: QT captures the incident; an evaluator compares versions; an optimizer proposes candidates; a registry preserves versions. Keep the same momentum case visible.
+45. **Contents: Improve the System.** Repeat the manual itemized hierarchy and highlight the improvement subsection. The following pages connect capture, proposal, evaluation, versioning, and restoration to the same failure.
 46. **Capture: Turn a Failure into a Test Case.** Use `/qt:evo` and the internal `evo-prepare` action to bind the completed case and parent prompt. Students identify the failing evidence, write the expected behavior, and keep separate development and held-out cases.
 47. **Proposal: Change One Instruction.** Inspect a prompt diff addressing the observed timing omission. Students draft one change without changing strategy parameters, risk limits, or acceptance rules. Git records the proposed edit; the running prompt stays unchanged.
 48. **Evaluator: Define What Better Means.** Show inputs, expected evidence, observation/trade ordering, allowed actions, and pass criteria. Separate schema validity, factual support, financial correctness, and control failures. Presence of a date field alone is insufficient.

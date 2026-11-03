@@ -18,7 +18,7 @@
 \end{center}
 \smallskip
 \begin{itemize}
-\item Turn a trading idea and dated data into a strategy candidate with verifiable evidence
+\item Turn a trading idea and dated data into a strategy with verifiable evidence
 \item Retain the evidence for future audit, replay, and improvement
 \end{itemize}
 \end{frame}
@@ -35,18 +35,27 @@
 \end{itemize}
 \end{frame}
 
+\section{Design the Quant System}
+\subsection{Controlled Research}
+
 % Page 4
 \begin{frame}{Table of Contents}
 \begin{itemize}
 \setlength{\itemsep}{1.0em}
 \item \textbf{Design the Quant System}
-\begin{itemize}\item Finance needs, roles, controls, and recovery\end{itemize}
-\item \textbf{Build and Improve the System}
-\begin{itemize}\item Run, repair, evaluate, version, and restore\end{itemize}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{red}{\textbf{Controlled Research}}
+\item \textcolor{black!55}{Recovery and Governance}
+\end{itemize}
+\item \textcolor{black!55}{\textbf{Build and Improve the System}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{Run and Verify QT}
+\item \textcolor{black!55}{Improve the System}
+\end{itemize}
 \end{itemize}
 \end{frame}
-
-\section{Design the Quant System}
 
 % Page 5
 \begin{frame}{Stakeholders: What They Need}
@@ -253,25 +262,36 @@
 \end{frame}
 
 % Page 22
-\begin{frame}{Hooks: Automatic Event Checks}
+\begin{frame}{Hooks: Events and Control Boundaries}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item A hook triggers a script automatically whenever a declared lifecycle event occurs.
-\item Event-driven logging removes reliance on an agent remembering to record its own actions.
+\item A lifecycle event triggers a script automatically, keeping logs independent of agent memory.
+\item Observation hooks record events; blocking hooks veto actions only where the host permits.
+\item Controller gates enforce mandatory checks; a hook log never certifies a candidate.
 \end{itemize}
 \end{frame}
 
+\subsection{Recovery and Governance}
+
 % Page 23
-\begin{frame}{Hooks: Observe, Block, and Enforce}
+\begin{frame}{Table of Contents}
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
-\item \textbf{Observation hook:} append metadata after a completed tool or subagent event.
-\item \textbf{Blocking hook:} veto an action before execution only where the host event allows.
-\item \textbf{Controller gate:} enforce mandatory domain checks before any state transition.
-\item \textbf{Boundary:} a hook log aids auditability but never certifies a research candidate.
+\setlength{\itemsep}{1.0em}
+\item \textbf{Design the Quant System}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{Controlled Research}
+\item \textcolor{red}{\textbf{Recovery and Governance}}
+\end{itemize}
+\item \textcolor{black!55}{\textbf{Build and Improve the System}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{Run and Verify QT}
+\item \textcolor{black!55}{Improve the System}
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -417,20 +437,41 @@
 \end{frame}
 
 \section{Build and Improve the System}
+\subsection{Run and Verify QT}
 
 % Page 36
-\begin{frame}{Plugin: Files and Two Commands}
+\begin{frame}{Table of Contents}
+\begin{itemize}
+\setlength{\itemsep}{1.0em}
+\item \textcolor{black!55}{\textbf{Design the Quant System}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{Controlled Research}
+\item \textcolor{black!55}{Recovery and Governance}
+\end{itemize}
+\item \textbf{Build and Improve the System}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{red}{\textbf{Run and Verify QT}}
+\item \textcolor{black!55}{Improve the System}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+% Page 37
+\begin{frame}{Plugin: Files, Commands, and Installation}
 \begin{center}
 \input{figures/qt_layout}
 \end{center}
 \smallskip
 \begin{itemize}
-\item Run \texttt{/qt:start} for strategy research and \texttt{/qt:evo} for harness improvement.
-\item Installed plugin code stays read-only while case state and versions live in \texttt{.qt/}.
+\item Use \texttt{/qt:start} for research and \texttt{/qt:evo} for improvement.
+\item Install with \texttt{/plugins install <qt>}; reinstall and \texttt{/reload} after source edits.
+\item Keep installed code separate from case state and versions in \texttt{.qt/}.
 \end{itemize}
 \end{frame}
 
-% Page 37
+% Page 38
 \begin{frame}{Delegation: Leads and Specialists}
 \begin{center}
 \input{figures/qt_agent}
@@ -439,18 +480,6 @@
 \begin{itemize}
 \item Inspect actual host dispatch and response records during a live run.
 \item Valid report files on disk do not by themselves prove separate specialist contexts ran.
-\end{itemize}
-\end{frame}
-
-% Page 38
-\begin{frame}{Installation: Source and Runtime}
-\begin{center}
-\input{figures/qt_install}
-\end{center}
-\smallskip
-\begin{itemize}
-\item Install the plugin before class, and reinstall plus \texttt{/reload} after editing plugin source files.
-\item Keep the managed plugin package separate from the workspace's \texttt{.qt/} state directory.
 \end{itemize}
 \end{frame}
 
@@ -525,15 +554,24 @@
 \end{itemize}
 \end{frame}
 
+\subsection{Improve the System}
+
 % Page 45
-\begin{frame}{Improvement Tools: Follow One Failure}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/improvement_toolchain}}
-\end{center}
-\smallskip
+\begin{frame}{Table of Contents}
 \begin{itemize}
-\item Trace one recurring timing omission through capture, candidate proposal, evaluation, and approval.
-\item External optimizers and registries are extensions; QT does not bundle their adapters.
+\setlength{\itemsep}{1.0em}
+\item \textcolor{black!55}{\textbf{Design the Quant System}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{Controlled Research}
+\item \textcolor{black!55}{Recovery and Governance}
+\end{itemize}
+\item \textbf{Build and Improve the System}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{Run and Verify QT}
+\item \textcolor{red}{\textbf{Improve the System}}
+\end{itemize}
 \end{itemize}
 \end{frame}
 

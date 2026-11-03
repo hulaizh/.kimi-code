@@ -48,18 +48,27 @@
 \end{itemize}
 \end{frame}
 
+\section{设计量化系统}
+\subsection{受控研究流程}
+
 % Page 4
 \begin{frame}{目录}
 \begin{itemize}
 \setlength{\itemsep}{1.0em}
 \item \textbf{设计量化系统}
-\begin{itemize}\item 金融需求、角色分工、门控约束与故障恢复\end{itemize}
-\item \textbf{构建并改进系统}
-\begin{itemize}\item 运行、修复、对照评估、版本管理与回滚恢复\end{itemize}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{red}{\textbf{受控研究流程}}
+\item \textcolor{black!55}{恢复与治理}
+\end{itemize}
+\item \textcolor{black!55}{\textbf{构建并改进系统}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{运行与核验 QT}
+\item \textcolor{black!55}{系统改进}
+\end{itemize}
 \end{itemize}
 \end{frame}
-
-\section{设计量化系统}
 
 % Page 5
 \begin{frame}{利益相关方：各方需要什么保障}
@@ -266,25 +275,36 @@
 \end{frame}
 
 % Page 22
-\begin{frame}{Hooks：在事件边界自动触发检查}
+\begin{frame}{Hooks：事件触发与控制边界}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
 \end{center}
 \smallskip
 \begin{itemize}
-\item Hook 会在声明的生命周期事件发生时自动运行脚本。
-\item 事件驱动的自动记录，避免了依赖 Agent 自行记得调用日志工具。
+\item 生命周期事件自动触发脚本，无需依赖 Agent 记得记录日志。
+\item 观察型 Hook 记录事件；阻断型 Hook 仅能在宿主允许的位置否决操作。
+\item 控制器门控负责强制检查；Hook 日志不能替代候选策略验收。
 \end{itemize}
 \end{frame}
 
+\subsection{恢复与治理}
+
 % Page 23
-\begin{frame}{Hooks：观察、阻断与控制器门控}
+\begin{frame}{目录}
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
-\item \textbf{观察型 Hook：}在工具或子任务完成后自动追加审计元数据。
-\item \textbf{阻断型 Hook：}仅在宿主允许拦截的事件边界（如工具执行前）否决违规操作。
-\item \textbf{控制器门控：}在每次案例状态转换前，强制执行领域证据与完整性检查。
-\item \textbf{职责边界：}Hook 日志有助于审计追溯，但绝不能替代控制器对候选策略的验收。
+\setlength{\itemsep}{1.0em}
+\item \textbf{设计量化系统}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{受控研究流程}
+\item \textcolor{red}{\textbf{恢复与治理}}
+\end{itemize}
+\item \textcolor{black!55}{\textbf{构建并改进系统}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{运行与核验 QT}
+\item \textcolor{black!55}{系统改进}
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -430,20 +450,41 @@
 \end{frame}
 
 \section{构建并改进系统}
+\subsection{运行与核验 QT}
 
 % Page 36
-\begin{frame}{插件结构：目录映射与两个公开命令}
+\begin{frame}{目录}
+\begin{itemize}
+\setlength{\itemsep}{1.0em}
+\item \textcolor{black!55}{\textbf{设计量化系统}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{受控研究流程}
+\item \textcolor{black!55}{恢复与治理}
+\end{itemize}
+\item \textbf{构建并改进系统}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{red}{\textbf{运行与核验 QT}}
+\item \textcolor{black!55}{系统改进}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+% Page 37
+\begin{frame}{插件结构：文件、命令与安装}
 \begin{center}
 \input{figures/qt_layout}
 \end{center}
 \smallskip
 \begin{itemize}
-\item 使用 \texttt{/qt:start} 运行策略研究，使用 \texttt{/qt:evo} 发起 Harness 改进。
-\item 安装后的插件代码保持只读，案例状态与提示词版本统一保存在工作区的 \texttt{.qt/} 目录中。
+\item 使用 \texttt{/qt:start} 运行策略研究，使用 \texttt{/qt:evo} 发起改进。
+\item 通过 \texttt{/plugins install <qt>} 安装；修改源码后重新安装并执行 \texttt{/reload}。
+\item 安装包与工作区 \texttt{.qt/} 中的案例状态、提示词版本分开保存。
 \end{itemize}
 \end{frame}
 
-% Page 37
+% Page 38
 \begin{frame}{团队委派：负责人与专家配置}
 \begin{center}
 \input{figures/qt_agent}
@@ -452,18 +493,6 @@
 \begin{itemize}
 \item 实盘或实测演示时，应核查宿主实际保存的子 Agent 派发与响应记录。
 \item 磁盘上存在格式合规的报告文件，并不能单独证明各专家确实在独立上下文中运行过。
-\end{itemize}
-\end{frame}
-
-% Page 38
-\begin{frame}{安装与重载：源码包与工作区分离}
-\begin{center}
-\input{figures/qt_install}
-\end{center}
-\smallskip
-\begin{itemize}
-\item 课前完成插件安装；修改源码后必须重新安装并执行 \texttt{/reload} 方可生效。
-\item 受管插件安装包与工作区 \texttt{.qt/} 下的案例状态保持严格分离。
 \end{itemize}
 \end{frame}
 
@@ -538,15 +567,24 @@
 \end{itemize}
 \end{frame}
 
+\subsection{系统改进}
+
 % Page 45
-\begin{frame}{改进工具链：围绕同一时点遗漏故障}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/improvement_toolchain}}
-\end{center}
-\smallskip
+\begin{frame}{目录}
 \begin{itemize}
-\item 围绕“遗漏交易执行时点”这一具体故障，串联采集、候选提案、对照评估与审批版本化。
-\item 外部优化器与版本库属于扩展工具；QT 本体并未内置它们的适配器。
+\setlength{\itemsep}{1.0em}
+\item \textcolor{black!55}{\textbf{设计量化系统}}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{受控研究流程}
+\item \textcolor{black!55}{恢复与治理}
+\end{itemize}
+\item \textbf{构建并改进系统}
+\begin{itemize}
+\setlength{\itemsep}{0.5em}
+\item \textcolor{black!55}{运行与核验 QT}
+\item \textcolor{red}{\textbf{系统改进}}
+\end{itemize}
 \end{itemize}
 \end{frame}
 

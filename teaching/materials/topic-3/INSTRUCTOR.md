@@ -7,9 +7,11 @@ Product and acceptance are stated in plain language before the contents.
 Explanatory pages use short itemized lists; only pages 7, 11, 49, and 52 use
 tables for worked data, calculations, and output comparisons.
 
-There are no separate break slides, lab section, reference appendix, or repeated
-roadmaps. Breaks belong to the instructor schedule. Student participation occurs
-at the relevant step of the same research task.
+Manual itemized contents pages at 4, 23, 36, and 45 mark the major transitions
+and highlight the current subsection. The two sections contain Controlled
+Research / Recovery and Governance, then Run and Verify QT / Improve the System.
+There are no separate break slides, lab section, or reference appendix. Breaks
+belong to the instructor schedule; participation occurs within the same task.
 
 ## Four-hour schedule
 
@@ -98,8 +100,9 @@ you want to resume.
 
 ## Hooks
 
-Pages 22–23 distinguish observation, host-permitted blocking, and controller
-gates. Page 39 shows the optional [Bash-event logging example](hooks/README.md).
+Page 22 combines event triggering, observation, host-permitted blocking, and
+controller gates; page 23 introduces Recovery and Governance. Page 39 shows the
+optional [Bash-event logging example](hooks/README.md).
 It is not enabled in QT by default. Add its script and manifest fragment to a
 plugin copy, then reinstall and reload.
 
