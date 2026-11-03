@@ -2,19 +2,19 @@
   human/.style={draw=darkred,fill=red!4,rounded corners=3pt,line width=.9pt,
     text width=4.4cm,minimum height=1.25cm,align=center,font=\small,inner sep=5pt},
   task/.style={draw=steelblue,fill=blue!3,rounded corners=2pt,line width=.7pt,
-    text width=2.1cm,minimum height=1.2cm,align=center,font=\footnotesize,inner sep=4pt},
+    text width=1.95cm,minimum height=1.3cm,align=center,font=\footnotesize,inner sep=4pt},
   arrow/.style={-{Stealth[length=5pt]},line width=.8pt,draw=black!60},
   edge/.style={font=\scriptsize,text=black!65,fill=white,inner sep=2pt}]
 \node[anchor=east,font=\scriptsize\bfseries,text=darkred] at (1.2,0) {人};
-\node[human] (judgment) at (5.0,0) {\textbf{判断}\\研究问题与风险限额};
-\node[human] (understanding) at (10.55,0) {\textbf{理解}\\证据与局限};
+\node[human] (judgment) at (5.0,0) {\textbf{判断}\\初始想法与系统设计};
+\node[human] (understanding) at (10.55,0) {\textbf{决策}\\资金使用与系统局限};
 \fill[gray!8,rounded corners=5pt] (1.6,-1.8) rectangle (14.0,-4.2);
 \node[anchor=east,align=center,font=\scriptsize\bfseries,text=steelblue] at (1.2,-2.8) {量化\\系统};
 \node[task] (task0) at (2.95,-2.55) {\textbf{数据}\\带日期的输入};
 \node[task] (task1) at (5.37,-2.55) {\textbf{设计}\\信号与代码};
 \node[task] (task2) at (7.79,-2.55) {\textbf{测试}\\收益与成本};
 \node[task] (task3) at (10.21,-2.55) {\textbf{审查}\\质疑与修订};
-\node[task] (task4) at (12.629999999999999,-2.55) {\textbf{报告}\\结果与证据};
+\node[task] (task4) at (12.629999999999999,-2.55) {\textbf{报告}\\证据};
 \node[draw=black!35,fill=white,rounded corners=2pt,text width=11.5cm,minimum height=.5cm,font=\footnotesize,align=center,inner sep=3pt] at (7.8,-3.65) {代码：执行检查、安排路由、保存状态};
 \draw[arrow] (judgment.south) -- node[left,edge]{任务要求} (5.0,-1.8);
 \draw[arrow] (10.55,-1.8) -- node[right,edge]{证据} (understanding.south);

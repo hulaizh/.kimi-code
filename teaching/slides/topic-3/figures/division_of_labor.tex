@@ -2,19 +2,19 @@
   human/.style={draw=darkred,fill=red!4,rounded corners=3pt,line width=.9pt,
     text width=4.4cm,minimum height=1.25cm,align=center,font=\small,inner sep=5pt},
   task/.style={draw=steelblue,fill=blue!3,rounded corners=2pt,line width=.7pt,
-    text width=2.1cm,minimum height=1.2cm,align=center,font=\footnotesize,inner sep=4pt},
+    text width=1.95cm,minimum height=1.3cm,align=center,font=\footnotesize,inner sep=4pt},
   arrow/.style={-{Stealth[length=5pt]},line width=.8pt,draw=black!60},
   edge/.style={font=\scriptsize,text=black!65,fill=white,inner sep=2pt}]
 \node[anchor=east,font=\scriptsize\bfseries,text=darkred] at (1.2,0) {HUMAN};
-\node[human] (judgment) at (5.0,0) {\textbf{Judgment}\\question and risk limits};
-\node[human] (understanding) at (10.55,0) {\textbf{Understanding}\\evidence and limitations};
+\node[human] (judgment) at (5.0,0) {\textbf{Judgement}\\seed idea + system design};
+\node[human] (understanding) at (10.55,0) {\textbf{Decision}\\capital use + limitations};
 \fill[gray!8,rounded corners=5pt] (1.6,-1.8) rectangle (14.0,-4.2);
 \node[anchor=east,align=center,font=\scriptsize\bfseries,text=steelblue] at (1.2,-2.8) {QUANT\\SYSTEM};
 \node[task] (task0) at (2.95,-2.55) {\textbf{Data}\\dated inputs};
 \node[task] (task1) at (5.37,-2.55) {\textbf{Design}\\signals + code};
 \node[task] (task2) at (7.79,-2.55) {\textbf{Test}\\returns + costs};
 \node[task] (task3) at (10.21,-2.55) {\textbf{Review}\\critique + repair};
-\node[task] (task4) at (12.629999999999999,-2.55) {\textbf{Report}\\results + evidence};
+\node[task] (task4) at (12.629999999999999,-2.55) {\textbf{Report}\\evidence};
 \node[draw=black!35,fill=white,rounded corners=2pt,text width=11.5cm,minimum height=.5cm,font=\footnotesize,align=center,inner sep=3pt] at (7.8,-3.65) {Code: checks, routing, and saved state};
 \draw[arrow] (judgment.south) -- node[left,edge]{mandate} (5.0,-1.8);
 \draw[arrow] (10.55,-1.8) -- node[right,edge]{evidence} (understanding.south);
