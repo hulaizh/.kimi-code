@@ -1,30 +1,34 @@
 # Topic 3: Build and Improve a Quant Research System
 
-The English and Chinese decks each have 60 pages. One synthetic monthly-momentum
-case supplies the reason for each control and the evidence for each activity.
-There are two sections: Design the Quant System; Build and Improve the System.
-Product and acceptance are stated in plain language before the contents.
-Explanatory pages use short itemized lists; only pages 7, 11, 49, and 52 use
-tables for worked data, calculations, and output comparisons.
+The current English deck has 58 pages. This guide uses its PDF page numbers,
+including the title. The Chinese deck retains an earlier 60-page structure.
+One synthetic monthly-momentum case connects three sections: Introduction;
+Design of Long-Run Workflows; Case: The Quant System.
 
-Manual itemized contents pages at 4, 23, 36, and 45 mark the major transitions
-and highlight the current subsection. The two sections contain Controlled
-Research / Recovery and Governance, then Run and Verify QT / Improve the System.
-There are no separate break slides, lab section, or reference appendix. Breaks
-belong to the instructor schedule; participation occurs within the same task.
+Page 2 carries the engineering ladder from Topic 2. Page 3 states the task and
+acceptance criteria. Pages 4 and 36 repeat the same complete operating architecture
+inside one Evolution enclosure; the detailed evolution workflow appears on
+page 31. Pages 5–7 motivate the financial requirements and page 8 locates human
+judgment and capital decisions.
+
+Roadmaps on pages 9 and 37 mark design and case. Design covers Harness, Loop,
+Graph and Evolution; the case covers Build and Evolve. O–G–C what/why/authority
+comes first in Harness, on pages 10–12. PIT and numerical details belong to the
+case, on pages 40–41. Breaks remain in the schedule rather than on separate slides,
+and participation remains within the common task.
 
 ## Four-hour schedule
 
 | Pages | Time | Teaching purpose |
 |---|---|---|
-| 1–4 | 00:00–00:15 | Product, acceptance, contents |
-| 5–23 | 00:15–01:20 | Stakeholders, replay, authority, harness, loops, graph, hooks |
-| — | 01:20–01:30 | Break; no slide |
-| 24–35 | 01:30–02:05 | Durable state, recovery, evidence, supervision, change |
-| 36–44 | 02:05–02:45 | Inspect QT, repair a submission, replay, and resume |
-| — | 02:45–02:55 | Break; no slide |
-| 45–56 | 02:55–03:45 | Capture, propose, evaluate, compare, version, adopt, restore |
-| 57–60 | 03:45–04:00 | Production boundary and final product review |
+| 1–8 | 00:00–00:20 | Task, architecture, finance requirements and division of labor |
+| 9–24 | 00:20–01:10 | Harness, O–G–C roles, contracts, loops and recovery |
+| — | 01:10–01:20 | Break; no slide |
+| 25–36 | 01:20–02:00 | Graphs, broad evolution and complete-architecture recap |
+| 37–49 | 02:00–02:55 | Build QT components, run, repair, replay and assess production gaps |
+| — | 02:55–03:05 | Break; no slide |
+| 50–57 | 03:05–03:55 | Capture, propose, evaluate, compare, version, adopt and restore |
+| 58 | 03:55–04:00 | Final system review |
 
 This is 240 elapsed minutes, including 20 minutes of breaks. Retain three minutes
 of contingency inside both the QT and improvement blocks. Use prepared
@@ -34,15 +38,15 @@ checkpoints rather than waiting for an entire live multi-agent run to finish.
 
 | Pages | Action | Minutes included above |
 |---|---|---:|
-| 18–20 | Write a repair criterion for the current finding | 5 |
-| 28 | Reconstruct the case from saved evidence | 5 |
-| 42 | Repair a blocked submission and inspect the next route | 7 |
-| 46–47 | Define a regression case and propose one prompt edit | 6 |
-| 49–52 | Inspect output differences and check a partner's claim | 8 |
-| 54 | Defend adoption or rejection | 4 |
+| 21 | Write a repair criterion for the current finding | 5 |
+| 45 | Repair a blocked submission and inspect the next route | 7 |
+| 46 | Reconstruct the case from saved evidence | 5 |
+| 50–51 | Define a regression case and propose one prompt edit | 6 |
+| 52, 54 | Inspect output differences and check a partner's claim | 8 |
+| 56 | Defend adoption or rejection | 4 |
 
-These 35 minutes are part of the schedule, not an additional lab. There is no
-separate task menu or submission rubric.
+These 35 minutes are part of the schedule, followed by the five-minute final
+system defense on page 58. There is no separate lab task or submission rubric.
 
 ## Core distinctions
 
@@ -51,7 +55,7 @@ rejecting a candidate strategy. Keep three decisions separate: the controller's
 research verdict, the owner's approval of a prompt version, and authority to
 deploy capital. QT does not send broker orders.
 
-Page 6 introduces three tests, which recur on pages 28 and 43:
+Page 6 introduces three tests, which recur on pages 18 and 46:
 
 1. Audit reconstruction uses the original saved evidence and action records.
 2. Calculation replay fixes inputs, code, configuration, and relevant environment.
@@ -100,8 +104,8 @@ you want to resume.
 
 ## Hooks
 
-Page 22 combines event triggering, observation, host-permitted blocking, and
-controller gates; page 23 introduces Recovery and Governance. Page 39 shows the
+Page 16 combines event triggering, observation, host-permitted blocking, and
+controller gates. Page 43 shows the
 optional [Bash-event logging example](hooks/README.md).
 It is not enabled in QT by default. Add its script and manifest fragment to a
 plugin copy, then reinstall and reload.
@@ -132,7 +136,16 @@ rounds and four hours, checked at transitions. The elapsed-time check does not
 cancel an in-flight model call. Host-level isolation, call cancellation, cost
 accounting, and concurrent-writer controls remain separate production concerns.
 
-## Self-improvement tools, pages 45–56
+## Broad evolution and the concrete case, pages 30–35 and 50–57
+
+The design section teaches evaluated changes to prompts/context, skills,
+tools/code and role/workflow structure. Each target needs suitable independent
+evidence and regression checks. A proposal cannot weaken its own acceptance
+standard or expand permissions during the run. Version changes require an
+explicit decision and preserve a route back to the prior system.
+
+The case demonstrates one implemented slice: QT's Generator-prompt interface.
+Do not present that implementation boundary as the limit of system evolution.
 
 The toolchain is capture → propose → evaluate → approve/version. Teach the
 evaluator before the optimizer so students know what a candidate must pass.
@@ -151,7 +164,7 @@ These are internal actions, not additional public slash commands. QT's evolution
 interface changes only the Generator prompt. It does not rewrite risk rules,
 strategy parameters, arbitrary source code, or model weights.
 
-Use [the companion example](improvement-tools/README.md) for pages 49 and 52:
+Use [the companion example](improvement-tools/README.md) for pages 52 and 54:
 
 ```sh
 python3 /absolute/path/to/topic-3/improvement-tools/check_example.py
@@ -200,8 +213,9 @@ across tools and vendors.
 
 ## Sources and preparation records
 
-- [Verified finance-harness sources](../../docs/notes/2026-11-03-topic3-finance-harness-sources.md)
-- [Agreed structure and timing](../../docs/plans/2026-11-03-topic3-structure-shortening.md)
+- [Current finance-opening sources](../../docs/notes/2026-11-06-topic3-finance-opening.md)
+- [Earlier finance-harness source checks](../../docs/notes/2026-11-03-topic3-finance-harness-sources.md)
+- [Current 58-page design](../../docs/plans/2026-11-06-topic3-three-section-design.md)
 - [Earlier Pi review and corrections](../../docs/notes/2026-11-03-topic3-pi-review.md)
 - [QT inner protocol](../qt/references/controller.md) and [evolution protocol](../qt/references/evolution.md)
 

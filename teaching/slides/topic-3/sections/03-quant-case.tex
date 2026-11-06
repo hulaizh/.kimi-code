@@ -94,6 +94,7 @@
 \item Follow the \texttt{request\_id}, specialist reports, numerical outputs, and routing decision.
 \item Label scripted rehearsals. Show host dispatch records when claiming a live team ran.
 \item The final evidence must support acceptance or explain why the case stops.
+\item The fixture tests momentum candidates; only \texttt{lookback} and \texttt{top\_n} vary.
 \end{itemize}
 \end{frame}
 
@@ -109,13 +110,14 @@
 \end{frame}
 
 % Page 46
-\begin{frame}{Build: Replay, Audit, and Resume\handsup}
+\begin{frame}[t]{Build: Replay, Audit, and Resume\handsup}
+\setlength{\topsep}{0pt}
 \begin{center}
 \small\input{tables/ca_replay_checklist}
 \end{center}
 \begin{itemize}
 \item Inspect \texttt{state.json}, the route trace, and saved outputs.
-\item Changed code, data snapshots, role instructions, or a fresh evaluation require a new case.
+\item Start a new case if code, the data snapshot or role instructions change, or for a fresh evaluation.
 \item Question: Identify this case's inputs, repairs, stopping rule, prompt version, and approver.
 \end{itemize}
 \end{frame}
@@ -163,7 +165,7 @@
 \end{center}
 \input{figures/ca_capture_command}
 \begin{itemize}
-\item \texttt{/qt:evo} starts the improvement workflow; \texttt{evo-prepare} binds the case and parent prompt version.
+\item \texttt{/qt:evo} starts the improvement workflow; \texttt{evo-prepare} links the change request to its case and parent prompt version.
 \item Define the timing behavior before testing. Use development cases for feedback and reserve separate final-evaluation cases.
 \end{itemize}
 \end{frame}
@@ -250,7 +252,7 @@
 \begin{itemize}
 \item After approval, use \texttt{evo-rollback} to restore the previous pointer. Keep both versions and their evidence.
 \item Existing cases retain their original configuration; they do not switch versions mid-run.
-\item Verify a new case and monitor later runs for recurring failures.
+\item Verify the restored version in a new case, then monitor later runs for recurring failures.
 \end{itemize}
 \end{frame}
 

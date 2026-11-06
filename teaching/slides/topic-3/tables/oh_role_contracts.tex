@@ -2,7 +2,7 @@
 \toprule
 \textbf{Role} & \textbf{Receives} & \textbf{Returns} & \textbf{Authority Boundary} \\
 \midrule
-Orchestrator & Mandate, state, evidence & Bound requests and routing decision & Transitions must pass controller checks \\
+Orchestrator & Mandate, state, evidence & Requests linked to the task; routing decision & Transitions must pass controller checks \\
 \rowcolor{gray!10}
 Generator & Request, constraints, findings & Candidate, tests and evidence & Cannot grant itself final acceptance \\
 Critic & Candidate evidence, fixed criteria & Findings, resolutions and verdict & Cannot rewrite the candidate or criteria \\

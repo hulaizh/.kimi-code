@@ -16,5 +16,5 @@ carried findings\\
 next eligible task};
 \draw[flow] (w)--(v);
 \draw[flow] (v)--node[above,font=\scriptsize]{pass}(s);
-\draw[flow,draw=darkred] (v.south)--(7.0,-2.3)--node[below,font=\scriptsize]{invalid: repair the report; keep state}(2.3,-2.3)--(w.south);
+\draw[flow,draw=darkred] (v.south)--(7.0,-2.3)--node[below,font=\scriptsize]{invalid: repair report; do not advance}(2.3,-2.3)--(w.south);
 \end{tikzpicture}

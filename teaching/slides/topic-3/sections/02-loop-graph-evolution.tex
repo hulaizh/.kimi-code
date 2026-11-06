@@ -14,12 +14,13 @@
 
 % Page 20
 \begin{frame}{Loop: Generate, Check, Critique}
+\setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_review_loop}}
 \end{center}
 \begin{itemize}
 \item Give the Critic saved trades and backtest outputs to inspect.
-\item A separate context helps challenge the proposal; shared mistakes remain possible.
+\item Separate contexts help the review; both agents can still make the same mistake.
 \item Keep the mandate and acceptance rules fixed during revision.
 \end{itemize}
 \end{frame}
@@ -55,7 +56,7 @@
 \input{tables/de_stop_routes}
 \end{center}
 \begin{itemize}
-\item Declare attempt, tool and elapsed-time budgets before starting.
+\item Set limits on attempts, tool calls and elapsed time before starting.
 \item Record the stopping reason. Exhaustion never turns a failed result into acceptance.
 \end{itemize}
 \end{frame}
@@ -92,7 +93,7 @@
 \resizebox{.96\textwidth}{!}{\input{figures/de_handoff}}
 \end{center}
 \begin{itemize}
-\item Workers write separate reports. The controller owns authoritative control state.
+\item Workers write separate reports. Only the controller updates the run's control state.
 \item Validate identity, completeness and evidence before merging.
 \item Keep conflicting findings explicit; the last report must not silently overwrite them.
 \end{itemize}
@@ -100,12 +101,13 @@
 
 % Page 27
 \begin{frame}{Graph: Teams, Fan-Out and Joins}
-\begingroup\centering
+\setlength{\topsep}{0pt}
+\begin{center}
 \resizebox{.86\textwidth}{!}{\input{figures/gan_loop}}
-\par\endgroup
+\end{center}
 \begin{itemize}
 \item Use specialists when checks need different expertise.
-\item Wait for every required report; join only after identity and evidence checks.
+\item Wait for every required report, then check its identity and evidence before combining results.
 \end{itemize}
 \end{frame}
 
@@ -128,7 +130,7 @@
 \input{tables/de_graph_routes}
 \end{center}
 \begin{itemize}
-\item Route from validated status and dependencies.
+\item Choose the next task using validated status and dependencies.
 \item A changed input version starts a new case: preserve the old evidence and rebuild dependent work.
 \end{itemize}
 \end{frame}
@@ -150,9 +152,10 @@
 
 % Page 31
 \begin{frame}{Evolution: The Detailed Improvement System}
-\begingroup\centering
+\setlength{\topsep}{0pt}
+\begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_evolution_system}}
-\par\endgroup
+\end{center}
 \begin{itemize}
 \item The Generator proposes a scoped change and tests; fresh Critics review evidence, regressions and scope.
 \item Only versions passing the required checks and review can be approved. Rejected or deferred changes retain the active version.
@@ -193,7 +196,7 @@
 \resizebox{.94\textwidth}{!}{\input{figures/de_version_flow}}
 \end{center}
 \begin{itemize}
-\item Bind each version to its tested model, tools, data, policy and prompts.
+\item Record the model, tools, data, policy and prompts tested with each version.
 \item An alias selects a version; approval needs its own record.
 \item Retain both versions and evidence. Rollback restores the prior pointer; verify behavior in a new case.
 \end{itemize}

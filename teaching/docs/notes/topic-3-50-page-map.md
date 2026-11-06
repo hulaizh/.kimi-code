@@ -1,5 +1,9 @@
 # Topic 3: 50-page revision
 
+Historical checkpoint `7e125eb`. The subsequent
+[58-page redesign](../plans/2026-11-06-topic3-three-section-design.md) supersedes
+this pagination; this note preserves the earlier consolidation record.
+
 English deck: `slides/topic-3/3_long_run_workflows.tex` and its compiled PDF.
 Revised on 6 November 2026. Baseline: commit `b89f4e2` (59 PDF pages).
 The revised deck contains **50 pages, including the title**.

@@ -50,7 +50,7 @@
 \end{center}
 \begin{itemize}
 \item A fresh model run may take a different path. Retain what actually happened.
-\item Common providers and interacting components can transmit failures across the system.
+\item Failures can spread through connected components or a shared provider.
 \end{itemize}
 \begin{center}\scriptsize
 \href{https://www.fsb.org/uploads/P151026-1.pdf}{Source: FSB, Sound Practices for Responsible AI Adoption, October 2026}
@@ -66,7 +66,7 @@
 \input{tables/oh_finance_requirements}
 \end{center}
 \begin{itemize}
-\item Match controls to the financial consequences. These requirements also matter in other consequential applications.
+\item Match controls to the financial stakes. Other applications with serious consequences need these controls too.
 \end{itemize}
 \begin{center}\scriptsize
 \href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026};
@@ -131,7 +131,7 @@
 \end{center}
 \begin{itemize}
 \item Roles receive different instructions, context, tools and write permissions.
-\item Enforce permissions through the host or controller as well as stating them in the prompt.
+\item State permissions in the prompt and enforce them through the host or controller.
 \end{itemize}
 \end{frame}
 
@@ -154,7 +154,7 @@
 \end{center}
 \begin{itemize}
 \item Specify the completion and failure conditions before the work begins.
-\item A returned artifact must be linked to the request and its supporting evidence.
+\item Link every returned artifact to its request and supporting evidence.
 \end{itemize}
 \end{frame}
 
@@ -183,7 +183,7 @@
 \resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
 \end{center}
 \begin{itemize}
-\item A hook invokes a script at a specified event; logging need not depend on the agent remembering.
+\item A hook runs a script when a specified event occurs; the agent need not remember to log it.
 \item Observation hooks record events. Blocking hooks stop actions only where the host supports it.
 \item Controller gates decide whether the candidate can advance.
 \end{itemize}
@@ -199,7 +199,7 @@
 \input{tables/oh_checkpoint_state}
 \end{center}
 \begin{itemize}
-\item Save verified state at each transition. A conversation's last line does not establish which steps finished.
+\item Save verified state at each transition. A conversation's last line does not show which steps finished.
 \end{itemize}
 \end{frame}
 
@@ -209,7 +209,7 @@
 \resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}
 \end{center}
 \begin{itemize}
-\item Save JSON evidence locally and keep Git version history. Bind each approval to its approver, timestamp and authorized action or version.
+\item Save JSON evidence locally and keep Git version history. For each approval, record the approver, timestamp and authorized action or version.
 \item Another analyst can reconstruct observable actions and files; the record does not reveal hidden model reasoning.
 \end{itemize}
 \end{frame}
