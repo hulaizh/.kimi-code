@@ -5,7 +5,7 @@
 \node[role,draw=forestgreen,fill=forestgreen!5] (o) at (6.6,0) {\textbf{Orchestrator}\\确定范围、委派、路由};
 \node[role,draw=blue,fill=blue!4] (g) at (2,-2.0) {\textbf{Generator}\\提议、实现、测试};
 \node[role,draw=darkred,fill=red!4] (c) at (11.2,-2.0) {\textbf{Critic}\\质疑、核验、报告};
-\node[draw=black!50,fill=gray!6,rounded corners=2pt,text width=2.2cm,minimum height=.8cm,align=center,font=\footnotesize] (gate) at (6.6,-2.0) {\textbf{代码检查关卡}\\经 Orchestrator};
+\node[draw=black!50,fill=gray!6,rounded corners=2pt,text width=2.4cm,minimum height=.8cm,align=center,font=\footnotesize] (gate) at (6.6,-2.0) {\textbf{代码检查关卡}\\经由 Orchestrator};
 \draw[flow] (o.west)-|node[above,edge,pos=.3]{请求}(g.north);
 \draw[flow] (g)--(gate);
 \draw[flow] (gate)--(c);

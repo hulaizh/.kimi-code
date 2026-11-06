@@ -1,7 +1,7 @@
 \section{案例：量化系统}
 
 % Page 37
-\begin{frame}{目录}
+\begin{frame}{本讲提纲}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/ca_case_roadmap}}
 \end{center}
@@ -22,20 +22,20 @@
 \end{frame}
 
 % Page 39
-\begin{frame}{构建：负责人和专项 Agent}
+\begin{frame}{构建：负责人与专项 Agent}
 \begin{center}
 \input{figures/qt_agent}
 \end{center}
 \begin{center}\scriptsize 来源：QT \texttt{agents/qt-generator.md}（节略）。\end{center}
 \begin{itemize}
 \item 在角色卡中定义负责人的工具权限及允许调用的专项 Agent。
-\item 实际运行时，检查宿主的真实派发与响应记录。
+\item 实际运行时，检查宿主的实际分派与响应记录。
 \item 仅凭报告文件，无法证明各专项 Agent 曾在独立上下文中运行。
 \end{itemize}
 \end{frame}
 
 % Page 40
-\begin{frame}{构建：时点可得的数据输入}
+\begin{frame}{构建：时点可得（PIT）数据输入}
 \begin{center}
 \small\input{tables/pit_example}
 \end{center}
@@ -82,10 +82,10 @@
 \end{center}
 \begin{itemize}
 \item 可选 Hook 练习（未随插件提供）：将 \texttt{audit\_event.py} 复制到 \texttt{<qt>/hooks/}，合并清单配置，再重新安装并加载。
-\item 事件名、工具名及会话／调用 ID 只记录一次；它不评估候选策略，也不提供完整的专项 Agent 执行轨迹。
+\item 事件名、工具名及会话与调用 ID 只记录一次；它既不评估候选策略，也不提供完整的专项 Agent 执行轨迹。
 \item Kimi 记录 Hook 错误或超时后会继续运行。必要检查仍由控制器执行。
 \end{itemize}
-\begin{center}\scriptsize\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{来源：Kimi Hook 行为}\end{center}
+\begin{center}\scriptsize\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{来源：Kimi Hook 行为说明}\end{center}
 \end{frame}
 
 % Page 44
@@ -94,8 +94,8 @@
 \input{figures/qt_start}
 \end{center}
 \begin{itemize}
-\item 沿着 \texttt{request\_id}，追踪专项报告、数值输出与路由决策。
-\item 标明脚本排练。若声称真实 Agent 团队已运行，应出示宿主派发记录。
+\item 沿着 \texttt{request\_id} 追踪专项报告、数值输出与路由决策。
+\item 脚本排练须明确标出；若声称运行了真实 Agent 团队，应出示宿主的分派记录。
 \item 最终证据必须支持验收，或解释案例为何停止。
 \item 该测试样例检验动量候选策略；只有 \texttt{lookback} 和 \texttt{top\_n} 可以变化。
 \end{itemize}
@@ -108,7 +108,7 @@
 \end{center}
 \begin{itemize}
 \item 问题：在临时测试案例中，分别尝试缺失报告和过期请求 ID。如何修复后才能推进？
-\item 不带 \texttt{--response} 调用 \texttt{advance}；重新读取 \texttt{request.json}，让所有报告匹配新 ID。检查哈希，保持已封存证据不变。
+\item 先不带 \texttt{--response} 调用 \texttt{advance}，再重新读取 \texttt{request.json}，使所有报告匹配新 ID；核对哈希值，保持已封存证据不变。
 \end{itemize}
 \end{frame}
 
@@ -121,7 +121,7 @@
 \begin{itemize}
 \item 检查 \texttt{state.json}、\texttt{trace.jsonl} 与已保存的输出。
 \item 若代码、数据快照或角色指令改变，或要开展新的评估，则新建案例。
-\item 问题：重建这个案例。这些文件或单独的批准记录，是否标明了谁批准该版本？
+\item 问题：重建该案例。案例文件或单独的批准记录中，是否标明了该版本的批准人？
 \end{itemize}
 \end{frame}
 
@@ -132,7 +132,7 @@
 \end{center}
 \begin{itemize}
 \item 测试样例使用五只虚构股票和合成的工作日行情记录，并非交易所日历或当前数据源。
-\item 完整的公司行动、投资组合与券商适配器仍有待构建。
+\item 完整的公司行为、投资组合与券商适配器仍有待构建。
 \end{itemize}
 \end{frame}
 
@@ -195,7 +195,7 @@
 \begin{itemize}
 \item 交易从 30 Sep 09:30 (UTC+8) 起才允许执行。仅留存了 \texttt{PRICE\_01}。
 \item 运行配套检查，或在 promptfoo 中加载 \texttt{promptfooconfig.json}，比较两份输出。
-\item 问题：是否有一份输出同时通过两项检查？
+\item 问题：是否有任一输出同时通过两项检查？
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.promptfoo.dev/docs/configuration/guide/}{来源：promptfoo 配置与断言；外部示例}\end{center}
 \end{frame}
@@ -209,11 +209,11 @@
 \item GEPA 使用可调用程序、开发案例、评价指标、反馈与搜索预算来提出提示词改动。
 \item 用预留案例检验候选版本。评分不等于批准采用。
 \end{itemize}
-\begin{center}\scriptsize\href{https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md}{来源：DSPy GEPA；外部扩展，尚未接入 QT}\end{center}
+\begin{center}\scriptsize\href{https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md}{来源：DSPy GEPA；外部扩展，未集成至 QT}\end{center}
 \end{frame}
 
 % Page 54
-\begin{frame}{演进：判断证据\handsup}
+\begin{frame}{演进：评判证据\handsup}
 \begin{center}
 \small\input{tables/comparison_sheet}
 \end{center}
@@ -249,19 +249,19 @@
 \end{frame}
 
 % Page 57
-\begin{frame}{演进：回滚与监控}
+\begin{frame}{演进：回滚与监测}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}
 \end{center}
 \begin{itemize}
-\item 获得批准后，用 \texttt{evo-rollback} 恢复此前的指针。保留两个版本及其证据。
+\item 获得批准后，用 \texttt{evo-rollback} 恢复此前的指针。保留新旧两个版本及其证据。
 \item 已有案例保留原配置，运行中途不切换版本。
-\item 在新案例中核验恢复后的版本，再监控后续运行中是否重复出现相同失败。
+\item 在新案例中核验恢复后的版本，再监测后续运行中是否反复出现失败。
 \end{itemize}
 \end{frame}
 
 % Page 58
-\begin{frame}{回顾完成的系统\handsup}
+\begin{frame}{审视完成的系统\handsup}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/final_product_review}}
 \end{center}

@@ -4,7 +4,7 @@
 \node[box] (n0) at (1.7,0) {\textbf{交易想法}\\带日期的数据};
 \node[box] (n1) at (6.6,0) {\textbf{策略 + 代码}\\经核验的结果};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{独立审查}\\接受、修订或停止};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{独立审查}\\验收、修订或停止};
 \draw[link] (n1) -- (n2);
 \draw[link,draw=darkred,rounded corners=3pt] (n2.south) -- (11.5,-1.55) -- node[below,font=\footnotesize,text=darkred]{修订} (6.6,-1.55) -- (n1.south);
 \end{tikzpicture}

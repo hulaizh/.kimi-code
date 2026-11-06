@@ -11,7 +11,7 @@
 \node[box,draw=darkred,fill=red!4] (gate) at (6.6,-3.25) {\textbf{控制器检查关卡}\\结构约束 + 证据};
 \node[box,draw=black!60,fill=gray!6] (result) at (11.2,-3.25) {\textbf{交回负责人}\\产物或错误};
 \draw[flow] (context)--(agent);
-\draw[flow] (agent)--node[above,label]{操作}(tools);
+\draw[flow] (agent)--node[above,label]{行动}(tools);
 \draw[flow] (tools.south)--(11.2,-2.2)--node[below,label]{观察结果}(8.2,-2.2)--(agent.south east);
 \draw[flow] (agent.south)--node[left,label]{提交}(gate.north);
 \draw[flow] (gate)--node[above,label]{通过}(result);

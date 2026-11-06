@@ -12,7 +12,7 @@
 \node[font=\footnotesize,align=center,text width=3.1cm] (idea) at (1.5,.85)
   {\textbf{用户想法}\\授权范围 + 限额};
 \node[font=\scriptsize,align=center,text=darkred,text width=3.4cm] (human) at (11.5,.85)
-  {\textbf{规则由人负责}\\批准权由人保留};
+  {\textbf{人工制定规则}\\并保留批准权};
 \draw[flow] (idea.south)--(1.5,-.20)--(o.west);
 \draw[flow,draw=darkred] (human.south)--(11.5,-.20)--(o.east);
 
@@ -20,8 +20,8 @@
 \draw[darkred,line width=.7pt,rounded corners=3pt,fill=red!4] (7.8,-1.0) rectangle (13.2,-3.7);
 \node[font=\footnotesize\bfseries,text=blue] at (2.7,-1.28) {Generator 负责人};
 \node[font=\footnotesize\bfseries,text=darkred] at (10.5,-1.28) {Critic 负责人};
-\node[font=\scriptsize,text=black!65] at (2.7,-1.60) {协调负责构建的专项 Agent};
-\node[font=\scriptsize,text=black!65] at (10.5,-1.60) {每轮开展新的审查};
+\node[font=\scriptsize,text=black!65] at (2.7,-1.60) {协调构建专项 Agent};
+\node[font=\scriptsize,text=black!65] at (10.5,-1.60) {每轮开展全新审查};
 \node[worker,draw=blue] (gd) at (1.0,-2.25) {数据};
 \node[worker,draw=blue] (gf) at (2.7,-2.25) {特征};
 \node[worker,draw=blue] (gb) at (4.4,-2.25) {回测};
@@ -31,7 +31,7 @@
 \node[lead,draw=blue,fill=white,text width=4.3cm,minimum height=.52cm] (gi) at (2.7,-3.18)
   {\textbf{整合 + 测试}};
 \node[lead,draw=darkred,fill=white,text width=4.3cm,minimum height=.52cm] (cm) at (10.5,-3.18)
-  {\textbf{汇总 + 覆盖检查}};
+  {\textbf{合并 + 覆盖检查}};
 \foreach \w in {gd,gf,gb}{\draw[flow] (2.7,-1.83)--(\w.north);\draw[flow] (\w.south)--(gi.north);}
 \foreach \w in {cp,cr,ce}{\draw[flow] (10.5,-1.83)--(\w.north);\draw[flow] (\w.south)--(cm.north);}
 \draw[flow] (o.south west)--(4.0,-.82)--(2.7,-.82)--(2.7,-1.0);
@@ -39,14 +39,14 @@
 \node[edge,anchor=south] at (2.7,-.75) {分派};
 \node[edge,anchor=south] at (10.5,-.75) {检查通过后};
 \draw[flow,draw=blue] (5.4,-2.0)--(7.8,-2.0);
-\node[edge,text=blue] at (6.6,-1.62) {代码检查关卡\\经 Orchestrator};
+\node[edge,text=blue] at (6.6,-1.62) {代码检查关卡\\经由 Orchestrator};
 \node[lead,draw=forestgreen,fill=forestgreen!6,text width=4.6cm,minimum height=.65cm] (packet) at (6.6,-4.30)
-  {\textbf{Orchestrator：修复任务包}\\问题项 + 决定：继续 / 结束};
+  {\textbf{Orchestrator：修复任务包}\\问题项 + 决策：继续 / 结束};
 \draw[flow] (cm.south)--(10.5,-4.30)--(packet.east);
 \node[edge,anchor=west] at (10.65,-4.1) {问题项交回\\Orchestrator};
 \draw[flow] (packet.west)--(2.7,-4.30)--(2.7,-3.7);
 \node[edge,anchor=east] at (2.55,-4.1) {继续时\\发回修复};
 \node[draw=black!35,rounded corners=2pt,fill=gray!5,text width=12.3cm,align=center,
   minimum height=.45cm,font=\scriptsize,inner sep=4pt] at (6.6,-5.15)
-  {\textbf{共享状态与证据：} 请求 ID、产物、哈希值、问题项与版本};
+  {\textbf{共享状态与证据：}请求 ID、产物、哈希值、问题项与版本};
 \end{tikzpicture}

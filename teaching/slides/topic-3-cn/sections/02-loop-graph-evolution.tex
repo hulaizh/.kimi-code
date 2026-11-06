@@ -20,7 +20,7 @@
 \end{center}
 \begin{itemize}
 \item 向 Critic 提供已保存的交易记录和回测输出，供其核查。
-\item 每轮为 Critic 使用新的上下文，可减轻对先前回答的锚定；各 Agent 仍可能犯相同的错误。
+\item 每轮启用新上下文的 Critic 可减轻对先前回答的锚定；但不同 Agent 仍可能犯同样的错误。
 \item 修订过程中保持任务授权与验收规则不变。
 \end{itemize}
 \end{frame}
@@ -50,7 +50,7 @@
 \end{frame}
 
 % Page 23
-\begin{frame}{循环：预算、流转与停止}
+\begin{frame}{循环：预算、路由与停止}
 \begin{center}
 \small
 \input{tables/de_stop_routes}
@@ -124,14 +124,14 @@
 \end{frame}
 
 % Page 29
-\begin{frame}{图：条件流转与恢复}
+\begin{frame}{图：条件路由与恢复}
 \begin{center}
 \small
 \input{tables/de_graph_routes}
 \end{center}
 \begin{itemize}
 \item 依据已核验的状态与依赖关系，选择下一项任务。
-\item 输入版本发生变化时启动新案例：保留旧证据，并重新完成依赖这些输入的工作。
+\item 输入版本发生变化时启动新案例：保留旧证据，并重新构建依赖这些输入的工作。
 \end{itemize}
 \end{frame}
 
@@ -198,7 +198,7 @@
 \begin{itemize}
 \item 为每个版本记录测试时使用的模型、工具、数据、规则和提示词。
 \item 别名用于选择版本；批准仍需独立记录。
-\item 保留两个版本及其证据。回滚恢复先前的版本指针；须在新案例中核验行为。
+\item 保留新旧两个版本及其证据。回滚会恢复先前的版本指针，并须在新案例中核验行为。
 \end{itemize}
 \end{frame}
 
@@ -208,7 +208,7 @@
 \resizebox{.94\textwidth}{!}{\input{figures/monitoring_cycle}}
 \end{center}
 \begin{itemize}
-\item 监测反复出现的问题与共同风险。
+\item 监测反复出现的失败与共同风险。
 \item 模型、工具、数据源或权限变化时，重新评估。
 \item 将已记录的失败反馈给演进流程。提示词优化并不保证可靠性。
 \end{itemize}
@@ -221,6 +221,6 @@
 \par\raggedright
 \smallskip
 \begin{itemize}
-\item 找出各角色的 Harness、修订循环、交接路径与演进边界。
+\item 在图中找出各角色的 Harness、修订循环、交接路径与演进边界。
 \end{itemize}
 \end{frame}

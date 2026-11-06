@@ -2,13 +2,13 @@
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.65cm,minimum height=1.4cm,align=center,font=\footnotesize,inner sep=4pt},
   flow/.style={-{Stealth[length=4pt]},line width=.8pt,draw=black!60}]
 \node[draw=forestgreen,fill=forestgreen!5,rounded corners=2pt,font=\small,align=center,text width=12.9cm,inner sep=5pt] at (6.75,1.2)
-{\textbf{演进 Orchestrator：}失败、改动范围、父版本、预算与状态};
+{\textbf{演进 Orchestrator：}失败、改动范围、变更前版本、预算与状态};
 \node[box] (e) at (1.5,0) {\textbf{已完成案例}\\保留的证据};
 \node[box] (d) at (5.0,0) {\textbf{诊断}\\反复出现的失败};
 \node[box] (g) at (8.5,0) {\textbf{Generator 团队}\\限定范围的改动\\及测试};
 \node[box] (t) at (12.0,0) {\textbf{评估}\\固定案例 + 回归检查};
 \node[box,draw=darkred,fill=red!4] (c) at (12.0,-1.85) {\textbf{Critic 团队}\\新上下文\\证据、范围、回归检查};
-\node[box,draw=darkred,fill=red!4] (h) at (8.5,-1.85) {\textbf{负责人决策}\\批准 / 否决\\或暂缓};
+\node[box,draw=darkred,fill=red!4] (h) at (8.5,-1.85) {\textbf{系统负责人决策}\\批准 / 否决\\或暂缓};
 \node[box,draw=forestgreen,fill=forestgreen!6] (v) at (5.0,-1.85) {\textbf{版本注册表}\\采用或保留先前版本};
 \node[box,draw=forestgreen,fill=forestgreen!6] (n) at (1.5,-1.85) {\textbf{后续案例}\\当前启用版本};
 \draw[flow] (e)--(d);\draw[flow] (d)--(g);\draw[flow] (g)--(t);

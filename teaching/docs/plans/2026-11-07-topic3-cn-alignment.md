@@ -5,6 +5,12 @@ Translate the reviewed English 58-page deck page for page. The English version
 after the Pi/Gemini repairs is authoritative; later English corrections must be
 mirrored in Chinese before completion.
 
+The user's subsequent instruction assigns final Chinese translation,
+proofreading and copy editing directly to Gemini-4-Argon in the existing left
+Pi session. The parallel translators' checkpoint `ab0e19c` is its working draft.
+Gemini owns Chinese editing until its translation/editing pass is complete;
+the root then independently rebuilds and checks bilingual correspondence.
+
 ## Required correspondence
 
 - Exactly 58 pages in each language, with the same title, section/subsection
@@ -52,7 +58,7 @@ the current QT prototype actually implements. The missing human-approver record,
 rotated retry request ID, optional hook packaging and independent historical
 trade-sheet fixture must be translated accurately.
 
-## Parallel ownership
+## Draft ownership and final handoff
 
 The root prepares the Chinese preamble and copies only the active English
 sections/assets. A generated ownership manifest under
@@ -66,6 +72,10 @@ translator, so shared figures are translated once.
 The root owns both main sources, the alignment audit and integration builds.
 Keep the existing XeLaTeX/ctex setup and shared styles. The earlier Chinese deck
 is preserved under the ignored run log's `cn-before/` snapshot.
+
+All three draft translators have stopped editing. For the final pass, Gemini
+may edit every active Chinese source/asset, including the main Chinese source
+when necessary for compilation, while keeping English and shared styles read-only.
 
 ## Verification and review
 

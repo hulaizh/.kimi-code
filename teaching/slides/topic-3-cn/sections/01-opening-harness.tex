@@ -16,8 +16,8 @@
 \resizebox{.94\textwidth}{!}{\input{figures/oh_acceptance_row}}
 \end{center}
 \begin{itemize}
-\item 把交易想法和带日期的数据转化为有证据支持的策略，并保留证据用于审计、重放和改进。
-\item 证据缺失、检查未通过或问题项尚未解决，均不能验收通过。
+\item 将交易想法与带日期的数据转化为有证据支撑的策略，并留存证据以供审计、重放和改进。
+\item 缺少证据、检查未通过或仍有未解决的问题项，均不得通过验收。
 \end{itemize}
 \end{frame}
 
@@ -28,7 +28,7 @@
 \par\raggedright
 \smallskip
 \begin{itemize}
-\item 演进在各次运行之间评估系统改动；批准权仍由人保留。
+\item 演进在各次运行之间评估系统改动；最终批准权仍由人掌握。
 \end{itemize}
 \end{frame}
 
@@ -38,11 +38,11 @@
 \resizebox{.94\textwidth}{!}{\input{figures/oh_finance_accountability}}
 \end{center}
 \begin{itemize}
-\item 部分金融操作难以撤销。支持结论的证据本身不构成操作授权。
-\item 明确由谁审查异常情况、谁有权停止工作流。具体义务取决于机构及其业务活动。
+\item 部分金融操作难以撤销；支持结论的证据本身并不构成行动授权。
+\item 明确由谁审查异常情况、谁有权叫停工作流。具体义务取决于机构及其业务活动。
 \end{itemize}
 \begin{center}\scriptsize
-来源：\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1};
+来源：\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1}；
 \href{https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf}{FINRA 2026，第 24--27 页（美国经纪交易商示例）}
 \end{center}
 \end{frame}
@@ -53,8 +53,8 @@
 \resizebox{.94\textwidth}{!}{\input{figures/oh_finance_continuity}}
 \end{center}
 \begin{itemize}
-\item 新的模型运行可能采用不同路径。应保留实际发生的运行记录。
-\item 故障可能通过相连的组件或共同的服务商传播。
+\item 新的模型运行可能走不同路径。务必留存实际发生的运行记录。
+\item 故障可能沿相连组件或共同的服务商扩散。
 \end{itemize}
 \begin{center}\scriptsize
 \href{https://www.fsb.org/uploads/P151026-1.pdf}{来源：FSB 人工智能良好实践最终报告，2026 年 10 月 15 日}
@@ -70,11 +70,11 @@
 \input{tables/oh_finance_requirements}
 \end{center}
 \begin{itemize}
-\item 控制措施应与金融后果相匹配。其他可能造成严重后果的应用也需要这些控制。
+\item 控制措施应与金融后果相匹配。其他可能造成严重后果的应用同样需要这些控制。
 \end{itemize}
 \begin{center}\scriptsize
-来源：\href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026};
-\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1};
+来源：\href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026}；
+\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1}；
 \href{https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf}{NIST AI RMF}
 \end{center}
 \end{frame}
@@ -86,14 +86,14 @@
 \end{center}
 \medskip
 \begin{itemize}
-\item 人选择初始想法与系统设计，再决定如何使用资金。
+\item 由人选定初始想法与系统设计，再决定资金使用。
 \end{itemize}
 \end{frame}
 
 \section{长程工作流设计}
 
 % Page 9
-\begin{frame}{目录}
+\begin{frame}{本讲提纲}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/oh_design_roadmap}}
 \end{center}
@@ -102,7 +102,7 @@
 \subsection{Harness}
 
 % Page 10
-\begin{frame}{Orchestrator--Generator--Critic 架构}
+\begin{frame}{Orchestrator--Generator--Critic 设计}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/oh_three_roles}}
 \end{center}
@@ -119,11 +119,11 @@
 \input{tables/oh_separation}
 \end{center}
 \begin{itemize}
-\item 单独的上下文有助于 Critic 质疑提案，但两个 Agent 仍可能犯同样的错误。
-\item 在任务委派和独立核验确有帮助时采用这些角色。
+\item 独立的上下文有助于 Critic 质疑方案，但两个 Agent 仍可能犯同样的错误。
+\item 在任务委派和独立核验确有价值时采用这些角色。
 \end{itemize}
 \begin{center}\scriptsize
-\href{https://www.anthropic.com/research/building-effective-agents}{来源：Anthropic，Orchestrator／工作者与评估者／优化者模式}
+\href{https://www.anthropic.com/research/building-effective-agents}{来源：Anthropic，Orchestrator / 工作者与评估者 / 优化者模式}
 \end{center}
 \end{frame}
 
@@ -172,8 +172,8 @@
 \input{tables/action_mandate}
 \end{center}
 \begin{itemize}
-\item 披露文件和网页不能改变权限。通过宿主落实文件与网络访问限制。
-\item 示例：Agent 请求购买数据。AP2 展示带签名的授权；QT 没有支付权限。
+\item 披露文件和网页不能改变权限。须通过宿主落实文件与网络访问限制。
+\item 示例：Agent 请求采购付费数据。AP2 展示了签名授权机制；QT 本身没有支付权限。
 \end{itemize}
 \begin{center}\scriptsize
 \illustrative\quad
@@ -187,7 +187,7 @@
 \resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
 \end{center}
 \begin{itemize}
-\item 钩子在指定事件发生时运行脚本；Agent 无需记得主动记录。
+\item 钩子（Hook）在指定事件发生时运行脚本；Agent 无需记得主动记录。
 \item 观察型钩子记录事件；阻断型钩子只有在宿主支持时才能阻止操作。
 \item 控制器的检查关卡决定候选方案能否进入下一步。
 \end{itemize}
@@ -203,7 +203,7 @@
 \input{tables/oh_checkpoint_state}
 \end{center}
 \begin{itemize}
-\item 每次转换时保存已核验的状态。对话的最后一句话不能说明哪些步骤已经完成。
+\item 每次状态转换时保存已核验的状态。对话的最后一行并不能说明哪些步骤已经完成。
 \end{itemize}
 \end{frame}
 
@@ -214,6 +214,6 @@
 \end{center}
 \begin{itemize}
 \item 将 JSON 证据保存在本地，并保留 Git 版本历史。每次批准都记录批准人、时间戳，以及获准的操作或版本。
-\item 另一位分析师可以据此重建可观察的操作与文件；记录并不揭示模型隐藏的推理过程。
+\item 其他分析师可据此重建可观测的操作与文件；该记录并不揭示模型隐藏的内部推理。
 \end{itemize}
 \end{frame}

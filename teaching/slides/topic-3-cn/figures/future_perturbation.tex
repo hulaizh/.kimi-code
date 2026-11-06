@@ -4,6 +4,6 @@
 \node[box] (n0) at (1.7,0) {\textbf{基准输入}\\固定截至 $t$ 的数据};
 \node[box] (n1) at (6.6,0) {\textbf{扰动}\\改变 $t$ 之后的价格};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{无前视信息检查}\\时点 $\le t$ 的信号不变};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{无未来信息泄露}\\时点 $\le t$ 的信号不变};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}
