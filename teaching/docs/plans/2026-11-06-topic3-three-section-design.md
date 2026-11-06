@@ -17,6 +17,10 @@ This plan supersedes the earlier 50-page proposal in this file.
   financial system requirements with primary-source support.
 - Section 2.1 introduces Orchestrator–Generator–Critic immediately: what, why,
   contracts and authority, then the harness around each role.
+- Subsequent specialist refinement: the general Critic design uses Data &
+  Evidence, Robustness, Execution, and Risk & Controls. PIT is one data check.
+  The current QT case still has its three implemented profiles, explicitly
+  distinguished from the additional risk-review role; runtime code is unchanged.
 - PIT and momentum are QT-specific data/calculation examples. They belong to
   the case on pages 40–41. Harness design teaches the general mechanism that
   attaches such domain checks, rather than teaching those checks as its essence.
@@ -57,7 +61,7 @@ starts without adding full-page dividers. Page 36 remains the final design page.
 ## Page-4 / page-36 architecture specification
 
 Retain the recognizable geometry of the existing complete architecture:
-Orchestrator above, Generator and Critic teams below, executable checks and
+Orchestrator above, three Generator specialists and four Critic specialists below, executable checks and
 evidence handoffs, structured repair packet, shared state and evidence. Draw
 one outer rectangle labelled **Evolution** around the complete system.
 The enclosing box denotes the scope of future evaluated changes. It does not
@@ -170,7 +174,7 @@ three roles are universally optimal or that increasing agent count proves qualit
 | 24 | Loop: Recovery and Safe Retry | Check actual completion, repair role submissions, investigate changed evidence and reconcile uncertain side effects before retrying. | 23 + recovery aspects of 37 |
 | 25 | Graph: Dependencies and Handoffs | Task nodes, prerequisites, success/failure edges and feedback cycles; avoid calling the complete cyclic workflow a DAG. | 14 |
 | 26 | Graph: Artifact Contracts and Shared State | Request/candidate IDs, statuses, paths/hashes and findings cross edges; workers return artifacts and the controller owns control state. | 22/35/36; new focused exhibit |
-| 27 | Graph: Teams, Fan-Out and Joins | Detailed Generator data/features/backtest and Critic PIT/robustness/execution teams; complete reports, evidence checks and joins. | 15 + 30 |
+| 27 | Graph: Teams, Fan-Out and Joins | Generator data/features/backtest and Critic Data & Evidence/Robustness/Execution/Risk & Controls; complete reports, evidence checks and joins. | 15 + 30; broadened specialist design |
 | 28 | Graph: Combined Results and Shared Limits | Retain the two-proposal aggregate-risk example and the fixture's missing portfolio-wide control. | 16 |
 | 29 | Graph: Conditional Routing and Recovery | Show wait, repair, continue and terminal branches; route from validated status and invalidate dependent work when inputs change. | 14/23/35/37; new focused exhibit |
 | 30 | Evolution: What Can Change? | Broad principles: prompts/context, skills, tools/code and role/workflow structure; distinguish candidate revision from reusable-system change. | 28 + expanded scope |
