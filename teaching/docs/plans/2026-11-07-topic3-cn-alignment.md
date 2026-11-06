@@ -1,5 +1,10 @@
 # Topic 3 Chinese: one-to-one alignment
 
+Historical 58-page translation plan. Both current decks follow the
+[54-page teaching revision](../notes/2026-11-07-topic3-teaching-revision.md).
+The latest translation and checks are completed locally; the user will arrange
+any further Pi proofreading independently.
+
 The user's 7 November instruction adds the Chinese deck to the active task.
 Translate the reviewed English 58-page deck page for page. The English version
 after the Pi/Gemini repairs is authoritative; later English corrections must be

@@ -3,11 +3,11 @@
   good/.style={draw=forestgreen,fill=forestgreen!6},
   bad/.style={draw=darkred,fill=red!4},
   flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (p) at (1.8,0) {\textbf{Observe}\\timeout or invalid artifact};
+\node[box] (p) at (1.8,0) {\textbf{Observe}\\timeout or\\invalid artifact};
 \node[box] (i) at (6.6,0) {\textbf{Inspect}\\completion, IDs, hashes};
 \node[box,good] (r) at (11.4,0) {\textbf{Resume}\\pending work only};
-\draw[flow] (p)--(i);\draw[flow] (i)--(r);
+\draw[flow] (p)--(i);
+\draw[flow] (i)--node[above,font=\footnotesize]{verified}(r);
 \node[box,bad] (f) at (6.6,-2.0) {\textbf{Stop or repair}\\blocked, changed or unsafe};
 \draw[flow,draw=darkred] (i.south)--(f.north);
-\draw[flow,dashed] (f.west)--(1.8,-2.0)--(p.south);
 \end{tikzpicture}

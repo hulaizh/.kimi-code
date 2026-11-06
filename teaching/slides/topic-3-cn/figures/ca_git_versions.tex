@@ -1,0 +1,9 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.3cm,minimum height=1.45cm,align=center,font=\small,inner sep=5pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (edit) at (1.7,0) {\textbf{Git 提交}\\已审查文件 + 差异};
+\node[box] (test) at (6.6,0) {\textbf{测试记录}\\commit ID + 证据};
+\node[box,draw=forestgreen,fill=forestgreen!6] (tag) at (11.5,0) {\textbf{已批准标签}\\可恢复的版本};
+\draw[flow] (edit)--(test);
+\draw[flow] (test)--node[above,font=\scriptsize]{批准}(tag);
+\end{tikzpicture}

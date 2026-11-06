@@ -6,16 +6,18 @@ the same content; executable listings and identifiers remain verbatim.
 One synthetic monthly-momentum case connects three sections: Introduction;
 Design of Long-Run Workflows; Case: The Quant System.
 
-Page 2 carries the engineering ladder from Topic 2. Page 3 states the task and
-acceptance criteria. Pages 4 and 34 repeat the same complete operating architecture
+Page 2 carries the engineering ladder from Topic 2. Page 3 states the task.
+Pages 4 and 34 repeat the same complete operating architecture
 inside one Evolution enclosure; the detailed evolution workflow appears on
 page 29. Page 5 gives the concise finance motivation and page 6 locates human
 judgment and capital decisions.
 
-Roadmaps on pages 7 and 35 mark design and case. Design covers Harness, Loop,
+Manual itemized roadmaps on pages 7, 16, 22, 27, 35 and 46 mark each subsection.
+Design covers Harness, Loop,
 Graph and Evolution; the case covers Build and Evolve. O–G–C what/why/authority
-comes first in Harness, on pages 8–10. PIT and numerical details belong to the
-case, on page 40's integrated research-case slide. Breaks remain in the schedule rather than on separate slides,
+comes first in Harness, on pages 8–10. Page 40 follows the runnable research
+case; detailed PIT/momentum examples remain in the companion assets and code.
+Breaks remain in the schedule rather than on separate slides,
 and participation remains within the common task.
 
 ## Four-hour schedule
@@ -28,8 +30,8 @@ and participation remains within the common task.
 | 22–34 | 01:20–02:00 | Graphs, broad evolution and complete-architecture recap |
 | 35–45 | 02:00–02:55 | Build QT components, run, repair, replay and assess production gaps |
 | — | 02:55–03:05 | Break; no slide |
-| 46–52 | 03:05–03:55 | Capture, propose, evaluate, compare, version, adopt and restore |
-| 53 | 03:55–04:00 | Final system review |
+| 46–53 | 03:05–03:55 | Capture, propose, evaluate, compare, version, adopt and restore |
+| 54 | 03:55–04:00 | Final system review |
 
 This is 240 elapsed minutes, including 20 minutes of breaks. Retain three minutes
 of contingency inside both the QT and improvement blocks. Use prepared
@@ -42,12 +44,12 @@ checkpoints rather than waiting for an entire live multi-agent run to finish.
 | 19 | Write a repair criterion for the current finding | 5 |
 | 41 | Repair a blocked submission and inspect the next route | 7 |
 | 42 | Reconstruct the case from saved evidence | 5 |
-| 46–47 | Define a regression case and propose one prompt edit | 6 |
-| 48, 50 | Inspect output differences and check a partner's claim | 8 |
-| 51 | Defend adoption or rejection | 4 |
+| 47–48 | Define a regression case and propose one prompt edit | 6 |
+| 49–50 | Inspect output differences and check a partner's claim | 8 |
+| 52 | Defend adoption or rejection | 4 |
 
 These 35 minutes are part of the schedule, followed by the five-minute final
-system defense on page 53. There is no separate lab task or submission rubric.
+system defense on page 54. There is no separate lab task or submission rubric.
 
 ## Core distinctions
 
@@ -56,7 +58,7 @@ rejecting a candidate strategy. Keep three decisions separate: the controller's
 research verdict, the owner's approval of a prompt version, and authority to
 deploy capital. QT does not send broker orders.
 
-Page 5 introduces three tests, which recur on pages 15 and 42:
+Pages 15 and 42 distinguish three checks behind the concise motivation on page 5:
 
 1. Audit reconstruction uses the original saved evidence and action records.
 2. Calculation replay fixes inputs, code, configuration, and relevant environment.
@@ -137,7 +139,7 @@ Use the name of the disposable case. This internal action writes the new
 Update the lead manifest and all specialist reports to match it. A second invalid
 submission reaches `BLOCKED`, so use separate disposable cases for separate faults.
 
-For the audit exercise on page 46, ask whether the evidence actually identifies
+For the audit exercise on page 42, ask whether the evidence actually identifies
 a human approver. QT's case files and prompt registry do not store an approver
 identity; `ACCEPTED`, `--approve`, or a Git author is not a substitute for the
 separate approval record required by the design.
@@ -154,7 +156,7 @@ rounds and four hours, checked at transitions. The elapsed-time check does not
 cancel an in-flight model call. Host-level isolation, call cancellation, cost
 accounting, and concurrent-writer controls remain separate production concerns.
 
-## Broad evolution and the concrete case, pages 30–35 and 50–57
+## Broad evolution and the concrete case, pages 28–33 and 47–53
 
 The design section teaches evaluated changes to prompts/context, skills,
 tools/code and role/workflow structure. Each target needs suitable independent
@@ -182,7 +184,7 @@ These are internal actions, not additional public slash commands. QT's evolution
 interface changes only the Generator prompt. It does not rewrite risk rules,
 strategy parameters, arbitrary source code, or model weights.
 
-Use [the companion example](improvement-tools/README.md) for pages 52 and 54:
+Use [the companion example](improvement-tools/README.md) for pages 49 and 50:
 
 ```sh
 python3 /absolute/path/to/topic-3/improvement-tools/check_example.py
@@ -233,7 +235,7 @@ across tools and vendors.
 
 - [Current finance-opening sources](../../docs/notes/2026-11-06-topic3-finance-opening.md)
 - [Earlier finance-harness source checks](../../docs/notes/2026-11-03-topic3-finance-harness-sources.md)
-- [Current 58-page design](../../docs/plans/2026-11-06-topic3-three-section-design.md)
+- [Current 54-page teaching revision](../../docs/notes/2026-11-07-topic3-teaching-revision.md)
 - [Earlier Pi review and corrections](../../docs/notes/2026-11-03-topic3-pi-review.md)
 - [QT inner protocol](../qt/references/controller.md) and [evolution protocol](../qt/references/evolution.md)
 

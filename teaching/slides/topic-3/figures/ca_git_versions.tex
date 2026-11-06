@@ -1,0 +1,9 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.3cm,minimum height=1.45cm,align=center,font=\small,inner sep=5pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (edit) at (1.7,0) {\textbf{Git commit}\\reviewed files + diff};
+\node[box] (test) at (6.6,0) {\textbf{Test record}\\commit ID + evidence};
+\node[box,draw=forestgreen,fill=forestgreen!6] (tag) at (11.5,0) {\textbf{Approved tag}\\recoverable version};
+\draw[flow] (edit)--(test);
+\draw[flow] (test)--node[above,font=\scriptsize]{approval}(tag);
+\end{tikzpicture}

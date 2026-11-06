@@ -1,5 +1,9 @@
 # Topic 3: 58-page design and production plan
 
+Historical design. The user's later simplification and bilingual instructions
+are implemented in the [54-page teaching revision](../notes/2026-11-07-topic3-teaching-revision.md).
+Use that record for current page numbers and review status.
+
 Status: revised and ready for generation, 6 November 2026. The user accepts
 50–60 pages and has confirmed **broad evolution principles**. They authorize
 parallel slide generation, humanize, proofreading, a further proofread in the

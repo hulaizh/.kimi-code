@@ -1,11 +1,21 @@
 \section{案例：量化系统}
 \subsection{构建}
-\begin{frame}{提纲}
+
+\begin{frame}{构建提纲}
 \begin{itemize}
-\item 构建：插件、角色、检查关卡、案例运行与生产边界。
-\item 演进：记录失败、比较、批准、回滚与监测。
+\item \textcolor{red}{\textbf{构建}}
+\begin{itemize}
+\item 插件、角色与检查
+\item 运行、修复与重放
+\item 生产边界
+\end{itemize}
+\item \textcolor{black!55}{\textbf{演进}}
+\begin{itemize}
+\item \textcolor{black!55}{评估改动、测试、批准或回滚}
+\end{itemize}
 \end{itemize}
 \end{frame}
+
 \begin{frame}{插件结构与入口}
 \begin{center}
 \input{figures/qt_layout}
@@ -16,71 +26,94 @@
 \item 将安装后的代码与工作区 \texttt{.qt/} 中的案例状态、提示词版本分开保存。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{负责人与专项 Agent}
+% 此角色卡节略自实际 QT Agent 配置。
 \begin{center}
 \input{figures/qt_agent}
 \end{center}
 \begin{itemize}
-\item 在角色卡中定义负责人的工具权限及允许调用的专项 Agent。
-\item 实际运行时，检查宿主的实际分派与响应记录。
-\item 仅凭报告文件，无法证明各专项 Agent 曾在独立上下文中运行。
+\item 配置负责人的工具权限及允许调用的专项 Agent。
+\item 检查实际分派与响应记录；仅凭报告文件，不能证明各角色使用了独立上下文。
+\item QT 使用 \texttt{qt-pit}（数据时序）、\texttt{qt-robustness} 和 \texttt{qt-execution}。独立风险审查属于设计扩展。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Orchestrator 与检查关卡}
+% 以下为 QT run_cycle 函数的原文片段。
+\input{figures/ca_controller_code}
+\medskip
 \begin{itemize}
-\item Orchestrator 绑定请求，核验 Generator 报告与数值关卡，分派新 Critic 审查并拥有状态转换。
-\item 前进前必须有三份匹配的 Generator 报告和三份新的 Critic 审查。
+\item Orchestrator 关联请求、证据与状态转换。
+\item Generator 报告与数值检查通过后，才能开展新的 Critic 审查。
+\item QT 要求三份 Generator 报告和三份 Critic 报告。
 \item 运行 \texttt{python3 <qt>/scripts/check.py} 检查控制器规则。
 \end{itemize}
-\input{figures/ca_controller_code}\par
 \end{frame}
+
 \begin{frame}{Hook}
 \begin{center}
 \input{figures/ca_hook_manifest}
 \end{center}
 \begin{itemize}
 \item 可选 Hook 练习（未随插件提供）：将 \texttt{audit\_event.py} 复制到 \texttt{<qt>/hooks/}，合并清单配置，再重新安装并加载。
-\item 事件名、工具名及会话与调用 ID 只记录一次；它既不评估候选策略，也不提供完整的专项 Agent 执行轨迹。
+\item 事件名、工具名及会话与调用 ID 只记录一次；它既不评估候选策略，也不记录每项专项 Agent 操作。
 \item Kimi 记录 Hook 错误或超时后会继续运行。必要检查仍由控制器执行。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{运行一个研究案例}
+\begin{center}
+\input{figures/qt_start}
+\end{center}
 \begin{itemize}
-\item 跟踪 \texttt{request\_id}、报告、数值输出、路由、\texttt{trace.jsonl} 和终止结果。
-\item 按决策日期选择当时可用的时点版本；重述版本在披露前不可用。
-\item 动量契约使用21个有效收盘价：$s_{i,t}=P_{i,t}/P_{i,t-20}-1$，示例为 $12/10-1=20\%$。
-\item 在案例前检查稳定排序与最早可执行时间。
-\item 样例只测试动量候选方案；仅\texttt{lookback} 和 \texttt{top\_n} 变化。
-\item 脚本演练需明确标注；声称真实团队运行时必须出示宿主分派记录。
+\item 使用固定、带日期的输入；推进前检查时序与数值输出。
+\item 跟踪 \texttt{request\_id}、报告、问题项和最终路由。
+\item 合成测试样例只改变动量的 \texttt{lookback} 和 \texttt{top\_n}。
+\item 明确标注脚本演练；声称真实团队运行时须出示宿主分派记录。
 \end{itemize}
 \end{frame}
-\begin{frame}{修复被退回的提交\handsup}
+
+\begin{frame}{修复提交\handsup}
 \begin{itemize}
-\item 缺少专项报告：否决提交，留在当前角色并消耗一次尝试。
-\item 请求 ID 过期：执行同样的否决与重试规则；第二次无效提交变为 \texttt{BLOCKED}。
-\item 报告完整匹配后，先检查证据再前进。
-\item 问题：在临时测试案例中制造缺少报告和过期 ID，哪些修复才能继续？
-\item 不带 \texttt{--response} 调用 \texttt{advance}；重新读取 \texttt{request.json}，让所有报告匹配新 ID。检查哈希并保留封存证据。
+\item 缺少报告或请求 ID 过期：否决提交，留在当前角色。
+\begin{itemize}
+\item 第二次无效提交变为 \texttt{BLOCKED}。
+\end{itemize}
+\item 不带 \texttt{--response} 调用 \texttt{advance}，再读取 \texttt{request.json}。
+\item 所有报告须匹配新 ID；核验证据并保留已封存产物。
+\item 问题：怎样修复，才能让这个临时测试案例继续？
 \end{itemize}
 \end{frame}
-\begin{frame}{重放、审计与恢复\handsup}
+
+\begin{frame}{重放与恢复\handsup}
 \begin{itemize}
-\item 重建：检查输入/代码、已解决与未解决问题项、停止规则、角色卡/版本以及批准记录。
-\item 复算：固定输入、代码和配置，比较数值结果。
-\item 新的模型运行：使用新案例，保留自己的决定、工具路径和输出。
-\item 恢复或复用：核验请求 ID 与哈希；恢复待办工作；已完成案例返回保存结果。
-\item 问题：重建本案例。案例文件或单独批准记录是否标明了批准该版本的人？
+\item 重建运行：输入/代码、问题项、修复、停止规则和角色卡版本。
+\item 固定输入与配置进行复算；新的模型评估使用新案例。
+\item 恢复待办工作前核验 ID 与哈希；已完成案例直接返回保存结果。
+\item 问题：案例本身或单独的记录是否标明了人工批准人？
 \end{itemize}
 \end{frame}
+
 \begin{frame}{生产数据}
 \begin{itemize}
-\item 输入：有许可证、带日期的市场与财务数据。
-\item 股票池：历史成分、停牌与退市。
-\item 执行：相关板块和日期的手数、价格限制、T+1规则与费用。
-\item 运营：宿主隔离、责任人，以及独立测试的适配器。
-\item 课堂样例使用五只虚构股票和合成工作日数据；生产数据接入、公司行为、组合控制和券商适配器仍待构建。
+\item \textbf{输入与股票池}
+\begin{itemize}
+\item 有许可证、带日期的数据；历史成分、停牌与退市。
+\end{itemize}
+\item \textbf{执行}
+\begin{itemize}
+\item 对应板块和日期的交易单位、价格限制、T+1 规则与费用。
+\end{itemize}
+\item \textbf{运营}
+\begin{itemize}
+\item 宿主隔离、指定责任人和独立测试的适配器。
+\end{itemize}
+\item QT 使用五只虚构股票和合成工作日数据。\newline
+生产数据、公司行为、组合控制与券商接入均待扩展。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{研究验证}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/future_perturbation}}
@@ -90,6 +123,7 @@
 \item 通过这些检查，并不能证明策略将获得超额收益。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{资金授权}
 \begin{center}
 {\small\textbf{生产环境的目标流程}}\par\smallskip
@@ -101,15 +135,34 @@
 \item \texttt{trade\_sheet.csv} 使用独立的历史合成仓位计算样例，并非来自已验收的候选策略。QT 没有券商连接。
 \end{itemize}
 \end{frame}
-\begin{frame}{记录一次失败}
-\begin{itemize}
-\item 回到研究工作流，\texttt{/qt:evo} 开始系统改进；\texttt{evo-prepare} 关联完成案例与变更前提示词版本。
-\item 记录失败、所需行为、开发案例和独立的最终评估案例。
-\item GEPA 等外部候选工具可以提出改动，但未集成到 QT。
-\end{itemize}
-\input{figures/ca_capture_command}\par
-\end{frame}
+
 \subsection{演进}
+
+\begin{frame}{演进提纲}
+\begin{itemize}
+\item \textcolor{black!55}{\textbf{构建}}
+\begin{itemize}
+\item \textcolor{black!55}{运行、修复并重放研究案例}
+\end{itemize}
+\item \textcolor{red}{\textbf{演进}}
+\begin{itemize}
+\item 记录失败并提出改动
+\item 比较输出并检查回归
+\item 版本管理、批准、回滚与监测
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{记录一次失败}
+\input{figures/ca_capture_command}
+\medskip
+\begin{itemize}
+\item \texttt{/qt:evo} 开始系统改进；\texttt{evo-prepare} 关联已完成案例与变更前提示词版本。
+\item 修改前先记录失败及所需行为。
+\item 用开发案例获取反馈，另留案例用于最终评估。
+\end{itemize}
+\end{frame}
+
 \begin{frame}{提示词改动\handsup}
 \begin{center}
 \input{figures/timing_prompt_diff}
@@ -119,6 +172,7 @@
 \item 该 QT 接口只修改 Generator 提示词。策略参数、风险限额、验收规则与控制器代码均不在其修改范围内。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{比较输出\handsup}
 \begin{center}
 \small\input{tables/promptfoo_example}
@@ -129,6 +183,7 @@
 \item 问题：是否有任一输出同时通过两项检查？
 \end{itemize}
 \end{frame}
+
 \begin{frame}{判断证据\handsup}
 \begin{center}
 \small\input{tables/comparison_sheet}
@@ -138,22 +193,31 @@
 \item 问题：采用该版本前，还需修复哪些问题，并进行哪些独立检查？
 \end{itemize}
 \end{frame}
-\begin{frame}{版本控制}
+
+\begin{frame}{用 Git 管理版本}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/ca_git_versions}}
+\end{center}
 \begin{itemize}
-\item Git 记录源代码历史以及产生候选改动的差异。
-\item QT 注册表记录提示词字节、活动指针、父版本和运行配置。
-\item MLflow 是外部对应工具，用于提示词版本、评估与追踪；未集成到 QT。
-\item 别名用于选择版本，但批准需要独立记录。
+\item 提交审查后的代码、提示词与技能，将 commit ID 关联到测试证据和配置。
+\item 为已批准版本打标签，便于恢复。
+\item QT 注册表选择当前提示词；将它与 Git 关联仍是扩展功能。
+\item 标签记录版本，批准仍需独立记录。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{评估、测试、批准\handsup}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/ca_evaluate_test_approve}}
+\end{center}
 \begin{itemize}
-\item (1) 评估：使用提案、审查和回归结果运行 \texttt{evo-evaluate}。
-\item (2) 测试：检查代码回归和行为比较，包括留出的案例。
-\item (3) 批准：只有明确的人类批准才能运行 \texttt{evo-adopt}；否决则保留活动版本。
-\item 研究验收、版本采用和资金授权仍是不同决定。
+\item 围绕记录的失败评估改动，并测试留出案例的行为与既有控制。
+\item QT 的 \texttt{evo-evaluate} 运行回归测试并核验审查字段，之后才进入 \texttt{AWAITING\_APPROVAL}。
+\item 明确的人工批准才允许 \texttt{evo-adopt}；否决则保留当前版本。
+\item 问题：已保存的证据是否足以支持批准？
 \end{itemize}
 \end{frame}
+
 \begin{frame}{回滚与监测}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}
@@ -164,12 +228,15 @@
 \item 在新案例中核验恢复后的版本，再监测后续运行中是否反复出现失败。
 \end{itemize}
 \end{frame}
+
 \begin{frame}{最终审查\handsup}
 \begin{itemize}
-\item 证据：追溯并复算已记录工作。
-\item 控制：要求失败时阻断或解释。
-\item 连续性：恢复已核验工作，避免重复不确定操作。
-\item 改进：评估并恢复受治理的系统版本。
-\item 选择一项控制，说明它回应谁的需要，并说明还需构建什么。
+\item \textbf{证据}：追溯并复现已记录的工作。
+\item \textbf{控制}：要求未满足时阻断或解释。
+\item \textbf{连续性}：恢复已核验工作，避免重复不确定操作。
+\item \textbf{改进}：评估并恢复按规则管理的系统版本。
+\begin{itemize}
+\item 问题：选择一项控制。它回应谁的需要，哪些内容已测试，还有什么需要构建？
+\end{itemize}
 \end{itemize}
 \end{frame}

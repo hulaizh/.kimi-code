@@ -1,11 +1,13 @@
 \begin{tikzpicture}[
-  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.0cm,minimum height=1.0cm,align=center,font=\small,inner sep=5pt},
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=2.85cm,minimum height=1.0cm,align=center,font=\small,inner sep=5pt},
   good/.style={draw=forestgreen,fill=forestgreen!6}, bad/.style={draw=darkred,fill=red!4},
   flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (w) at (1.6,0) {\textbf{等待}\\输入缺失};
-\node[box] (r) at (5.0,0) {\textbf{修复}\\提交无效};
-\node[box,good] (n) at (8.4,0) {\textbf{前进}\\检查通过};
-\node[box,bad] (t) at (11.8,0) {\textbf{停止}\\终止结果};
-\draw[flow] (w)--(r);\draw[flow] (r)--(n);\draw[flow] (n)--(t);
-\node[font=\scriptsize,align=center,text=black!60] at (6.7,-1.45) {输入版本变化时启动新案例，并重建依赖产物。};
+\node[box,text width=4.4cm] (v) at (6.7,0) {\textbf{核验状态}\\状态 + 依赖关系};
+\node[box] (w) at (1.6,-1.9) {\textbf{等待}\\输入缺失};
+\node[box] (r) at (5.0,-1.9) {\textbf{修复}\\提交无效};
+\node[box,good] (n) at (8.4,-1.9) {\textbf{推进}\\检查通过};
+\node[box,bad] (t) at (11.8,-1.9) {\textbf{停止}\\终止结果};
+\draw[thick,draw=black!60] (v.south)--(6.7,-1.05);
+\draw[thick,draw=black!60] (1.6,-1.05)--(11.8,-1.05);
+\foreach \route in {w,r,n,t}{\draw[flow] (\route.north |- 0,-1.05)--(\route.north);}
 \end{tikzpicture}

@@ -2,11 +2,11 @@
   box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.0cm,minimum height=1.05cm,align=center,font=\small,inner sep=5pt},
   good/.style={draw=forestgreen,fill=forestgreen!6}, bad/.style={draw=darkred,fill=red!4},
   flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (p) at (1.8,0) {\textbf{观察}\\超时或产物无效};
+\node[box] (p) at (1.8,0) {\textbf{观察}\\超时或\\产物无效};
 \node[box] (i) at (6.6,0) {\textbf{检查}\\完成状态、ID、哈希};
 \node[box,good] (r) at (11.4,0) {\textbf{恢复}\\仅处理待办工作};
-\draw[flow] (p)--(i);\draw[flow] (i)--(r);
+\draw[flow] (p)--(i);
+\draw[flow] (i)--node[above,font=\footnotesize]{已核验}(r);
 \node[box,bad] (f) at (6.6,-2.0) {\textbf{停止或修复}\\阻断、变更或不安全};
 \draw[flow,draw=darkred] (i.south)--(f.north);
-\draw[flow,dashed] (f.west)--(1.8,-2.0)--(p.south);
 \end{tikzpicture}

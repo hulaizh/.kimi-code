@@ -1,0 +1,11 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.3cm,minimum height=1.55cm,align=center,font=\small,inner sep=5pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (eval) at (1.7,0) {\textbf{(1) Evaluate}\\failure + proposed fix};
+\node[box] (test) at (6.6,0) {\textbf{(2) Test}\\held-out behavior\\+ regressions};
+\node[box,draw=forestgreen,fill=forestgreen!6] (approve) at (11.5,0) {\textbf{(3) Approve}\\human decision\\+ version record};
+\draw[flow] (eval)--(test);
+\draw[flow] (test)--node[above,font=\scriptsize]{pass}(approve);
+\node[font=\footnotesize,text=darkred,align=center] at (6.6,-1.5)
+  {Failed evaluation or tests: retain the active version.};
+\end{tikzpicture}

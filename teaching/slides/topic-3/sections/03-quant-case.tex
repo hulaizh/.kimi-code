@@ -1,12 +1,21 @@
 \section{Case: The Quant System}
 \subsection{Build}
-\begin{frame}{Roadmap}
-Case: The Quant System
+
+\begin{frame}{Build Roadmap}
 \begin{itemize}
-\item Build: package, roles, gates, case execution and production boundary.
-\item Evolve: capture, compare, approve, roll back and monitor.
+\item \textcolor{red}{\textbf{Build}}
+\begin{itemize}
+\item Package, roles and checks
+\item Run, repair and replay
+\item Production boundaries
+\end{itemize}
+\item \textcolor{black!55}{\textbf{Evolve}}
+\begin{itemize}
+\item \textcolor{black!55}{Evaluate a change, test it, approve or roll back}
+\end{itemize}
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Package and Entry Points}
 \begin{center}
 \input{figures/qt_layout}
@@ -17,73 +26,93 @@ Case: The Quant System
 \item Keep installed code separate from case state and prompt versions in the workspace's \texttt{.qt/} directory.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Leads and Specialists}
+% The role card is abbreviated from the actual QT agent profile.
 \begin{center}
 \input{figures/qt_agent}
 \end{center}
-\begin{center}\scriptsize Source: QT \texttt{agents/qt-generator.md} (abbreviated).\end{center}
 \begin{itemize}
 \item Configure the lead's tools and specialist allowlist.
 \item Inspect live dispatch and response records; report files alone do not prove separate contexts.
 \item QT uses \texttt{qt-pit} (data timing), \texttt{qt-robustness}, and \texttt{qt-execution}. Separate risk review is a design extension.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Orchestrator and Gates}
+% Exact excerpt from the QT run_cycle function.
+\input{figures/ca_controller_code}
+\medskip
 \begin{itemize}
-\item The Orchestrator binds the request, validates Generator reports and numerical gates, dispatches fresh Critic reviews and owns transitions.
-\item Require three matching Generator reports and three fresh Critic reviews before advancement.
-\item Run \texttt{python3 <qt>/scripts/check.py} to check controller rules.
+\item The Orchestrator links requests, evidence and transitions.
+\item Generator reports and numerical gates must pass before fresh Critic reviews.
+\item QT requires three Generator and three Critic reports.
+\item Run \texttt{python3 <qt>/scripts/check.py} to check the controller rules.
 \end{itemize}
-\input{figures/ca_controller_code}\par
 \end{frame}
+
 \begin{frame}{Hooks}
 \begin{center}
 \input{figures/ca_hook_manifest}
 \end{center}
 \begin{itemize}
 \item Optional hook exercise (not bundled): copy \texttt{audit\_event.py} into \texttt{<qt>/hooks/}, merge its manifest, and reinstall/reload.
-\item Records event/tool names and session/call IDs once; no candidate assessment or complete specialist trace.
+\item Logs event/tool names and session/call IDs once; it neither assesses candidates nor records every specialist action.
 \item Kimi logs hook errors/timeouts and continues. Required checks remain in the controller.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Run One Research Case}
+\begin{center}
+\input{figures/qt_start}
+\end{center}
 \begin{itemize}
-\item Follow \texttt{request\_id}, reports, numerical outputs, route, \texttt{trace.jsonl} and terminal result.
-\item Use the point-in-time version available at the decision date; the restatement version is not available before release.
-\item The momentum contract uses 21 valid closing prices: $s_{i,t}=P_{i,t}/P_{i,t-20}-1$, with $12/10-1=20\%$ as the worked example.
-\item Stable ranking and earliest permitted execution time are checked before the case advances.
-\item The fixture tests momentum candidates; only \texttt{lookback} and \texttt{top\_n} vary.
-\item Label scripted rehearsals; host dispatch records are required when claiming a live team ran.
+\item Use frozen, dated inputs; check timing and numerical outputs before advancing.
+\item Follow \texttt{request\_id}, reports, findings and the final route.
+\item The synthetic fixture varies only momentum \texttt{lookback} and \texttt{top\_n}.
+\item Label scripted rehearsals; show host dispatch records for live-team claims.
 \end{itemize}
 \end{frame}
-\begin{frame}{Repair a Rejected Submission\handsup}
+
+\begin{frame}{Repair a Submission\handsup}
 \begin{itemize}
-\item Missing specialist: reject the submission, stay at the current role and consume an attempt.
-\item Stale request ID: apply the same rejection and retry rule; a second invalid submission becomes \texttt{BLOCKED}.
-\item Complete matching reports: check evidence before advancing.
-\item Question: Try a missing report and a stale request ID in disposable cases. What repairs allow advancement?
-\item Call \texttt{advance} without \texttt{--response}; reread \texttt{request.json} and match the new ID across all reports. Check hashes; preserve sealed evidence.
+\item Missing report or stale ID: reject the submission and stay at the current role.
+\begin{itemize}
+\item A second invalid submission becomes \texttt{BLOCKED}.
+\end{itemize}
+\item Call \texttt{advance} without \texttt{--response}; reread \texttt{request.json}.
+\item Match the new ID across all reports; verify evidence and preserve sealed artifacts.
+\item Question: Which repair allows this disposable case to advance?
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Replay and Resume\handsup}
-\setlength{\topsep}{0pt}
 \begin{itemize}
-\item Reconstruct: inspect inputs/code, open and repaired findings, the stopping rule, role-card/version and any approval record.
-\item Recalculate: freeze inputs, code and configuration; compare numerical results.
-\item Fresh model run: use a new case and retain its decisions, tool paths and outputs.
-\item Resume or reuse: verify request ID and hashes; resume pending work; a completed case returns its saved result.
-\item Question: Reconstruct this case. Do its files or a separate approval record identify who approved the version?
+\item Reconstruct the run: inputs/code, findings, repairs, stop rule and role-card version.
+\item Recalculate with frozen inputs and configuration; use a new case for a fresh model evaluation.
+\item Verify IDs and hashes before resuming pending work. A completed case returns saved results.
+\item Question: Does the case or a separate record identify a human approver?
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Production Data}
 \begin{itemize}
-\item Inputs: licensed, dated market and financial data.
-\item Universe: historical membership, suspensions and delistings.
-\item Execution: lot sizes, price limits, T+1 rules and fees for the relevant board and date.
-\item Operations: host isolation, named responsible people and independently tested adapters.
-\item The classroom fixture uses five fictional stocks and synthetic weekday bars; production ingestion, corporate actions, portfolio controls and broker adapters remain to be built.
+\item \textbf{Inputs and universe}
+\begin{itemize}
+\item Licensed, dated data; historical membership, suspensions and delistings.
+\end{itemize}
+\item \textbf{Execution}
+\begin{itemize}
+\item Board/date-specific lot sizes, price limits, T+1 rules and fees.
+\end{itemize}
+\item \textbf{Operations}
+\begin{itemize}
+\item Host isolation, named owners and independently tested adapters.
+\end{itemize}
+\item QT uses five fictional stocks and synthetic weekdays. Production data, corporate actions, portfolio controls and broker integration remain extensions.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Research Validation}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/future_perturbation}}
@@ -93,6 +122,7 @@ Case: The Quant System
 \item Passing these checks does not establish that the strategy will earn excess returns.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Capital Authority}
 \begin{center}
 {\small\textbf{Target production workflow}}\par\smallskip
@@ -104,64 +134,89 @@ Case: The Quant System
 \item \texttt{trade\_sheet.csv} uses an independent historical synthetic sizing fixture, not the accepted candidate. QT has no broker connection.
 \end{itemize}
 \end{frame}
-\begin{frame}{Capture a Failure}
-\begin{itemize}
-\item Back in the research workflow, \texttt{/qt:evo} starts system improvement; \texttt{evo-prepare} links the completed case and parent prompt version.
-\item Record the failure, required behavior, development cases and separate final-evaluation cases.
-\item External candidate tools such as GEPA may propose edits, but they are not integrated into QT.
-\end{itemize}
-\input{figures/ca_capture_command}\par
-\end{frame}
+
 \subsection{Evolve}
+
+\begin{frame}{Evolve Roadmap}
+\begin{itemize}
+\item \textcolor{black!55}{\textbf{Build}}
+\begin{itemize}
+\item \textcolor{black!55}{Run, repair and replay the research case}
+\end{itemize}
+\item \textcolor{red}{\textbf{Evolve}}
+\begin{itemize}
+\item Capture the failure and propose a change
+\item Compare outputs and check regressions
+\item Version, approve, roll back and monitor
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Capture a Failure}
+\input{figures/ca_capture_command}
+\medskip
+\begin{itemize}
+\item \texttt{/qt:evo} starts system improvement; \texttt{evo-prepare} links the completed case and parent prompt version.
+\item Record the failure and required behavior before editing.
+\item Use development cases for feedback; reserve separate cases for final evaluation.
+\end{itemize}
+\end{frame}
+
 \begin{frame}{Prompt Change\handsup}
 \begin{center}
 \input{figures/timing_prompt_diff}
 \end{center}
-\begin{center}\illustrative\end{center}
 \begin{itemize}
 \item Question: Which instruction addresses the timing omission, and what evidence would show that it worked?
 \item This QT interface changes the Generator prompt. Strategy parameters, risk limits, acceptance rules, and controller code remain outside its scope.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Compare Outputs\handsup}
 \begin{center}
 \small\input{tables/promptfoo_example}
 \end{center}
-\begin{center}\illustrative\end{center}
 \begin{itemize}
 \item Trading is allowed from 30 Sep 09:30 (UTC+8). Only \texttt{PRICE\_01} is retained.
 \item Run the companion checks, or load \texttt{promptfooconfig.json} in promptfoo, to compare both outputs.
 \item Question: Does either output pass both checks?
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Judge Evidence\handsup}
 \begin{center}
 \small\input{tables/comparison_sheet}
 \end{center}
-\begin{center}\illustrative\end{center}
 \begin{itemize}
 \item The candidate fixes the timing but cites a missing source, \texttt{MISSING\_02}.
 \item Question: What must be repaired and independently checked before adopting it?
 \end{itemize}
 \end{frame}
-\begin{frame}{Version Control}
-\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/de_version_flow}}\end{center}
+
+\begin{frame}{Version Control with Git}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/ca_git_versions}}
+\end{center}
 \begin{itemize}
-\item Git records source history and the diff that produced a candidate change.
-\item QT's registry records prompt bytes, active pointer, parent version and run configuration.
-\item MLflow is an external counterpart for prompt versions, evaluations and traces; it is not a bundled QT integration.
-\item An alias selects a version, but approval needs its own record.
+\item Commit reviewed code, prompts and skills; link the commit ID to test evidence and configuration.
+\item Tag an approved version so it can be recovered.
+\item QT's registry selects the active prompt; linking it to Git is an extension.
+\item A tag records a version. Approval still needs its own record.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Evaluate, Test, Approve\handsup}
-\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/adoption_gate}}\end{center}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/ca_evaluate_test_approve}}
+\end{center}
 \begin{itemize}
-\item (1) Evaluate: run \texttt{evo-evaluate} with the proposal, review and regression result.
-\item (2) Test: inspect code regressions and the behavioral comparison, including held-out cases.
-\item (3) Approve: only explicit human approval permits \texttt{evo-adopt}; rejection keeps the active version.
-\item Research acceptance, version adoption and capital authorization remain separate decisions.
+\item Evaluate the change against the recorded failure; test held-out behavior and existing controls.
+\item QT's \texttt{evo-evaluate} runs regressions and validates review fields before \texttt{AWAITING\_APPROVAL}.
+\item Explicit human approval permits \texttt{evo-adopt}; rejection retains the active version.
+\item Question: Is the saved evidence sufficient to approve?
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Rollback and Monitor}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}
@@ -172,12 +227,15 @@ Case: The Quant System
 \item Verify the restored version in a new case, then monitor later runs for recurring failures.
 \end{itemize}
 \end{frame}
+
 \begin{frame}{Final Review\handsup}
 \begin{itemize}
-\item Evidence: trace and reproduce the recorded work.
-\item Control: block or explain when requirements fail.
-\item Continuity: resume verified work without repeating uncertain actions.
-\item Improvement: evaluate and restore governed system versions.
-\item Choose one control, explain whose need it addresses, and state what remains to be built.
+\item \textbf{Evidence}: trace and reproduce the recorded work.
+\item \textbf{Control}: block or explain when requirements fail.
+\item \textbf{Continuity}: resume verified work without repeating uncertain actions.
+\item \textbf{Improvement}: evaluate and restore governed system versions.
+\begin{itemize}
+\item Question: Choose one control. Whose need does it address, what has been tested, and what remains to be built?
+\end{itemize}
 \end{itemize}
 \end{frame}

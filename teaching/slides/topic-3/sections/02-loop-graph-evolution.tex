@@ -1,4 +1,3 @@
-\section{Design of Long-Run Workflows}
 \subsection{Loop}
 \begin{frame}{Loop Roadmap}
 \begin{itemize}
@@ -20,14 +19,16 @@
 \end{itemize}
 \end{frame}
 \begin{frame}{Revision Loop}
+\setlength{\topsep}{0pt}
 \begin{center}\resizebox{.96\textwidth}{!}{\input{figures/de_review_loop}}\end{center}
 \begin{itemize}
 \item Give the Critic saved trades and backtest outputs to inspect.
-\item A fresh Critic each round can reduce anchoring on earlier responses.
+\item Fresh context each round can reduce anchoring; shared mistakes remain possible.
 \item Keep the mandate and acceptance rules fixed during revision.
 \end{itemize}
 \end{frame}
 \begin{frame}{Findings and Repairs\handsup}
+\setlength{\topsep}{0pt}
 \begin{center}\resizebox{.94\textwidth}{!}{\input{figures/de_timing_ledger}}\end{center}
 \begin{itemize}
 \item Question: What check on the saved files would show that the timing problem is fixed?
@@ -36,12 +37,17 @@
 \end{frame}
 \begin{frame}{Acceptance}
 \begin{center}\resizebox{.95\textwidth}{!}{\input{figures/de_acceptance}}\end{center}
+\begin{itemize}
+\item QT requires two consecutive clean full reviews of the same candidate; changes reset the count.
+\item Research acceptance neither establishes profitability nor authorizes a trade.
+\end{itemize}
 \end{frame}
 \begin{frame}{Stopping and Recovery}
+\setlength{\topsep}{0pt}
 \begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_recovery_cycle}}\end{center}
 \begin{itemize}
 \item Set limits on rounds, attempts, tool calls and elapsed time before starting.
-\item Continue is a nonterminal route; rejection, blocking, exhaustion, stalling and user stop are distinct outcomes.
+\item Continue is nonterminal. Rejection, blocking, exhaustion, stalling and user stop are distinct; record why. Exhaustion never grants acceptance.
 \item Check completion, repair errors, investigate changed evidence and reconcile uncertain external actions before retrying.
 \item Resume only verified pending work; a completed case returns its saved result.
 \end{itemize}
@@ -75,20 +81,21 @@
 \end{itemize}
 \end{frame}
 \begin{frame}{Teams and Joins}
+\setlength{\topsep}{0pt}
 \begin{center}\resizebox{.86\textwidth}{!}{\input{figures/gan_loop}}\end{center}
 \begin{itemize}
-\item Use Data \& Evidence, Robustness, Execution and Risk \& Controls when checks need different expertise.
-\item Wait for required reports; check identity, evidence and combined exposure before joining results.
-\item Data review covers quality, provenance and timing; risk review covers limits and authorization evidence.
+\item Specialists divide the checks. Verify all required reports, identities, evidence and combined exposure before joining.
+\item Data checks quality, provenance and timing; risk checks limits and authorization.
 \end{itemize}
 \end{frame}
 \begin{frame}{Conditional Routing}
-\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/de_conditional_routing}}\end{center}
+\setlength{\topsep}{0pt}
+\begin{center}\resizebox{.94\textwidth}{!}{\input{figures/de_conditional_routing}}\end{center}
 \begin{itemize}
-\item Choose the next task using validated status and dependencies.
-\item Wait when inputs are missing; repair invalid submissions at the same role; keep downstream work blocked until checks pass.
+\item Choose a route from validated status and dependencies; these are alternatives.
+\item Repair invalid submissions at the same role; block downstream work until checks pass.
 \item A changed input version starts a new case and rebuilds dependent outputs.
-\item Local passes do not guarantee a valid combined exposure; the classroom fixture lacks this portfolio-wide gate.
+\item Local passes can still breach a shared portfolio limit; the classroom fixture lacks this gate.
 \end{itemize}
 \end{frame}
 \subsection{Evolution}
@@ -121,13 +128,13 @@
 \end{itemize}
 \end{frame}
 \begin{frame}{Evidence and Evaluation}
+\begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_evaluation_split}}\end{center}
 \begin{itemize}
 \item Set criteria before comparing changes.
 \item Check format, meaning, evidence support and authority.
 \item Use development cases for feedback and held-out cases for final assessment.
 \item QT timing requires execution after actual signal availability; a date field alone is insufficient.
 \end{itemize}
-\begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_evaluation_split}}\end{center}
 \end{frame}
 \begin{frame}{Regression Review}
 \begin{itemize}
@@ -158,6 +165,7 @@
 \end{itemize}
 \end{frame}
 \begin{frame}[t]{Complete Architecture}
+\setlength{\topsep}{0pt}
 \begin{center}\resizebox{!}{6.0cm}{\input{figures/system_architecture}}\end{center}
 \begin{itemize}
 \item Locate the role harnesses, revision loops, handoffs and evolution boundary.

@@ -1,10 +1,10 @@
-\section{Introduction}
 \begin{frame}{Engineering Ladder}
 \begin{center}
 \resizebox{!}{6.6cm}{\input{figures/oh_engineering_ladder}}
 \end{center}
 \end{frame}
 
+\section{Introduction}
 \begin{frame}{Build the Quant System}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/product_package}}
@@ -17,48 +17,49 @@
 \begin{frame}[t]{Complete Architecture}
 \centering
 \resizebox{!}{6.0cm}{\input{figures/system_architecture}}
-\par\raggedright
-\smallskip
+\par\raggedright\smallskip
 \begin{itemize}
 \item Evolution evaluates system changes between runs; people retain approval authority.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Finance: Stakes and Accountability}
+\begin{frame}{Why Finance Is Different}
 \begin{itemize}
-\item \textbf{Consequential actions}: errors can affect customers, capital and institutional obligations, and some actions are difficult to reverse.
+\item \textbf{Consequential actions}
 \begin{itemize}
-\item Evidence supporting a conclusion does not itself authorize action.
+\item Errors affect money and customers; some actions are hard to reverse.
 \end{itemize}
-\item \textbf{Dated information}: a financial result depends on what was available at the decision time and what version produced it.
+\item \textbf{Dated evidence}
 \begin{itemize}
-\item Reconstruct the recorded run, recompute frozen calculations and keep fresh model evaluations separate.
+\item Retain what was known, calculated and decided at the time.
 \end{itemize}
-\item \textbf{Bounded authority}: the system must show who can act, within which mandate and limits, and who can stop it.
+\item \textbf{Bounded authority}
 \begin{itemize}
-\item Research acceptance, version approval and capital use are separate decisions.
+\item Separate research acceptance, system-version approval and capital use.
 \end{itemize}
-\item \textbf{Continuity and governed change}: recover verified work after interruption and evaluate changes without losing the previous controls or version.
+\item \textbf{Continuity and change}
+\begin{itemize}
+\item Recover interrupted work; test updates and retain rollback.
+\end{itemize}
 \end{itemize}
 \end{frame}
-
-
 
 \begin{frame}{Division of Labor}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/division_of_labor}}
 \end{center}
-\medskip
 \begin{itemize}
 \item People choose the seed and system design, then make final decisions.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Roadmap}
+\section{Design of Long-Run Workflows}
+\subsection{Harness}
+\begin{frame}{Roadmap}
 \begin{itemize}
 \item \textbf{Design of Long-Run Workflows}
 \begin{itemize}
-\item Harness: working conditions and controls
+\item \textcolor{red}{\textbf{Harness: working conditions and controls}}
 \item Loop: repetition and stopping
 \item Graph: dependencies and handoffs
 \item Evolution: evaluated system changes
@@ -69,32 +70,46 @@
 \item Evolve a reusable system version
 \end{itemize}
 \end{itemize}
-\vspace{-1.0cm}
 \end{frame}
 
 \begin{frame}{Orchestrator, Generator, Critic}
 \begin{center}
-\resizebox{!}{4.0cm}{\input{figures/oh_three_roles}}
+\resizebox{.94\textwidth}{!}{\input{figures/oh_three_roles}}
 \end{center}
 \end{frame}
 
-\begin{frame}[t,shrink=15]{Why Separate Roles?}
+\begin{frame}{Why Separate Roles?}
 \begin{itemize}
-\item \textbf{Producer self-certification}: the Critic examines evidence in a separate context, but shared mistakes remain possible.
-\item \textbf{Review changes the goal}: keep the mandate and acceptance criteria fixed.
-\item \textbf{Control ownership}: the Orchestrator routes; code validates transitions.
+\item \textbf{Generator builds}
+\begin{itemize}
+\item Produces candidates and tests; cannot grant final acceptance.
 \end{itemize}
-\vspace{-2cm}
+\item \textbf{Critic challenges}
+\begin{itemize}
+\item Checks evidence in a fresh context; shared mistakes remain possible.
+\end{itemize}
+\item \textbf{Orchestrator coordinates}
+\begin{itemize}
+\item Keeps the mandate fixed; controller code validates state transitions.
+\end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Role Contracts}
-\begin{center}
-\small
-\input{tables/oh_role_contracts}
-\end{center}
 \begin{itemize}
-\item Roles receive different instructions, context, tools and write permissions.
-\item State permissions in the prompt and enforce them through the host or controller.
+\item \textbf{Orchestrator}
+\begin{itemize}
+\item Receives the mandate, state and evidence; returns requests and routing decisions.
+\end{itemize}
+\item \textbf{Generator}
+\begin{itemize}
+\item Receives constraints and findings; returns a candidate, tests and evidence.
+\end{itemize}
+\item \textbf{Critic}
+\begin{itemize}
+\item Receives candidate evidence and fixed criteria; returns findings and a verdict.
+\end{itemize}
+\item Each role has defined context, tools and write permissions enforced by the host or controller.
 \end{itemize}
 \end{frame}
 
@@ -105,49 +120,49 @@
 \end{frame}
 
 \begin{frame}{Contracts and Boundaries}
-\begin{center}\resizebox{.70\textwidth}{!}{\input{figures/untrusted_document}}\end{center}
+\begin{center}
+\resizebox{.82\textwidth}{!}{\input{figures/untrusted_document}}
+\end{center}
 \begin{itemize}
-\item \textbf{Task and artifact contract}
+\item \textbf{Contract: what work is required?}
 \begin{itemize}
-\item Specify task, fixed inputs, permissions, return format and completion/failure conditions.
-\item Link every artifact to its request and supporting evidence.
+\item Fix inputs, permitted actions, output format and completion criteria; link outputs to evidence.
 \end{itemize}
-\item \textbf{Permission boundary}
+\item \textbf{Boundary: what may the role do?}
 \begin{itemize}
-\item Retrieved filings and web pages are data, not authority.
-\item A paid-data request still needs purpose, supplier, amount, expiry, identity and approver checks.
-\item The classroom QT has no payment or broker access.
+\item Treat retrieved text as data. Enforce file, network and spending permissions outside the prompt.
 \end{itemize}
+\item A paid-data request needs scope, supplier, amount, expiry and approver checks. QT has no payment or broker access.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Hooks and State Controller}
-\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/hook_concept}}\end{center}
+\begin{frame}{Hooks and Controller}
+\begin{center}
+\resizebox{.82\textwidth}{!}{\input{figures/hook_concept}}
+\end{center}
 \begin{itemize}
-\item \textbf{Hook}
+\item \textbf{Hook: an event callback}
 \begin{itemize}
-\item Runs a callback when a host event occurs; records event metadata.
-\item May block only when the host supports event blocking.
+\item Runs when the host emits an event; records metadata or blocks where supported.
 \end{itemize}
-\item \textbf{State controller}
+\item \textbf{Controller: workflow authority}
 \begin{itemize}
-\item Validates submitted artifacts, hashes, findings and numerical gates.
-\item Decides whether the run advances, retries, waits or stops.
+\item Checks the current state and submitted evidence; chooses advance, retry, wait or stop.
 \end{itemize}
-\item A hook observes an event; the controller governs workflow state.
+\item Example: a hook logs a completed tool call; the controller still rejects a missing specialist report.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{State and Checkpoints}
-\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/interruption_states}}\end{center}
-\begin{enumerate}
+\begin{center}
+\resizebox{.82\textwidth}{!}{\input{figures/interruption_states}}
+\end{center}
+\begin{itemize}
 \item Identity: case, request, candidate and prompt/version IDs.
 \item Progress: pending role, round, retry count and deadline.
-\item Evidence: paths and hashes that detect altered artifacts.
-\item Findings: open problems and verified repairs.
-\end{enumerate} \bigskip
-
-Save verified state at each transition; a conversation's last line does not show which steps finished.
+\item Evidence: file paths, hashes, open findings and verified repairs.
+\item Save verified state at every transition; a conversation's last line does not establish completion.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Audit Evidence}
@@ -155,7 +170,8 @@ Save verified state at each transition; a conversation's last line does not show
 \resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}
 \end{center}
 \begin{itemize}
-\item Save JSON evidence locally and keep Git version history. For each approval, record the approver, timestamp and authorized action or version.
-\item Another analyst can reconstruct observable actions and files; the record does not reveal hidden model reasoning.
+\item Save JSON evidence and Git version history; record who approved which action or version, and when.
+\item Reconstruct observable actions and files. Recompute frozen calculations separately from a fresh model run.
+\item Recorded traces do not reveal hidden model reasoning.
 \end{itemize}
 \end{frame}

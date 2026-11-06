@@ -1,0 +1,11 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.3cm,minimum height=1.55cm,align=center,font=\small,inner sep=5pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (eval) at (1.7,0) {\textbf{(1) 评估}\\失败问题 + 修复提案};
+\node[box] (test) at (6.6,0) {\textbf{(2) 测试}\\留出案例行为\\+ 回归检查};
+\node[box,draw=forestgreen,fill=forestgreen!6] (approve) at (11.5,0) {\textbf{(3) 批准}\\人工决定\\+ 版本记录};
+\draw[flow] (eval)--(test);
+\draw[flow] (test)--node[above,font=\scriptsize]{通过}(approve);
+\node[font=\footnotesize,text=darkred,align=center] at (6.6,-1.5)
+  {评估或测试未通过：保留当前版本。};
+\end{tikzpicture}
