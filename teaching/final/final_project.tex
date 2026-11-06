@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage[margin=17mm,top=15mm,bottom=15mm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\definecolor{courseblue}{HTML}{16324F}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=1.2em,itemsep=2pt,topsep=3pt,parsep=0pt}
+\newcommand{\projectsection}[1]{\par\addvspace{7pt}{\color{courseblue}\bfseries #1}\par\nobreak\vspace{1pt}}
+\hypersetup{pdftitle={AI Coding in Finance: Final Project},pdfauthor={Hulai Zhang}}
+
+\begin{document}
+{\small\textsc{AI Coding in Finance}\hfill Fall 2026}\par
+{\LARGE\bfseries\color{courseblue}Final Project}\par
+{\large Design a Long-Running Agent Workflow for a Finance Task}\par
+{\small International School of Finance, Fudan University \hfill Hulai Zhang}
+\vspace{3pt}
+\hrule
+\vspace{4pt}
+
+\textbf{Individual project.} Choose a recurring finance task and design an agent-based workflow around it. It should retain state, handle new inputs, and resume after interruption---not be a single prompt or a general-purpose autonomous analyst.
+
+\projectsection{1. Specify your task}
+Select a task you perform or can realistically describe: for example, \textbf{buy-side} signal research, strategy review, or portfolio-risk monitoring; \textbf{sell-side} earnings updates, company research, or valuation refreshes. Other finance tasks are welcome. Define the intended user, manual baseline, trigger or frequency, inputs and permitted data sources, information cutoff, expected work product, and concrete acceptance criteria. Keep the scope manageable.
+
+\projectsection{2. Design the architecture using the lecture concepts}
+Provide an annotated workflow diagram and a short design note explaining:
+\begin{itemize}
+  \item \textbf{Roles and handoffs:} agent responsibilities, tools, reusable skills or instructions, and input/output artifacts. Justify the division of work; use deterministic code for calculations where appropriate. Distinguish agent decisions from the harness/controller that manages execution.
+  \item \textbf{Long-running operation:} persistent state, checkpoints, scheduling or new-input triggers, dependencies, retries, and stop/escalation rules. Explain how an interrupted run resumes without repeating completed actions, and set limits on time, cost, and tool permissions.
+  \item \textbf{Verification and improvement:} checks independent of the producing agent, human approval before consequential actions, and a bounded revision loop. Explain how a proposed change is tested against a fixed baseline, accepted or rejected, versioned, and rolled back. For time-sensitive tasks, prevent future-information leakage.
+\end{itemize}
+
+\projectsection{3. Make the design inspectable}
+Include one end-to-end example from input to work product, with intermediate artifacts and acceptance checks, plus one failure/interruption-and-recovery example. A small runnable prototype is welcome; a clearly labelled, step-by-step design walkthrough is acceptable. Distinguish executed results from simulated examples and identify limitations. Use public, synthetic, or properly licensed inputs; keep live trading, client publication, and other consequential actions simulated or behind explicit human approval.
+
+\projectsection{4. Prepare the repository}
+Include your design note and diagram, prompts/skills/configuration, code if implemented, shareable example inputs and outputs, and verification/recovery evidence. The root \texttt{README.md} must give your identification, task summary, \textbf{repository URL}, file guide, and setup/run or walkthrough instructions (including dependencies where relevant). Disclose AI assistance and explain what you checked yourself. Use meaningful commits throughout development; do not submit only a final-file dump.
+
+\projectsection{5. Submit one ZIP with complete Git history}
+GitHub, GitLab, or an equivalent Git host is acceptable. Commit and push the submission files and relevant development branches/tags, then archive a \textbf{full, non-shallow local clone, including its hidden \texttt{.git/} directory}. For example, on macOS/Linux, run from the parent folder:
+\begin{quote}\small\ttfamily
+ git clone <repository-url> final-project\\
+ zip -r studentID-final-project.zip final-project
+\end{quote}
+\textbf{A host's ``Download ZIP'' or \texttt{git archive} is not sufficient: neither includes Git history.} Extract your ZIP into a new folder and check that the README, all deliverables, and \texttt{.git/} are present; \verb|git log --all --oneline| must show the development history and \verb|git fsck --full| must pass. The archive must be self-contained for reviewing files and history, without relying on repository access. Never include credentials, private client data, or secrets in files \emph{or commit history}.
+\end{document}
