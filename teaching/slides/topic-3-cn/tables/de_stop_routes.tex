@@ -1,0 +1,15 @@
+\begin{tabular}{@{}P{3.5cm}P{9.0cm}@{}}
+\toprule
+\textbf{流转 / 结果} & \textbf{条件} \\
+\midrule
+\texttt{CONTINUE}\newline（非终止流转） & 仍可修复或确认，仍有进展且预算未耗尽。 \\
+\rowcolor{gray!10}
+\texttt{REJECTED} & 致命缺陷或 Critic 的否决意见，会结束对该候选策略的处理。 \\
+\texttt{BLOCKED} & 限定次数的修复后，必需提交仍无效或必要检查仍未通过。 \\
+\rowcolor{gray!10}
+\texttt{EXHAUSTED} & 验收通过前已达到预设预算上限。 \\
+\texttt{STALLED} & 多轮未通过且没有新进展。 \\
+\rowcolor{gray!10}
+\texttt{USER\_STOPPED} & 用户明确要求结束运行。 \\
+\bottomrule
+\end{tabular}

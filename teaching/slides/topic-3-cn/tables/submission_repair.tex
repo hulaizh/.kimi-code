@@ -1,10 +1,12 @@
 \begin{tabular}{@{}P{4.0cm}P{8.5cm}@{}}
 \toprule
-\textbf{提交内容} & \textbf{控制器应如何处理} \\
+\textbf{提交情况} & \textbf{预期控制器响应} \\
 \midrule
-缺少一位专家的报告 & 保留在当前处理角色 \\
+缺少一名专项 Agent 的报告 & 退回提交；保留当前角色并消耗一次尝试 \\
 \rowcolor{gray!10}
-请求标识已经过期 & 拒绝该次提交 \\
-报告完整且匹配当前请求 & 检查证据后才能继续 \\
+请求标识已过期 & 采用相同的退回与重试规则 \\
+第二次无效提交 & \texttt{BLOCKED}；不再推进 \\
+\rowcolor{gray!10}
+报告齐全且匹配请求 & 推进前先检查证据 \\
 \bottomrule
 \end{tabular}

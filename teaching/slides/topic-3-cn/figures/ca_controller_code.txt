@@ -1,0 +1,5 @@
+reports, paths = load_team(output, response, request)
+if state["role"] == "generator":
+    generator_gate(output, state, response, round_dir)
+else:
+    merge_critic(state, reports, request)  # validate without mutating state

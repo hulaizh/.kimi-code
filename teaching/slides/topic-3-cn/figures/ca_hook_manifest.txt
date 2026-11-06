@@ -1,0 +1,6 @@
+{"hooks": [{
+  "event": "PostToolUse",
+  "matcher": "^Bash$",
+  "command": "python3 ./hooks/audit_event.py",
+  "timeout": 3
+}]}

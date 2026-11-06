@@ -36,7 +36,7 @@ mirrored in Chinese before completion.
 | controller | 控制器 |
 | gate | 检查关卡 or 必要检查, according to the sentence |
 | mandate | 任务授权 / 授权范围 |
-| candidate | 候选策略 in research; 候选版本 or 候选改动 in evolution |
+| candidate | 候选方案 in generic Harness/Graph design; 候选策略 in research; 候选版本 or 候选改动 in evolution |
 | finding / carried findings | 问题项 / 上一轮未解决的问题项 |
 | repair / review | 修复 / 审查 |
 | approval / authority | 批准 / 授权或权限, according to the object |

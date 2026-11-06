@@ -1,0 +1,19 @@
+\begin{tikzpicture}[
+  card/.style={draw=blue,fill=blue!4,rounded corners=3pt,align=left,font=\small,inner sep=7pt}]
+\node[card] at (3.1,0) {
+  \parbox[t][3.55cm][t]{5.65cm}{\raggedright
+  \textbf{时序问题}\par\smallskip
+  信号使用第 $t$ 日的收盘价。\par\smallskip
+  回测却在同一收盘时点交易。\par\smallskip
+  交易必须发生在信号可用之后。
+  }
+};
+\node[card,draw=darkred,fill=red!3] at (9.9,0) {
+  \parbox[t][3.55cm][t]{5.65cm}{\raggedright
+  \textbf{问题项台账}\par\smallskip
+  第 1 轮：记录 \texttt{pit-001}，并链接至受影响的输出。\par\smallskip
+  第 2 轮遗漏该项：问题仍保持未解决状态。\par\smallskip
+  只有 Critic 核验修复后的输出，才能关闭该问题项。
+  }
+};
+\end{tikzpicture}

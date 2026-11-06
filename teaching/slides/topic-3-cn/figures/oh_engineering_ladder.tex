@@ -1,0 +1,19 @@
+\begin{tikzpicture}[font=\small,>=Latex,
+  rung/.style={draw,thick,rounded corners,align=center,inner sep=4pt,minimum height=.8cm,font=\footnotesize},
+  platform/.style={draw=darkorange!85!black,line width=1.3pt,rounded corners,align=center,inner sep=5pt,fill=darkorange!14,minimum width=11.4cm,minimum height=1.5cm},
+  pillar/.style={draw,thick,rounded corners,align=center,inner sep=4pt,minimum width=5cm,minimum height=1.35cm}]
+\node[rung,fill=black!3,draw=black!35,text=black!60,minimum width=4.6cm] (p) at (0,-.35) {\textbf{提示词}工程};
+\node[rung,fill=black!6,draw=black!45,text=black!70,minimum width=5.6cm] (c) at (0,.95) {\textbf{上下文}工程};
+\draw[->,very thick,black!45] (p)--(c);
+\draw[dashed,black!30] (3,-.92)--(3,1.58);
+\node[anchor=west,font=\footnotesize,text=black!55,align=left,text width=3cm] at (3.15,.33) {主题 2：\\提示词与上下文};
+\node[platform] (h) at (0,2.95) {\textbf{\normalsize Harness 工程}\\[2pt]\footnotesize 钩子 $\cdot$ 关卡 $\cdot$ 契约 $\cdot$ 溯源 $\cdot$ 状态 $\cdot$ 脚本};
+\draw[->,very thick,black!70] (c)--(h);
+\node[pillar,fill=steelblue!12,draw=steelblue!80!black,anchor=south] (l) at (-2.9,4.1) {\textbf{Loop 工程}\\\footnotesize 时间 $\cdot$ 状态 $\cdot$ 停止规则};
+\node[pillar,fill=forestgreen!10,draw=forestgreen!70!black,anchor=south] (g) at (2.9,4.1) {\textbf{Graph 工程}\\\footnotesize 拓扑 $\cdot$ 各角色可见的信息};
+\draw[line width=2pt,darkorange!85!black] (-2.9,3.7)--(-2.9,4.1);
+\draw[line width=2pt,darkorange!85!black] (2.9,3.7)--(2.9,4.1);
+\draw[darkred,line width=1.1pt,rounded corners=5pt] (-6.05,1.98) rectangle (6.05,5.80);
+\node[fill=white,inner sep=4pt,text=darkred,font=\small\bfseries] at (0,5.80) {本讲：Harness、Loop 与 Graph};
+\node[font=\footnotesize,text=black!65,align=center] at (0,6.4) {Loop 与 Graph 建立在 Harness 之上，并非继续向上延伸的阶梯。};
+\end{tikzpicture}

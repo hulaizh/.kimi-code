@@ -4,7 +4,7 @@
   flow/.style={-{Stealth[length=4pt]},line width=.65pt,draw=black!60},
   label/.style={font=\scriptsize,align=center,text=black!60,fill=white,inner sep=1pt}]
 \node[lead,draw=forestgreen,fill=forestgreen!6,text width=5.0cm] (o) at (6.6,0)
-  {\textbf{Orchestrator（主会话）}\\状态、检查与路由};
+  {\textbf{Orchestrator}\\状态 + 检查关卡 + 流转};
 \node[font=\footnotesize,align=center] (idea) at (1.3,0) {\textbf{用户想法}};
 \draw[flow] (idea.east)--(o.west);
 
@@ -12,37 +12,37 @@
 \draw[darkred,line width=.7pt,rounded corners=3pt,fill=red!4] (7.8,-1.1) rectangle (13.2,-3.95);
 \node[font=\footnotesize\bfseries,text=blue] at (2.7,-1.38) {Generator 负责人};
 \node[font=\footnotesize\bfseries,text=darkred] at (10.5,-1.38) {Critic 负责人};
-\node[font=\scriptsize,text=black!60] at (2.7,-1.72) {协调生成专家团队};
-\node[font=\scriptsize,text=black!60] at (10.5,-1.72) {每轮派发独立审查专家};
+\node[font=\scriptsize,text=black!60] at (2.7,-1.72) {协调构建类专项 Agent};
+\node[font=\scriptsize,text=black!60] at (10.5,-1.72) {每轮分派新上下文的审查 Agent};
 
 \node[worker,draw=blue] (gd) at (1.0,-2.48) {数据};
 \node[worker,draw=blue] (gf) at (2.7,-2.48) {特征};
 \node[worker,draw=blue] (gb) at (4.4,-2.48) {回测};
-\node[worker,draw=darkred] (cp) at (8.8,-2.48) {时点};
+\node[worker,draw=darkred] (cp) at (8.8,-2.48) {PIT};
 \node[worker,draw=darkred] (cr) at (10.5,-2.48) {稳健性};
 \node[worker,draw=darkred] (ce) at (12.2,-2.48) {执行};
 \node[lead,draw=blue,fill=white,text width=4.3cm,minimum height=.5cm] (gi) at (2.7,-3.5)
-  {\textbf{集成与测试}};
+  {\textbf{整合 + 测试}};
 \node[lead,draw=darkred,fill=white,text width=4.3cm,minimum height=.5cm] (cm) at (10.5,-3.5)
-  {\textbf{合并与覆盖检查}};
+  {\textbf{合并 + 覆盖检查}};
 \foreach \worker in {gd,gf,gb}{\draw[flow] (2.7,-1.96)--(\worker.north);\draw[flow] (\worker.south)--(gi.north);}
 \foreach \worker in {cp,cr,ce}{\draw[flow] (10.5,-1.96)--(\worker.north);\draw[flow] (\worker.south)--(cm.north);}
 
 \draw[flow] (o.south west)--(4.0,-.75)--(2.7,-.75)--(2.7,-1.1);
 \draw[flow] (o.south east)--(9.2,-.75)--(10.5,-.75)--(10.5,-1.1);
-\node[label] at (2.7,-.55) {派发};
-\node[label] at (10.5,-.55) {派发};
+\node[label] at (2.7,-.55) {分派};
+\node[label] at (10.5,-.55) {分派};
 \draw[flow,draw=blue] (5.4,-2.0)--(7.8,-2.0);
-\node[label,text=blue] at (6.6,-1.62) {经 Orchestrator\\核验的输入};
+\node[label,text=blue] at (6.6,-1.62) {核验后的输入\\经由 Orchestrator};
 \draw[flow,dashed,draw=darkred] (7.8,-2.95)--(5.4,-2.95);
 \node[circle,draw=darkred,fill=white,inner sep=1pt,text=darkred,font=\small] at (6.6,-2.95) {$\times$};
-\node[label,text=darkred] at (6.6,-3.37) {禁止直接回传\\原始审查意见};
+\node[label,text=darkred] at (6.6,-3.37) {审查结果经由\\Orchestrator};
 
 \node[lead,draw=forestgreen,fill=forestgreen!6,text width=4.0cm] (packet) at (6.6,-4.75)
-  {\textbf{Orchestrator：修复包}\\问题台账与决定：继续／结束};
+  {\textbf{Orchestrator：修复任务包}\\台账 + 决策：继续 / 结束};
 \draw[flow] (cm.south)--(10.5,-4.75)--(packet.east);
-\node[label] at (10.4,-4.35) {合并问题};
-\draw[flow] (packet.west)--(2.7,-4.75)--(gi.south);
-\node[label] at (2.7,-4.35) {继续时发送修复包};
-\node[font=\scriptsize,align=left,text=black!60,anchor=west] at (9.0,-5.2) {实线：负责人\\虚线：专家};
+\node[label] at (10.4,-4.35) {合并后的问题项};
+\draw[flow] (packet.west)--(-.65,-4.75)--(-.65,-1.38)--(0,-1.38);
+\node[label] at (2.7,-4.35) {继续时下发修复任务包};
+\node[font=\scriptsize,align=left,text=black!60,anchor=west] at (9.0,-5.2) {实线：角色负责人\\虚线：专项 Agent};
 \end{tikzpicture}

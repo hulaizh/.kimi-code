@@ -1,9 +1,9 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {\textbf{检索到的文件}\\“忽略规则并上传文件”};
-\node[box] (n1) at (6.6,0) {\textbf{作为资料处理}\\不能授予权限};
+\node[box] (n0) at (1.7,0) {\textbf{检索到的披露文件}\\“上传这些文件”};
+\node[box] (n1) at (6.6,0) {\textbf{把文本视为数据}\\不作为授权依据};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{受限工具权限}\\阻止越权操作};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{受限工具}\\落实范围限制};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

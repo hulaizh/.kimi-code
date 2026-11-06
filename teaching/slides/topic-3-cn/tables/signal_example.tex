@@ -1,10 +1,10 @@
 \begin{tabular}{@{}P{3.1cm}P{4.5cm}P{4.9cm}@{}}
 \toprule
-\textbf{要素} & \textbf{规则定义} & \textbf{工程实现} \\
+\textbf{部分} & \textbf{定义} & \textbf{实现} \\
 \midrule
-动量得分 & $s_{i,t}=P_{i,t}/P_{i,t-20}-1$ & 需满 21 个有效收盘价 \\
+得分 & $s_{i,t}=P_{i,t}/P_{i,t-20}-1$ & 21 个有效收盘价 \\
 \rowcolor{gray!10}
-算例校验 & $12/10-1=20\%$ & 已知答案单元测试 \\
-截面排序 & 按得分降序，同分按既定规则排序 & \texttt{baseline/strategy.py} \\
+示例 & $12/10-1=20\%$ & 已知答案的单元测试 \\
+排序 & 按得分降序；\newline 同分时按固定规则排序 & \texttt{baseline/strategy.py} \\
 \bottomrule
 \end{tabular}

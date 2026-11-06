@@ -1,0 +1,15 @@
+\begin{tabular}{@{}P{3.6cm}P{4.2cm}P{4.7cm}@{}}
+\toprule
+\textbf{已核验状态} & \textbf{流转路径} & \textbf{后续依赖任务} \\
+\midrule
+输入缺失 & 等待前置条件 & 暂不分派任务 \\
+\rowcolor{gray!10}
+提交无效 & 由当前角色修复 & 继续阻止下游推进 \\
+审查要求修复 & 将问题项交回 Generator & 重新核验修订后输出 \\
+\rowcolor{gray!10}
+必要检查通过 & 转向下一项满足条件的任务 & 汇合全部必需报告 \\
+终止结果 & 结束并保留原因 & 不再分派任务 \\
+\rowcolor{gray!10}
+获准的输入变更 & 启动新案例 & 重新生成依赖这些输入的输出 \\
+\bottomrule
+\end{tabular}

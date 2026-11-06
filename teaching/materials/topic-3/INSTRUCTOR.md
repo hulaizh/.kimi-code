@@ -1,7 +1,8 @@
 # Topic 3: Build and Improve a Quant Research System
 
-The current English deck has 58 pages. This guide uses its PDF page numbers,
-including the title. The Chinese deck retains an earlier 60-page structure.
+The English and Chinese decks each have 58 aligned pages. This guide uses their
+shared PDF page numbers, including the title. The Chinese version translates
+the same content; executable listings and identifiers remain verbatim.
 One synthetic monthly-momentum case connects three sections: Introduction;
 Design of Long-Run Workflows; Case: The Quant System.
 

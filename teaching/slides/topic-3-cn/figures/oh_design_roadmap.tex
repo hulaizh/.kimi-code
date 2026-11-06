@@ -1,0 +1,11 @@
+\begin{tikzpicture}[
+  part/.style={draw=black!30,fill=gray!5,rounded corners=2pt,text width=4.0cm,minimum height=1.0cm,align=center,font=\footnotesize,inner sep=4pt},
+  card/.style={draw=blue,fill=blue!4,rounded corners=3pt,text width=5.4cm,minimum height=1.35cm,align=center,font=\small,inner sep=7pt}]
+\node[part,text=black!45] at (1.9,0) {1. 导论};
+\node[part,draw=darkred,fill=red!5,text=darkred] at (6.55,0) {\textbf{2. 长程工作流设计}};
+\node[part,text=black!45] at (11.2,0) {3. 案例：量化系统};
+\node[card] at (3,-1.7) {\textbf{Harness}\\运行环境与控制};
+\node[card] at (10.1,-1.7) {\textbf{循环}\\重复执行与停止};
+\node[card] at (3,-3.5) {\textbf{图}\\依赖关系与任务交接};
+\node[card,draw=forestgreen,fill=forestgreen!5] at (10.1,-3.5) {\textbf{演进}\\经过评估的系统改动};
+\end{tikzpicture}

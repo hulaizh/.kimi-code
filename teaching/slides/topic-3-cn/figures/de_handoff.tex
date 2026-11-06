@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,align=center,font=\small,inner sep=6pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box,text width=4.2cm,minimum height=3.1cm] (w) at (2.3,0) {\textbf{工作 Agent 产物}\\[4pt]
+请求 ID\\
+候选方案 + 版本\\
+状态 + 问题项\\
+证据路径 + 哈希值};
+\node[box,text width=3.3cm,minimum height=3.1cm,draw=forestgreen,fill=forestgreen!6] (v) at (7.0,0) {\textbf{交接核验}\\[4pt]
+数据结构 + 身份\\
+完整报告\\
+证据完整性};
+\node[box,text width=3.5cm,minimum height=3.1cm] (s) at (11.4,0) {\textbf{控制器状态}\\[4pt]
+待办角色 + 轮次\\
+上一轮未解决的问题项\\
+下一项满足条件的任务};
+\draw[flow] (w)--(v);
+\draw[flow] (v)--node[above,font=\scriptsize]{通过}(s);
+\draw[flow,draw=darkred] (v.south)--(7.0,-2.3)--node[below,font=\scriptsize]{无效：修复报告；不得推进}(2.3,-2.3)--(w.south);
+\end{tikzpicture}

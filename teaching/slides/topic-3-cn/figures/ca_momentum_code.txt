@@ -1,0 +1,2 @@
+def momentum(closes):
+    return closes[-1] / closes[0] - 1

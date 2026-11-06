@@ -1,9 +1,10 @@
 \begin{tikzpicture}[
-  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=4.5cm,minimum height=1.15cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {\textbf{生命周期事件}\\工具调用结束};
-\node[box] (n1) at (6.6,0) {\textbf{Hook 脚本}\\自动记录事件};
-\draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{控制器门控}\\核验案例证据};
-\draw[link] (n1) -- (n2);
+\node[box] (event) at (3,0) {\textbf{宿主生命周期事件}\\工具调用或会话轮次事件};
+\node[box] (hook) at (10.2,0) {\textbf{钩子脚本}\\观察事件元数据};
+\draw[link] (event)--(hook);
+\node[box,draw=forestgreen,fill=forestgreen!6] (submission) at (3,-1.9) {\textbf{角色提交}\\已保存的产物};
+\node[box,draw=forestgreen,fill=forestgreen!6] (gate) at (10.2,-1.9) {\textbf{控制器检查关卡}\\推进状态前先检查};
+\draw[link] (submission)--(gate);
 \end{tikzpicture}

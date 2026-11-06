@@ -1,9 +1,9 @@
 \begin{tikzpicture}[
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {\textbf{基准输入}\\锁定 $t$ 日及之前数据};
-\node[box] (n1) at (6.6,0) {\textbf{未来扰动}\\改变 $t$ 日之后价格};
+\node[box] (n0) at (1.7,0) {\textbf{基准输入}\\固定截至 $t$ 的数据};
+\node[box] (n1) at (6.6,0) {\textbf{扰动}\\改变 $t$ 之后的价格};
 \draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{无泄漏检验}\\$t$ 日及之前信号不变};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{无前视信息检查}\\时点 $\le t$ 的信号不变};
 \draw[link] (n1) -- (n2);
 \end{tikzpicture}

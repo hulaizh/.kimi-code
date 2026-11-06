@@ -1,7 +1,7 @@
 \begin{tikzpicture}[b/.style={draw=blue,fill=blue!6,rounded corners,text width=3.4cm,minimum height=1.0cm,align=center,font=\small},a/.style={-{Stealth},thick}]
-\node[b] (n0) {\textbf{DRAFT}\\带版本号的建议单};
-\node[b,right=0.5cm of n0] (n1) {\textbf{REVIEWED}\\人工复核与审批};
+\node[b] (n0) {\textbf{DRAFT}\\带版本的交易清单};
+\node[b,right=0.5cm of n0] (n1) {\textbf{REVIEWED}\\人工决策};
 \draw[a] (n0)--(n1);
-\node[b,right=0.5cm of n1] (n2) {\textbf{RECONCILED}\\导入实际成交对账};
+\node[b,right=0.5cm of n1] (n2) {\textbf{RECONCILED}\\导入实际成交记录};
 \draw[a] (n1)--(n2);
 \end{tikzpicture}
