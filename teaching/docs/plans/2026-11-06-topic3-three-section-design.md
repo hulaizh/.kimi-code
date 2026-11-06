@@ -1,289 +1,277 @@
-# Topic 3: proposed three-section design
+# Topic 3: 58-page design and production plan
 
-Status: design for discussion, 6 November 2026. The slide sources and PDFs have
-not been rearranged by this proposal. Current-page references use the 50-page
-English PDF at commit `7e125eb`, including the title page.
+Status: revised and ready for generation, 6 November 2026. The user accepts
+50–60 pages and has confirmed **broad evolution principles**. They authorize
+parallel slide generation, humanize, proofreading, a further proofread in the
+existing left Pi session, a Gemini-4-Argon review through Pi, and revision.
 
-## Teaching sequence and page budget
+Current-page references use the 50-page English PDF at commit `7e125eb`.
+This plan supersedes the earlier 50-page proposal in this file.
 
-The lecture follows one task: build an agentic quant research system, explain
-the engineering choices, and improve the system using evidence from its runs.
-The opening shows the complete destination, including evolution. Section 2
-explains reusable mechanisms. Section 3 constructs and exercises those mechanisms
-in QT. One synthetic monthly-momentum case connects all three sections.
+## Fixed design decisions
 
-| Part | Proposed pages | Count |
+- Page 2 reuses Topic 2 page 2, with a box highlighting the upper harness/loop/graph area.
+- Page 4 shows the complete operating architecture inside **one enclosing
+  Evolution box**. It contains no separate diagnosis/proposal/evaluation workflow.
+- Pages 5–6 develop the four stakeholder needs carefully; page 7 synthesizes the
+  financial system requirements with primary-source support.
+- Section 2.1 introduces Orchestrator–Generator–Critic immediately: what, why,
+  contracts and authority, then the harness around each role.
+- PIT and momentum are QT-specific data/calculation examples. They belong to
+  the case on pages 40–41. Harness design teaches the general mechanism that
+  attaches such domain checks, rather than teaching those checks as its essence.
+- Evolution covers prompts/context, skills, tools/code and role/workflow
+  structure. The prompt-only QT implementation is a concrete case, not the
+  definition or limit of evolution.
+- Page 36 closes Section 2 by repeating the exact page-4 architecture. The
+  detailed evolution workflow belongs on page 31.
+- Preserve all current substantive materials, worked examples, source links,
+  commands, caveats and eight participation points. Rewriting and redrawing are
+  allowed; hiding distinct content in notes is not the preservation strategy.
+- Work on the English deck in this task, retaining the recent division-of-labor edits.
+
+## Allocation
+
+| Part | Pages | Count |
 |---|---:|---:|
 | Title and engineering ladder | 1–2 | 2 |
 | 1. Introduction | 3–8 | 6 |
-| 2. Design of Long-Run Workflows: roadmap | 9 | 1 |
-| 2.1 Harness | 10–15 | 6 |
-| 2.2 Loop | 16–20 | 5 |
-| 2.3 Graph | 21–25 | 5 |
-| 2.4 Evolution | 26–30 | 5 |
-| 3. Case: The Quant System: roadmap | 31 | 1 |
-| 3.1 Build | 32–41 | 10 |
-| 3.2 Evolve | 42–49 | 8 |
-| Final system review | 50 | 1 |
-| Total | 1–50 | 50 |
+| 2. Design roadmap | 9 | 1 |
+| 2.1 Harness | 10–18 | 9 |
+| 2.2 Loop | 19–24 | 6 |
+| 2.3 Graph | 25–29 | 5 |
+| 2.4 Evolution | 30–35 | 6 |
+| Whole-architecture recap | 36 | 1 |
+| 3. Case roadmap | 37 | 1 |
+| 3.1 Build | 38–49 | 12 |
+| 3.2 Evolve | 50–57 | 8 |
+| Final system review | 58 | 1 |
+| Total | 1–58 | 58 |
 
-Page 2 also previews the three sections. Pages 9 and 31 provide the section
-roadmaps; subsection starts use a compact location marker within their content
-pages. This preserves the user's explicit opening page numbers without adding
-seven separate subsection-divider slides.
+Keep the user's opening positions. Section 1 starts on page 3; its orientation
+can be carried on page 2. Section roadmaps are pages 9 and 37. Mark subsection
+starts without adding full-page dividers. Page 36 remains the final design page.
 
-Working assumption pending discussion: teach evolution of prompts, skills,
-tools and orchestration as a general architecture, while demonstrating the
-currently implemented QT Generator-prompt change. Broader runtime evolution
-requires its own scoped implementation and evaluations. It is not already
-implemented by the current prompt-version interface.
+## Page-4 / page-36 architecture specification
 
-## Opening: pages 1–8
+Retain the recognizable geometry of the existing complete architecture:
+Orchestrator above, Generator and Critic teams below, executable checks and
+evidence handoffs, structured repair packet, shared state and evidence. Draw
+one outer rectangle labelled **Evolution** around the complete system.
+The enclosing box denotes the scope of future evaluated changes. It does not
+mean the system can rewrite its own mandate or permission limits during a run.
+Human policy/approval authority stays explicit at the system boundary.
 
-| Page | Proposed title | What appears on the slide | Current material |
-|---:|---|---|---|
-| 1 | Long-Run Workflows: Harness, Loop, and Graph | Existing title and course identity. Evolution is the system-improvement theme developed through the lecture. | 1 |
-| 2 | The Engineering Ladder | Reuse Topic 2 page 2. Add a labelled outline enclosing the upper harness platform and loop/graph pillars: “This Lecture: Harness, Loop, and Graph Engineering.” Keep prompt/context below as prior material. | Topic 2 page 2; new highlight |
-| 3 | Building the Agentic Quant System | State the deliverable: a trading idea and dated inputs produce a strategy, executable checks, independent review, and retained evidence. Show the acceptance tests: trace, reproduce, resume, restore. | 2 + 4 |
-| 4 | The Complete System: Research and Evolution | First view of the operating system, evidence store, evolution system, version registry and human decision points. Show feedback into later runs. | 30 + 29 + 45; redrawn overview |
-| 5 | Finance Requirements: Evidence and Authority | Auditor: reconstruct inputs, versions and reasoning evidence. Risk manager: identify the authorized action, approver and limits. Connect each need to one concrete artifact/control. | Auditor/risk half of 6; relevant parts of 27 |
-| 6 | Finance Requirements: Continuity and Change | Operations: resume from verified state after interruption. System owner: demonstrate that a change helps while retaining existing controls and a way back. | Operations/owner half of 6 |
-| 7 | Finance: What the System Must Demonstrate | Six-row synthesis: reliable calculations; reproducibility and replay; temporal validity; action authority; accountable evidence; controlled change. Show the financial consequence and engineering response for each. | New sourced synthesis; existing finance-source notes |
-| 8 | Division of Labor | Keep the current human/system diagram. People set the idea/design and decide capital use; agents propose/review; executable code computes, checks and routes. | 3 |
+Do not draw evolution as a second chain under the operating system on these
+two overview pages. Use the SAME figure file on pages 4 and 36. The latter
+can add a short identification exercise or four small callouts without
+changing the diagram's layout.
 
-The page-2 highlight should enclose the existing upper engineering area. A new
-box floating above the ladder could imply an additional engineering rung, which
-would conflict with the original diagram's platform-and-pillars explanation.
-Evolution is introduced on page 4 as feedback that changes a version of the
-system, rather than another rung.
+Page 31 separately expands the evolution process: recorded failures →
+diagnosis → scoped Generator-team proposal → fixed evaluations and fresh
+Critic-team review → owner approval/rejection/deferral → versioned deployment
+and rollback. Existing cases remain bound to their starting configuration.
 
-### Page 4 architecture
+## Finance opening: teaching argument
 
-Use three visual bands: operating workflow, retained evidence/version state,
-and evolution workflow. Keep human policy ownership and approval explicit.
-The first view shows the main roles; page 23 expands the specialist teams and
-join barriers so the original architecture's details remain taught.
+The three pages should establish **consequences → operational demands →
+engineering requirements**, rather than list generic software virtues.
 
-```mermaid
-flowchart TB
-    H["Human owner: idea, mandate and limits"] --> O
-    subgraph RUN["Operating system — one research case"]
-        O["Orchestrator"] --> G["Generator team"]
-        G --> T["Executable checks"]
-        T --> C["Fresh Critic team"]
-        C --> D["Orchestrator: revise, accept or stop"]
-        D -->|"repair packet"| G
-    end
-    D --> E["Retained evidence: inputs, outputs, findings and traces"]
-    subgraph EVO["Evolution system — a reusable system change"]
-        X["Diagnose recurring failure"] --> P["Propose a bounded change"]
-        P --> V["Fixed evaluations and regressions"]
-        V --> R["Independent review"]
-    end
-    E --> X
-    R --> A["Owner: approve, reject or defer"]
-    A -->|"approved change"| REG["Version registry and rollback"]
-    REG -->|"approved version for new cases"| O
-```
+**Page 5: Consequences and Accountability.** Preserve the auditor/risk-manager
+split. A financial recommendation or action can affect money, customer treatment
+or institutional obligations. The auditor asks what evidence and configuration
+actually produced a decision. The risk manager asks whether the action is
+authorized and within limits. Separate evidence supporting a conclusion from
+permission to act. Keep named responsibility. JSON/Git are implementation
+examples later; Git authorship alone does not establish action approval.
 
-The diagram must communicate these boundaries:
+**Page 6: Reliability Through Time and Change.** Preserve the operations/system-
+owner split. Operations needs verified progress, reconciliation of uncertain
+actions and safe recovery after failures. The owner needs evidence about
+behavior under changed prompts, tools, models and dependencies. Distinguish
+recomputing financial numbers, reconstructing the actual recorded run and
+testing a fresh model run. Identical model wording is not a universal target.
+Common providers and interacting components make end-to-end behavior relevant,
+beyond the quality of an isolated response.
 
-- The inner loop changes a strategy candidate; the outer loop changes a reusable
-  system version. They have different request IDs, artifacts and acceptance tests.
-- Evidence flows out of completed research cases. Approved versions flow into
-  future cases. Existing cases retain the configuration under which they began.
-- Evolution proposals use Generator and fresh Critic teams too. Their specialist
-  tasks become diagnosis, change design and test design, then evidence,
-  regression and scope review; they are not an unreviewed self-editing branch.
-- Rejecting or deferring an evolution proposal leaves the active version in place.
-  Rollback restores a retained approved version and is checked in a new case.
-- Acceptance of research, adoption of a system version and authorization to use
-  capital are separate decisions. The diagram grants no brokerage authority.
+**Page 7: From Requirements to Design.** Use a compact six-row exhibit:
 
-### Page 7: proposed comparison content
-
-The comparison should show how shared engineering requirements become concrete
-in finance. Reliability and reproducibility also matter in software, healthcare
-and other consequential applications; do not claim finance has exclusive needs.
-
-| Requirement | Financial consequence | Engineering response |
+| Requirement | What the financial system must demonstrate | Design connection |
 |---|---|---|
-| Reliability | Wrong values or exposures affect decisions | Numerical checks and independent review |
-| Reproducibility and replay | A past decision must be examinable | Frozen inputs/code/configuration; retained actions |
-| Temporal validity | Future information can contaminate research | Release-time versions and execution timing |
-| Action authority | An action may spend money or change exposure | Mandate, limits and bound approval |
-| Accountability | Someone must own decisions and exceptions | Evidence lineage and named responsibility |
-| Controlled change | One update affects many later cases | Held-out evaluation, versions and rollback |
+| Reliability | Critical constraints hold; failed checks stop advancement | Executable gates and evidence-based review |
+| Reproducibility / auditability | Recompute results and reconstruct actual decisions | Frozen inputs, versions and retained traces |
+| Bounded authority | Actions stay within mandate and approvals | Permissions, controller and accountable owner |
+| Operational resilience | Recover without repeating uncertain consequential actions | Checkpoints, reconciliation and bounded retries |
+| Confidentiality | Sensitive data stays within authorized paths | Access and tool boundaries |
+| Governed change | New versions preserve controls and improve tested behavior | Evaluation, independent review, versions and rollback |
 
-Use “reproducibility” precisely: distinguish reconstructing an actual past run,
-recomputing deterministic financial results, and evaluating a fresh model run.
-The last may follow a different path or use different wording. Repeated answers
-or matching hashes alone do not establish financial correctness.
+Shared exposures and third-party dependencies motivate system-level checks and
+monitoring on pages 6, 28 and 35. Reliability also matters in other consequential
+domains: the contrast is with low-stakes draft assistance, not all nonfinancial
+software. The degree of control depends on the specific financial use case.
 
-Source support checked on 6 November 2026:
+Primary support: [FSB final AI sound practices, 15 October 2026](https://www.fsb.org/uploads/P151026-1.pdf),
+especially its agentic-AI controls, oversight, recovery and lifecycle discussion;
+[MAS SAFR v1.1, 9 October 2026](https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf),
+especially pages 4–8 on consequential actions and runtime authority; and the
+existing [FINRA 2026 report](https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf),
+printed pages 24–27. These sources support the concerns. The specific O–G–C
+architecture is our design choice, not a regulatory prescription.
+See the companion source note for checked claims and limits.
 
-- [FINRA 2026 Annual Regulatory Oversight Report, printed pp. 24–27](https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf): supports attention to accuracy, testing, oversight, scope/authority, sensitive data, recorded actions and model-version monitoring. This is a US broker-dealer example; the report does not prescribe this QT architecture or create new requirements.
-- [MAS, Safeguards for Agentic Finance at Runtime](https://www.mas.gov.sg/publications/monographs-or-information-paper/2026/safeguards-for-agentic-finance-at-runtime) and its [reference paper](https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf): proposes runtime action authorization, calibrated human involvement and decision records. Present it as an industry reference approach.
-- [NIST AI RMF 1.0, section 3](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf): reliability, resilience and accountability apply across AI domains and must be assessed in context.
-- [Existing finance-harness source notes](../notes/2026-11-03-topic3-finance-harness-sources.md), current PIT/calculation examples and the QT tests supply the course-specific temporal and replay examples. The six-row table is a teaching synthesis, not a quoted regulatory checklist.
+## O–G–C: what and why
 
-Git records version history. An approver name in Git metadata alone is not an
-approval mechanism: the approval record must identify the authorized action or
-version. Preserve the original JSON/Git/controller/state-machine examples while
-making this distinction on page 5.
+| Role | Responsibility | Output | Authority boundary |
+|---|---|---|---|
+| Orchestrator | Bind the task, delegate, collect evidence and route the run | Requests, state transitions and next-step decision | Controller code validates transitions; no role silently expands policy |
+| Generator | Propose, implement and test a candidate | Candidate artifact, tests, evidence and limitations | Cannot certify its own work as finally accepted |
+| Critic | Challenge claims against evidence using the fixed criteria | Findings, evidence, verified resolutions and verdict | Cannot rewrite the candidate or weaken acceptance criteria |
 
-## Section 2: Design of Long-Run Workflows
+The purpose is separation of production, challenge and process control. Separate
+contexts can improve the opportunity to catch errors but do not guarantee
+independent mistakes or correctness. Code gates and human accountability remain.
+An orchestrator is a role implemented by agent coordination plus controller
+code; it need not mean a third unconstrained LLM verdict.
 
-These four subsections answer different design questions. The same component
-can participate in more than one: a checkpoint is a harness facility, while
-the loop decides whether to retry and the graph decides which downstream nodes
-are invalidated. Evolution changes an approved configuration of those mechanisms.
+The pattern combines delegation and evaluator/reviser ideas documented by
+[Anthropic](https://www.anthropic.com/research/building-effective-agents).
+Use it when decomposition and independent checking add value. Do not imply
+three roles are universally optimal or that increasing agent count proves quality.
 
-| Subsection | Design question | Artifact students should be able to specify |
-|---|---|---|
-| 2.1 Harness | What surrounds the model and controls its work? | Task/tool contract, permissions, state and evidence record |
-| 2.2 Loop | What repeats, what changes, and when does it end? | Transition, retry and stopping rules |
-| 2.3 Graph | Who does what, what can run together, and how does work pass? | Role/dependency graph with typed handoffs and joins |
-| 2.4 Evolution | How can the system itself improve without losing control? | Versioned change proposal, evaluation and adoption record |
+## Full page design
 
-| Page | Subsection and proposed title | Content and exhibit | Current material |
+| Page | Proposed title | Content and visible evidence | Current material |
 |---:|---|---|---|
-| 9 | Design Roadmap | Highlight Harness, Loop, Graph and Evolution within the three-section lecture. | Replace old navigation |
-| 10 | Harness: The Controlled Environment | Existing harness diagram: context, agent, tools, durable state, output gate and return artifact. Locate model reasoning inside it. | 8 |
-| 11 | Harness: Mandate and Contracts | Preserve the monthly-momentum request, frozen data/costs, workspace access and no broker access. Add a compact input/output contract with completion and failure outcomes. | 9; clearer contract exhibit |
-| 12 | Harness: Dated Inputs and Verified Calculations | Retain both worked exhibits: the restatement/PIT timeline and the momentum calculation, 21 closing prices and stable tie-break. Connect availability checks to known-answer verification. | 7 + 10 |
-| 13 | Harness: Permissions and Untrusted Inputs | Treat retrieved instructions as data; enforce host restrictions. Keep the paid-data request example, supplier/purpose/budget/expiry/approver checks and the AP2 reference. | 26 + 25 |
-| 14 | Harness: Hooks and Gates | Event-triggered observation versus host-supported blocking; controller remains responsible for acceptance. Use the event → hook → gate diagram. | 20 |
-| 15 | Harness: State, Provenance and Checkpoints | Completed/pending/uncertain state; case/request/candidate/prompt IDs; role/round/retries/deadline; artifact paths/hashes; open findings. Show the evidence links that later enable audit replay. | 22 + evidence-record portion of 24 |
-| 16 | Loop: Act, Observe, Decide | Tool loop, failure observation, bounded retry and continuation. State what is updated after each observation. | 11 |
-| 17 | Loop: Generate, Check, Critique | Research revision diagram with independent review. Retain the “costs included / costs not deducted” counterexample as a callout. Preserve the limits of independent contexts and fixed mandate/acceptance rules. | 18 + 12 |
-| 18 | Loop: Findings and Verified Repairs | Keep the same-close timing exercise and the `pit-001` ledger example. Omission never closes a finding; repair needs evidence verified by the Critic. | 17; exercise |
-| 19 | Loop: Acceptance, Budgets and Stop Rules | Same candidate/two clean full reviews is QT's policy; repair while progress and budget remain; rejection, blocking, exhaustion, stalling and user stop remain distinct. | 19 |
-| 20 | Loop: Recovery and Safe Retry | Inspect completion after timeout; return actionable submission errors; investigate altered evidence; reconcile uncertain side effects; resume only verified pending work. | 23 + recovery aspects of 22/37 |
-| 21 | Graph: Dependencies and Handoffs | Nodes perform tasks, edges require satisfied inputs. Show forward dependencies and conditional repair routes; explain that feedback makes the whole workflow cyclic. | 14 |
-| 22 | Graph: Orchestrator and Authority | Main agent coordinates; controller validates transitions. Generator/Critic cannot grant themselves permissions or bypass gates. | 13 |
-| 23 | Graph: Teams, Fan-Out and Joins | Expand the page-4 overview into the full Generator and Critic teams: data/features/backtest and PIT/robustness/execution. Wait for all reports and integrate evidence before routing. | 15 + detailed operating architecture from 30 |
-| 24 | Graph: Artifact Contracts and State Ownership | New explicit handoff exhibit: request ID, candidate/version, status, evidence path/hash, findings. Workers return artifacts; the controller owns shared state. Define joining and conflict handling. | Extend 22/35/36 with a focused design page |
-| 25 | Graph: Combined Results and Shared Limits | Preserve the two-proposals/aggregate-exposure example and the fixture limitation. Explain why local passes do not imply a valid combined result. | 16 |
-| 26 | Evolution: Candidate Versus System | Retain the three-loop distinction and recurring-timing-failure example. Define what changes in a tool iteration, research revision and system update. | 28 |
-| 27 | Evolution: The Outer Improvement Loop | Capture → diagnose → propose → evaluate → review/decide → versioned adoption. Show evidence and version feedback to the operating system; mark current QT prompt scope. | 29; full-system context from 4 |
-| 28 | Evolution: Evaluation and Regression | Preserve parseability, actual timing, evidence support and authorization criteria; distinguish controller tests from model-behavior evaluation. Keep development and final evaluation cases separate. | 40; case-selection principle from 39 |
-| 29 | Evolution: Versions, Approval and Rollback | Bind evidence to a tested model/tool/data/policy/prompt configuration. Explicit approval changes the active version for future cases. Retain previous versions and evidence for rollback. | Principles from 44 + 45 |
-| 30 | Evolution: Monitoring Later Runs | Detect recurring failures; re-evaluate after model/tool/data/permission changes; return observed failures to the case library. Improvement remains an empirical claim. | 46 |
+| 1 | Title | Existing lecture title and course identity. | 1 |
+| 2 | The Engineering Ladder | Reuse Topic 2 p2; outline the upper harness/loop/graph region and label it This Lecture. | Topic 2 p2 |
+| 3 | Building the Agentic Quant System | Task, deliverables and acceptance: trace, reproduce, resume and restore. | 2 + 4 |
+| 4 | The Complete Architecture | Show the operating O–G–C architecture inside ONE enclosing Evolution box; no detailed evolution workflow here. | 30; new enclosure |
+| 5 | Finance: Consequences and Accountability | Auditor and risk manager: consequential decisions, reconstructible evidence, authority, limits and named responsibility. | 6 + 27; strengthened sources |
+| 6 | Finance: Reliability Through Time and Change | Operations and system owner: interruptions, reproducible calculations, retained execution records, controlled changes and shared dependencies. | 6; strengthened sources |
+| 7 | Finance: From Requirements to Design | Synthesize reliability, reproducibility/auditability, bounded authority, resilience, confidentiality and governed change into system requirements. | New evidence-based synthesis |
+| 8 | Division of Labor | Preserve the human judgment/capital-decision diagram and the model/code/human boundary. | 3 |
+| 9 | Design Roadmap | Harness, Loop, Graph, Evolution; locate the current section. | Navigation |
+| 10 | The Orchestrator–Generator–Critic Design | What each role does: coordinate/control, produce/test, independently challenge. Introduce the complete three-role pattern immediately. | 13 + 18 + 30 |
+| 11 | Why Separate the Three Roles? | Avoid producer self-certification; distinguish evidence review from workflow control; preserve fresh contexts and acknowledge correlated errors. | 12 + 13; new explanation |
+| 12 | Role Contracts and Authority | Table of each role's inputs, outputs and permitted changes. Controller code validates transitions; critics return findings; only authorized actors change policy. | New explicit contract |
+| 13 | Inside Each Role's Harness | Context/instructions, tools, state/memory and output checks surround each role; a harness is more than three role prompts. | 8 |
+| 14 | Task and Artifact Contracts | Mandate, completion/failure conditions and typed evidence-bearing outputs; keep the current research request's scope and restrictions. | 9; new contract exhibit |
+| 15 | Permissions and Untrusted Inputs | Host-enforced access; retrieved text is data. Retain the paid-data/AP2 example and supplier, purpose, budget, expiry and approval checks. | 25 + 26 |
+| 16 | Hooks, Gates and Validation | Event-triggered observation, host-supported blocking and mandatory controller gates. | 20 |
+| 17 | State and Checkpoints | Case/request/candidate/version IDs, role/round/budget/deadline, artifact hashes, open findings and verified completion. | 22 |
+| 18 | Evidence and Audit Records | Link dated inputs, calculations, findings, routes and approvals; retain observable execution evidence rather than reconstructed model stories. | 24 |
+| 19 | Loop: Act, Observe, Decide | Tool-result feedback, bounded continuation and failed-call handling. | 11 |
+| 20 | Loop: Generate, Check, Critique | Research revision loop; retain the missing-cost example and separate-context limitations; keep mandate and criteria fixed. | 12 + 18 |
+| 21 | Loop: Findings and Verified Repairs | Same-close timing exercise, pit-001 ledger, carried findings and evidence-based closure. | 17; exercise |
+| 22 | Loop: Acceptance and Completion | Checks, closed findings and QT's same-candidate/two-clean-full-review rule; distinguish task completion from profitable returns. | Acceptance part of 19 |
+| 23 | Loop: Budgets and Terminal Outcomes | Revise only with progress and budget; distinguish rejection, blocking, exhaustion, stalling and user stop. | Stop-rule part of 19 |
+| 24 | Loop: Recovery and Safe Retry | Check actual completion, repair role submissions, investigate changed evidence and reconcile uncertain side effects before retrying. | 23 + recovery aspects of 37 |
+| 25 | Graph: Dependencies and Handoffs | Task nodes, prerequisites, success/failure edges and feedback cycles; avoid calling the complete cyclic workflow a DAG. | 14 |
+| 26 | Graph: Artifact Contracts and Shared State | Request/candidate IDs, statuses, paths/hashes and findings cross edges; workers return artifacts and the controller owns control state. | 22/35/36; new focused exhibit |
+| 27 | Graph: Teams, Fan-Out and Joins | Detailed Generator data/features/backtest and Critic PIT/robustness/execution teams; complete reports, evidence checks and joins. | 15 + 30 |
+| 28 | Graph: Combined Results and Shared Limits | Retain the two-proposal aggregate-risk example and the fixture's missing portfolio-wide control. | 16 |
+| 29 | Graph: Conditional Routing and Recovery | Show wait, repair, continue and terminal branches; route from validated status and invalidate dependent work when inputs change. | 14/23/35/37; new focused exhibit |
+| 30 | Evolution: What Can Change? | Broad principles: prompts/context, skills, tools/code and role/workflow structure; distinguish candidate revision from reusable-system change. | 28 + expanded scope |
+| 31 | Evolution: The Detailed Improvement System | HERE expand diagnosis, Generator change proposal, evaluation, fresh Critic review, owner decision, version adoption and rollback. | 29; expanded O–G–C outer workflow |
+| 32 | Evolution: Evidence and Evaluation | Failure cases, baseline, fixed criteria, development feedback and held-out assessment; preserve timing, source support and authorization criteria. | 39 + evaluation half of 40 |
+| 33 | Evolution: Regression and Independent Review | Software tests versus model-behavior comparisons; test scope, permissions and existing behavior. Proposals cannot quietly weaken their own acceptance standard. | Regression half of 40 |
+| 34 | Evolution: Versions, Approval and Rollback | Bind tested configuration and evidence; approve changes for new runs; retain prior versions and keep in-flight cases pinned. | 44 + 45 principles |
+| 35 | Evolution: Monitoring and Change Triggers | Monitor later runs and dependency changes; collect recurring failures; update future systems through evaluated changes. | 46 |
+| 36 | The Complete Architecture: Putting It Together | Repeat the SAME overview as p4, with the SAME enclosing Evolution box. Identify harness, loops, graph and evolution now that students know the parts. | 4 repeated; section synthesis |
+| 37 | Case Roadmap: Build and Evolve | The same QT system; two public workflow entry points. | Navigation |
+| 38 | Build: Package and Entry Points | Plugin files, installation/reinstall/reload, /qt:start, /qt:evo and workspace .qt/ separation. | 32 |
+| 39 | Build: Leads and Specialists | Role-card and specialist allowlist construction; verify actual host dispatch rather than inferring teams from files. | 33 |
+| 40 | Build: Point-in-Time Inputs | The original release/restatement timeline; explain availability and information sets as QT's domain contract. | 7; moved out of Harness |
+| 41 | Build: Verified Numerical Tools | Original momentum formula, 21 prices, 12/10-1=20%, stable ranking; short code/tool contract and known-answer test. | 10; moved out of Harness |
+| 42 | Build: The Orchestrator and Gates | Request/manifest, numerical checks, fresh reviews and controller-owned transitions; show a short real-code excerpt and test. | 13 + 35; construction view |
+| 43 | Build: Register and Inspect a Hook | Original hook manifest, deduplication, incomplete coverage and Kimi timeout/error behavior. | 34 |
+| 44 | Build: Run One Research Case | /qt:start and retained request, reports, numerical evidence and route; label scripted versus live execution. | 35 |
+| 45 | Build: Repair a Rejected Submission | Missing specialist/stale ID in a disposable case; verify hashes and keep sealed evidence intact. | 36; exercise |
+| 46 | Build: Replay, Audit and Resume | Original reconstruction questions, frozen numerical replay, separate model runs, pending-step resume and fresh-case rules. | 24 + 37; exercise |
+| 47 | Build: Production Data and Adapters | Licensed dated data, historical universe/suspensions/delistings, board/date rules and fees, host isolation and tested adapters. | 47 |
+| 48 | Build: Research Validation | Future-price perturbation, restatements, cost stress and walk-forward checks; passing does not establish excess returns. | 48 |
+| 49 | Build: Capital Authority and Reconciliation | Draft/reviewed/reconciled; positions, shared limits, approval expiry, fills and accountable capital decisions. | 49 |
+| 50 | Evolve: Capture the Failure | /qt:evo and evo-prepare; evidence-bound case, parent version, required behavior and separate evaluation cases. | Capture part of 39 |
+| 51 | Evolve: Propose One Prompt Change | Original timing diff and missing-evidence instruction; explain why it addresses the failure; state this is one concrete example of broad evolution. | Diff part of 39; exercise |
+| 52 | Evolve: Compare Outputs with promptfoo | Original dates, PRICE_01/MISSING_02, config and companion checks; verify semantic timing and evidence. | 41; exercise |
+| 53 | Evolve: Generate Candidates with DSPy/GEPA | Callable program, development cases, metric, feedback and search budget; preserve external-extension status. | 42 |
+| 54 | Evolve: Judge the Evidence | Original timing-pass/evidence-fail comparison; repair and independently check before adoption. | 43; exercise |
+| 55 | Evolve: Record the Tested Version | QT prompt registry and MLflow counterpart; model/tools/policy/data versions and separate approval record. | 44 |
+| 56 | Evolve: Approve or Reject Adoption | evo-evaluate, AWAITING_APPROVAL, explicit evo-adopt; examine actual behavioral comparison beyond schema/code checks. | Adoption half of 45; exercise |
+| 57 | Evolve: Roll Back and Monitor | Approved evo-rollback, retained versions/evidence, verify a new case and monitor later failures; current cases keep original versions. | Rollback half of 45 + 46 |
+| 58 | Review the Completed System | Defend one control against a stakeholder need; show tests, supported conclusions and remaining implementation gaps. | 50 + 4; exercise |
 
-## Section 3: Case — The Quant System
+## Preservation map
 
-Recommended instructional mode: students assemble and modify a tested starter.
-They author a role specification and one validation rule, inspect the controller,
-and demonstrate the result on the common case. This makes “build” an observable
-activity while keeping the numerical infrastructure small and inspectable.
-Whether the user instead wants a blank-project build remains a design question.
+| Current page(s) | New page(s) |
+|---|---|
+| 1 | 1 |
+| 2, 4 | 3, 58 |
+| 3 | 8 |
+| 5, 21, 31, 38 | 2, 9, 37 and subsection navigation |
+| 6 | 5–6 |
+| 7 | 40 |
+| 8 | 13 |
+| 9 | 14 |
+| 10 | 41 |
+| 11 | 19 |
+| 12, 18 | 10–11, 20 |
+| 13 | 10–12, 42 |
+| 14 | 25, 29 |
+| 15, 30 | 4, 27, 36 |
+| 16 | 28 |
+| 17 | 21 |
+| 19 | 22–23 |
+| 20 | 16 |
+| 22 | 17 |
+| 23 | 24 |
+| 24 | 18, 46 |
+| 25, 26 | 15 |
+| 27 | 5, 7 |
+| 28 | 30 |
+| 29 | 31 |
+| 32 | 38 |
+| 33 | 39 |
+| 34 | 43 |
+| 35 | 42, 44 |
+| 36 | 45 |
+| 37 | 24, 46 |
+| 39 | 32, 50–51 |
+| 40 | 32–33, 41, 52 |
+| 41 | 52 |
+| 42 | 53 |
+| 43 | 54 |
+| 44 | 34, 55 |
+| 45 | 34, 56–57 |
+| 46 | 35, 57 |
+| 47 | 47 |
+| 48 | 48 |
+| 49 | 49 |
+| 50 | 58 |
 
-Every build page should show a concrete component, its artifact and one check.
-Every evolve page should show a change, evidence about that change, or a version
-decision. Installation alone is not evidence that students built the system.
+Retain the original participation at new pages 21, 45, 46, 51, 52, 54, 56 and 58.
+Preserve source links for AP2, FINRA, Kimi hooks, promptfoo, DSPy/GEPA and MLflow.
+Keep examples labelled illustrative; retain synthetic-fixture limitations,
+missing production adapters, and separate research/version/capital approvals.
 
-| Page | Subsection and proposed title | Action or visible result | Current material |
-|---:|---|---|---|
-| 31 | Case Roadmap: Build and Evolve | Highlight the same QT system and the two public entry points. Show the build/evolve sequence. | Replace old navigation |
-| 32 | Build: Package and Entry Points | Map the plugin tree to roles, tools, controller and tests. Preserve `/qt:start`, `/qt:evo`, installation/reload instructions and workspace `.qt/` state separation. | 32 |
-| 33 | Build: Leads and Specialists | Create/inspect the Generator role card and specialist allowlist. Verify dispatch records and separate responses; saved report counts alone do not prove live delegation. | 33 |
-| 34 | Build: Numerical Tools and Gates | Connect a callable numerical tool to frozen inputs, typed outputs and a known-answer test. Show a short real code excerpt and a failing check; preserve the controller regression command. | 10/35/40; new construction view of existing code |
-| 35 | Build: The Orchestrator | Map requests, manifests, numerical checks, fresh reviews, findings and stop rules into controller transitions. Show which code owns the state change and why a failed gate blocks advancement. | 13/35; new construction view of existing controller |
-| 36 | Build: Register and Inspect a Hook | Preserve the concrete hook manifest and log. Keep deduplication, limited event coverage and host error/timeout behavior explicit. | 34 |
-| 37 | Build: Run One Research Case | Execute `/qt:start`; inspect request, specialist reports, numerical evidence and route. Distinguish live dispatch from a labelled scripted rehearsal. | 35 |
-| 38 | Build: Repair a Rejected Submission | Use a disposable case to repair a missing report or stale request. Preserve seal/hash checks and the rule against altering sealed evidence. | 36; exercise |
-| 39 | Build: Replay, Audit and Resume | Reconstruct inputs/code, findings, stopping rule and approved prompt version. Recompute frozen numerical output, retain separate model-run records, and resume pending work. A completed case reuses saved output; changed configuration/fresh evaluation requires a new case. | 24 + 37; audit exercise |
-| 40 | Build: Data and Research Validation | Preserve licensed dated inputs, historical membership/suspensions/delistings, market rules/fees, host isolation and tested adapters. Retain the future-price perturbation exhibit, restatements, cost stress, walk-forward checks and limits of return claims. | 47 + 48 |
-| 41 | Build: Capital Authority and Reconciliation | Keep the draft → reviewed → reconciled diagram. Check positions, portfolio limits, approval expiry and fills. Research acceptance is separate from authority to place an order. | 49 |
-| 42 | Evolve: Capture the Failure | Use `/qt:evo`/`evo-prepare`; bind the completed case, failure evidence and parent prompt. Define required timing behavior and development/held-out cases. | Test-case half of 39 |
-| 43 | Evolve: Propose One Prompt Change | Keep the exact timing prompt diff and missing-evidence instruction. Students explain the causal link from failure to patch and preserve strategy/risk/acceptance settings. | Prompt-diff half of 39; exercise |
-| 44 | Evolve: Compare Outputs with promptfoo | Preserve both output rows, 30 Sep 09:30 UTC+8, `PRICE_01`, `MISSING_02`, the config and companion checks. Inspect semantic failure, not just field presence. | 41; exercise |
-| 45 | Evolve: Generate Candidates with DSPy/GEPA | Preserve program, development cases, metric, feedback and search budget. Show the interface to candidate generation and separate held-out evaluation/adoption. Label the integration as an extension. | 42 |
-| 46 | Evolve: Judge the Evidence | Preserve the baseline/candidate comparison: timing improves but the unsupported citation still blocks adoption. Ask what repair and evidence are needed. | 43; exercise |
-| 47 | Evolve: Record the Tested Version | Show QT's immutable prompt versions/active pointer and MLflow as a counterpart. Keep model/tool/policy/data versions and a separate approval record. | 44 |
-| 48 | Evolve: Approve or Reject Adoption | Demonstrate `evo-evaluate` → `AWAITING_APPROVAL` → approved `evo-adopt`. Review the actual comparison evidence; runtime schema/code checks do not prove semantic improvement. | Adoption half of 45; exercise |
-| 49 | Evolve: Roll Back and Monitor | Demonstrate approved `evo-rollback`, preserve both versions/evidence, verify a new case and inspect later failures. Existing cases stay pinned to their original configuration. | Rollback half of 45 + operational use of 46 |
-| 50 | Review the Completed System | Return to evidence, control, continuity and improvement. Students defend a mechanism against a stakeholder need and distinguish tested behavior from remaining implementation work. | 50 + acceptance criteria from 4; exercise |
+## Parallel generation and review
 
-The existing `baseline/strategy.py`, numerical tests and orchestrator functions
-provide concrete code for pages 34–35. This proposal does not assert that a new
-production adapter, broker connection or broader evolution engine exists.
-promptfoo, GEPA and MLflow remain named external examples/extensions unless a
-later implementation task actually connects them to QT.
+1. Snapshot the current English deck and assets under ignored run logs.
+2. Opening/harness author: pages 2–18 and shared overview diagram.
+3. Loop/graph/evolution author: pages 19–36; reuse the overview for page 36.
+4. Case author: pages 37–58, preserving exact commands and worked numbers.
+5. Main agent owns the title/preamble, section assembly, crosswalk, builds and
+   integration. Do not alter shared `slides/misc/style.tex`.
+6. Generate figures in `figures/`, pure table content in `tables/`, and prose
+   in section sources. Keep fonts readable; favor 58 pages over dense compression.
+7. Apply humanize, then independent copy editing/proofreading. Verify coverage,
+   figures, commands, facts and sources; compile and inspect every PDF page.
+8. Send concrete review requests to the existing left Pi session. Request its
+   further proofread and a Gemini-4-Argon review through Pi at maximum reasoning.
+   Retain the actual returned reviews and provider/model evidence.
+9. Fix findings, rebuild, recheck affected pages and run a final whole-deck check.
+   Commit source and compiled PDF. Record anything unresolved or unimplemented.
 
-## Preservation crosswalk
-
-This is a content-level map. Repeated explanations can be consolidated and
-diagrams redrawn, while retaining every substantive example, qualification,
-command, source and exercise. No material is assigned only to an unseen appendix.
-
-| Current page(s) | Proposed page(s) | Treatment |
-|---|---|---|
-| 1 | 1 | Retain |
-| 2, 4 | 3, 50 | Combine task/acceptance; return to acceptance at the end |
-| 3 | 8 | Retain division-of-labor edits |
-| 5, 21, 31, 38 | 2, 9, 31 and subsection markers | Replace navigation to match the new hierarchy |
-| 6 | 5–6 | Split four stakeholder needs across two pages |
-| 7, 10 | 12, 34 | Keep both worked examples; apply numerical checks during build |
-| 8 | 10 | Retain harness anatomy |
-| 9 | 11 | Retain request and make its contract explicit |
-| 11 | 16 | Retain tool loop |
-| 12, 18 | 17 | Integrate independent-review counterexample into revision loop |
-| 13 | 22, 35 | Separate orchestration principle from controller construction |
-| 14 | 21 | Retain dependencies and handoffs |
-| 15, 30 | 4, 23 | Full-system overview; detailed teams/joins later |
-| 16 | 25 | Retain aggregate-risk example and missing-control qualification |
-| 17 | 18 | Retain timing exercise and unresolved finding ledger |
-| 19 | 19 | Retain all terminal outcomes and QT-specific acceptance rule |
-| 20 | 14 | Retain conceptual hook/gate distinction |
-| 22, 23 | 15, 20 | Separate saved-state design from retry/recovery decisions |
-| 24 | 15, 39 | Evidence schema first; full reconstruction exercise in the case |
-| 25, 26 | 13 | Combine permission boundary, AP2 paid-data example and untrusted input |
-| 27 | 5, 7 | Preserve named responsibility, supervisory questions and FINRA scope |
-| 28, 29 | 4, 26–27 | Preserve three-loop distinction and complete outer-cycle mechanics |
-| 32 | 32 | Retain package, installation, commands and storage separation |
-| 33 | 33 | Retain agent card and evidence of real delegation |
-| 34 | 36 | Retain hook manifest and implementation limits |
-| 35 | 34–35, 37 | Distribute gate construction and end-to-end execution |
-| 36 | 38 | Retain submission-repair exercise |
-| 37 | 20, 39 | Retain replay/new-case/resume distinctions |
-| 39 | 28, 42–43 | Preserve evaluation split, capture requirements and exact prompt diff |
-| 40 | 28, 34, 44 | Preserve all evaluation criteria and software/model-test distinction |
-| 41 | 44 | Retain comparison data, command/config and exercise |
-| 42 | 45 | Retain GEPA requirements and integration limitations |
-| 43 | 46 | Retain failed-evidence example and adoption exercise |
-| 44 | 29, 47 | Versioning principle followed by actual registry counterpart |
-| 45 | 29, 48–49 | Separate general promotion policy from adoption/rollback demonstration |
-| 46 | 30, 49 | Monitoring principle followed by later-case verification |
-| 47, 48 | 40 | Combine production-data requirements with research-validation checks |
-| 49 | 41 | Retain authorization, positions, limits, expiry and fills |
-| 50 | 50 | Retain final defense of the system |
-
-All eight existing participation points remain: proposed pages 18, 38, 39, 43,
-44, 46, 48 and 50. Use the same failure evidence throughout; do not introduce a
-separate lab task or additional public QT commands.
-
-The densest proposed pages are 12, 13, 17, 39 and 40. They need exhibit-led
-rewriting and removal of repeated explanations, rather than verbatim stacking.
-Preserve distinct facts and examples; validate coverage and legibility after
-typesetting. The 50-page allocation is a design budget, not a compiled-layout
-claim for this new structure.
-
-## Decisions to pressure-test
-
-1. **Evolution scope.** Is the learning objective broad system improvement with
-   prompt evolution as the runnable example, or actual tool/controller evolution
-   in the classroom case? The latter needs additional implementation and evidence.
-2. **Meaning of build.** Do students construct selected components from a tested
-   starter, or create the whole package from a blank workspace? The recommended
-   structure assumes the former and makes their authored artifact inspectable.
-3. **Graph learning outcome.** Can a student explain dependencies, conditional
-   edges, artifact contracts, state ownership and joins? Merely naming agents
-   does not establish this learning outcome.
-4. **Evidence of evolution.** A successful `/qt:evo` invocation is not enough.
-   Which retained behavioral comparison shows improvement, what regressions were
-   checked, and what happens when the candidate fails a critical criterion?
-
-The first question is the current interview question. The proposed page map is
-concrete enough to revise while that scope decision is being discussed.
+This plan sets broad evolution principles without authorizing automatic changes
+to the QT implementation. The existing prompt-evolution case demonstrates one
+realizable slice of the broader design.
