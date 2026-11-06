@@ -25,13 +25,13 @@ Choose an activity from your work or study. \textbf{Buy-side quantitative strate
 \projectsection{2. Design the architecture using the lecture concepts}
 Provide an annotated workflow diagram and a short design note explaining:
 \begin{itemize}
-  \item \textbf{Roles and handoffs:} Specify each agent's responsibilities, tools, reusable skills or instructions, and input/output artifacts. Explain the division of work and use deterministic code for calculations where appropriate. Distinguish agent decisions from execution control by the harness/controller.
+  \item \textbf{Roles and handoffs:} Specify each agent's responsibilities, tools, reusable skills or instructions, and input/output artifacts. Explain why the work is divided this way. Use deterministic code for calculations where appropriate. Distinguish agent decisions from execution control by the harness/controller.
   \item \textbf{Long-running operation:} Describe persistent state and checkpoints, dependencies, and scheduling or new-input triggers. Specify retries and rules for stopping or escalating problems. Explain how interrupted runs resume without repeating completed actions. Set limits on time, cost, and tool permissions.
   \item \textbf{Verification and improvement:} Describe checks independent of the producing agent, human approval before consequential actions, and a bounded revision loop. Explain how you would test a proposed change against a fixed baseline, accept or reject it, record its version, and roll it back. For time-sensitive tasks, prevent future-information leakage.
 \end{itemize}
 
 \projectsection{3. Submit one ZIP with complete Git history}
-Include the design note and diagram, prompts, skills, configuration, code if implemented, shareable example inputs and outputs, and evidence of verification and recovery. In the root \texttt{README.md}, give your identification, task summary, \textbf{repository URL} (if applicable), and a guide to the files. Provide setup and run instructions or a walkthrough, with any relevant dependencies. Briefly explain your own contribution to the project. Make meaningful commits throughout development, not just at the end.
+Include the design note and diagram, prompts, skills, configuration, code if implemented, shareable example inputs and outputs, and evidence of verification and recovery. In the root \texttt{README.md}, identify yourself, summarize the task, and provide the \textbf{repository URL} (if applicable) and a guide to the files. Provide setup and run instructions or a walkthrough, with any relevant dependencies. Briefly explain your own contribution to the project. Make meaningful commits throughout development, not just at the end.
 
 Submit one ZIP of your \textbf{existing local project folder}, including all deliverables and the \textbf{complete hidden \texttt{.git/} directory}. Commit your final changes before compressing the folder. The repository must contain the full development history, not a shallow copy. Include hidden folders in the ZIP and name it \texttt{studentID-final-project.zip}.
 
