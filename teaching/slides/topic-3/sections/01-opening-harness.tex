@@ -11,7 +11,6 @@
 \end{center}
 \begin{itemize}
 \item Turn a trading idea and dated data into a strategy backed by evidence.
-\item Return the evidence and limitations; acceptance requires traceable, reproducible and recoverable work.
 \end{itemize}
 \end{frame}
 
@@ -27,42 +26,23 @@
 
 \begin{frame}{Finance: Stakes and Accountability}
 \begin{itemize}
-\item \textbf{Consequences}
+\item \textbf{Consequential actions}: errors can affect customers, capital and institutional obligations, and some actions are difficult to reverse.
 \begin{itemize}
-\item Some financial actions are difficult to reverse and can affect customers, capital and institutional obligations.
 \item Evidence supporting a conclusion does not itself authorize action.
 \end{itemize}
-\item \textbf{Ownership}
+\item \textbf{Dated information}: a financial result depends on what was available at the decision time and what version produced it.
 \begin{itemize}
-\item The auditor reconstructs inputs, versions and actual actions.
-\item The risk manager checks mandate, limits and who can approve or stop the workflow.
+\item Reconstruct the recorded run, recompute frozen calculations and keep fresh model evaluations separate.
 \end{itemize}
-\item \textbf{Continuity and change}
+\item \textbf{Bounded authority}: the system must show who can act, within which mandate and limits, and who can stop it.
 \begin{itemize}
-\item Operations needs verified progress and reconciliation after interruption.
-\item The system owner evaluates changes while preserving existing controls and a way back.
+\item Research acceptance, version approval and capital use are separate decisions.
 \end{itemize}
+\item \textbf{Continuity and governed change}: recover verified work after interruption and evaluate changes without losing the previous controls or version.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{From Stakes to Controls}
-\begin{itemize}
-\item \textbf{1. Consequences}
-\begin{itemize}
-\item Financial decisions need bounded authority and accountable owners.
-\end{itemize}
-\item \textbf{2. Operational demands}
-\begin{itemize}
-\item Reconstruct the recorded run; recompute frozen calculations; evaluate fresh model behavior separately.
-\item Recover from interruption without repeating uncertain consequential actions.
-\end{itemize}
-\item \textbf{3. Design response}
-\begin{itemize}
-\item Use gates, evidence, checkpoints, access boundaries and evaluated versions.
-\item These controls also apply to other applications with serious consequences.
-\end{itemize}
-\end{itemize}
-\end{frame}
+
 
 \begin{frame}{Division of Labor}
 \begin{center}
@@ -70,11 +50,11 @@
 \end{center}
 \medskip
 \begin{itemize}
-\item People choose the seed and system design, then decide capital use.
+\item People choose the seed and system design, then make final decisions.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Roadmap}
+\begin{frame}[t]{Roadmap}
 \begin{itemize}
 \item \textbf{Design of Long-Run Workflows}
 \begin{itemize}
@@ -89,24 +69,20 @@
 \item Evolve a reusable system version
 \end{itemize}
 \end{itemize}
-\end{frame}
-
-\begin{frame}[t,shrink=10]{Orchestrator, Generator, Critic}
-\setlength{\topsep}{0pt}
-\begin{center}
-\resizebox{!}{4.0cm}{\input{figures/oh_three_roles}}
-\end{center}
 \vspace{-1.0cm}
 \end{frame}
 
-\begin{frame}{Why Separate Roles?}
+\begin{frame}{Orchestrator, Generator, Critic}
 \begin{center}
-\small
-\input{tables/oh_separation}
+\resizebox{!}{4.0cm}{\input{figures/oh_three_roles}}
 \end{center}
+\end{frame}
+
+\begin{frame}[t,shrink=15]{Why Separate Roles?}
 \begin{itemize}
-\item Separate contexts help the Critic question the proposal, but both agents may make the same mistake.
-\item Use the roles when delegation and independent checking add value.
+\item \textbf{Producer self-certification}: the Critic examines evidence in a separate context, but shared mistakes remain possible.
+\item \textbf{Review changes the goal}: keep the mandate and acceptance criteria fixed.
+\item \textbf{Control ownership}: the Orchestrator routes; code validates transitions.
 \end{itemize}
 \end{frame}
 
@@ -122,16 +98,13 @@
 \end{frame}
 
 \begin{frame}{Inside a Harness}
-\begin{itemize}
-\item (1) Context and instructions: task, dated evidence and role responsibilities.
-\item (2) Tools and permissions: allowed actions, data paths and host-enforced boundaries.
-\item (3) State and memory: IDs, hashes, findings and read-only context across transitions.
-\item (4) Checks and outputs: schema, evidence, success/failure status and return artifact.
-\item The harness surrounds each role; the controller owns workflow state and advancement.
-\end{itemize}
+\begin{center}
+\resizebox{.92\textwidth}{!}{\input{figures/agent_harness}}
+\end{center}
 \end{frame}
 
 \begin{frame}{Contracts and Boundaries}
+\begin{center}\resizebox{.70\textwidth}{!}{\input{figures/untrusted_document}}\end{center}
 \begin{itemize}
 \item \textbf{Task and artifact contract}
 \begin{itemize}
@@ -148,6 +121,7 @@
 \end{frame}
 
 \begin{frame}{Hooks and State Controller}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/hook_concept}}\end{center}
 \begin{itemize}
 \item \textbf{Hook}
 \begin{itemize}
@@ -164,13 +138,15 @@
 \end{frame}
 
 \begin{frame}{State and Checkpoints}
-\begin{itemize}
-\item (1) Identity: case, request, candidate and prompt/version IDs.
-\item (2) Progress: pending role, round, retry count and deadline.
-\item (3) Evidence: paths and hashes that detect altered artifacts.
-\item (4) Findings: open problems and verified repairs.
-\item Save verified state at each transition; a conversation's last line does not show which steps finished.
-\end{itemize}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/interruption_states}}\end{center}
+\begin{enumerate}
+\item Identity: case, request, candidate and prompt/version IDs.
+\item Progress: pending role, round, retry count and deadline.
+\item Evidence: paths and hashes that detect altered artifacts.
+\item Findings: open problems and verified repairs.
+\end{enumerate} \bigskip
+
+Save verified state at each transition; a conversation's last line does not show which steps finished.
 \end{frame}
 
 \begin{frame}{Audit Evidence}

@@ -1,20 +1,16 @@
-% Page 2
+\section{导论}
 \begin{frame}{工程层次}
 \begin{center}
 \resizebox{!}{6.6cm}{\input{figures/oh_engineering_ladder}}
 \end{center}
 \end{frame}
-
-\section{导论}
-
-% Page 3
 \begin{frame}{构建智能体量化系统}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/product_package}}
-\end{center}
+\begin{center}\resizebox{.94\textwidth}{!}{\input{figures/product_package}}\end{center}
+\begin{itemize}
+\item 把交易想法与带日期的数据转化为有证据支撑的策略。
+\item 返回证据与局限；验收需要可追溯、可复算、可恢复的工作。
+\end{itemize}
 \end{frame}
-
-% Page 4
 \begin{frame}[t]{完整架构}
 \centering
 \resizebox{!}{6.0cm}{\input{figures/system_architecture}}
@@ -24,78 +20,61 @@
 \item 演进在各次运行之间评估系统改动；最终批准权仍由人掌握。
 \end{itemize}
 \end{frame}
-
-% Page 5
-\begin{frame}{金融：后果与问责}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/oh_finance_accountability}}
-\end{center}
+\begin{frame}{金融：主要差异}
 \begin{itemize}
-\item 部分金融操作难以撤销；支持结论的证据本身并不构成行动授权。
-\item 明确由谁审查异常情况、谁有权叫停工作流。具体义务取决于机构及其业务活动。
+\item \textbf{重大后果}
+\begin{itemize}
+\item 错误可能影响客户、资金和机构义务，部分操作难以撤销。
+\item 支持结论的证据本身不构成行动授权。
 \end{itemize}
-\begin{center}\scriptsize
-来源：\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1}；
-\href{https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf}{FINRA 2026，第 24--27 页（美国经纪交易商示例）}
-\end{center}
+\item \textbf{时间信息}
+\begin{itemize}
+\item 金融结果取决于决策时点可得的信息与产生该结果的版本。
+\item 应区分重建已发生的运行、复算固定计算和新的模型运行。
+\end{itemize}
+\item \textbf{边界授权}
+\begin{itemize}
+\item 需要明确谁能行动、授权范围、限额以及谁能停止工作流。
+\item 研究验收、版本批准和资金使用是不同决定。
+\end{itemize}
+\item \textbf{持续运行与受控变更}
+\begin{itemize}
+\item 中断后恢复已核验工作；评估改动时保留既有控制与旧版本。
+\end{itemize}
+\end{itemize}
 \end{frame}
 
-% Page 6
-\begin{frame}{金融：持续运行与变更中的可靠性}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/oh_finance_continuity}}
-\end{center}
-\begin{itemize}
-\item 新的模型运行可能走不同路径。务必留存实际发生的运行记录。
-\item 故障可能沿相连组件或共同的服务商扩散。
-\end{itemize}
-\begin{center}\scriptsize
-\href{https://www.fsb.org/uploads/P151026-1.pdf}{来源：FSB 人工智能良好实践最终报告，2026 年 10 月 15 日}
-\end{center}
-\end{frame}
-
-% Page 7
-\begin{frame}{金融：从需求到设计}
-\begin{center}
-\small
-\setstretch{1.0}
-\renewcommand{\arraystretch}{1.06}
-\input{tables/oh_finance_requirements}
-\end{center}
-\begin{itemize}
-\item 控制措施应与金融后果相匹配。其他可能造成严重后果的应用同样需要这些控制。
-\end{itemize}
-\begin{center}\scriptsize
-来源：\href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026}；
-\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1}；
-\href{https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf}{NIST AI RMF}
-\end{center}
-\end{frame}
-
-% Page 8
 \begin{frame}{职责分工}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/division_of_labor}}
 \end{center}
 \medskip
 \begin{itemize}
-\item 由人选定初始想法与系统设计，再决定资金使用。
+\item 人选择初始想法与系统设计，再决定如何使用资金。
 \end{itemize}
 \end{frame}
-
-\section{长程工作流设计}
-
-% Page 9
-\begin{frame}{本讲提纲}
+\begin{frame}{提纲}
+\begin{itemize}
+\item \textbf{长程工作流设计}
+\begin{itemize}
+\item Harness：运行环境与控制
+\item Loop：循环与停止
+\item Graph：依赖与交接
+\item Evolution：经评估的系统改动
+\end{itemize}
+\item \textbf{量化系统案例}
+\begin{itemize}
+\item 构建 QT 组件与检查
+\item 演进一个可复用的系统版本
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{Orchestrator、Generator 与 Critic}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/oh_design_roadmap}}
 \end{center}
 \end{frame}
-
-\subsection{Harness}
-
-% Page 10
-\begin{frame}{Orchestrator--Generator--Critic 设计}
+\begin{frame}{为何分开角色？}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/oh_three_roles}}
 \end{center}
@@ -104,9 +83,7 @@
 \item Generator 和 Critic 都不能自行扩大权限或绕过检查。
 \end{itemize}
 \end{frame}
-
-% Page 11
-\begin{frame}{三种角色：为何分开？}
+\begin{frame}{角色契约}
 \begin{center}
 \small
 \input{tables/oh_separation}
@@ -115,98 +92,60 @@
 \item 独立的上下文有助于 Critic 质疑方案，但两个 Agent 仍可能犯同样的错误。
 \item 在任务委派和独立核验确有价值时采用这些角色。
 \end{itemize}
-\begin{center}\scriptsize
-\href{https://www.anthropic.com/research/building-effective-agents}{来源：Anthropic，Orchestrator / 工作者与评估者 / 优化者模式}
-\end{center}
 \end{frame}
-
-% Page 12
-\begin{frame}{角色契约与权限}
+\begin{frame}{每个 Harness 内部}
 \begin{center}
-\small
-\input{tables/oh_role_contracts}
+\resizebox{.92\textwidth}{!}{\input{figures/agent_harness}}
 \end{center}
 \begin{itemize}
-\item 不同角色获得不同的指令、上下文、工具和写入权限。
-\item 在提示词中说明权限，并通过宿主或控制器执行这些限制。
+\item 四个编号组件共同构成每个角色的 Harness；控制器拥有运行状态并负责推进流程。
 \end{itemize}
 \end{frame}
-
-% Page 13
-\begin{frame}{每个角色的 Harness}
-\begin{center}
-\resizebox{.91\textwidth}{!}{\input{figures/agent_harness}}
-\end{center}
+\begin{frame}{契约与边界}
 \begin{itemize}
-\item Harness 提供上下文、工具、已保存的状态，并检查角色返回的内容。
-\item 角色提示词说明职责；外围系统负责落实边界。
-\end{itemize}
-\end{frame}
-
-% Page 14
-\begin{frame}{任务与产物契约}
-\begin{center}
-\small
-\input{tables/oh_task_contract}
-\end{center}
+\item \textbf{任务与产物契约}
 \begin{itemize}
-\item 工作开始前，先明确完成条件和失败条件。
-\item 每份返回产物都须关联对应请求及其支持证据。
+\item 明确任务、固定输入、权限、返回格式及完成/失败条件。
+\item 每份产物都关联请求及其支持证据。
 \end{itemize}
-\end{frame}
-
-% Page 15
-\begin{frame}{权限与不可信输入}
-\begin{center}
-\resizebox{.90\textwidth}{!}{\input{figures/untrusted_document}}
-\end{center}
-\begin{center}
-\small
-\input{tables/action_mandate}
-\end{center}
+\item \textbf{权限边界}
 \begin{itemize}
-\item 披露文件和网页不能改变权限。须通过宿主落实文件与网络访问限制。
-\item 示例：Agent 请求采购付费数据。AP2 展示了签名授权机制；QT 本身没有支付权限。
+\item 披露文件和网页是数据，不是权限来源。
+\item 付费数据请求仍需核验用途、供应商、金额、有效期、身份和批准人。
+\item 课堂 QT 没有支付或券商权限。
 \end{itemize}
-\begin{center}\scriptsize
-\illustrative\quad
-\href{https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md}{来源：AP2 v0.2 规范}
-\end{center}
+\end{itemize}
 \end{frame}
-
-% Page 16
-\begin{frame}{事件钩子、检查关卡与核验}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
-\end{center}
+\begin{frame}{Hook 与状态控制器}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/hook_concept}}\end{center}
 \begin{itemize}
-\item 钩子（Hook）在指定事件发生时运行脚本；Agent 无需记得主动记录。
-\item 观察型钩子记录事件；阻断型钩子只有在宿主支持时才能阻止操作。
-\item 控制器的检查关卡决定候选方案能否进入下一步。
+\item \textbf{Hook}
+\begin{itemize}
+\item 宿主事件发生时运行回调，记录事件元数据。
+\item 只有宿主支持事件阻断时，才可能阻止操作。
+\end{itemize}
+\item \textbf{状态控制器}
+\begin{itemize}
+\item 核验提交产物、哈希、问题项和数值检查。
+\item 决定运行是前进、重试、等待还是停止。
+\end{itemize}
+\item Hook 观察事件；控制器管理工作流状态。
 \end{itemize}
 \end{frame}
-
-% Page 17
 \begin{frame}{状态与检查点}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/interruption_states}}
-\end{center}
-\begin{center}
-\small
-\input{tables/oh_checkpoint_state}
-\end{center}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/interruption_states}}\end{center}
 \begin{itemize}
-\item 每次状态转换时保存已核验的状态。对话的最后一行并不能说明哪些步骤已经完成。
+\item (1) 身份：案例、请求、候选方案和提示词/版本 ID。
+\item (2) 进度：待处理角色、轮次、重试次数和截止时间。
+\item (3) 证据：用于发现产物变化的路径与哈希。
+\item (4) 问题项：未解决问题和已核验修复。
+\item 每次状态转换时保存已核验状态；对话最后一行不能说明哪些步骤已经完成。
 \end{itemize}
 \end{frame}
-
-% Page 18
-\begin{frame}{证据与审计记录}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}
-\end{center}
+\begin{frame}{审计证据}
+\begin{center}\resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}\end{center}
 \begin{itemize}
 \item 将 JSON 证据保存在本地，并保留 Git 版本历史。每次批准都记录批准人、时间戳，以及获准的操作或版本。
-\item 其他分析师可据此重建可观测的操作与文件；该记录并不揭示模型隐藏的内部推理。
+\item 另一位分析师可以据此重建可观察的操作与文件；记录并不揭示模型隐藏的推理过程。
 \end{itemize}
 \end{frame}

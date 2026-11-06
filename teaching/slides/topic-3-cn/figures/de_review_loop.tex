@@ -8,9 +8,8 @@
 \node[box,draw=forestgreen,fill=forestgreen!5] (o) at (11.95,0) {\textbf{Orchestrator}\\修订、验收\\或停止};
 \draw[flow] (g)--(t);\draw[flow] (t)--(c);\draw[flow] (c)--(o);
 \draw[flow] (o.south)--(11.95,-1.35)--node[below,lab]{修复任务包：问题项 + 所需证据}(1.6,-1.35)--(g.south);
-\node[box,text width=3.3cm,minimum height=1.0cm] (claim) at (2.1,-2.75) {\textbf{Generator 的声明}\\\lq\lq 已计入成本\rq\rq};
+\node[box,text width=3.3cm,minimum height=1.0cm] (claim) at (2.1,-2.75) {\textbf{Generator 的声明}\\“已计入成本”};
 \node[box,text width=3.3cm,minimum height=1.0cm] (inspect) at (6.8,-2.75) {\textbf{Critic 的核查}\\保存的交易记录 + 回测};
 \node[box,text width=3.3cm,minimum height=1.0cm,draw=darkred,fill=red!4] (finding) at (11.5,-2.75) {\textbf{问题项}\\未扣除成本};
 \draw[flow] (claim)--(inspect);\draw[flow] (inspect)--(finding);
-\node[font=\scriptsize,text=black!55] at (6.8,-3.6) {审查示例};
 \end{tikzpicture}

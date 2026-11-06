@@ -1,35 +1,35 @@
 # Topic 3: Build and Improve a Quant Research System
 
-The English and Chinese decks each have 58 aligned pages. This guide uses their
+The English and Chinese decks each have 54 aligned pages. This guide uses their
 shared PDF page numbers, including the title. The Chinese version translates
 the same content; executable listings and identifiers remain verbatim.
 One synthetic monthly-momentum case connects three sections: Introduction;
 Design of Long-Run Workflows; Case: The Quant System.
 
 Page 2 carries the engineering ladder from Topic 2. Page 3 states the task and
-acceptance criteria. Pages 4 and 36 repeat the same complete operating architecture
+acceptance criteria. Pages 4 and 34 repeat the same complete operating architecture
 inside one Evolution enclosure; the detailed evolution workflow appears on
-page 31. Pages 5–7 motivate the financial requirements and page 8 locates human
+page 29. Page 5 gives the concise finance motivation and page 6 locates human
 judgment and capital decisions.
 
-Roadmaps on pages 9 and 37 mark design and case. Design covers Harness, Loop,
+Roadmaps on pages 7 and 35 mark design and case. Design covers Harness, Loop,
 Graph and Evolution; the case covers Build and Evolve. O–G–C what/why/authority
-comes first in Harness, on pages 10–12. PIT and numerical details belong to the
-case, on pages 40–41. Breaks remain in the schedule rather than on separate slides,
+comes first in Harness, on pages 8–10. PIT and numerical details belong to the
+case, on page 40's integrated research-case slide. Breaks remain in the schedule rather than on separate slides,
 and participation remains within the common task.
 
 ## Four-hour schedule
 
 | Pages | Time | Teaching purpose |
 |---|---|---|
-| 1–8 | 00:00–00:20 | Task, architecture, finance requirements and division of labor |
-| 9–24 | 00:20–01:10 | Harness, O–G–C roles, contracts, loops and recovery |
+| 1–6 | 00:00–00:20 | Task, architecture, finance requirements and division of labor |
+| 7–21 | 00:20–01:10 | Harness, O–G–C roles, contracts, loops and recovery |
 | — | 01:10–01:20 | Break; no slide |
-| 25–36 | 01:20–02:00 | Graphs, broad evolution and complete-architecture recap |
-| 37–49 | 02:00–02:55 | Build QT components, run, repair, replay and assess production gaps |
+| 22–34 | 01:20–02:00 | Graphs, broad evolution and complete-architecture recap |
+| 35–45 | 02:00–02:55 | Build QT components, run, repair, replay and assess production gaps |
 | — | 02:55–03:05 | Break; no slide |
-| 50–57 | 03:05–03:55 | Capture, propose, evaluate, compare, version, adopt and restore |
-| 58 | 03:55–04:00 | Final system review |
+| 46–52 | 03:05–03:55 | Capture, propose, evaluate, compare, version, adopt and restore |
+| 53 | 03:55–04:00 | Final system review |
 
 This is 240 elapsed minutes, including 20 minutes of breaks. Retain three minutes
 of contingency inside both the QT and improvement blocks. Use prepared
@@ -39,15 +39,15 @@ checkpoints rather than waiting for an entire live multi-agent run to finish.
 
 | Pages | Action | Minutes included above |
 |---|---|---:|
-| 21 | Write a repair criterion for the current finding | 5 |
-| 45 | Repair a blocked submission and inspect the next route | 7 |
-| 46 | Reconstruct the case from saved evidence | 5 |
-| 50–51 | Define a regression case and propose one prompt edit | 6 |
-| 52, 54 | Inspect output differences and check a partner's claim | 8 |
-| 56 | Defend adoption or rejection | 4 |
+| 19 | Write a repair criterion for the current finding | 5 |
+| 41 | Repair a blocked submission and inspect the next route | 7 |
+| 42 | Reconstruct the case from saved evidence | 5 |
+| 46–47 | Define a regression case and propose one prompt edit | 6 |
+| 48, 50 | Inspect output differences and check a partner's claim | 8 |
+| 51 | Defend adoption or rejection | 4 |
 
 These 35 minutes are part of the schedule, followed by the five-minute final
-system defense on page 58. There is no separate lab task or submission rubric.
+system defense on page 53. There is no separate lab task or submission rubric.
 
 ## Core distinctions
 
@@ -56,7 +56,7 @@ rejecting a candidate strategy. Keep three decisions separate: the controller's
 research verdict, the owner's approval of a prompt version, and authority to
 deploy capital. QT does not send broker orders.
 
-Page 6 introduces three tests, which recur on pages 18 and 46:
+Page 5 introduces three tests, which recur on pages 15 and 42:
 
 1. Audit reconstruction uses the original saved evidence and action records.
 2. Calculation replay fixes inputs, code, configuration, and relevant environment.
@@ -105,8 +105,8 @@ you want to resume.
 
 ## Hooks
 
-Page 16 combines event triggering, observation, host-permitted blocking, and
-controller gates. Page 43 shows the
+Page 13 combines event triggering, observation, host-permitted blocking, and
+controller gates. Page 39 shows the
 optional [Bash-event logging example](hooks/README.md).
 It is not enabled in QT by default. Add its script and manifest fragment to a
 plugin copy, then reinstall and reload.

@@ -1,0 +1,8 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.55cm,minimum height=1.55cm,align=center,font=\small,inner sep=5pt},
+  link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (c) at (1.9,0) {\textbf{后果}\\资金、客户、机构义务};
+\node[box] (d) at (6.6,0) {\textbf{运行要求}\\重建、恢复、授权};
+\node[box,draw=forestgreen,fill=forestgreen!6] (r) at (11.3,0) {\textbf{设计回应}\\关卡、证据、边界、版本};
+\draw[link] (c)--(d);\draw[link] (d)--(r);
+\end{tikzpicture}

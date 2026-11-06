@@ -1,101 +1,73 @@
 \section{Design of Long-Run Workflows}
 \subsection{Loop}
-\begin{frame}{Loop}
-\begin{columns}[T]
-\begin{column}{.29\textwidth}\begin{block}{Loop}
+\begin{frame}{Loop Roadmap}
 \begin{itemize}
-\item Act, observe, decide
+\item \textbf{Loop}
+\begin{itemize}
+\item Act, observe and decide
 \item Revise and critique
-\item Findings and repairs
-\item Acceptance and recovery
+\item Carry findings and verify repairs
+\item Accept, stop and recover
 \end{itemize}
-\end{block}\end{column}
-\begin{column}{.67\textwidth}\begin{block}{Act, Observe, Decide}
-\begin{center}
-\resizebox{.91\textwidth}{!}{\input{figures/tool_loop}}
-\end{center}
+\end{itemize}
+\end{frame}
+\begin{frame}{Act, Observe, Decide}
+\begin{center}\resizebox{.91\textwidth}{!}{\input{figures/tool_loop}}\end{center}
 \begin{itemize}
 \item A failed tool call leaves work to do.
 \item Use the observation to choose the next action.
 \item Retry temporary errors within a fixed limit; invalid evidence must not advance the case.
 \end{itemize}
-\end{block}\end{column}
-\end{columns}
 \end{frame}
 \begin{frame}{Revision Loop}
-\setlength{\topsep}{0pt}
-\begin{center}
-\resizebox{.96\textwidth}{!}{\input{figures/de_review_loop}}
-\end{center}
+\begin{center}\resizebox{.96\textwidth}{!}{\input{figures/de_review_loop}}\end{center}
 \begin{itemize}
 \item Give the Critic saved trades and backtest outputs to inspect.
-\item A fresh Critic each round can reduce anchoring on earlier responses; shared mistakes remain possible.
+\item A fresh Critic each round can reduce anchoring on earlier responses.
 \item Keep the mandate and acceptance rules fixed during revision.
 \end{itemize}
 \end{frame}
-\begin{frame}{Findings and Repairs}
-\setlength{\topsep}{0pt}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/de_timing_ledger}}
-\end{center}
-\begin{center}\illustrative\end{center}
+\begin{frame}{Findings and Repairs\handsup}
+\begin{center}\resizebox{.94\textwidth}{!}{\input{figures/de_timing_ledger}}\end{center}
 \begin{itemize}
 \item Question: What check on the saved files would show that the timing problem is fixed?
 \item Include every unresolved finding in the next request.
 \end{itemize}
 \end{frame}
 \begin{frame}{Acceptance}
-\begin{center}
-\resizebox{.95\textwidth}{!}{\input{figures/de_acceptance}}
-\end{center}
-\begin{itemize}
-\item QT requires two consecutive clean full reviews of the same candidate. A candidate change resets the streak.
-\item This classroom acceptance rule does not establish profitability or authorize a trade.
-\end{itemize}
+\begin{center}\resizebox{.95\textwidth}{!}{\input{figures/de_acceptance}}\end{center}
 \end{frame}
-\begin{frame}{Budgets and Stopping}
+\begin{frame}{Stopping and Recovery}
+\begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_recovery_cycle}}\end{center}
 \begin{itemize}
 \item Set limits on rounds, attempts, tool calls and elapsed time before starting.
 \item Continue is a nonterminal route; rejection, blocking, exhaustion, stalling and user stop are distinct outcomes.
-\item Record the stopping reason. Exhaustion never turns a failed result into acceptance.
-\end{itemize}
-\end{frame}
-\begin{frame}{Recovery}
-\begin{itemize}
-\item After a timeout, check whether work completed before a limited retry.
-\item Return format or coverage errors to the role that produced the report.
-\item Block and investigate altered sealed evidence.
-\item Reconcile uncertain external actions before repeating them.
+\item Check completion, repair errors, investigate changed evidence and reconcile uncertain external actions before retrying.
 \item Resume only verified pending work; a completed case returns its saved result.
 \end{itemize}
 \end{frame}
 \subsection{Graph}
-\begin{frame}{Graph}
-\begin{columns}[T]
-\begin{column}{.29\textwidth}\begin{block}{Graph}
+\begin{frame}{Graph Roadmap}
+\begin{itemize}
+\item \textbf{Graph}
 \begin{itemize}
 \item Dependencies and handoffs
 \item Artifacts and shared state
 \item Teams, fan-out and joins
-\item Conditional routing
+\item Conditional routing and combined limits
 \end{itemize}
-\end{block}\end{column}
-\begin{column}{.67\textwidth}\begin{block}{Dependencies and Handoffs}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/de_dependencies}}
-\end{center}
+\end{itemize}
+\end{frame}
+\begin{frame}{Dependencies and Handoffs}
+\begin{center}\resizebox{.94\textwidth}{!}{\input{figures/de_dependencies}}\end{center}
 \begin{itemize}
 \item Nodes perform tasks; edges specify prerequisites and handoffs.
 \item Wait for missing inputs. Return failed reviews to the Generator.
 \item A forward chain can be acyclic; its repair edge makes the complete workflow cyclic.
 \end{itemize}
-\end{block}\end{column}
-\end{columns}
 \end{frame}
 \begin{frame}{Artifacts and Shared State}
-\begin{center}
-\resizebox{.96\textwidth}{!}{\input{figures/de_handoff}}
-\end{center}
+\begin{center}\resizebox{.96\textwidth}{!}{\input{figures/de_handoff}}\end{center}
 \begin{itemize}
 \item Workers write separate reports. Only the controller updates the run's control state.
 \item Validate identity, completeness and evidence before merging.
@@ -103,51 +75,45 @@
 \end{itemize}
 \end{frame}
 \begin{frame}{Teams and Joins}
-\setlength{\topsep}{0pt}
-\begin{center}
-\resizebox{.86\textwidth}{!}{\input{figures/gan_loop}}
-\end{center}
+\begin{center}\resizebox{.86\textwidth}{!}{\input{figures/gan_loop}}\end{center}
 \begin{itemize}
 \item Use Data \& Evidence, Robustness, Execution and Risk \& Controls when checks need different expertise.
 \item Wait for required reports; check identity, evidence and combined exposure before joining results.
 \item Data review covers quality, provenance and timing; risk review covers limits and authorization evidence.
 \end{itemize}
 \end{frame}
-\begin{frame}[t,shrink=10]{Conditional Routing}
-\setlength{\itemsep}{0.12em}
+\begin{frame}{Conditional Routing}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/de_conditional_routing}}\end{center}
 \begin{itemize}
 \item Choose the next task using validated status and dependencies.
 \item Wait when inputs are missing; repair invalid submissions at the same role; keep downstream work blocked until checks pass.
 \item A changed input version starts a new case and rebuilds dependent outputs.
 \item Local passes do not guarantee a valid combined exposure; the classroom fixture lacks this portfolio-wide gate.
-\item End by retaining the terminal reason.
 \end{itemize}
-\vspace{-1.0cm}
 \end{frame}
 \subsection{Evolution}
-\begin{frame}{Evolution}
-\begin{columns}[T]
-\begin{column}{.29\textwidth}\begin{block}{Evolution}
+\begin{frame}{Evolution Roadmap}
 \begin{itemize}
-\item Prompts and context
-\item Skills
-\item Tools and code
-\item Roles and workflow structure
+\item \textbf{Evolution}
+\begin{itemize}
+\item What can change: prompts/context, skills, tools/code, roles/workflow
+\item Evidence and evaluation
+\item Regression review
+\item Version control, approval and monitoring
 \end{itemize}
-\end{block}\end{column}
-\begin{column}{.67\textwidth}\begin{block}{What Can Change?}
+\end{itemize}
+\end{frame}
+\begin{frame}{Evolution}
 \begin{itemize}
 \item Tool loops choose actions; research loops revise candidates.
 \item Evolution evaluates reusable system changes for adoption, rejection or deferral.
 \item Strategy-parameter search stays within research; QT demonstrates prompt-version evolution.
 \end{itemize}
-\end{block}\end{column}
-\end{columns}
 \end{frame}
 \begin{frame}{Evolution Workflow}
 \setlength{\topsep}{0pt}
 \begin{center}
-\resizebox{.96\textwidth}{!}{\input{figures/de_evolution_system}}
+\resizebox{.90\textwidth}{!}{\input{figures/de_evolution_system}}
 \end{center}
 \begin{itemize}
 \item The Generator proposes a scoped change and tests; fresh Critics review evidence, regressions and scope.

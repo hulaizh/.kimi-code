@@ -1,6 +1,7 @@
 \section{Case: The Quant System}
 \subsection{Build}
 \begin{frame}{Roadmap}
+Case: The Quant System
 \begin{itemize}
 \item Build: package, roles, gates, case execution and production boundary.
 \item Evolve: capture, compare, approve, roll back and monitor.
@@ -55,7 +56,7 @@
 \item Label scripted rehearsals; host dispatch records are required when claiming a live team ran.
 \end{itemize}
 \end{frame}
-\begin{frame}{Repair a Rejected Submission}
+\begin{frame}{Repair a Rejected Submission\handsup}
 \begin{itemize}
 \item Missing specialist: reject the submission, stay at the current role and consume an attempt.
 \item Stale request ID: apply the same rejection and retry rule; a second invalid submission becomes \texttt{BLOCKED}.
@@ -64,7 +65,7 @@
 \item Call \texttt{advance} without \texttt{--response}; reread \texttt{request.json} and match the new ID across all reports. Check hashes; preserve sealed evidence.
 \end{itemize}
 \end{frame}
-\begin{frame}{Replay and Resume}
+\begin{frame}{Replay and Resume\handsup}
 \setlength{\topsep}{0pt}
 \begin{itemize}
 \item Reconstruct: inspect inputs/code, open and repaired findings, the stopping rule, role-card/version and any approval record.
@@ -112,7 +113,7 @@
 \input{figures/ca_capture_command}\par
 \end{frame}
 \subsection{Evolve}
-\begin{frame}{Prompt Change}
+\begin{frame}{Prompt Change\handsup}
 \begin{center}
 \input{figures/timing_prompt_diff}
 \end{center}
@@ -122,7 +123,7 @@
 \item This QT interface changes the Generator prompt. Strategy parameters, risk limits, acceptance rules, and controller code remain outside its scope.
 \end{itemize}
 \end{frame}
-\begin{frame}{Compare Outputs}
+\begin{frame}{Compare Outputs\handsup}
 \begin{center}
 \small\input{tables/promptfoo_example}
 \end{center}
@@ -133,7 +134,7 @@
 \item Question: Does either output pass both checks?
 \end{itemize}
 \end{frame}
-\begin{frame}{Judge Evidence}
+\begin{frame}{Judge Evidence\handsup}
 \begin{center}
 \small\input{tables/comparison_sheet}
 \end{center}
@@ -144,6 +145,7 @@
 \end{itemize}
 \end{frame}
 \begin{frame}{Version Control}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/de_version_flow}}\end{center}
 \begin{itemize}
 \item Git records source history and the diff that produced a candidate change.
 \item QT's registry records prompt bytes, active pointer, parent version and run configuration.
@@ -151,7 +153,8 @@
 \item An alias selects a version, but approval needs its own record.
 \end{itemize}
 \end{frame}
-\begin{frame}{Evaluate, Test, Approve}
+\begin{frame}{Evaluate, Test, Approve\handsup}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/adoption_gate}}\end{center}
 \begin{itemize}
 \item (1) Evaluate: run \texttt{evo-evaluate} with the proposal, review and regression result.
 \item (2) Test: inspect code regressions and the behavioral comparison, including held-out cases.
@@ -169,7 +172,7 @@
 \item Verify the restored version in a new case, then monitor later runs for recurring failures.
 \end{itemize}
 \end{frame}
-\begin{frame}{Final Review}
+\begin{frame}{Final Review\handsup}
 \begin{itemize}
 \item Evidence: trace and reproduce the recorded work.
 \item Control: block or explain when requirements fail.

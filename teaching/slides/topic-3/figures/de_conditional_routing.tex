@@ -1,0 +1,11 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.0cm,minimum height=1.0cm,align=center,font=\small,inner sep=5pt},
+  good/.style={draw=forestgreen,fill=forestgreen!6}, bad/.style={draw=darkred,fill=red!4},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (w) at (1.6,0) {\textbf{Wait}\\inputs missing};
+\node[box] (r) at (5.0,0) {\textbf{Repair}\\submission invalid};
+\node[box,good] (n) at (8.4,0) {\textbf{Advance}\\checks pass};
+\node[box,bad] (t) at (11.8,0) {\textbf{Stop}\\terminal outcome};
+\draw[flow] (w)--(r);\draw[flow] (r)--(n);\draw[flow] (n)--(t);
+\node[font=\scriptsize,align=center,text=black!60] at (6.7,-1.45) {A changed input version starts a new case and rebuilds dependent outputs.};
+\end{tikzpicture}

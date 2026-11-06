@@ -1,0 +1,8 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=3pt,text width=3.55cm,minimum height=1.55cm,align=center,font=\small,inner sep=5pt},
+  link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (c) at (1.9,0) {\textbf{Consequences}\\money, customers, obligations};
+\node[box] (d) at (6.6,0) {\textbf{Operational demands}\\reconstruct, recover, authorize};
+\node[box,draw=forestgreen,fill=forestgreen!6] (r) at (11.3,0) {\textbf{Design response}\\gates, evidence, boundaries, versions};
+\draw[link] (c)--(d);\draw[link] (d)--(r);
+\end{tikzpicture}

@@ -1,7 +1,17 @@
+\section{长程工作流设计}
 \subsection{循环}
-
-% Page 19
-\begin{frame}{循环：行动、观察与决策}
+\begin{frame}{循环提纲}
+\begin{itemize}
+\item \textbf{循环}
+\begin{itemize}
+\item 行动、观察、决策
+\item 修订与审查
+\item 携带问题项并核验修复
+\item 验收、停止与恢复
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{行动、观察与决策}
 \begin{center}
 \resizebox{.91\textwidth}{!}{\input{figures/tool_loop}}
 \end{center}
@@ -11,9 +21,7 @@
 \item 对暂时性错误进行有限次数的重试；无效证据不得推动案例进入下一步。
 \end{itemize}
 \end{frame}
-
-% Page 20
-\begin{frame}{循环：生成、检查与审查}
+\begin{frame}{修订循环}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_review_loop}}
@@ -24,22 +32,17 @@
 \item 修订过程中保持任务授权与验收规则不变。
 \end{itemize}
 \end{frame}
-
-% Page 21
-\begin{frame}[t]{循环：问题项与修复核验\handsup}
+\begin{frame}{问题项与修复\handsup}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/de_timing_ledger}}
 \end{center}
-\begin{center}\illustrative\end{center}
 \begin{itemize}
 \item 问题：对已保存文件做什么检查，才能证明时序问题已经修复？
 \item 下一次请求须包含所有尚未解决的问题项。
 \end{itemize}
 \end{frame}
-
-% Page 22
-\begin{frame}{循环：验收与完成}
+\begin{frame}{验收}
 \begin{center}
 \resizebox{.95\textwidth}{!}{\input{figures/de_acceptance}}
 \end{center}
@@ -48,35 +51,28 @@
 \item 这套课堂验收规则既不能证明策略盈利，也不构成交易授权。
 \end{itemize}
 \end{frame}
-
-% Page 23
-\begin{frame}{循环：预算、路由与停止}
-\begin{center}
-\small
-\input{tables/de_stop_routes}
-\end{center}
+\begin{frame}{停止与恢复}
+\begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_recovery_cycle}}\end{center}
 \begin{itemize}
 \item 开始前设定轮数、尝试次数、工具调用次数和用时上限。
-\item 记录停止原因。预算耗尽绝不能将失败结果变成验收通过。
+\item 继续是非终止路由；否决、阻断、耗尽、停滞和用户停止是不同结果。
+\item 重试前核验完成状态、修复错误、调查证据变化并核对不确定的外部操作。
+\item 只恢复已核验的待办工作；已完成案例直接返回保存的结果。
 \end{itemize}
 \end{frame}
-
-% Page 24
-\begin{frame}{循环：恢复与安全重试}
-\begin{center}
-\small
-\input{tables/de_recovery}
-\end{center}
-\begin{itemize}
-\item 仅恢复已核验的待办工作；已完成的案例直接返回保存的结果。
-\item 重试前先核对结果不确定的外部操作，避免重复下单或付款。
-\end{itemize}
-\end{frame}
-
 \subsection{图}
-
-% Page 25
-\begin{frame}{图：依赖关系与交接}
+\begin{frame}{图提纲}
+\begin{itemize}
+\item \textbf{图}
+\begin{itemize}
+\item 依赖与交接
+\item 产物与共享状态
+\item 团队、分发与汇合
+\item 条件路由与合并限额
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{依赖与交接}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/de_dependencies}}
 \end{center}
@@ -86,9 +82,7 @@
 \item 前向任务链可以无环；加入修复边后，完整工作流便包含循环。
 \end{itemize}
 \end{frame}
-
-% Page 26
-\begin{frame}{图：产物与共享状态}
+\begin{frame}{产物与共享状态}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_handoff}}
 \end{center}
@@ -98,9 +92,7 @@
 \item 明确保留相互冲突的问题项；最后提交的报告不得悄然将其覆盖。
 \end{itemize}
 \end{frame}
-
-% Page 27
-\begin{frame}{图：团队、任务分发与汇合}
+\begin{frame}{团队与汇合}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.86\textwidth}{!}{\input{figures/gan_loop}}
@@ -110,48 +102,35 @@
 \item 等待所有必需报告提交，再核验身份与证据，之后才能合并结果。
 \end{itemize}
 \end{frame}
-
-% Page 28
-\begin{frame}{图：合并结果与共同限额}
-\begin{center}
-\resizebox{.93\textwidth}{!}{\input{figures/aggregate_limit}}
-\end{center}
-\begin{center}\illustrative\end{center}
+\begin{frame}{条件路由}
+\begin{center}\resizebox{.82\textwidth}{!}{\input{figures/de_conditional_routing}}\end{center}
 \begin{itemize}
-\item 两项方案可各自满足局部限额，但合并后仍超出投资组合的共同限额。
-\item 课堂测试样例尚未实施这项组合层面的控制，需要另行补充。
+\item 依据已核验状态与依赖关系选择下一项任务。
+\item 输入缺失时等待；提交无效时在同一角色修复；检查通过前保持下游工作阻断。
+\item 输入版本变化时启动新案例并重建依赖产物。
+\item 局部检查通过不保证合并后的敞口有效；课堂样例没有组合层面的检查关卡。
 \end{itemize}
 \end{frame}
-
-% Page 29
-\begin{frame}{图：条件路由与恢复}
-\begin{center}
-\small
-\input{tables/de_graph_routes}
-\end{center}
-\begin{itemize}
-\item 依据已核验的状态与依赖关系，选择下一项任务。
-\item 输入版本发生变化时启动新案例：保留旧证据，并重新构建依赖这些输入的工作。
-\end{itemize}
-\end{frame}
-
 \subsection{演进}
-
-% Page 30
-\begin{frame}{演进：哪些内容可以改变？}
-\begin{center}
-\small
-\input{tables/de_evolution_targets}
-\end{center}
+\begin{frame}{演进提纲}
+\begin{itemize}
+\item \textbf{演进}
+\begin{itemize}
+\item 可改变的内容：提示词/上下文、技能、工具/代码、角色/工作流
+\item 证据与评估
+\item 回归审查
+\item 版本控制、批准与监测
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}{演进}
 \begin{itemize}
 \item 工具循环选择行动；研究循环修订候选策略。
-\item 演进评估可复用的系统改动，并决定采用、否决或暂缓。
-\item 策略参数搜索仍属于研究过程。QT 通过 Generator 提示词的版本更新演示演进。
+\item 演进评估可复用系统改动，并决定采用、否决或暂缓。
+\item 策略参数搜索仍属于研究；QT 通过提示词版本演示演进。
 \end{itemize}
 \end{frame}
-
-% Page 31
-\begin{frame}{演进：改进系统的完整流程}
+\begin{frame}{演进工作流}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_evolution_system}}
@@ -161,37 +140,24 @@
 \item 只有通过必要检查与审查的版本才可获批。改动若被否决或暂缓，继续保留当前启用版本。
 \end{itemize}
 \end{frame}
-
-% Page 32
-\begin{frame}{演进：证据与评估}
-\begin{center}
-\small
-\input{tables/de_evaluation_criteria}
-\end{center}
-\begin{center}
-\resizebox{.93\textwidth}{!}{\input{figures/de_evaluation_split}}
-\end{center}
+\begin{frame}{证据与评估}
 \begin{itemize}
-\item 比较改动之前，先确定评估标准。
-\item QT 的时序检查要求执行晚于信号实际可用时点；仅有日期字段并不充分。
+\item 比较改动前先确定标准。
+\item 检查格式、含义、证据支持与授权。
+\item 使用开发案例获取反馈，使用留出的案例进行最终评估。
+\item QT 时序检查要求在信号实际可用之后执行；仅有日期字段不充分。
+\end{itemize}
+\begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_evaluation_split}}\end{center}
+\end{frame}
+\begin{frame}{回归审查}
+\begin{itemize}
+\item 控制器测试检查缺失报告、过期 ID、无效证据和权限。
+\item 模型行为比较检查时序、证据以及是否修复记录的失败。
+\item QT 提示词接口不接受风险限额、策略参数和控制器代码改动。
+\item 改动提案不能降低自身验收标准。
 \end{itemize}
 \end{frame}
-
-% Page 33
-\begin{frame}{演进：回归检查与独立审查}
-\begin{center}
-\small
-\input{tables/de_regression}
-\end{center}
-\begin{itemize}
-\item 代码测试不能证明模型行为得到改善。
-\item QT 的提示词接口不接受对风险限额、策略参数和控制器代码的修改。
-\item 更广泛的改动需要另行界定范围与测试；改动提案不能降低自身的验收标准。
-\end{itemize}
-\end{frame}
-
-% Page 34
-\begin{frame}{演进：版本、批准与回滚}
+\begin{frame}{版本与回滚}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/de_version_flow}}
 \end{center}
@@ -201,9 +167,7 @@
 \item 保留新旧两个版本及其证据。回滚会恢复先前的版本指针，并须在新案例中核验行为。
 \end{itemize}
 \end{frame}
-
-% Page 35
-\begin{frame}{演进：监测与改动触发条件}
+\begin{frame}{监测}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/monitoring_cycle}}
 \end{center}
@@ -213,14 +177,9 @@
 \item 将已记录的失败反馈给演进流程。提示词优化并不保证可靠性。
 \end{itemize}
 \end{frame}
-
-% Page 36
-\begin{frame}[t]{完整架构：各部分如何协同}
-\centering
-\resizebox{!}{6.0cm}{\input{figures/system_architecture}}
-\par\raggedright
-\smallskip
+\begin{frame}[t]{完整架构}
+\begin{center}\resizebox{!}{6.0cm}{\input{figures/system_architecture}}\end{center}
 \begin{itemize}
-\item 在图中找出各角色的 Harness、修订循环、交接路径与演进边界。
+\item 定位角色 Harness、修订循环、交接路径与演进边界。
 \end{itemize}
 \end{frame}
