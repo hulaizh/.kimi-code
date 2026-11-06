@@ -1,21 +1,21 @@
-% Page 2
-\begin{frame}{The Engineering Ladder}
+\section{Introduction}
+\begin{frame}{Engineering Ladder}
 \begin{center}
 \resizebox{!}{6.6cm}{\input{figures/oh_engineering_ladder}}
 \end{center}
 \end{frame}
 
-\section{Introduction}
-
-% Page 3
-\begin{frame}{Building the Agentic Quant System}
+\begin{frame}{Build the Quant System}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/product_package}}
 \end{center}
+\begin{itemize}
+\item Turn a trading idea and dated data into a strategy backed by evidence.
+\item Return the evidence and limitations; acceptance requires traceable, reproducible and recoverable work.
+\end{itemize}
 \end{frame}
 
-% Page 4
-\begin{frame}[t]{The Complete Architecture}
+\begin{frame}[t]{Complete Architecture}
 \centering
 \resizebox{!}{6.0cm}{\input{figures/system_architecture}}
 \par\raggedright
@@ -25,54 +25,45 @@
 \end{itemize}
 \end{frame}
 
-% Page 5
-\begin{frame}{Finance: Consequences and Accountability}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/oh_finance_accountability}}
-\end{center}
+\begin{frame}{Finance: Stakes and Accountability}
 \begin{itemize}
-\item Some financial actions are difficult to reverse. Evidence supporting a conclusion does not itself authorize action.
-\item Name who reviews exceptions and can stop the workflow. Obligations depend on the institution and its activities.
+\item \textbf{Consequences}
+\begin{itemize}
+\item Some financial actions are difficult to reverse and can affect customers, capital and institutional obligations.
+\item Evidence supporting a conclusion does not itself authorize action.
 \end{itemize}
-\begin{center}\scriptsize
-Sources: \href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1};
-\href{https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf}{FINRA 2026, pp. 24--27 (US broker-dealer example)}
-\end{center}
+\item \textbf{Ownership}
+\begin{itemize}
+\item The auditor reconstructs inputs, versions and actual actions.
+\item The risk manager checks mandate, limits and who can approve or stop the workflow.
+\end{itemize}
+\item \textbf{Continuity and change}
+\begin{itemize}
+\item Operations needs verified progress and reconciliation after interruption.
+\item The system owner evaluates changes while preserving existing controls and a way back.
+\end{itemize}
+\end{itemize}
 \end{frame}
 
-% Page 6
-\begin{frame}{Finance: Reliability Through Time and Change}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/oh_finance_continuity}}
-\end{center}
+\begin{frame}{From Stakes to Controls}
 \begin{itemize}
-\item A fresh model run may take a different path. Retain what actually happened.
-\item Failures can spread through connected components or a shared provider.
+\item \textbf{1. Consequences}
+\begin{itemize}
+\item Financial decisions need bounded authority and accountable owners.
 \end{itemize}
-\begin{center}\scriptsize
-\href{https://www.fsb.org/uploads/P151026-1.pdf}{Source: FSB final report on AI sound practices, 15 October 2026}
-\end{center}
+\item \textbf{2. Operational demands}
+\begin{itemize}
+\item Reconstruct the recorded run; recompute frozen calculations; evaluate fresh model behavior separately.
+\item Recover from interruption without repeating uncertain consequential actions.
+\end{itemize}
+\item \textbf{3. Design response}
+\begin{itemize}
+\item Use gates, evidence, checkpoints, access boundaries and evaluated versions.
+\item These controls also apply to other applications with serious consequences.
+\end{itemize}
+\end{itemize}
 \end{frame}
 
-% Page 7
-\begin{frame}{Finance: From Requirements to Design}
-\begin{center}
-\small
-\setstretch{1.0}
-\renewcommand{\arraystretch}{1.06}
-\input{tables/oh_finance_requirements}
-\end{center}
-\begin{itemize}
-\item Match controls to the financial stakes. Other applications with serious consequences need these controls too.
-\end{itemize}
-\begin{center}\scriptsize
-Sources: \href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026};
-\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1};
-\href{https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf}{NIST AI RMF}
-\end{center}
-\end{frame}
-
-% Page 8
 \begin{frame}{Division of Labor}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/division_of_labor}}
@@ -83,30 +74,32 @@ Sources: \href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026};
 \end{itemize}
 \end{frame}
 
-\section{Design of Long-Run Workflows}
-
-% Page 9
 \begin{frame}{Roadmap}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/oh_design_roadmap}}
-\end{center}
-\end{frame}
-
-\subsection{Harness}
-
-% Page 10
-\begin{frame}{The Orchestrator--Generator--Critic Design}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/oh_three_roles}}
-\end{center}
 \begin{itemize}
-\item The main session coordinates the work; controller code checks each state transition.
-\item Neither the Generator nor the Critic may expand its permissions or bypass a check.
+\item \textbf{Design of Long-Run Workflows}
+\begin{itemize}
+\item Harness: working conditions and controls
+\item Loop: repetition and stopping
+\item Graph: dependencies and handoffs
+\item Evolution: evaluated system changes
+\end{itemize}
+\item \textbf{Case: The Quant System}
+\begin{itemize}
+\item Build QT components and checks
+\item Evolve a reusable system version
+\end{itemize}
 \end{itemize}
 \end{frame}
 
-% Page 11
-\begin{frame}{Three Roles: Why Separate Them?}
+\begin{frame}[t,shrink=10]{Orchestrator, Generator, Critic}
+\setlength{\topsep}{0pt}
+\begin{center}
+\resizebox{!}{4.0cm}{\input{figures/oh_three_roles}}
+\end{center}
+\vspace{-1.0cm}
+\end{frame}
+
+\begin{frame}{Why Separate Roles?}
 \begin{center}
 \small
 \input{tables/oh_separation}
@@ -115,13 +108,9 @@ Sources: \href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026};
 \item Separate contexts help the Critic question the proposal, but both agents may make the same mistake.
 \item Use the roles when delegation and independent checking add value.
 \end{itemize}
-\begin{center}\scriptsize
-\href{https://www.anthropic.com/research/building-effective-agents}{Source: Anthropic, orchestrator/workers and evaluator/optimizer patterns}
-\end{center}
 \end{frame}
 
-% Page 12
-\begin{frame}{Role Contracts and Authority}
+\begin{frame}{Role Contracts}
 \begin{center}
 \small
 \input{tables/oh_role_contracts}
@@ -132,76 +121,59 @@ Sources: \href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026};
 \end{itemize}
 \end{frame}
 
-% Page 13
-\begin{frame}{Inside Each Role's Harness}
-\begin{center}
-\resizebox{.91\textwidth}{!}{\input{figures/agent_harness}}
-\end{center}
+\begin{frame}{Inside a Harness}
 \begin{itemize}
-\item The harness supplies context, tools, saved state and checks on what the role returns.
-\item Role prompts describe responsibilities; the surrounding system enforces the boundaries.
+\item (1) Context and instructions: task, dated evidence and role responsibilities.
+\item (2) Tools and permissions: allowed actions, data paths and host-enforced boundaries.
+\item (3) State and memory: IDs, hashes, findings and read-only context across transitions.
+\item (4) Checks and outputs: schema, evidence, success/failure status and return artifact.
+\item The harness surrounds each role; the controller owns workflow state and advancement.
 \end{itemize}
 \end{frame}
 
-% Page 14
-\begin{frame}{Task and Artifact Contracts}
-\begin{center}
-\small
-\input{tables/oh_task_contract}
-\end{center}
+\begin{frame}{Contracts and Boundaries}
 \begin{itemize}
-\item Specify the completion and failure conditions before the work begins.
-\item Link every returned artifact to its request and supporting evidence.
+\item \textbf{Task and artifact contract}
+\begin{itemize}
+\item Specify task, fixed inputs, permissions, return format and completion/failure conditions.
+\item Link every artifact to its request and supporting evidence.
+\end{itemize}
+\item \textbf{Permission boundary}
+\begin{itemize}
+\item Retrieved filings and web pages are data, not authority.
+\item A paid-data request still needs purpose, supplier, amount, expiry, identity and approver checks.
+\item The classroom QT has no payment or broker access.
+\end{itemize}
 \end{itemize}
 \end{frame}
 
-% Page 15
-\begin{frame}{Permissions and Untrusted Inputs}
-\begin{center}
-\resizebox{.90\textwidth}{!}{\input{figures/untrusted_document}}
-\end{center}
-\begin{center}
-\small
-\input{tables/action_mandate}
-\end{center}
+\begin{frame}{Hooks and State Controller}
 \begin{itemize}
-\item Filings and web pages cannot change permissions. Enforce file and network restrictions through the host.
-\item Example: an agent requests paid data. AP2 illustrates signed authorization; QT has no payment access.
+\item \textbf{Hook}
+\begin{itemize}
+\item Runs a callback when a host event occurs; records event metadata.
+\item May block only when the host supports event blocking.
 \end{itemize}
-\begin{center}\scriptsize
-\illustrative\quad
-\href{https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md}{Source: AP2 v0.2 specification}
-\end{center}
-\end{frame}
-
-% Page 16
-\begin{frame}{Hooks, Gates and Validation}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
-\end{center}
+\item \textbf{State controller}
 \begin{itemize}
-\item A hook runs a script when a specified event occurs; the agent need not remember to log it.
-\item Observation hooks record events. Blocking hooks stop actions only where the host supports it.
-\item Controller gates decide whether the candidate can advance.
+\item Validates submitted artifacts, hashes, findings and numerical gates.
+\item Decides whether the run advances, retries, waits or stops.
+\end{itemize}
+\item A hook observes an event; the controller governs workflow state.
 \end{itemize}
 \end{frame}
 
-% Page 17
 \begin{frame}{State and Checkpoints}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/interruption_states}}
-\end{center}
-\begin{center}
-\small
-\input{tables/oh_checkpoint_state}
-\end{center}
 \begin{itemize}
-\item Save verified state at each transition. A conversation's last line does not show which steps finished.
+\item (1) Identity: case, request, candidate and prompt/version IDs.
+\item (2) Progress: pending role, round, retry count and deadline.
+\item (3) Evidence: paths and hashes that detect altered artifacts.
+\item (4) Findings: open problems and verified repairs.
+\item Save verified state at each transition; a conversation's last line does not show which steps finished.
 \end{itemize}
 \end{frame}
 
-% Page 18
-\begin{frame}{Evidence and Audit Records}
+\begin{frame}{Audit Evidence}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}
 \end{center}

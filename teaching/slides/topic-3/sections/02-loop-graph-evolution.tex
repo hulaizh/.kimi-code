@@ -1,7 +1,16 @@
+\section{Design of Long-Run Workflows}
 \subsection{Loop}
-
-% Page 19
-\begin{frame}{Loop: Act, Observe, Decide}
+\begin{frame}{Loop}
+\begin{columns}[T]
+\begin{column}{.29\textwidth}\begin{block}{Loop}
+\begin{itemize}
+\item Act, observe, decide
+\item Revise and critique
+\item Findings and repairs
+\item Acceptance and recovery
+\end{itemize}
+\end{block}\end{column}
+\begin{column}{.67\textwidth}\begin{block}{Act, Observe, Decide}
 \begin{center}
 \resizebox{.91\textwidth}{!}{\input{figures/tool_loop}}
 \end{center}
@@ -10,10 +19,10 @@
 \item Use the observation to choose the next action.
 \item Retry temporary errors within a fixed limit; invalid evidence must not advance the case.
 \end{itemize}
+\end{block}\end{column}
+\end{columns}
 \end{frame}
-
-% Page 20
-\begin{frame}{Loop: Generate, Check, Critique}
+\begin{frame}{Revision Loop}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_review_loop}}
@@ -24,9 +33,7 @@
 \item Keep the mandate and acceptance rules fixed during revision.
 \end{itemize}
 \end{frame}
-
-% Page 21
-\begin{frame}[t]{Loop: Findings and Verified Repairs\handsup}
+\begin{frame}{Findings and Repairs}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/de_timing_ledger}}
@@ -37,9 +44,7 @@
 \item Include every unresolved finding in the next request.
 \end{itemize}
 \end{frame}
-
-% Page 22
-\begin{frame}{Loop: Acceptance and Completion}
+\begin{frame}{Acceptance}
 \begin{center}
 \resizebox{.95\textwidth}{!}{\input{figures/de_acceptance}}
 \end{center}
@@ -48,35 +53,34 @@
 \item This classroom acceptance rule does not establish profitability or authorize a trade.
 \end{itemize}
 \end{frame}
-
-% Page 23
-\begin{frame}{Loop: Budgets, Routes, and Stopping}
-\begin{center}
-\small
-\input{tables/de_stop_routes}
-\end{center}
+\begin{frame}{Budgets and Stopping}
 \begin{itemize}
-\item Set limits on rounds, attempts, tool calls, and elapsed time before starting.
+\item Set limits on rounds, attempts, tool calls and elapsed time before starting.
+\item Continue is a nonterminal route; rejection, blocking, exhaustion, stalling and user stop are distinct outcomes.
 \item Record the stopping reason. Exhaustion never turns a failed result into acceptance.
 \end{itemize}
 \end{frame}
-
-% Page 24
-\begin{frame}{Loop: Recovery and Safe Retry}
-\begin{center}
-\small
-\input{tables/de_recovery}
-\end{center}
+\begin{frame}{Recovery}
 \begin{itemize}
+\item After a timeout, check whether work completed before a limited retry.
+\item Return format or coverage errors to the role that produced the report.
+\item Block and investigate altered sealed evidence.
+\item Reconcile uncertain external actions before repeating them.
 \item Resume only verified pending work; a completed case returns its saved result.
-\item Reconcile uncertain external actions before retrying to avoid duplicate orders or payments.
 \end{itemize}
 \end{frame}
-
 \subsection{Graph}
-
-% Page 25
-\begin{frame}{Graph: Dependencies and Handoffs}
+\begin{frame}{Graph}
+\begin{columns}[T]
+\begin{column}{.29\textwidth}\begin{block}{Graph}
+\begin{itemize}
+\item Dependencies and handoffs
+\item Artifacts and shared state
+\item Teams, fan-out and joins
+\item Conditional routing
+\end{itemize}
+\end{block}\end{column}
+\begin{column}{.67\textwidth}\begin{block}{Dependencies and Handoffs}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/de_dependencies}}
 \end{center}
@@ -85,10 +89,10 @@
 \item Wait for missing inputs. Return failed reviews to the Generator.
 \item A forward chain can be acyclic; its repair edge makes the complete workflow cyclic.
 \end{itemize}
+\end{block}\end{column}
+\end{columns}
 \end{frame}
-
-% Page 26
-\begin{frame}{Graph: Artifacts and Shared State}
+\begin{frame}{Artifacts and Shared State}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_handoff}}
 \end{center}
@@ -98,61 +102,49 @@
 \item Keep conflicting findings explicit; the last report must not silently overwrite them.
 \end{itemize}
 \end{frame}
-
-% Page 27
-\begin{frame}{Graph: Teams, Fan-Out and Joins}
+\begin{frame}{Teams and Joins}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.86\textwidth}{!}{\input{figures/gan_loop}}
 \end{center}
 \begin{itemize}
-\item Use specialists when checks need different expertise.
-\item Wait for every required report, then check its identity and evidence before combining results.
-\item Data review covers quality, provenance and timing; risk review checks limits and authorization evidence.
+\item Use Data \& Evidence, Robustness, Execution and Risk \& Controls when checks need different expertise.
+\item Wait for required reports; check identity, evidence and combined exposure before joining results.
+\item Data review covers quality, provenance and timing; risk review covers limits and authorization evidence.
 \end{itemize}
 \end{frame}
-
-% Page 28
-\begin{frame}{Graph: Combined Results and Shared Limits}
-\begin{center}
-\resizebox{.93\textwidth}{!}{\input{figures/aggregate_limit}}
-\end{center}
-\begin{center}\illustrative\end{center}
-\begin{itemize}
-\item Two proposals can each pass their own limit and still exceed a shared portfolio limit.
-\item The classroom fixture does not enforce this portfolio-wide control; it would need to be added.
-\end{itemize}
-\end{frame}
-
-% Page 29
-\begin{frame}{Graph: Conditional Routing and Recovery}
-\begin{center}
-\small
-\input{tables/de_graph_routes}
-\end{center}
+\begin{frame}[t,shrink=10]{Conditional Routing}
+\setlength{\itemsep}{0.12em}
 \begin{itemize}
 \item Choose the next task using validated status and dependencies.
-\item A changed input version starts a new case: preserve the old evidence and rebuild dependent work.
+\item Wait when inputs are missing; repair invalid submissions at the same role; keep downstream work blocked until checks pass.
+\item A changed input version starts a new case and rebuilds dependent outputs.
+\item Local passes do not guarantee a valid combined exposure; the classroom fixture lacks this portfolio-wide gate.
+\item End by retaining the terminal reason.
 \end{itemize}
+\vspace{-1.0cm}
 \end{frame}
-
 \subsection{Evolution}
-
-% Page 30
-\begin{frame}{Evolution: What Can Change?}
-\begin{center}
-\small
-\input{tables/de_evolution_targets}
-\end{center}
+\begin{frame}{Evolution}
+\begin{columns}[T]
+\begin{column}{.29\textwidth}\begin{block}{Evolution}
 \begin{itemize}
-\item The tool loop chooses an action; the research loop revises a candidate.
-\item Evolution evaluates reusable system changes for adoption, rejection or deferral.
-\item Strategy-parameter search stays within research. QT demonstrates evolution through Generator-prompt versions.
+\item Prompts and context
+\item Skills
+\item Tools and code
+\item Roles and workflow structure
 \end{itemize}
+\end{block}\end{column}
+\begin{column}{.67\textwidth}\begin{block}{What Can Change?}
+\begin{itemize}
+\item Tool loops choose actions; research loops revise candidates.
+\item Evolution evaluates reusable system changes for adoption, rejection or deferral.
+\item Strategy-parameter search stays within research; QT demonstrates prompt-version evolution.
+\end{itemize}
+\end{block}\end{column}
+\end{columns}
 \end{frame}
-
-% Page 31
-\begin{frame}{Evolution: The Detailed Improvement System}
+\begin{frame}{Evolution Workflow}
 \setlength{\topsep}{0pt}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/de_evolution_system}}
@@ -162,37 +154,24 @@
 \item Only versions passing the required checks and review can be approved. Rejected or deferred changes retain the active version.
 \end{itemize}
 \end{frame}
-
-% Page 32
-\begin{frame}{Evolution: Evidence and Evaluation}
-\begin{center}
-\small
-\input{tables/de_evaluation_criteria}
-\end{center}
-\begin{center}
-\resizebox{.93\textwidth}{!}{\input{figures/de_evaluation_split}}
-\end{center}
+\begin{frame}{Evidence and Evaluation}
 \begin{itemize}
 \item Set criteria before comparing changes.
-\item QT timing checks require execution after actual signal availability; a date field alone is insufficient.
+\item Check format, meaning, evidence support and authority.
+\item Use development cases for feedback and held-out cases for final assessment.
+\item QT timing requires execution after actual signal availability; a date field alone is insufficient.
 \end{itemize}
+\begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_evaluation_split}}\end{center}
 \end{frame}
-
-% Page 33
-\begin{frame}{Evolution: Regression and Independent Review}
-\begin{center}
-\small
-\input{tables/de_regression}
-\end{center}
+\begin{frame}{Regression Review}
 \begin{itemize}
-\item Code tests cannot establish improved model behavior.
+\item Controller tests check missing reports, stale IDs, invalid evidence and permissions.
+\item Model-behavior comparisons check timing, evidence and whether the recorded failure is fixed.
 \item QT's prompt interface rejects risk-limit, strategy-parameter and controller-code edits.
-\item Broader changes need separately defined scope and tests; a proposal cannot weaken its own acceptance standard.
+\item A proposal cannot weaken its own acceptance standard.
 \end{itemize}
 \end{frame}
-
-% Page 34
-\begin{frame}{Evolution: Versions, Approval and Rollback}
+\begin{frame}{Versions and Rollback}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/de_version_flow}}
 \end{center}
@@ -202,9 +181,7 @@
 \item Retain both versions and evidence. Rollback restores the prior pointer; verify behavior in a new case.
 \end{itemize}
 \end{frame}
-
-% Page 35
-\begin{frame}{Evolution: Monitoring and Change Triggers}
+\begin{frame}{Monitoring}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/monitoring_cycle}}
 \end{center}
@@ -214,14 +191,9 @@
 \item Feed recorded failures back into evolution. Prompt optimization does not guarantee reliability.
 \end{itemize}
 \end{frame}
-
-% Page 36
-\begin{frame}[t]{The Complete Architecture: Putting It Together}
-\centering
-\resizebox{!}{6.0cm}{\input{figures/system_architecture}}
-\par\raggedright
-\smallskip
+\begin{frame}[t]{Complete Architecture}
+\begin{center}\resizebox{!}{6.0cm}{\input{figures/system_architecture}}\end{center}
 \begin{itemize}
-\item Locate the role harnesses, revision loops, handoffs, and evolution boundary.
+\item Locate the role harnesses, revision loops, handoffs and evolution boundary.
 \end{itemize}
 \end{frame}
