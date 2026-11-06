@@ -1,0 +1,15 @@
+\begin{tabular}{@{}P{2.8cm}P{4.7cm}P{5.1cm}@{}}
+\toprule
+\textbf{Requirement} & \textbf{Financial Concern} & \textbf{Design Response} \\
+\midrule
+Reliability & Incorrect values or exposures & Executable gates; independent review \\
+\rowcolor{gray!10}
+Replay / reproducibility & Reconstruct decisions; recompute results & Frozen inputs, versions and traces \\
+Authority & Spending, transactions, customer decisions & Mandate, limits and approvals \\
+\rowcolor{gray!10}
+Resilience & Partial failures; uncertain execution & Checkpoints; reconcile before retry \\
+Confidentiality & Customer and proprietary data & Controlled data and tool access \\
+\rowcolor{gray!10}
+Governed change & New versions affect later decisions & Evaluation, review and rollback \\
+\bottomrule
+\end{tabular}

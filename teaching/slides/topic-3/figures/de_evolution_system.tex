@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.65cm,minimum height=1.4cm,align=center,font=\footnotesize,inner sep=4pt},
+  flow/.style={-{Stealth[length=4pt]},line width=.8pt,draw=black!60}]
+\node[draw=forestgreen,fill=forestgreen!5,rounded corners=2pt,font=\small,align=center,text width=12.9cm,inner sep=5pt] at (6.75,1.2)
+{\textbf{Evolution Orchestrator:} failure, change scope, parent version, budget and state};
+\node[box] (e) at (1.5,0) {\textbf{Completed cases}\\retained evidence};
+\node[box] (d) at (5.0,0) {\textbf{Diagnose}\\recurring failure};
+\node[box] (g) at (8.5,0) {\textbf{Generator team}\\scoped patch + tests};
+\node[box] (t) at (12.0,0) {\textbf{Evaluate}\\fixed cases + regressions};
+\node[box,draw=darkred,fill=red!4] (c) at (12.0,-1.85) {\textbf{Fresh Critic team}\\evidence + scope\\regressions};
+\node[box,draw=darkred,fill=red!4] (h) at (8.5,-1.85) {\textbf{Owner decision}\\approve / reject\\or defer};
+\node[box,draw=forestgreen,fill=forestgreen!6] (v) at (5.0,-1.85) {\textbf{Version registry}\\adopt or retain prior};
+\node[box,draw=forestgreen,fill=forestgreen!6] (n) at (1.5,-1.85) {\textbf{Future cases}\\approved version};
+\draw[flow] (e)--(d);\draw[flow] (d)--(g);\draw[flow] (g)--(t);
+\draw[flow] (t)--node[right,font=\scriptsize]{pass}(c);
+\draw[flow] (c)--node[above,font=\scriptsize]{pass}(h);
+\draw[flow] (h)--(v);\draw[flow] (v)--(n);
+\draw[flow,dashed] (n.west)--(-.35,-1.85)--(-.35,0)--(e.west);
+\node[font=\scriptsize,text=darkred,align=center] at (6.75,-2.9) {Failed checks or review: retain the active version and evidence. Rollback remains available.};
+\end{tikzpicture}

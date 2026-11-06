@@ -1,0 +1,215 @@
+% Page 2
+\begin{frame}{The Engineering Ladder}
+\begin{center}
+\resizebox{!}{6.6cm}{\input{figures/oh_engineering_ladder}}
+\end{center}
+\end{frame}
+
+\section{Introduction}
+
+% Page 3
+\begin{frame}{Building the Agentic Quant System}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/product_package}}
+\end{center}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/oh_acceptance_row}}
+\end{center}
+\begin{itemize}
+\item Turn a trading idea and dated data into a strategy backed by evidence. Keep the evidence for audit, replay and improvement.
+\item Missing evidence, failed checks or open findings prevent acceptance.
+\end{itemize}
+\end{frame}
+
+% Page 4
+\begin{frame}{The Complete Architecture}
+\begin{center}
+\resizebox{!}{6.0cm}{\input{figures/system_architecture}}
+\end{center}
+\end{frame}
+
+% Page 5
+\begin{frame}{Finance: Consequences and Accountability}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/oh_finance_accountability}}
+\end{center}
+\begin{itemize}
+\item Some financial actions are difficult to reverse. Evidence supporting a conclusion does not itself authorize action.
+\item Name who reviews exceptions and can stop the workflow. Obligations depend on the institution and its activities.
+\end{itemize}
+\begin{center}\scriptsize
+\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1};
+\href{https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf}{FINRA 2026, pp. 24--27 (US broker-dealer example)}
+\end{center}
+\end{frame}
+
+% Page 6
+\begin{frame}{Finance: Reliability Through Time and Change}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/oh_finance_continuity}}
+\end{center}
+\begin{itemize}
+\item A fresh model run may take a different path. Retain what actually happened.
+\item Common providers and interacting components can transmit failures across the system.
+\end{itemize}
+\begin{center}\scriptsize
+\href{https://www.fsb.org/uploads/P151026-1.pdf}{Source: FSB, Sound Practices for Responsible AI Adoption, October 2026}
+\end{center}
+\end{frame}
+
+% Page 7
+\begin{frame}{Finance: From Requirements to Design}
+\begin{center}
+\small
+\setstretch{1.0}
+\renewcommand{\arraystretch}{1.06}
+\input{tables/oh_finance_requirements}
+\end{center}
+\begin{itemize}
+\item Match controls to the financial consequences. These requirements also matter in other consequential applications.
+\end{itemize}
+\begin{center}\scriptsize
+\href{https://www.fsb.org/uploads/P151026-1.pdf}{FSB 2026};
+\href{https://www.mas.gov.sg/-/media/mas-media-library/development/fintech/ai-safr/safr-v1-1.pdf}{MAS SAFR v1.1};
+\href{https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf}{NIST AI RMF}
+\end{center}
+\end{frame}
+
+% Page 8
+\begin{frame}{Division of Labor}
+\begin{center}
+\resizebox{.96\textwidth}{!}{\input{figures/division_of_labor}}
+\end{center}
+\medskip
+\begin{itemize}
+\item People choose the seed and system design, then decide capital use.
+\end{itemize}
+\end{frame}
+
+\section{Design of Long-Run Workflows}
+
+% Page 9
+\begin{frame}{Roadmap}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/oh_design_roadmap}}
+\end{center}
+\end{frame}
+
+\subsection{Harness}
+
+% Page 10
+\begin{frame}{The Orchestrator--Generator--Critic Design}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/oh_three_roles}}
+\end{center}
+\begin{itemize}
+\item The main session coordinates the work; controller code checks each state transition.
+\item Neither the Generator nor the Critic may expand its permissions or bypass a check.
+\end{itemize}
+\end{frame}
+
+% Page 11
+\begin{frame}{Three Roles: Why Separate Them?}
+\begin{center}
+\small
+\input{tables/oh_separation}
+\end{center}
+\begin{itemize}
+\item Separate contexts help the Critic question the proposal, but both agents may make the same mistake.
+\item Use the roles when delegation and independent checking add value.
+\end{itemize}
+\begin{center}\scriptsize
+\href{https://www.anthropic.com/research/building-effective-agents}{Source: Anthropic, orchestrator/workers and evaluator/optimizer patterns}
+\end{center}
+\end{frame}
+
+% Page 12
+\begin{frame}{Role Contracts and Authority}
+\begin{center}
+\small
+\input{tables/oh_role_contracts}
+\end{center}
+\begin{itemize}
+\item Roles receive different instructions, context, tools and write permissions.
+\item Enforce permissions through the host or controller as well as stating them in the prompt.
+\end{itemize}
+\end{frame}
+
+% Page 13
+\begin{frame}{Inside Each Role's Harness}
+\begin{center}
+\resizebox{.91\textwidth}{!}{\input{figures/agent_harness}}
+\end{center}
+\begin{itemize}
+\item The harness supplies context, tools, saved state and checks on what the role returns.
+\item Role prompts describe responsibilities; the surrounding system enforces the boundaries.
+\end{itemize}
+\end{frame}
+
+% Page 14
+\begin{frame}{Task and Artifact Contracts}
+\begin{center}
+\small
+\input{tables/oh_task_contract}
+\end{center}
+\begin{itemize}
+\item Specify the completion and failure conditions before the work begins.
+\item A returned artifact must be linked to the request and its supporting evidence.
+\end{itemize}
+\end{frame}
+
+% Page 15
+\begin{frame}{Permissions and Untrusted Inputs}
+\begin{center}
+\resizebox{.90\textwidth}{!}{\input{figures/untrusted_document}}
+\end{center}
+\begin{center}
+\small
+\input{tables/action_mandate}
+\end{center}
+\begin{itemize}
+\item Filings and web pages cannot change permissions. Enforce file and network restrictions through the host.
+\item Example: an agent requests paid data. AP2 illustrates signed authorization; QT has no payment access.
+\end{itemize}
+\begin{center}\scriptsize
+\illustrative\quad
+\href{https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md}{Source: AP2 v0.2 specification}
+\end{center}
+\end{frame}
+
+% Page 16
+\begin{frame}{Hooks, Gates and Validation}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
+\end{center}
+\begin{itemize}
+\item A hook invokes a script at a specified event; logging need not depend on the agent remembering.
+\item Observation hooks record events. Blocking hooks stop actions only where the host supports it.
+\item Controller gates decide whether the candidate can advance.
+\end{itemize}
+\end{frame}
+
+% Page 17
+\begin{frame}{State and Checkpoints}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/interruption_states}}
+\end{center}
+\begin{center}
+\small
+\input{tables/oh_checkpoint_state}
+\end{center}
+\begin{itemize}
+\item Save verified state at each transition. A conversation's last line does not establish which steps finished.
+\end{itemize}
+\end{frame}
+
+% Page 18
+\begin{frame}{Evidence and Audit Records}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}
+\end{center}
+\begin{itemize}
+\item Save JSON evidence locally and keep Git version history. Bind each approval to its approver, timestamp and authorized action or version.
+\item Another analyst can reconstruct observable actions and files; the record does not reveal hidden model reasoning.
+\end{itemize}
+\end{frame}

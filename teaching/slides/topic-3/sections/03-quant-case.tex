@@ -1,0 +1,266 @@
+\section{Case: The Quant System}
+
+% Page 37
+\begin{frame}{Roadmap}
+\tableofcontents[currentsection,sectionstyle=show/shaded,subsectionstyle=show/show/hide]
+\end{frame}
+
+\subsection{Build}
+
+% Page 38
+\begin{frame}{Build: Package and Entry Points}
+\begin{center}
+\input{figures/qt_layout}
+\end{center}
+\begin{itemize}
+\item Use \texttt{/qt:start} for research and \texttt{/qt:evo} for improvements.
+\item Install with \texttt{/plugins install <qt>}. After source edits, reinstall and run \texttt{/reload}.
+\item Keep installed code separate from case state and prompt versions in the workspace's \texttt{.qt/} directory.
+\end{itemize}
+\end{frame}
+
+% Page 39
+\begin{frame}{Build: Leads and Specialists}
+\begin{center}
+\input{figures/qt_agent}
+\end{center}
+\begin{itemize}
+\item Define the lead's tools and specialist allowlist in its role card.
+\item Inspect actual host dispatch and response records during a live run.
+\item Report files alone do not prove that separate specialist contexts ran.
+\end{itemize}
+\end{frame}
+
+% Page 40
+\begin{frame}{Build: Point-in-Time Inputs}
+\begin{center}
+\small\input{tables/pit_example}
+\end{center}
+\begin{center}\illustrative\end{center}
+\begin{itemize}
+\item Select the version publicly available at the decision date.
+\item A signal calculated from the closing price can only inform a later trade.
+\item These are the QT data contract's checks; the harness determines where they run and what happens if they fail.
+\end{itemize}
+\end{frame}
+
+% Page 41
+\begin{frame}{Build: Verified Numerical Tools}
+\begin{center}
+\small\input{tables/signal_example}
+\end{center}
+\begin{center}\illustrative\end{center}
+\input{figures/ca_momentum_code}
+\begin{center}\scriptsize Source: QT \texttt{baseline/strategy.py}; input validation runs before this function.\end{center}
+\begin{itemize}
+\item Check dates and price availability before calling the calculation.
+\item Test the known answer, verify stable ranking, and state the earliest permitted execution time.
+\end{itemize}
+\end{frame}
+
+% Page 42
+\begin{frame}{Build: The Orchestrator and Gates}
+\input{figures/ca_controller_code}
+\begin{center}\scriptsize Source: QT \texttt{orchestrator.py}, excerpt from \texttt{run\_cycle}.\end{center}
+\begin{center}
+\renewcommand{\arraystretch}{1.0}
+\small\input{tables/four_barriers}
+\end{center}
+\begin{itemize}
+\item Require three matching Generator reports and three fresh Critic reviews.
+\item Run \texttt{python3 <qt>/scripts/check.py} to check the controller rules.
+\end{itemize}
+\end{frame}
+
+% Page 43
+\begin{frame}{Build: Register and Inspect a Hook}
+\begin{center}
+\input{figures/qt_hook_manifest}
+\end{center}
+\begin{itemize}
+\item QT's optional Bash logger records event/call IDs and deduplicates repeated deliveries.
+\item It neither assesses candidates nor records every specialist action.
+\item Kimi logs hook errors and timeouts, then continues. Required checks remain in the controller.
+\end{itemize}
+\begin{center}\scriptsize\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{Source: Kimi hook behavior}\end{center}
+\end{frame}
+
+% Page 44
+\begin{frame}{Build: Run One Research Case}
+\begin{center}
+\input{figures/qt_start}
+\end{center}
+\begin{itemize}
+\item Follow the \texttt{request\_id}, specialist reports, numerical outputs, and routing decision.
+\item Label scripted rehearsals. Show host dispatch records when claiming a live team ran.
+\item The final evidence must support acceptance or explain why the case stops.
+\end{itemize}
+\end{frame}
+
+% Page 45
+\begin{frame}{Build: Repair a Rejected Submission\handsup}
+\begin{center}
+\small\input{tables/submission_repair}
+\end{center}
+\begin{itemize}
+\item Question: Remove one required report in a disposable case. What must be repaired before the controller can advance?
+\item Check matching reports, artifact hashes, and required conditions. Keep sealed evidence intact.
+\end{itemize}
+\end{frame}
+
+% Page 46
+\begin{frame}{Build: Replay, Audit, and Resume\handsup}
+\begin{center}
+\small\input{tables/ca_replay_checklist}
+\end{center}
+\begin{itemize}
+\item Inspect \texttt{state.json}, the route trace, and saved outputs.
+\item Changed code, data snapshots, role instructions, or a fresh evaluation require a new case.
+\item Question: Identify this case's inputs, repairs, stopping rule, prompt version, and approver.
+\end{itemize}
+\end{frame}
+
+% Page 47
+\begin{frame}{Build: Production Data and Adapters}
+\begin{center}
+\small\input{tables/ca_production_adapters}
+\end{center}
+\begin{itemize}
+\item The fixture uses five fictional stocks and synthetic weekday bars, not an exchange calendar or current feed.
+\item Complete corporate-action, portfolio, and broker adapters remain to be built.
+\end{itemize}
+\end{frame}
+
+% Page 48
+\begin{frame}{Build: Research Validation}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/future_perturbation}}
+\end{center}
+\begin{itemize}
+\item Test future-price changes, restatements, higher costs, and performance in successive out-of-sample periods.
+\item Passing these checks does not establish that the strategy will earn excess returns.
+\end{itemize}
+\end{frame}
+
+% Page 49
+\begin{frame}{Build: Capital Authority and Reconciliation}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/approval_states}}
+\end{center}
+\begin{itemize}
+\item Check portfolio limits, current positions, approval expiry, and actual fills.
+\item Research acceptance does not authorize orders. A named person remains responsible for capital use.
+\item QT has no broker connection.
+\end{itemize}
+\end{frame}
+
+\subsection{Evolve}
+
+% Page 50
+\begin{frame}{Evolve: Capture the Failure}
+\begin{center}
+\small\input{tables/evolution_case}
+\end{center}
+\input{figures/ca_capture_command}
+\begin{itemize}
+\item \texttt{/qt:evo} starts the improvement workflow; \texttt{evo-prepare} binds the case and parent prompt version.
+\item Define the timing behavior before testing. Use development cases for feedback and reserve separate final-evaluation cases.
+\end{itemize}
+\end{frame}
+
+% Page 51
+\begin{frame}{Evolve: Propose One Prompt Change\handsup}
+\begin{center}
+\input{figures/timing_prompt_diff}
+\end{center}
+\begin{center}\illustrative\end{center}
+\begin{itemize}
+\item Question: Which instruction addresses the timing omission, and what evidence would show that it worked?
+\item This QT interface changes the Generator prompt. Strategy parameters, risk limits, acceptance rules, and controller code remain outside its scope.
+\end{itemize}
+\end{frame}
+
+% Page 52
+\begin{frame}{Evolve: Compare Outputs with promptfoo\handsup}
+\begin{center}
+\small\input{tables/promptfoo_example}
+\end{center}
+\begin{center}\illustrative\end{center}
+\begin{itemize}
+\item Trading is allowed from 30 Sep 09:30 (UTC+8). Only \texttt{PRICE\_01} is retained.
+\item Run the companion checks, or load \texttt{promptfooconfig.json} in promptfoo, to compare both outputs.
+\item Question: Which output passes both checks?
+\end{itemize}
+\begin{center}\scriptsize\href{https://www.promptfoo.dev/docs/configuration/guide/}{Source: promptfoo configuration and assertions; external example}\end{center}
+\end{frame}
+
+% Page 53
+\begin{frame}{Evolve: Generate Candidates with DSPy/GEPA}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/gepa_proposal}}
+\end{center}
+\begin{itemize}
+\item GEPA uses a callable program, development cases, a metric, feedback, and a search budget to propose prompt changes.
+\item Test candidates on held-out cases. A score does not authorize adoption.
+\end{itemize}
+\begin{center}\scriptsize\href{https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md}{Source: DSPy GEPA; external extension, not integrated into QT}\end{center}
+\end{frame}
+
+% Page 54
+\begin{frame}{Evolve: Judge the Evidence\handsup}
+\begin{center}
+\small\input{tables/comparison_sheet}
+\end{center}
+\begin{center}\illustrative\end{center}
+\begin{itemize}
+\item The candidate fixes the timing but cites a missing source, \texttt{MISSING\_02}.
+\item Question: What must be repaired and independently checked before adopting it?
+\end{itemize}
+\end{frame}
+
+% Page 55
+\begin{frame}{Evolve: Record the Tested Version}
+\begin{center}
+\small\input{tables/version_registry}
+\end{center}
+\begin{itemize}
+\item QT stores immutable prompt versions and the active pointer in \texttt{.qt/}.
+\item A registry alias selects a version; approval needs its own record.
+\item MLflow is an external counterpart, not a bundled QT integration.
+\end{itemize}
+\begin{center}\scriptsize\href{https://www.mlflow.org/docs/latest/genai/prompt-registry/}{Source: MLflow Prompt Registry}\end{center}
+\end{frame}
+
+% Page 56
+\begin{frame}{Evolve: Approve or Reject Adoption\handsup}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/adoption_gate}}
+\end{center}
+\begin{itemize}
+\item QT checks code regressions and review fields. A person still needs to assess the comparison evidence.
+\item Question: Would you adopt this version? Explain your decision using the saved results.
+\end{itemize}
+\end{frame}
+
+% Page 57
+\begin{frame}{Evolve: Roll Back and Monitor}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}
+\end{center}
+\begin{itemize}
+\item After approval, use \texttt{evo-rollback} to restore the previous pointer. Keep both versions and their evidence.
+\item Existing cases retain their original configuration; they do not switch versions mid-run.
+\item Verify a new case and monitor later runs for recurring failures.
+\end{itemize}
+\end{frame}
+
+% Page 58
+\begin{frame}{Review the Completed System\handsup}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/final_product_review}}
+\end{center}
+\begin{itemize}
+\item Question: Choose one control and explain whose need it addresses.
+\item Show what has been tested, what the results support, and what still needs to be built.
+\end{itemize}
+\end{frame}

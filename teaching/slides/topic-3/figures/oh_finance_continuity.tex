@@ -1,0 +1,9 @@
+\begin{tikzpicture}[
+  card/.style={draw,rounded corners=3pt,text width=5.3cm,minimum height=1.9cm,align=center,font=\small,inner sep=7pt},
+  test/.style={draw=black!45,fill=gray!5,rounded corners=2pt,text width=3.7cm,minimum height=1.0cm,align=center,font=\footnotesize,inner sep=5pt}]
+\node[card,draw=blue,fill=blue!4] at (3,0) {\textbf{Operations}\\[4pt]Where can work safely resume?\\[5pt]\footnotesize Verified state and reconciliation};
+\node[card,draw=forestgreen,fill=forestgreen!5] at (10.1,0) {\textbf{System owner}\\[4pt]What changed, and did it help?\\[5pt]\footnotesize Tests, versions and rollback};
+\node[test] at (1.9,-2.05) {\textbf{Reconstruct}\\the recorded run};
+\node[test] at (6.55,-2.05) {\textbf{Recompute}\\frozen numerical work};
+\node[test] at (11.2,-2.05) {\textbf{Re-evaluate}\\a fresh model run};
+\end{tikzpicture}

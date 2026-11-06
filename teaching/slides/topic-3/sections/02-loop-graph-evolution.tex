@@ -1,0 +1,221 @@
+\subsection{Loop}
+
+% Page 19
+\begin{frame}{Loop: Act, Observe, Decide}
+\begin{center}
+\resizebox{.91\textwidth}{!}{\input{figures/tool_loop}}
+\end{center}
+\begin{itemize}
+\item A failed tool call leaves work to do.
+\item Use the observation to choose the next action.
+\item Retry temporary errors within a fixed limit; invalid evidence must not advance the case.
+\end{itemize}
+\end{frame}
+
+% Page 20
+\begin{frame}{Loop: Generate, Check, Critique}
+\begin{center}
+\resizebox{.96\textwidth}{!}{\input{figures/de_review_loop}}
+\end{center}
+\begin{itemize}
+\item Give the Critic saved trades and backtest outputs to inspect.
+\item A separate context helps challenge the proposal; shared mistakes remain possible.
+\item Keep the mandate and acceptance rules fixed during revision.
+\end{itemize}
+\end{frame}
+
+% Page 21
+\begin{frame}{Loop: Findings and Verified Repairs\handsup}
+\begin{center}
+\small
+\input{tables/de_timing_ledger}
+\end{center}
+\begin{center}\illustrative\end{center}
+\begin{itemize}
+\item Question: What check on the saved files would show that the timing problem is fixed?
+\item Include every unresolved finding in the next request.
+\end{itemize}
+\end{frame}
+
+% Page 22
+\begin{frame}{Loop: Acceptance and Completion}
+\begin{center}
+\resizebox{.95\textwidth}{!}{\input{figures/de_acceptance}}
+\end{center}
+\begin{itemize}
+\item QT requires two consecutive clean full reviews of the same candidate. A candidate change resets the streak.
+\item This classroom acceptance rule does not establish profitability or authorize a trade.
+\end{itemize}
+\end{frame}
+
+% Page 23
+\begin{frame}{Loop: Budgets and Terminal Outcomes}
+\begin{center}
+\small
+\input{tables/de_stop_routes}
+\end{center}
+\begin{itemize}
+\item Declare attempt, tool and elapsed-time budgets before starting.
+\item Record the stopping reason. Exhaustion never turns a failed result into acceptance.
+\end{itemize}
+\end{frame}
+
+% Page 24
+\begin{frame}{Loop: Recovery and Safe Retry}
+\begin{center}
+\small
+\input{tables/de_recovery}
+\end{center}
+\begin{itemize}
+\item Resume only verified pending work; a completed case returns its saved result.
+\item Reconcile uncertain external actions before retrying to avoid duplicate orders or payments.
+\end{itemize}
+\end{frame}
+
+\subsection{Graph}
+
+% Page 25
+\begin{frame}{Graph: Dependencies and Handoffs}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/de_dependencies}}
+\end{center}
+\begin{itemize}
+\item Nodes perform tasks; edges specify prerequisites and handoffs.
+\item Wait for missing inputs. Return failed reviews to the Generator.
+\item A forward chain can be acyclic; its repair edge makes the complete workflow cyclic.
+\end{itemize}
+\end{frame}
+
+% Page 26
+\begin{frame}{Graph: Artifacts and Shared State}
+\begin{center}
+\resizebox{.96\textwidth}{!}{\input{figures/de_handoff}}
+\end{center}
+\begin{itemize}
+\item Workers write separate reports. The controller owns authoritative control state.
+\item Validate identity, completeness and evidence before merging.
+\item Keep conflicting findings explicit; the last report must not silently overwrite them.
+\end{itemize}
+\end{frame}
+
+% Page 27
+\begin{frame}{Graph: Teams, Fan-Out and Joins}
+\begingroup\centering
+\resizebox{.86\textwidth}{!}{\input{figures/gan_loop}}
+\par\endgroup
+\begin{itemize}
+\item Use specialists when checks need different expertise.
+\item Wait for every required report; join only after identity and evidence checks.
+\end{itemize}
+\end{frame}
+
+% Page 28
+\begin{frame}{Graph: Combined Results and Shared Limits}
+\begin{center}
+\resizebox{.93\textwidth}{!}{\input{figures/aggregate_limit}}
+\end{center}
+\begin{center}\illustrative\end{center}
+\begin{itemize}
+\item Two proposals can each pass their own limit and still exceed a shared portfolio limit.
+\item The classroom fixture does not enforce this portfolio-wide control; it would need to be added.
+\end{itemize}
+\end{frame}
+
+% Page 29
+\begin{frame}{Graph: Conditional Routing and Recovery}
+\begin{center}
+\small
+\input{tables/de_graph_routes}
+\end{center}
+\begin{itemize}
+\item Route from validated status and dependencies.
+\item A changed input version starts a new case: preserve the old evidence and rebuild dependent work.
+\end{itemize}
+\end{frame}
+
+\subsection{Evolution}
+
+% Page 30
+\begin{frame}{Evolution: What Can Change?}
+\begin{center}
+\small
+\input{tables/de_evolution_targets}
+\end{center}
+\begin{itemize}
+\item The tool loop chooses an action; the research loop revises a candidate.
+\item Evolution evaluates reusable system changes for adoption, rejection or deferral.
+\item Strategy-parameter search stays within research. QT demonstrates evolution through Generator-prompt versions.
+\end{itemize}
+\end{frame}
+
+% Page 31
+\begin{frame}{Evolution: The Detailed Improvement System}
+\begingroup\centering
+\resizebox{.96\textwidth}{!}{\input{figures/de_evolution_system}}
+\par\endgroup
+\begin{itemize}
+\item The Generator proposes a scoped change and tests; fresh Critics review evidence, regressions and scope.
+\item Only versions passing the required checks and review can be approved. Rejected or deferred changes retain the active version.
+\end{itemize}
+\end{frame}
+
+% Page 32
+\begin{frame}{Evolution: Evidence and Evaluation}
+\begin{center}
+\small
+\input{tables/de_evaluation_criteria}
+\end{center}
+\begin{center}
+\resizebox{.93\textwidth}{!}{\input{figures/de_evaluation_split}}
+\end{center}
+\begin{itemize}
+\item Set criteria before comparing changes.
+\item QT timing checks require execution after actual signal availability; a date field alone is insufficient.
+\end{itemize}
+\end{frame}
+
+% Page 33
+\begin{frame}{Evolution: Regression and Independent Review}
+\begin{center}
+\small
+\input{tables/de_regression}
+\end{center}
+\begin{itemize}
+\item Code tests cannot establish improved model behavior.
+\item QT's prompt interface rejects risk-limit, strategy-parameter and controller-code edits.
+\item Broader changes need separately defined scope and tests; a proposal cannot weaken its own acceptance standard.
+\end{itemize}
+\end{frame}
+
+% Page 34
+\begin{frame}{Evolution: Versions, Approval and Rollback}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/de_version_flow}}
+\end{center}
+\begin{itemize}
+\item Bind each version to its tested model, tools, data, policy and prompts.
+\item An alias selects a version; approval needs its own record.
+\item Retain both versions and evidence. Rollback restores the prior pointer; verify behavior in a new case.
+\end{itemize}
+\end{frame}
+
+% Page 35
+\begin{frame}{Evolution: Monitoring and Change Triggers}
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/monitoring_cycle}}
+\end{center}
+\begin{itemize}
+\item Monitor recurring failures and shared risks.
+\item Re-evaluate when models, tools, data feeds or permissions change.
+\item Feed recorded failures back into evolution. Prompt optimization does not guarantee reliability.
+\end{itemize}
+\end{frame}
+
+% Page 36
+\begin{frame}{The Complete Architecture: Putting It Together}
+\begin{center}
+\resizebox{!}{6.0cm}{\input{figures/system_architecture}}
+\end{center}
+% Instructor prompt: locate the role harnesses, repeating decisions, handoff graph
+% and enclosing evolution layer. Reuse the exact overview shown on page 4.
+\end{frame}

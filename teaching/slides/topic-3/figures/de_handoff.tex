@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,align=center,font=\small,inner sep=6pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box,text width=4.2cm,minimum height=3.1cm] (w) at (2.3,0) {\textbf{Worker artifact}\\[4pt]
+request ID\\
+candidate + version\\
+status + findings\\
+evidence path + hash};
+\node[box,text width=3.3cm,minimum height=3.1cm,draw=forestgreen,fill=forestgreen!6] (v) at (7.0,0) {\textbf{Handoff validation}\\[4pt]
+schema + identity\\
+complete reports\\
+evidence integrity};
+\node[box,text width=3.5cm,minimum height=3.1cm] (s) at (11.4,0) {\textbf{Controller state}\\[4pt]
+pending role + round\\
+carried findings\\
+next eligible task};
+\draw[flow] (w)--(v);
+\draw[flow] (v)--node[above,font=\scriptsize]{pass}(s);
+\draw[flow,draw=darkred] (v.south)--(7.0,-2.3)--node[below,font=\scriptsize]{invalid: repair the report; keep state}(2.3,-2.3)--(w.south);
+\end{tikzpicture}

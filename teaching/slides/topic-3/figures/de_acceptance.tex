@@ -1,0 +1,10 @@
+\begin{tikzpicture}[
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.7cm,minimum height=1.6cm,align=center,font=\small,inner sep=5pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
+\node[box] (g) at (1.5,0) {\textbf{Numerical gates}\\all required checks pass};
+\node[box] (c) at (5,0) {\textbf{Full review}\\all critics accept; no open findings};
+\node[box] (r) at (8.5,0) {\textbf{Same candidate}\\two clean rounds};
+\node[box,draw=forestgreen,fill=forestgreen!6] (a) at (12,0) {\textbf{ACCEPTED}\\research task ends};
+\draw[flow] (g)--(c);\draw[flow] (c)--(r);\draw[flow] (r)--(a);
+\node[font=\small,text=black!60] at (6.75,-1.65) {A changed candidate starts a new clean-review streak.};
+\end{tikzpicture}

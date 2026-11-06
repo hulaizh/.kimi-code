@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+  role/.style={draw,rounded corners=3pt,text width=3.8cm,minimum height=1.15cm,align=center,font=\small,inner sep=6pt},
+  flow/.style={-{Stealth[length=5pt]},thick,draw=black!60},
+  edge/.style={font=\footnotesize,fill=white,inner sep=2pt}]
+\node[role,draw=forestgreen,fill=forestgreen!5] (o) at (6.6,0) {\textbf{Orchestrator}\\bind, delegate, route};
+\node[role,draw=blue,fill=blue!4] (g) at (2,-2.0) {\textbf{Generator}\\propose, implement, test};
+\node[role,draw=darkred,fill=red!4] (c) at (11.2,-2.0) {\textbf{Critic}\\challenge, verify, report};
+\node[draw=black!50,fill=gray!6,rounded corners=2pt,text width=2.2cm,minimum height=.8cm,align=center,font=\footnotesize] (gate) at (6.6,-2.0) {\textbf{Code gates}\\validate artifacts};
+\draw[flow] (o.west)-|node[above,edge,pos=.3]{request}(g.north);
+\draw[flow] (g)--(gate);
+\draw[flow] (gate)--(c);
+\draw[flow] (c.north)|-node[above,edge,pos=.7]{findings}(o.east);
+\node[draw=black!35,fill=gray!5,rounded corners=2pt,text width=12.5cm,align=center,font=\footnotesize,inner sep=6pt] at (6.6,-3.6)
+  {The Orchestrator issues a repair request or records the terminal outcome.};
+\end{tikzpicture}

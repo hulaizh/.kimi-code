@@ -1,0 +1,15 @@
+\begin{tabular}{@{}P{3.5cm}P{9.0cm}@{}}
+\toprule
+\textbf{Outcome} & \textbf{Condition} \\
+\midrule
+\texttt{CONTINUE} & Repair or confirmation is possible, with progress and budget remaining. \\
+\rowcolor{gray!10}
+\texttt{REJECTED} & A fatal defect or rejecting Critic verdict ends the candidate. \\
+\texttt{BLOCKED} & Required submissions or gates remain invalid after bounded repair. \\
+\rowcolor{gray!10}
+\texttt{EXHAUSTED} & A declared budget is reached before acceptance. \\
+\texttt{STALLED} & Unsuccessful rounds repeat without new progress. \\
+\rowcolor{gray!10}
+\texttt{USER\_STOPPED} & The user explicitly ends the run. \\
+\bottomrule
+\end{tabular}

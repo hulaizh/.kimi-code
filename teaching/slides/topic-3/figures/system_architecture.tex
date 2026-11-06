@@ -1,0 +1,51 @@
+\begin{tikzpicture}[
+  lead/.style={draw,rounded corners=2pt,line width=.7pt,align=center,font=\footnotesize,inner sep=4pt},
+  worker/.style={draw,dashed,rounded corners=2pt,fill=white,text width=1.30cm,minimum height=.62cm,align=center,font=\scriptsize,inner sep=2pt},
+  flow/.style={-{Stealth[length=4pt]},line width=.65pt,draw=black!60},
+  edge/.style={font=\scriptsize,align=center,text=black!65,fill=white,inner sep=2pt}]
+\draw[darkorange!85!black,line width=1.1pt,rounded corners=5pt]
+  (-.45,.88) rectangle (13.65,-5.65);
+\node[anchor=west,fill=white,inner sep=4pt,font=\small\bfseries,text=darkorange!85!black]
+  at (0,.88) {Evolution: evaluated system changes};
+\node[lead,draw=forestgreen,fill=forestgreen!6,text width=4.5cm,minimum height=.68cm] (o) at (6.6,0)
+  {\textbf{Orchestrator}\\dispatch + state + routing};
+\node[font=\footnotesize,align=center] (idea) at (1.4,0) {\textbf{User idea}\\mandate + limits};
+\draw[flow] (idea.east)--(o.west);
+\node[font=\scriptsize,align=center,text=darkred] at (11.5,0)
+  {Human policy ownership\\and approval};
+
+\draw[blue,line width=.7pt,rounded corners=3pt,fill=blue!4] (0,-1.0) rectangle (5.4,-3.7);
+\draw[darkred,line width=.7pt,rounded corners=3pt,fill=red!4] (7.8,-1.0) rectangle (13.2,-3.7);
+\node[font=\footnotesize\bfseries,text=blue] at (2.7,-1.28) {Generator lead};
+\node[font=\footnotesize\bfseries,text=darkred] at (10.5,-1.28) {Critic lead};
+\node[font=\scriptsize,text=black!65] at (2.7,-1.60) {coordinates build specialists};
+\node[font=\scriptsize,text=black!65] at (10.5,-1.60) {fresh review each round};
+\node[worker,draw=blue] (gd) at (1.0,-2.25) {Data};
+\node[worker,draw=blue] (gf) at (2.7,-2.25) {Features};
+\node[worker,draw=blue] (gb) at (4.4,-2.25) {Backtest};
+\node[worker,draw=darkred] (cp) at (8.8,-2.25) {PIT};
+\node[worker,draw=darkred] (cr) at (10.5,-2.25) {Robustness};
+\node[worker,draw=darkred] (ce) at (12.2,-2.25) {Execution};
+\node[lead,draw=blue,fill=white,text width=4.3cm,minimum height=.52cm] (gi) at (2.7,-3.18)
+  {\textbf{Integrate + test}};
+\node[lead,draw=darkred,fill=white,text width=4.3cm,minimum height=.52cm] (cm) at (10.5,-3.18)
+  {\textbf{Merge + coverage check}};
+\foreach \w in {gd,gf,gb}{\draw[flow] (2.7,-1.83)--(\w.north);\draw[flow] (\w.south)--(gi.north);}
+\foreach \w in {cp,cr,ce}{\draw[flow] (10.5,-1.83)--(\w.north);\draw[flow] (\w.south)--(cm.north);}
+\draw[flow] (o.south west)--(4.0,-.68)--(2.7,-.68)--(2.7,-1.0);
+\draw[flow] (o.south east)--(9.2,-.68)--(10.5,-.68)--(10.5,-1.0);
+\node[edge] at (2.7,-.56) {dispatch};
+\node[edge] at (10.5,-.56) {after checks};
+\draw[flow,draw=blue] (5.4,-2.0)--(7.8,-2.0);
+\node[edge,text=blue] at (6.6,-1.62) {executable gates\\via Orchestrator};
+\node[edge,text=darkred] at (6.6,-2.85) {findings return\\to Orchestrator};
+\node[lead,draw=forestgreen,fill=forestgreen!6,text width=4.6cm,minimum height=.65cm] (packet) at (6.6,-4.30)
+  {\textbf{Orchestrator: repair packet}\\findings + decision: repeat / end};
+\draw[flow] (cm.south)--(10.5,-4.30)--(packet.east);
+\node[edge] at (10.5,-3.93) {merged findings};
+\draw[flow] (packet.west)--(2.7,-4.30)--(gi.south);
+\node[edge] at (2.7,-3.93) {repair if continuing};
+\node[draw=black!35,rounded corners=2pt,fill=gray!5,text width=12.3cm,align=center,
+  minimum height=.45cm,font=\scriptsize,inner sep=4pt] at (6.6,-5.15)
+  {\textbf{Shared state and evidence:} request IDs, artifacts, hashes, findings and versions};
+\end{tikzpicture}

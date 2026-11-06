@@ -1,0 +1,15 @@
+\begin{tabular}{@{}P{3.6cm}P{4.2cm}P{4.7cm}@{}}
+\toprule
+\textbf{Validated Status} & \textbf{Route} & \textbf{Dependent Work} \\
+\midrule
+Inputs missing & Wait for prerequisites & Do not dispatch \\
+\rowcolor{gray!10}
+Submission invalid & Repair at the same role & Keep downstream blocked \\
+Review needs repair & Return findings to Generator & Recheck revised outputs \\
+\rowcolor{gray!10}
+Required checks pass & Next eligible task & Join all required reports \\
+Terminal outcome & End and retain the reason & No further dispatch \\
+\rowcolor{gray!10}
+Authorized input change & Start a new case & Rebuild dependent outputs \\
+\bottomrule
+\end{tabular}
