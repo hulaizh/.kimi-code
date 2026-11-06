@@ -5,7 +5,7 @@
 \node[role,draw=forestgreen,fill=forestgreen!5] (o) at (6.6,0) {\textbf{Orchestrator}\\set scope, delegate, route};
 \node[role,draw=blue,fill=blue!4] (g) at (2,-2.0) {\textbf{Generator}\\propose, implement, test};
 \node[role,draw=darkred,fill=red!4] (c) at (11.2,-2.0) {\textbf{Critic}\\challenge, verify, report};
-\node[draw=black!50,fill=gray!6,rounded corners=2pt,text width=2.2cm,minimum height=.8cm,align=center,font=\footnotesize] (gate) at (6.6,-2.0) {\textbf{Code gates}\\validate artifacts};
+\node[draw=black!50,fill=gray!6,rounded corners=2pt,text width=2.2cm,minimum height=.8cm,align=center,font=\footnotesize] (gate) at (6.6,-2.0) {\textbf{Code gates}\\via Orchestrator};
 \draw[flow] (o.west)-|node[above,edge,pos=.3]{request}(g.north);
 \draw[flow] (g)--(gate);
 \draw[flow] (gate)--(c);

@@ -28,7 +28,9 @@ This plan supersedes the earlier 50-page proposal in this file.
 - Preserve all current substantive materials, worked examples, source links,
   commands, caveats and eight participation points. Rewriting and redrawing are
   allowed; hiding distinct content in notes is not the preservation strategy.
-- Work on the English deck in this task, retaining the recent division-of-labor edits.
+- Retain the recent English division-of-labor edits. Following the user's
+  7 November instruction, update Topic 3 Chinese as a one-to-one translation:
+  identical58-page structure, examples, diagrams, exercises, sources and commands.
 
 ## Allocation
 
@@ -270,7 +272,12 @@ missing production adapters, and separate research/version/capital approvals.
    further proofread and a Gemini-4-Argon review through Pi at maximum reasoning.
    Retain the actual returned reviews and provider/model evidence.
 9. Fix findings, rebuild, recheck affected pages and run a final whole-deck check.
-   Commit source and compiled PDF. Record anything unresolved or unimplemented.
+10. Translate the reviewed English version into Chinese, including all visible
+    figure/table prose. Preserve executable code, command names/flags, paths,
+    identifiers, mathematical expressions and worked data. Match every page and
+    qualification; validate both language versions and their correspondence.
+11. Commit both sources and compiled PDFs, with the review/translation evidence.
+    Record anything unresolved or unimplemented.
 
 This plan sets broad evolution principles without authorizing automatic changes
 to the QT implementation. The existing prompt-evolution case demonstrates one

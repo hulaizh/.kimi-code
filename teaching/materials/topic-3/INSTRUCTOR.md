@@ -124,6 +124,23 @@ Inspect request identity, role assignments, saved numerical outputs, the Critic
 ledger, and the route. A missing required report or stale request must block
 advancement. The next submission must match the current request.
 
+After the first invalid submission, the controller increments its attempt count.
+Before repairing report IDs, reissue the request without submitting a response:
+
+```sh
+python3 /absolute/path/to/qt/scripts/qt.py advance --case repair-01
+```
+
+Use the name of the disposable case. This internal action writes the new
+`request.json`; merely rereading the previous file does not refresh its ID.
+Update the lead manifest and all specialist reports to match it. A second invalid
+submission reaches `BLOCKED`, so use separate disposable cases for separate faults.
+
+For the audit exercise on page 46, ask whether the evidence actually identifies
+a human approver. QT's case files and prompt registry do not store an approver
+identity; `ACCEPTED`, `--approve`, or a Git author is not a substitute for the
+separate approval record required by the design.
+
 The exact QT states are:
 
 - `ACCEPTED`: the same candidate passes all gates and two clean complete reviews.

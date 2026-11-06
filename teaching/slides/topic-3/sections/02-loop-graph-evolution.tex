@@ -20,16 +20,16 @@
 \end{center}
 \begin{itemize}
 \item Give the Critic saved trades and backtest outputs to inspect.
-\item Separate contexts help the review; both agents can still make the same mistake.
+\item A fresh Critic each round can reduce anchoring on earlier responses; shared mistakes remain possible.
 \item Keep the mandate and acceptance rules fixed during revision.
 \end{itemize}
 \end{frame}
 
 % Page 21
-\begin{frame}{Loop: Findings and Verified Repairs\handsup}
+\begin{frame}[t]{Loop: Findings and Verified Repairs\handsup}
+\setlength{\topsep}{0pt}
 \begin{center}
-\small
-\input{tables/de_timing_ledger}
+\resizebox{.94\textwidth}{!}{\input{figures/de_timing_ledger}}
 \end{center}
 \begin{center}\illustrative\end{center}
 \begin{itemize}
@@ -50,13 +50,13 @@
 \end{frame}
 
 % Page 23
-\begin{frame}{Loop: Budgets and Terminal Outcomes}
+\begin{frame}{Loop: Budgets, Routes, and Stopping}
 \begin{center}
 \small
 \input{tables/de_stop_routes}
 \end{center}
 \begin{itemize}
-\item Set limits on attempts, tool calls and elapsed time before starting.
+\item Set limits on rounds, attempts, tool calls, and elapsed time before starting.
 \item Record the stopping reason. Exhaustion never turns a failed result into acceptance.
 \end{itemize}
 \end{frame}
@@ -215,10 +215,12 @@
 \end{frame}
 
 % Page 36
-\begin{frame}{The Complete Architecture: Putting It Together}
-\begin{center}
+\begin{frame}[t]{The Complete Architecture: Putting It Together}
+\centering
 \resizebox{!}{6.0cm}{\input{figures/system_architecture}}
-\end{center}
-% Instructor prompt: locate the role harnesses, repeating decisions, handoff graph
-% and enclosing evolution layer. Reuse the exact overview shown on page 4.
+\par\raggedright
+\smallskip
+\begin{itemize}
+\item Locate the role harnesses, revision loops, handoffs, and evolution boundary.
+\end{itemize}
 \end{frame}

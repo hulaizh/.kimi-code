@@ -1,9 +1,10 @@
 \begin{tikzpicture}[
-  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
+  box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=4.5cm,minimum height=1.15cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
-\node[box] (n0) at (1.7,0) {\textbf{Lifecycle event}\\tool call completes};
-\node[box] (n1) at (6.6,0) {\textbf{Hook script}\\records the event};
-\draw[link] (n0) -- (n1);
-\node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{Controller gate}\\checks case evidence};
-\draw[link] (n1) -- (n2);
+\node[box] (event) at (3,0) {\textbf{Host lifecycle event}\\tool call or turn event};
+\node[box] (hook) at (10.2,0) {\textbf{Hook script}\\observes event metadata};
+\draw[link] (event)--(hook);
+\node[box,draw=forestgreen,fill=forestgreen!6] (submission) at (3,-1.9) {\textbf{Role submission}\\saved artifacts};
+\node[box,draw=forestgreen,fill=forestgreen!6] (gate) at (10.2,-1.9) {\textbf{Controller gate}\\checks before state advances};
+\draw[link] (submission)--(gate);
 \end{tikzpicture}

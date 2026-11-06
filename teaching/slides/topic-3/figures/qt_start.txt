@@ -2,5 +2,5 @@
 
 Inspect .qt/cases/<case>/:
   idea.json -> request.json -> rounds/round-001/
-  generator/*.json -> numerical/ -> critic/*.json
-  state.json -> ledger and route -> final report
+    generator/*.json -> numerical/ -> critic/*.json -> decision.json
+  state.json (ledger), trace.jsonl, result.json (terminal round)

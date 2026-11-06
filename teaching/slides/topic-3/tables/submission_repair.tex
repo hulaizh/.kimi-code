@@ -2,9 +2,11 @@
 \toprule
 \textbf{Submission} & \textbf{Expected Controller Response} \\
 \midrule
-One specialist missing & Remain at the current role \\
+One specialist missing & Reject; keep the current role and consume an attempt \\
 \rowcolor{gray!10}
-Stale request identifier & Reject the submission \\
+Stale request identifier & Same rejection and retry rule \\
+Second invalid submission & \texttt{BLOCKED}; no advancement \\
+\rowcolor{gray!10}
 Complete matching reports & Check evidence before advancing \\
 \bottomrule
 \end{tabular}

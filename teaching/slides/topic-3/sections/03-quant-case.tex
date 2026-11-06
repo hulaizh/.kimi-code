@@ -2,7 +2,9 @@
 
 % Page 37
 \begin{frame}{Roadmap}
-\tableofcontents[currentsection,sectionstyle=show/shaded,subsectionstyle=show/show/hide]
+\begin{center}
+\resizebox{.94\textwidth}{!}{\input{figures/ca_case_roadmap}}
+\end{center}
 \end{frame}
 
 \subsection{Build}
@@ -24,6 +26,7 @@
 \begin{center}
 \input{figures/qt_agent}
 \end{center}
+\begin{center}\scriptsize Source: QT \texttt{agents/qt-generator.md} (abbreviated).\end{center}
 \begin{itemize}
 \item Define the lead's tools and specialist allowlist in its role card.
 \item Inspect actual host dispatch and response records during a live run.
@@ -46,10 +49,10 @@
 
 % Page 41
 \begin{frame}{Build: Verified Numerical Tools}
+\begin{center}\illustrative\quad{\scriptsize Worked price example: $12/10-1=20\%$.}\end{center}
 \begin{center}
 \small\input{tables/signal_example}
 \end{center}
-\begin{center}\illustrative\end{center}
 \input{figures/ca_momentum_code}
 \begin{center}\scriptsize Source: QT \texttt{baseline/strategy.py}; input validation runs before this function.\end{center}
 \begin{itemize}
@@ -75,12 +78,12 @@
 % Page 43
 \begin{frame}{Build: Register and Inspect a Hook}
 \begin{center}
-\input{figures/qt_hook_manifest}
+\input{figures/ca_hook_manifest}
 \end{center}
 \begin{itemize}
-\item QT's optional Bash logger records event/call IDs and deduplicates repeated deliveries.
-\item It neither assesses candidates nor records every specialist action.
-\item Kimi logs hook errors and timeouts, then continues. Required checks remain in the controller.
+\item Optional hook exercise (not bundled): copy \texttt{audit\_event.py} into \texttt{<qt>/hooks/}, merge its manifest, and reinstall/reload.
+\item Records event/tool names and session/call IDs once; no candidate assessment or complete specialist trace.
+\item Kimi logs hook errors/timeouts and continues. Required checks remain in the controller.
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{Source: Kimi hook behavior}\end{center}
 \end{frame}
@@ -104,8 +107,8 @@
 \small\input{tables/submission_repair}
 \end{center}
 \begin{itemize}
-\item Question: Remove one required report in a disposable case. What must be repaired before the controller can advance?
-\item Check matching reports, artifact hashes, and required conditions. Keep sealed evidence intact.
+\item Question: Try a missing report and a stale request ID in disposable cases. What repairs allow advancement?
+\item Call \texttt{advance} without \texttt{--response}; reread \texttt{request.json} and match the new ID across all reports. Check hashes; preserve sealed evidence.
 \end{itemize}
 \end{frame}
 
@@ -116,9 +119,9 @@
 \small\input{tables/ca_replay_checklist}
 \end{center}
 \begin{itemize}
-\item Inspect \texttt{state.json}, the route trace, and saved outputs.
+\item Inspect \texttt{state.json}, \texttt{trace.jsonl}, and saved outputs.
 \item Start a new case if code, the data snapshot or role instructions change, or for a fresh evaluation.
-\item Question: Identify this case's inputs, repairs, stopping rule, prompt version, and approver.
+\item Question: Reconstruct this case. Do its files or a separate approval record identify who approved the version?
 \end{itemize}
 \end{frame}
 
@@ -147,12 +150,13 @@
 % Page 49
 \begin{frame}{Build: Capital Authority and Reconciliation}
 \begin{center}
+{\small\textbf{Target production workflow}}\par\smallskip
 \resizebox{.94\textwidth}{!}{\input{figures/approval_states}}
 \end{center}
 \begin{itemize}
 \item Check portfolio limits, current positions, approval expiry, and actual fills.
-\item Research acceptance does not authorize orders. A named person remains responsible for capital use.
-\item QT has no broker connection.
+\item A named person authorizes capital use; research acceptance does not authorize orders.
+\item \texttt{trade\_sheet.csv} uses an independent historical synthetic sizing fixture, not the accepted candidate. QT has no broker connection.
 \end{itemize}
 \end{frame}
 
@@ -165,7 +169,7 @@
 \end{center}
 \input{figures/ca_capture_command}
 \begin{itemize}
-\item \texttt{/qt:evo} starts the improvement workflow; \texttt{evo-prepare} links the change request to its case and parent prompt version.
+\item Back in the research workflow, \texttt{/qt:evo} starts system improvement; \texttt{evo-prepare} links the case and parent prompt version.
 \item Define the timing behavior before testing. Use development cases for feedback and reserve separate final-evaluation cases.
 \end{itemize}
 \end{frame}
@@ -191,7 +195,7 @@
 \begin{itemize}
 \item Trading is allowed from 30 Sep 09:30 (UTC+8). Only \texttt{PRICE\_01} is retained.
 \item Run the companion checks, or load \texttt{promptfooconfig.json} in promptfoo, to compare both outputs.
-\item Question: Which output passes both checks?
+\item Question: Does either output pass both checks?
 \end{itemize}
 \begin{center}\scriptsize\href{https://www.promptfoo.dev/docs/configuration/guide/}{Source: promptfoo configuration and assertions; external example}\end{center}
 \end{frame}
