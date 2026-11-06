@@ -3,7 +3,6 @@
 \usepackage{newtxtext}
 \usepackage[margin=17mm,top=15mm,bottom=15mm]{geometry}
 \usepackage{microtype}
-\usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
 \definecolor{courseblue}{HTML}{16324F}
@@ -23,7 +22,7 @@
 \textbf{Individual project.} Choose a substantial research or analytical activity and design an end-to-end agent workflow for it. The scope should justify multiple linked stages, repeated evaluation, persistent state, and recovery---not merely a single prompt or report update.
 
 \projectsection{1. Specify a substantial, recurring task}
-Choose an activity from your work or study: \textbf{buy-side quantitative strategy research}, spanning hypotheses, data preparation, backtesting, robustness checks, portfolio construction, and ongoing monitoring; or \textbf{sell-side company/industry coverage}, spanning source collection, financial modeling, valuation, report production, and continuing updates. Other tasks, even those weakly related to finance, are welcome if comparable in scope. A single earnings update, valuation refresh, or calculation is only a subtask. Define the intended user, current process, stages and dependencies, recurring triggers, inputs, permitted sources, information cutoffs, work products, and acceptance criteria. Explain why this needs a persistent workflow rather than a one-shot script.
+Choose an activity from your work or study. For example, \textbf{buy-side quantitative strategy research}, spanning hypotheses, data preparation, backtesting, robustness checks, portfolio construction, and ongoing monitoring; or \textbf{sell-side company/industry coverage}, spanning source collection, financial modeling, valuation, report production, and continuing updates. Other tasks, even those weakly related to finance, are welcome if comparable in scope. Define the intended user, current process, stages and dependencies, recurring triggers, inputs, permitted sources, information cutoffs, work products, and acceptance criteria. Explain why this needs a persistent workflow rather than a one-shot script.
 
 \projectsection{2. Design the architecture using the lecture concepts}
 Provide an annotated workflow diagram and a short design note explaining:
@@ -33,16 +32,12 @@ Provide an annotated workflow diagram and a short design note explaining:
   \item \textbf{Verification and improvement:} checks independent of the producing agent, human approval before consequential actions, and a bounded revision loop. Explain how a proposed change is tested against a fixed baseline, accepted or rejected, versioned, and rolled back. For time-sensitive tasks, prevent future-information leakage.
 \end{itemize}
 
-\projectsection{3. Make the design inspectable}
-Include one end-to-end example from input to work product, with intermediate artifacts and acceptance checks, plus one failure/interruption-and-recovery example. A small runnable prototype is welcome; a clearly labelled, step-by-step design walkthrough is acceptable. Distinguish executed results from simulated examples and identify limitations. Use public, synthetic, or properly licensed inputs; keep live trading, client publication, and other consequential actions simulated or behind explicit human approval.
 
-\projectsection{4. Prepare the repository}
-Include your design note and diagram, prompts/skills/configuration, code if implemented, shareable example inputs and outputs, and verification/recovery evidence. The root \texttt{README.md} must give your identification, task summary, \textbf{repository URL}, file guide, and setup/run or walkthrough instructions (including dependencies where relevant). Disclose AI assistance and explain what you checked yourself. Use meaningful commits throughout development; do not submit only a final-file dump.
 
-\projectsection{5. Submit one ZIP with complete Git history}
-Submit one ZIP of your \textbf{existing local project folder}, including all deliverables and its \textbf{complete hidden \texttt{.git/} directory}; no fresh clone is required. Commit final changes first, and ensure the repository has full, non-shallow history. The root \texttt{README.md} must contain your GitHub, GitLab, or equivalent repository URL. Include hidden folders when compressing. For a folder named \texttt{final-project}, run from its parent folder (macOS/Linux):
-\begin{quote}\small\ttfamily
- zip -r studentID-final-project.zip final-project
-\end{quote}
-\textbf{A host's ``Download ZIP'' or \texttt{git archive} is not sufficient: neither includes Git history.} Extract your ZIP into a new folder and check that the README, all deliverables, and \texttt{.git/} are present. From the extracted repository root, \verb|git log --all --oneline| must show the development history and \verb|git fsck --full| must pass. Files and history must be reviewable without repository access. Never include credentials, private client data, or secrets in files \emph{or commit history}.
+\projectsection{3. Submit one ZIP with complete Git history}
+Include your design note and diagram, prompts/skills/configuration, code if implemented, shareable example inputs and outputs, and verification/recovery evidence. The root \texttt{README.md} must give your identification, task summary, \textbf{repository URL} (if applicable), file guide, and setup/run or walkthrough instructions (including dependencies where relevant). Disclose concisely what you input to the project. Use meaningful commits throughout development; do not submit only a final-file dump.
+
+Submit one ZIP of your \textbf{existing local project folder}, including all deliverables and its \textbf{complete hidden \texttt{.git/} directory}. Commit final changes first, and ensure the repository has full, non-shallow history. Include hidden folders when compressing. Name the ZIP file as \texttt{studentID-final-project.zip}. 
+
+\textbf{A host's ``Download ZIP'' or \texttt{git archive} is not sufficient: neither includes Git history.} Files and history must be reviewable without repository access. Never include credentials, private client data, or secrets in files \emph{or commit history}.
 \end{document}
