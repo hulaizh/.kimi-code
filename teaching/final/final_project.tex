@@ -45,5 +45,5 @@ GitHub, GitLab, or an equivalent Git host is acceptable. Commit and push the sub
  git clone <repository-url> final-project\\
  zip -r studentID-final-project.zip final-project
 \end{quote}
-\textbf{A host's ``Download ZIP'' or \texttt{git archive} is not sufficient: neither includes Git history.} Extract your ZIP into a new folder and check that the README, all deliverables, and \texttt{.git/} are present; \verb|git log --all --oneline| must show the development history and \verb|git fsck --full| must pass. The archive must be self-contained for reviewing files and history, without relying on repository access. Never include credentials, private client data, or secrets in files \emph{or commit history}.
+\textbf{A host's ``Download ZIP'' or \texttt{git archive} is not sufficient: neither includes Git history.} Extract your ZIP into a new folder and check that the README, all deliverables, and \texttt{.git/} are present. From the extracted repository root, \verb|git log --all --oneline| must show the development history and \verb|git fsck --full| must pass. The archive must be self-contained for reviewing files and history, without relying on repository access. Never include credentials, private client data, or secrets in files \emph{or commit history}.
 \end{document}
