@@ -24,8 +24,7 @@ We will build a system that can:
 \end{enumerate}
 \end{frame}
 
-
-% Page 8
+% Page 3
 \begin{frame}{Division of labor}
 \begin{center}
 \resizebox{.96\textwidth}{!}{\input{figures/division_of_labor}}
@@ -35,7 +34,7 @@ We will build a system that can:
 \item People choose the seed and system design, then decide capital use.
 \end{itemize}
 \end{frame}
-% Page 3
+% Page 4
 \begin{frame}{When the system is ready}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/acceptance_tests}}
@@ -49,7 +48,7 @@ We will build a system that can:
 \section{Design the quant system}
 \subsection{Controlled research}
 
-% Page 4
+% Page 5
 \begin{frame}{Table of contents}
 \begin{itemize}
 \setlength{\itemsep}{1.0em}
@@ -68,7 +67,7 @@ We will build a system that can:
 \end{itemize}
 \end{frame}
 
-% Page 5
+% Page 6
 \begin{frame}{What finance professionals need}
 For example, consider the following roles:
 \begin{itemize}
@@ -93,7 +92,6 @@ For example, consider the following roles:
 \end{itemize}
 \end{frame}
 
-
 % Page 7
 \begin{frame}{PIT Data: No look-ahead bias}
 \begin{center}
@@ -108,9 +106,7 @@ For example, consider the following roles:
 \end{itemize}
 \end{frame}
 
-
-
-% Page 9
+% Page 8
 \begin{frame}{Harness: the agent's working conditions}
 \begin{center}
 \resizebox{.91\textwidth}{!}{\input{figures/agent_harness}}
@@ -121,7 +117,7 @@ For example, consider the following roles:
 \end{itemize}
 \end{frame}
 
-% Page 10
+% Page 9
 \begin{frame}{User Requests}
 Users can submit a request to the quant system:
 \begin{itemize}
@@ -134,7 +130,7 @@ Users can submit a request to the quant system:
 The quant system gives a response after designed workflows.
 \end{frame}
 
-% Page 11
+% Page 10
 \begin{frame}{Reproduce one calculation}
 \begin{center}
 \small
@@ -148,7 +144,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 12
+% Page 11
 \begin{frame}{Tool loop: act on the result}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/tool_loop}}
@@ -160,7 +156,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 13
+% Page 12
 \begin{frame}{An independent review}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/independent_challenge}}
@@ -173,7 +169,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 14
+% Page 13
 \begin{frame}{Orchestrator: coordinate the work}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/qt_v4}}
@@ -185,7 +181,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 15
+% Page 14
 \begin{frame}{Graph: dependencies and handoffs}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/dependency_graph}}
@@ -197,7 +193,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 16
+% Page 15
 \begin{frame}{Teams: parallel work and joins}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/team_join}}
@@ -209,7 +205,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 17
+% Page 16
 \begin{frame}{Check the combined result}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/aggregate_limit}}
@@ -222,19 +218,35 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 18
-\begin{frame}{State the problem and the repair\handsup}
+% Page 17
+\begin{frame}[t]{Timing Errors: Repair and Review\handsup}
+\setstretch{1.05}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Timing Problem}}\par\smallskip
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
+\setlength{\itemsep}{0.2em}
 \item The momentum signal uses day-$t$ closing prices.
 \item The backtest records a trade at that same close.
 \item The trade must occur after the signal becomes available.
 \item What check on the saved files would show that this timing problem is fixed?
 \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Unresolved Findings}}\par\smallskip
+\begin{itemize}
+\setlength{\itemsep}{0.2em}
+\item In round 1, record \texttt{pit-001} and link to the affected output.
+\item If round 2 omits it, the finding stays open.
+\item Close it only after the Critic verifies the repaired output.
+\item Include every unresolved finding in the next request.
+\end{itemize}
+\end{column}
+\end{columns}
 \begin{center}\illustrative\end{center}
 \end{frame}
 
-% Page 19
+% Page 18
 \begin{frame}{Revision loop: repair and review}
 \begin{center}
 \resizebox{.93\textwidth}{!}{\input{figures/critic}}
@@ -245,19 +257,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 20
-\begin{frame}{Keep unresolved findings open}
-\begin{itemize}
-\setlength{\itemsep}{0.8em}
-\item In round 1, record \texttt{pit-001} and link to the affected output.
-\item If round 2 omits it, the finding stays open.
-\item Close it only after the Critic verifies the repaired output.
-\item Include every unresolved finding in the next request.
-\end{itemize}
-\begin{center}\illustrative\end{center}
-\end{frame}
-
-% Page 21
+% Page 19
 \begin{frame}{When to accept, revise, or stop}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
@@ -268,7 +268,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 22
+% Page 20
 \begin{frame}{Hooks: events and control boundaries}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/hook_concept}}
@@ -283,7 +283,7 @@ The quant system gives a response after designed workflows.
 
 \subsection{Recovery and governance}
 
-% Page 23
+% Page 21
 \begin{frame}{Table of contents}
 \begin{itemize}
 \setlength{\itemsep}{1.0em}
@@ -302,21 +302,16 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 24
-\begin{frame}{What finished before the interruption?}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/interruption_states}}
-\end{center}
-\smallskip
+% Page 22
+\begin{frame}[t]{Checkpoints: State and Saved Progress}
+\setstretch{1.05}
+\begingroup\centering
+\resizebox{.94\textwidth}{!}{\input{figures/interruption_states}}\par\endgroup
+\medskip
+The last line of a conversation does not tell us which steps actually finished.
+\medskip
 \begin{itemize}
-\item The last line of a conversation does not tell us which steps actually finished.
-\end{itemize}
-\end{frame}
-
-% Page 25
-\begin{frame}{Save verified progress}
-\begin{itemize}
-\setlength{\itemsep}{0.8em}
+\setlength{\itemsep}{0.2em}
 \item Record case, request, candidate, and prompt-version IDs to detect stale replies.
 \item Save the pending role, round, retry count, and deadline at each transition.
 \item Keep file paths and hashes to detect altered evidence.
@@ -324,7 +319,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 26
+% Page 23
 \begin{frame}{Check state before retrying}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
@@ -335,30 +330,34 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 27
-\begin{frame}{Record what happened}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}
-\end{center}
-\smallskip
+% Page 24
+\begin{frame}[t]{Audit Trail: Record and Reconstruct\handsup}
+\setstretch{1.05}
+\begingroup\centering
+\resizebox{.94\textwidth}{!}{\input{figures/decision_trace}}\par\endgroup
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Record the Evidence}}\par\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.2em}
 \item Link dated inputs, tool outputs, findings, and approvals so another analyst can follow the case.
 \item The record shows observable actions and files; it does not reveal hidden model reasoning.
 \end{itemize}
-\end{frame}
-
-% Page 28
-\begin{frame}{Reconstruct the case\handsup}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Reconstruct the Case}}\par\smallskip
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
+\setlength{\itemsep}{0.2em}
 \item Which inputs and code produced this backtest?
 \item Which findings were repaired, and which remain open?
 \item Which check or stopping rule ended the run?
 \item Which prompt version ran, and who approved it?
 \end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
-% Page 29
+% Page 25
 \begin{frame}{Authorize an external action}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
@@ -370,7 +369,7 @@ The quant system gives a response after designed workflows.
 \begin{center}\scriptsize\href{https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md}{Source: AP2 v0.2 specification}\end{center}
 \end{frame}
 
-% Page 30
+% Page 26
 \begin{frame}{Handle untrusted inputs}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/untrusted_document}}
@@ -383,7 +382,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 31
+% Page 27
 \begin{frame}{Who is responsible?}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/supervision_owners}}
@@ -396,20 +395,35 @@ The quant system gives a response after designed workflows.
 \begin{center}\scriptsize\href{https://www.finra.org/sites/default/files/2025-12/2026-annual-regulatory-oversight-report.pdf}{Source: FINRA 2026 Report, pp. 24--27}\end{center}
 \end{frame}
 
-% Page 32
-\begin{frame}{Prevent the same failure next time}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/recurring_failure}}
-\end{center}
-\begin{center}\illustrative\end{center}
-\smallskip
+% Page 28
+\begin{frame}[t]{Three Loops: Repair and Prevention}
+\setstretch{1.05}
+\begingroup\centering
+\resizebox{.94\textwidth}{!}{\input{figures/recurring_failure}}\par\endgroup
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Prevent Recurrence}}\par\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.2em}
 \item A repair fixes the current case. A workflow change aims to prevent the same omission in later cases.
 \item Base the proposed change on recorded failures.
+\item Changing a strategy parameter is a different task from improving the harness.
 \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{What Each Loop Changes}}\par\smallskip
+\begin{itemize}
+\setlength{\itemsep}{0.2em}
+\item The \textbf{tool loop} chooses the next action within a role.
+\item The \textbf{research loop} revises a candidate until the case ends.
+\item The \textbf{evolution loop} evaluates a reusable prompt change for adoption, rejection, or deferral.
+\end{itemize}
+\end{column}
+\end{columns}
+\begin{center}\illustrative\end{center}
 \end{frame}
 
-% Page 33
+% Page 29
 \begin{frame}{Evaluate a change before adoption}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/system_evolution}}
@@ -421,18 +435,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 34
-\begin{frame}{What each loop changes}
-\begin{itemize}
-\setlength{\itemsep}{0.8em}
-\item The \textbf{tool loop} chooses the next action within a role.
-\item The \textbf{research loop} revises a candidate until the case ends.
-\item The \textbf{evolution loop} evaluates a reusable prompt change for adoption, rejection, or deferral.
-\item Changing a strategy parameter is a different task from improving the harness.
-\end{itemize}
-\end{frame}
-
-% Page 35
+% Page 30
 \begin{frame}{The complete architecture}
 \begin{center}
 \resizebox{.84\textwidth}{!}{\input{figures/gan_loop}}
@@ -446,7 +449,7 @@ The quant system gives a response after designed workflows.
 \section{Build and improve the system}
 \subsection{Run and verify QT}
 
-% Page 36
+% Page 31
 \begin{frame}{Table of contents}
 \begin{itemize}
 \setlength{\itemsep}{1.0em}
@@ -465,7 +468,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 37
+% Page 32
 \begin{frame}{Plugin files, commands, and installation}
 \begin{center}
 \input{figures/qt_layout}
@@ -478,7 +481,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 38
+% Page 33
 \begin{frame}{Assign leads and specialists}
 \begin{center}
 \input{figures/qt_agent}
@@ -490,7 +493,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 39
+% Page 34
 \begin{frame}{Register and inspect a hook}
 \begin{center}
 \input{figures/qt_hook_manifest}
@@ -504,30 +507,34 @@ The quant system gives a response after designed workflows.
 \begin{center}\scriptsize\href{https://www.kimi.com/code/docs/en/kimi-code-cli/customization/hooks.html}{Source: Kimi hook behavior}\end{center}
 \end{frame}
 
-% Page 40
-\begin{frame}{Follow one research case}
-\begin{center}
-\input{figures/qt_start}
-\end{center}
-\smallskip
+% Page 35
+\begin{frame}[t]{QT Research: Run and Check}
+\setstretch{1.05}
+\begingroup\centering
+\input{figures/qt_start}\par\endgroup
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Follow the Case}}\par\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.2em}
 \item Follow the \texttt{request\_id}, specialist reports, numerical outputs, and routing decision.
 \item Label scripted rehearsals. Show host dispatch records when claiming a live team ran.
 \end{itemize}
-\end{frame}
-
-% Page 41
-\begin{frame}{What must pass before the next step?}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Before Advancing}}\par\smallskip
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
+\setlength{\itemsep}{0.2em}
 \item All three Generator reports must match the current request.
 \item The candidate must run and pass the numerical checks.
 \item All three fresh Critic reviews must address the carried findings.
 \item The evidence must meet the acceptance rule or explain why the case stops.
 \end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
-% Page 42
+% Page 36
 \begin{frame}{Repair a rejected submission\handsup}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
@@ -538,32 +545,36 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 43
-\begin{frame}{Check the saved evidence}
+% Page 37
+\begin{frame}[t]{Saved Evidence: Replay and Resume}
+\setstretch{1.05}
+\begingroup\centering
+\resizebox{.94\textwidth}{!}{\input{figures/resume_case}}\par\endgroup
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Check the Saved Evidence}}\par\smallskip
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
+\setlength{\itemsep}{0.2em}
 \item Inspect \texttt{state.json}, the route trace, and saved outputs to reconstruct the run.
 \item Repeat the numerical check with frozen inputs and compare results.
 \item Keep a separate record for each model run.
 \item Start a new case for a fresh evaluation. Reopening an existing case resumes or reuses its state.
 \end{itemize}
-\end{frame}
-
-% Page 44
-\begin{frame}{Resume the pending step}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/resume_case}}
-\end{center}
-\smallskip
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Resume the Pending Step}}\par\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.2em}
 \item A completed case returns its saved result without repeating the work.
 \item Start a new case if the code, data snapshot, or role instructions change.
 \end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 \subsection{Improve the system}
 
-% Page 45
+% Page 38
 \begin{frame}{Table of contents}
 \begin{itemize}
 \setlength{\itemsep}{1.0em}
@@ -582,42 +593,62 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 46
-\begin{frame}{Turn a failure into a test case\handsup}
+% Page 39
+\begin{frame}[t]{Prompt Changes: Failure and Test Case\handsup}
+\setstretch{1.05}
+\begingroup\centering
+\input{figures/timing_prompt_diff}\par\endgroup
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Define the Test Case}}\par\smallskip
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
+\setlength{\itemsep}{0.2em}
 \item Use \texttt{/qt:evo} (\texttt{evo-prepare}) to link the completed case to its failure evidence.
 \item Record the parent Generator prompt version.
 \item Define the required behavior: trade only after the signal is available.
 \item Choose development cases and reserve separate cases for the final evaluation.
 \end{itemize}
-\end{frame}
-
-% Page 47
-\begin{frame}{Propose one prompt change}
-\begin{center}
-\input{figures/timing_prompt_diff}
-\end{center}
-\begin{center}\illustrative\end{center}
-\smallskip
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Check the Prompt Change}}\par\smallskip
 \begin{itemize}
+\setlength{\itemsep}{0.2em}
 \item Check that the added instructions address the timing omission.
 \item Leave strategy parameters, risk limits, and acceptance rules unchanged.
 \end{itemize}
+\end{column}
+\end{columns}
+\begin{center}\illustrative\end{center}
 \end{frame}
 
-% Page 48
-\begin{frame}{Define the evaluation criteria}
+% Page 40
+\begin{frame}[t]{Evaluation: Criteria and Regressions}
+\setstretch{1.05}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Evaluation Criteria}}\par\smallskip
 \begin{itemize}
-\setlength{\itemsep}{0.8em}
+\setlength{\itemsep}{0.2em}
 \item Required fields must parse correctly.
 \item Trading must follow actual signal availability; a date field alone is insufficient.
 \item Cited sources must exist in the saved evidence and support the claims.
 \item Keep unauthorized actions blocked. Set these criteria before comparing prompts.
 \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+\textcolor{red}{\textbf{Regression Checks}}\par\smallskip
+\begin{itemize}
+\setlength{\itemsep}{0.2em}
+\item Run \texttt{python3 <qt>/scripts/check.py} to check controller rules.
+\item Compare old and new outputs against the timing and evidence checks.
+\item Reject changes to risk limits, strategy parameters, or controller code through this interface.
+\item Code tests cannot establish whether the prompt improved model behavior.
+\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
-% Page 49
+% Page 41
 \begin{frame}{promptfoo: compare the outputs\handsup}
 \begin{center}
 \small
@@ -632,7 +663,7 @@ The quant system gives a response after designed workflows.
 \begin{center}\scriptsize\href{https://www.promptfoo.dev/docs/configuration/guide/}{Source: promptfoo configuration and assertions}\end{center}
 \end{frame}
 
-% Page 50
+% Page 42
 \begin{frame}{DSPy/GEPA: propose prompt changes}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/gepa_proposal}}
@@ -645,18 +676,7 @@ The quant system gives a response after designed workflows.
 \begin{center}\scriptsize\href{https://github.com/stanfordnlp/dspy/blob/main/docs/docs/diving-deeper/gepa-in-depth.md}{Source: DSPy GEPA (external extension)}\end{center}
 \end{frame}
 
-% Page 51
-\begin{frame}{Check for regressions}
-\begin{itemize}
-\setlength{\itemsep}{0.8em}
-\item Run \texttt{python3 <qt>/scripts/check.py} to check controller rules.
-\item Compare old and new outputs against the timing and evidence checks.
-\item Reject changes to risk limits, strategy parameters, or controller code through this interface.
-\item Code tests cannot establish whether the prompt improved model behavior.
-\end{itemize}
-\end{frame}
-
-% Page 52
+% Page 43
 \begin{frame}{Decide from the evidence\handsup}
 \begin{center}
 \small
@@ -670,7 +690,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 53
+% Page 44
 \begin{frame}{Record the tested configuration}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
@@ -682,31 +702,27 @@ The quant system gives a response after designed workflows.
 \begin{center}\scriptsize\href{https://www.mlflow.org/docs/latest/genai/prompt-registry/}{Source: MLflow Prompt Registry}\end{center}
 \end{frame}
 
-% Page 54
-\begin{frame}{Approve a tested version\handsup}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/adoption_gate}}
-\end{center}
-\smallskip
+% Page 45
+\begin{frame}[t]{Prompt Versions: Adoption and Rollback\handsup}
+\setstretch{1.0}
+\begingroup\centering
+\resizebox{.94\textwidth}{!}{\input{figures/adoption_gate}}\par\endgroup
 \begin{itemize}
+\setlength{\itemsep}{0.2em}
 \item QT checks code regressions and review fields. A person still needs to assess the comparison evidence.
 \item Would you adopt this version? Explain your decision using the saved results.
 \end{itemize}
-\end{frame}
-
-% Page 55
-\begin{frame}{Restore the previous version}
-\begin{center}
-\resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}
-\end{center}
 \smallskip
+\begingroup\centering
+\resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}\par\endgroup
 \begin{itemize}
+\setlength{\itemsep}{0.2em}
 \item After approval, use \texttt{evo-rollback} to restore the previous pointer. Keep both versions and their evidence.
 \item Existing cases retain their original configuration; they do not switch versions mid-run.
 \end{itemize}
 \end{frame}
 
-% Page 56
+% Page 46
 \begin{frame}{Monitor later runs}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/monitoring_cycle}}
@@ -718,7 +734,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 57
+% Page 47
 \begin{frame}{Replace synthetic data}
 \begin{itemize}
 \setlength{\itemsep}{0.8em}
@@ -729,7 +745,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 58
+% Page 48
 \begin{frame}{Test the research pipeline}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/future_perturbation}}
@@ -741,7 +757,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 59
+% Page 49
 \begin{frame}{Authorize and reconcile trades}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/approval_states}}
@@ -753,7 +769,7 @@ The quant system gives a response after designed workflows.
 \end{itemize}
 \end{frame}
 
-% Page 60
+% Page 50
 \begin{frame}{Review the completed system\handsup}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/final_product_review}}
