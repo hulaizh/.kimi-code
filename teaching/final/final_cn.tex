@@ -1,0 +1,46 @@
+% !TeX program = xelatex
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=17mm,top=15mm,bottom=15mm]{geometry}
+\usepackage[UTF8,fontset=none]{ctex}
+\IfFontExistsTF{Noto Serif CJK SC}{%
+  \setCJKmainfont{Noto Serif CJK SC}%
+}{%
+  \setCJKmainfont{Songti SC}[BoldFont={Songti SC Bold},ItalicFont={Kaiti SC}]%
+}
+\IfFontExistsTF{Noto Sans CJK SC}{\setCJKsansfont{Noto Sans CJK SC}}{\setCJKsansfont{PingFang SC}}
+\IfFontExistsTF{Noto Sans Mono CJK SC}{\setCJKmonofont{Noto Sans Mono CJK SC}}{\setCJKmonofont{PingFang SC}}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=3pt,parsep=0pt}
+\newcommand{\projectsection}[1]{\par\addvspace{7pt}{\bfseries #1}\par\nobreak\vspace{1pt}}
+\hypersetup{pdftitle={金融人工智能编程：期末项目},pdfauthor={张虎来}}
+
+\begin{document}
+{\small 金融人工智能编程\hfill 2026 年秋季}\par
+{\large\bfseries 期末项目：为金融任务设计长程智能体工作流}\par
+\vspace{3pt}
+\vspace{4pt}
+
+本项目由个人独立完成。请选择一项内容充实的研究或分析活动，为其设计端到端的智能体工作流。该工作流应串联多个阶段、保留状态、支持重复评估，并能从中断中恢复。单次提示词或单次报告更新不足以满足要求。
+
+\projectsection{1. 明确一项内容充实、重复执行的任务}
+请从你的工作或学习中选择一项活动。\textbf{买方量化策略研究}可涵盖假设提出、数据准备、回测、稳健性检验、组合构建与持续监测。\textbf{卖方公司或行业跟踪研究}可涉及资料收集、财务建模、估值、报告撰写与持续更新。其他任务只要规模相当，即使与金融的关联有限，也欢迎选用。请明确目标用户并描述现有流程。列出各个阶段、依赖关系、重复触发条件、输入、允许使用的来源及信息截止时点。明确工作产出与验收标准。说明该任务为何需要持久化工作流，而非一次性脚本。
+
+\projectsection{2. 运用课程概念设计系统架构}
+请提供一张带注释的工作流图和一份简短的设计说明，阐述以下内容：
+\begin{itemize}
+  \item \textbf{角色与交接：}明确每个智能体的职责、工具、可复用的技能或指令，以及输入/输出产物。说明为何按此方式分工。在适当环节使用确定性代码完成计算。区分智能体的决策与 Harness/控制器的执行控制。
+  \item \textbf{长程运行：}描述持久化状态与检查点、依赖关系，以及定时调度或新输入触发机制。明确重试策略，以及停止运行或升级上报问题的规则。说明中断的运行如何在不重复已完成操作的前提下恢复。为时间、成本与工具权限设定限制。
+  \item \textbf{核验与改进：}描述独立于生成方智能体的检查、重大操作前的人工批准，以及有界的修订循环。说明如何对照固定基线测试拟议改动、决定采纳或拒绝、记录版本并执行回滚。对于时序敏感的任务，须防止未来信息泄露。
+\end{itemize}
+
+\projectsection{3. 提交包含完整 Git 历史的单个 ZIP 压缩包}
+压缩包须包含设计说明与工作流图、提示词、技能、配置文件、实现代码（如有）、可分享的示例输入与输出，以及核验与恢复的证据。请在根目录的 \texttt{README.md} 中写明个人信息、概述所选任务，并提供\textbf{代码仓库链接}（如适用）及文件说明。提供环境配置与运行说明或流程演示，并注明相关依赖项。简要说明你本人在项目中的贡献。请在整个开发过程中持续进行有意义的提交，切勿仅在最后一次性提交。
+
+请将\textbf{现有的本地项目文件夹}打包为一个 ZIP 文件提交，其中须包含全部交付物及\textbf{完整的隐藏目录 \texttt{.git/}}。压缩文件夹前请先提交最终修改。仓库必须包含完整的开发历史，而非浅拷贝（shallow copy）。压缩包中须包含隐藏文件夹，并命名为 \texttt{studentID-final-project.zip}。
+
+代码托管平台的“Download ZIP”选项与 \texttt{git archive} 命令均会省略 Git 历史记录，因此都不符合本要求。所有文件与提交历史必须在无需访问远程托管仓库的情况下即可审阅。请确保提交的文件与提交历史中均不包含凭据、客户隐私数据及其他敏感信息。
+\end{document}
