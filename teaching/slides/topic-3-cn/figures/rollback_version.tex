@@ -2,7 +2,7 @@
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=3.3cm,minimum height=1.5cm,align=center,font=\small,inner sep=5pt},
   link/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
 \node[box] (n0) at (1.7,0) {\textbf{批准回滚}\\保留两个版本};
-\node[box] (n1) at (6.6,0) {\textbf{恢复指针}\\启用此前的提示词};
+\node[box] (n1) at (6.6,0) {\textbf{恢复指针}\\启用先前的提示词};
 \draw[link] (n0) -- (n1);
 \node[box,draw=forestgreen,fill=forestgreen!6] (n2) at (11.5,0) {\textbf{核验行为}\\运行新案例};
 \draw[link] (n1) -- (n2);

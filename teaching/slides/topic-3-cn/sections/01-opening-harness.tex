@@ -5,7 +5,7 @@
 \end{frame}
 
 \section{导论}
-\begin{frame}{构建智能体量化系统}
+\begin{frame}{构建量化系统}
 \begin{center}
 \resizebox{.94\textwidth}{!}{\input{figures/product_package}}
 \end{center}
@@ -23,9 +23,9 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{金融系统有何不同？}
+\begin{frame}{为何金融场景不同}
 \begin{itemize}
-\item \textbf{重大后果}
+\item \textbf{后果重大}
 \begin{itemize}
 \item 错误影响资金与客户，部分操作难以撤销。
 \end{itemize}
@@ -49,7 +49,7 @@
 \resizebox{.96\textwidth}{!}{\input{figures/division_of_labor}}
 \end{center}
 \begin{itemize}
-\item 人选择初始想法与系统设计，再作出最终决定。
+\item 人选择初始想法与系统设计，再作出最终决策。
 \end{itemize}
 \end{frame}
 
@@ -60,8 +60,8 @@
 \item \textbf{长程工作流设计}
 \begin{itemize}
 \item \textcolor{red}{\textbf{Harness：运行环境与控制}}
-\item 循环：重复执行与停止
-\item 图：依赖关系与交接
+\item 循环（Loop）：重复执行与停止
+\item 图（Graph）：依赖关系与交接
 \item 演进：经评估的系统改动
 \end{itemize}
 \item \textbf{案例：量化系统}
@@ -113,7 +113,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{每个 Harness 内部}
+\begin{frame}{Harness 内部}
 \begin{center}
 \resizebox{.92\textwidth}{!}{\input{figures/agent_harness}}
 \end{center}
@@ -130,7 +130,7 @@
 \end{itemize}
 \item \textbf{边界：角色可以做什么？}
 \begin{itemize}
-\item 把检索到的文字当作数据；文件、网络与支出权限须由提示词之外的机制执行。
+\item 把检索到的文本视为数据；文件、网络与支出权限须由提示词之外的机制执行。
 \end{itemize}
 \item 付费数据请求需核验范围、供应商、金额、有效期与批准人。QT 没有支付或券商访问权限。
 \end{itemize}
@@ -147,7 +147,7 @@
 \end{itemize}
 \item \textbf{控制器：工作流的控制权}
 \begin{itemize}
-\item 核验当前状态与提交证据，决定前进、重试、等待或停止。
+\item 核验当前状态与提交证据，决定推进、重试、等待或停止。
 \end{itemize}
 \item 例如：Hook 记录一次工具调用完成；控制器仍会拒绝缺少专项报告的提交。
 \end{itemize}
@@ -160,7 +160,7 @@
 \begin{itemize}
 \item 标识：案例、请求、候选方案与提示词/版本 ID。
 \item 进度：待处理角色、轮次、重试次数与截止时间。
-\item 证据：文件路径、哈希、未解决问题项与已核验修复。
+\item 证据：文件路径、哈希值、未解决问题项与已核验修复。
 \item 每次转换都保存已核验的状态；对话最后一行不能证明工作已完成。
 \end{itemize}
 \end{frame}

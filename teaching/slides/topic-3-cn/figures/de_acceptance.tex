@@ -2,7 +2,7 @@
   box/.style={draw=blue,fill=blue!5,rounded corners=2pt,text width=2.7cm,minimum height=2.05cm,align=center,font=\small,inner sep=5pt},
   flow/.style={-{Stealth[length=5pt]},thick,draw=black!60}]
 \node[box] (g) at (1.5,0) {\textbf{数值检查关卡}\\全部必要检查通过};
-\node[box] (c) at (5,0) {\textbf{完整审查}\\全部 Critic 同意\\且无未解决问题项};
+\node[box] (c) at (5,0) {\textbf{完整审查}\\全部 Critic 通过\\且无未解决问题项};
 \node[box] (r) at (8.5,0) {\textbf{同一候选策略}\\连续两轮审查通过};
 \node[box,draw=forestgreen,fill=forestgreen!6] (a) at (12,0) {\textbf{ACCEPTED}\\研究任务结束};
 \draw[flow] (g)--(c);\draw[flow] (c)--(r);\draw[flow] (r)--(a);

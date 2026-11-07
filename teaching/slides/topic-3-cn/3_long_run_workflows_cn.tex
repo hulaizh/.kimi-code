@@ -11,8 +11,10 @@
 \IfFontExistsTF{Noto Sans CJK SC}{\setCJKsansfont{Noto Sans CJK SC}}{\setCJKsansfont{PingFang SC}}
 \IfFontExistsTF{Noto Sans Mono CJK SC}{\setCJKmonofont{Noto Sans Mono CJK SC}}{\setCJKmonofont{PingFang SC}}
 \renewcommand{\verifytitle}[1][核验！]{\textcolor{darkred}{\faCheckDouble~#1}}
+\renewcommand{\deepertitle}[1][拓展阅读（选学）]{\textcolor{steelblue}{\faLayerGroup~#1}}
 \renewcommand{\handsup}{\tikz[remember picture,overlay]\node[anchor=south west,fill=darkorange,text=white,rounded corners=2pt,inner sep=2pt,font=\scriptsize\bfseries] at ([xshift=0.35cm,yshift=0.3cm]current page.south west){\faHandPaper[regular]~举手回答};}
-\renewcommand{\illustrative}{\aicbadge{gray!70}{示例}}
+\renewcommand{\backupbadge}{\aicbadge{gray}{备用}}
+\renewcommand{\illustrative}{\aicbadge{gray!70}{示意}}
 \aiclecture{3}
 \setbeamerfont{title}{size=\Large}
 \renewcommand{\arraystretch}{1.12}

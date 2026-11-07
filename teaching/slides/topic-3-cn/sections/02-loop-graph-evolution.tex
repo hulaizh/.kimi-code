@@ -1,7 +1,7 @@
-\subsection{循环}
-\begin{frame}{循环提纲}
+\subsection{循环（Loop）}
+\begin{frame}{循环（Loop）提纲}
 \begin{itemize}
-\item \textbf{循环}
+\item \textbf{循环（Loop）}
 \begin{itemize}
 \item 行动、观察、决策
 \item 修订与审查
@@ -17,7 +17,7 @@
 \begin{itemize}
 \item 工具调用失败后，任务仍未完成。
 \item 根据观察结果选择下一步行动。
-\item 对暂时性错误进行有限次数的重试；无效证据不得推动案例进入下一步。
+\item 对暂时性错误在固定上限内重试；无效证据不得推进案例。
 \end{itemize}
 \end{frame}
 \begin{frame}{修订循环}
@@ -27,7 +27,7 @@
 \end{center}
 \begin{itemize}
 \item 向 Critic 提供已保存的交易记录和回测输出，供其核查。
-\item 每轮使用新上下文可减轻锚定；不同 Agent 仍可能犯同样的错误。
+\item 每轮使用新上下文可减轻锚定效应；不同 Agent 仍可能犯相同的错误。
 \item 修订过程中保持任务授权与验收规则不变。
 \end{itemize}
 \end{frame}
@@ -55,15 +55,15 @@
 \begin{center}\resizebox{.90\textwidth}{!}{\input{figures/de_recovery_cycle}}\end{center}
 \begin{itemize}
 \item 开始前设定轮数、尝试次数、工具调用次数和用时上限。
-\item 继续是非终止路由。否决、阻断、耗尽、停滞和用户停止是不同结果，须记录原因；耗尽绝不能视为通过。
+\item “继续”是非终止状态。否决、阻断、耗尽、停滞和用户停止是不同结果，须记录原因；耗尽绝不等于验收通过。
 \item 重试前核验完成状态、修复错误、调查证据变化并核对不确定的外部操作。
 \item 只恢复已核验的待办工作；已完成案例直接返回保存的结果。
 \end{itemize}
 \end{frame}
-\subsection{图}
-\begin{frame}{图提纲}
+\subsection{图（Graph）}
+\begin{frame}{图（Graph）提纲}
 \begin{itemize}
-\item \textbf{图}
+\item \textbf{图（Graph）}
 \begin{itemize}
 \item 依赖与交接
 \item 产物与共享状态
@@ -146,7 +146,7 @@
 \begin{itemize}
 \item 比较改动前先确定标准。
 \item 检查格式、含义、证据支持与授权。
-\item 使用开发案例获取反馈，使用留出的案例进行最终评估。
+\item 使用开发案例获取反馈，使用留出案例进行最终评估。
 \item QT 时序检查要求在信号实际可用之后执行；仅有日期字段不充分。
 \end{itemize}
 \end{frame}

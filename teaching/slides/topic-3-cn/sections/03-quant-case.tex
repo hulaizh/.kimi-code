@@ -23,7 +23,7 @@
 \begin{itemize}
 \item 用 \texttt{/qt:start} 开展研究，用 \texttt{/qt:evo} 改进系统。
 \item 用 \texttt{/plugins install <qt>} 安装。修改源码后，重新安装并运行 \texttt{/reload}。
-\item 将安装后的代码与工作区 \texttt{.qt/} 中的案例状态、提示词版本分开保存。
+\item 将安装后的代码与工作区 \texttt{.qt/} 目录中的案例状态、提示词版本分开保存。
 \end{itemize}
 \end{frame}
 
@@ -45,7 +45,7 @@
 \medskip
 \begin{itemize}
 \item Orchestrator 关联请求、证据与状态转换。
-\item Generator 报告与数值检查通过后，才能开展新的 Critic 审查。
+\item Generator 报告与数值检查关卡通过后，才能开展新上下文的 Critic 审查。
 \item QT 要求三份 Generator 报告和三份 Critic 报告。
 \item 运行 \texttt{python3 <qt>/scripts/check.py} 检查控制器规则。
 \end{itemize}
@@ -56,8 +56,8 @@
 \input{figures/ca_hook_manifest}
 \end{center}
 \begin{itemize}
-\item 可选 Hook 练习（未随插件提供）：将 \texttt{audit\_event.py} 复制到 \texttt{<qt>/hooks/}，合并清单配置，再重新安装并加载。
-\item 事件名、工具名及会话与调用 ID 只记录一次；它既不评估候选策略，也不记录每项专项 Agent 操作。
+\item 可选 Hook 练习（未随插件提供）：将 \texttt{audit\_event.py} 复制到 \texttt{<qt>/hooks/}，合并清单配置，再重新安装并重载。
+\item 单次记录事件名、工具名及会话/调用 ID；它既不评估候选策略，也不记录专项 Agent 的每项操作。
 \item Kimi 记录 Hook 错误或超时后会继续运行。必要检查仍由控制器执行。
 \end{itemize}
 \end{frame}
@@ -82,7 +82,7 @@
 \end{itemize}
 \item 不带 \texttt{--response} 调用 \texttt{advance}，再读取 \texttt{request.json}。
 \item 所有报告须匹配新 ID；核验证据并保留已封存产物。
-\item 问题：怎样修复，才能让这个临时测试案例继续？
+\item 问题：哪项修复能让这个一次性测试案例继续推进？
 \end{itemize}
 \end{frame}
 
@@ -90,7 +90,7 @@
 \begin{itemize}
 \item 重建运行：输入/代码、问题项、修复、停止规则和角色卡版本。
 \item 固定输入与配置进行复算；新的模型评估使用新案例。
-\item 恢复待办工作前核验 ID 与哈希；已完成案例直接返回保存结果。
+\item 恢复待办工作前核验 ID 与哈希值；已完成案例直接返回保存结果。
 \item 问题：案例本身或单独的记录是否标明了人工批准人？
 \end{itemize}
 \end{frame}
@@ -109,8 +109,7 @@
 \begin{itemize}
 \item 宿主隔离、指定责任人和独立测试的适配器。
 \end{itemize}
-\item QT 使用五只虚构股票和合成工作日数据。\newline
-生产数据、公司行为、组合控制与券商接入均待扩展。
+\item QT 使用五只虚构股票与合成工作日；生产数据、公司行为、组合控制与券商接入均待扩展。
 \end{itemize}
 \end{frame}
 
@@ -126,7 +125,7 @@
 
 \begin{frame}{资金授权}
 \begin{center}
-{\small\textbf{生产环境的目标流程}}\par\smallskip
+{\small\textbf{目标生产工作流}}\par\smallskip
 \resizebox{.94\textwidth}{!}{\input{figures/approval_states}}
 \end{center}
 \begin{itemize}
@@ -184,7 +183,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{判断证据\handsup}
+\begin{frame}{评判证据\handsup}
 \begin{center}
 \small\input{tables/comparison_sheet}
 \end{center}
@@ -201,7 +200,7 @@
 \begin{itemize}
 \item 提交审查后的代码、提示词与技能，将 commit ID 关联到测试证据和配置。
 \item 为已批准版本打标签，便于恢复。
-\item QT 注册表选择当前提示词；将它与 Git 关联仍是扩展功能。
+\item QT 注册表选择当前启用的提示词；将它与 Git 关联仍是扩展功能。
 \item 标签记录版本，批准仍需独立记录。
 \end{itemize}
 \end{frame}
@@ -213,7 +212,7 @@
 \begin{itemize}
 \item 围绕记录的失败评估改动，并测试留出案例的行为与既有控制。
 \item QT 的 \texttt{evo-evaluate} 运行回归测试并核验审查字段，之后才进入 \texttt{AWAITING\_APPROVAL}。
-\item 明确的人工批准才允许 \texttt{evo-adopt}；否决则保留当前版本。
+\item 明确的人工批准才允许 \texttt{evo-adopt}；否决则保留当前启用版本。
 \item 问题：已保存的证据是否足以支持批准？
 \end{itemize}
 \end{frame}
@@ -223,13 +222,13 @@
 \resizebox{.94\textwidth}{!}{\input{figures/rollback_version}}
 \end{center}
 \begin{itemize}
-\item 获得批准后，用 \texttt{evo-rollback} 恢复此前的指针。保留新旧两个版本及其证据。
+\item 获得批准后，用 \texttt{evo-rollback} 恢复先前的版本指针。保留新旧两个版本及其证据。
 \item 已有案例保留原配置，运行中途不切换版本。
 \item 在新案例中核验恢复后的版本，再监测后续运行中是否反复出现失败。
 \end{itemize}
 \end{frame}
 
-\begin{frame}{最终审查\handsup}
+\begin{frame}{总结回顾\handsup}
 \begin{itemize}
 \item \textbf{证据}：追溯并复现已记录的工作。
 \item \textbf{控制}：要求未满足时阻断或解释。
