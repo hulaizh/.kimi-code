@@ -2,7 +2,6 @@
 name: plot
 description: "Create, revise, and verify static charts from data using matplotlib or seaborn, with reproducible code and PNG/PDF output. Use for trends, comparisons, distributions, performance, risk, cash flow, variance, or model-result figures. Not for interactive interfaces (use frontend-design), report layout (use latex), or estimation without a chart."
 ---
-
 # Static data visualization
 
 Build figures that answer a specific question and can be reproduced from a script. A polished chart must also have the right data, transformation, units, and comparison period.
