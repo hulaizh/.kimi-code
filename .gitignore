@@ -47,6 +47,8 @@ updates/
 user-history/
 
 # Machine-local workspace state
+/shell/
+/tui.toml
 session_index.jsonl
 workspace-trust/
 workspaces.json
