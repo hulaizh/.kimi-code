@@ -263,7 +263,8 @@ def main() -> int:
     write_if_missing(project / "AGENTS.md", AGENTS_TEMPLATE.format(title=title), dry_run)
     template = Path(__file__).with_name("gitignore_template.txt").read_text(encoding="utf-8")
     ensure_gitignore(project, template, dry_run)
-    organize_loose_files(project, dry_run)
+    if project.is_dir():
+        organize_loose_files(project, dry_run)
 
     if args.git and not (project / ".git").exists():
         if dry_run:
