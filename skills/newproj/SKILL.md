@@ -85,4 +85,9 @@ Use `--title` only when the user supplies a title or asks for one to be inferred
 - Run Git initialization only with `--git`; do not stage, commit, or push.
 - After scaffolding, report the project path and any skipped file moves. If setup was the entire request, stop there. If the user also requested analysis, continue with that task using the appropriate workflow.
 
-`AGENTS.md` records the folder structure and folder roles only. Task briefs, source records, assumptions, validation notes, and other project documents belong to later interactions, not the initial template.
+`AGENTS.md` contains an annotated project tree, concise project conventions,
+and general DON'Ts covering data integrity, evidence, scope, and version control.
+It is a starting point for project-specific rules, not a prewritten task plan.
+Task briefs, source records, assumptions, and validation notes belong to later
+interactions. Preserve an existing `AGENTS.md`; scaffolding does not replace it
+with the updated template.
